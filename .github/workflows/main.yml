@@ -1,0 +1,26 @@
+name: Verify README
+
+on: [push, pull_request]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Lint Markdown files
+        uses: actionshub/markdownlint@v3
+        with:
+          files: "README.md"
+
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check links in README
+        uses: gauravnelson/github-action-markdown-link-check@v1
+        with:
+          file-path: "README.md"
