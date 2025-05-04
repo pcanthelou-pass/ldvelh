@@ -2,6 +2,9 @@
 
 # dependencies
 node_modules/
+.yarn
+.pnp.cjs
+.pnp.loader.mjs
 
 # Expo
 .expo/
@@ -36,4 +39,4 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-app-example
+.app-archive
