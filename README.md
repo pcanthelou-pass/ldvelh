@@ -11,3 +11,4 @@ Voir la doc :
 - [Principes de la doc](docs/README.md)
 - [Utilisation de github](docs/github.md)
 - [L'environnement de React Native](docs/react-native-env.md)
+- [L'architecture](docs/architecture.md)
