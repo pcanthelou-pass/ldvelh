@@ -213,27 +213,3 @@ Réinitialiser le mot de passe
 ```
 
 Commencez par créer un **user journey** pour identifier les étapes clés et les points de contact utilisateur, ce qui définira les versions du produit. Découpez chaque version en **epics** représentant des objectifs stratégiques. Chaque epic est ensuite décomposée en **user stories** qui capturent les besoins spécifiques des utilisateurs. Ces user stories sont enfin divisées en **tâches techniques détaillées**.
-
-## L'architecture
-
-## Les states et les règles
-
-## Les outils
-
-### Expo
-
-### Typescript
-
-### La mesure de performances et de bugs
-
-#### Les performances en local
-
-#### Les performances des users avec Firebase Performance
-
-#### La récupération de bugs avec Crashlytics
-
-### Eslint, Sonar
-
-### Les tests (U, I, E2E)
-
-### La base de données avec Firebase
