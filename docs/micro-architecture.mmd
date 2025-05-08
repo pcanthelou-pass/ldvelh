@@ -1,0 +1,78 @@
+---
+title: Architecture plus micro
+---
+flowchart TD
+    subgraph Components[Components]
+        CC[Container Code]
+        CUI[Component UI]
+        CCSS[Component CSS]
+        CCSS --> CUI
+        CC --> CUI & CCSS
+    end
+    subgraph AGSS[Application Global State Stores]
+        AGSS2(The player)
+        AGSS3(Current book)
+        AGSS4(Character)
+        AGSS5(Inventory)
+        AGSS6(History)
+    end
+    subgraph S[Services]
+        S1(Theme)
+        S2(Alert)
+        S3(LocalNotification)
+        S4(LocalStorage)
+    end
+    Components ~~~ AGSS ~~~ S
+    subgraph Hooks
+        H1{{useBooks}}
+        H1P{{useBook}}
+        H2{{useCharacter}}
+        H3{{useInventory}}
+        H4{{useHistory}}
+        H5{{useRunGame}}
+    end
+    subgraph Screens
+       TT1@{ shape: doc, label: "Splash" }
+       TT2@{ shape: doc, label: "Choose book" }
+       TT3@{ shape: doc, label: "Create character" }
+       TT4@{ shape: doc, label: "Read intro" }
+       TT10@{ shape: doc, label: "Win" }
+       TT11@{ shape: doc, label: "Loose" }
+       TT12@{ shape: doc, label: "Dead" }
+       TT1 --> TT2 --> TT3 --> TT4 --> STT5
+       STT5 == loop ==> STT5
+       STT5 -. win .-> TT10
+       STT5 -. loose .-> TT11
+       STT5 -. die .-> TT12
+        subgraph STT5
+            TT5@{ shape: doc, label: "Scene" }
+            TT6@{ shape: doc, label: "Fight" }
+            TT7@{ shape: doc, label: "History" }
+            TT8@{ shape: doc, label: "Character" }
+            TT9@{ shape: doc, label: "Inventory" }
+            TT5 --> TT6 & TT7 & TT8 & TT9
+            TT8 <--> TT9
+        end
+        TT10 & TT11 & TT12 --> TT2
+    end
+    H1 -- read all books titles --> S4
+    H1P -- init the book, move scene to scene, get scene data --o AGSS3
+    H2 -- init the character, remove/add points --o AGSS4
+    H3 -- init by the book, add from book, use to apply effects --o AGSS5
+    H4 -- init, add and remove entries --o AGSS6
+    H5 -- get datas to fill screens (text, choices...) --> H1P
+    H5 -- manage stamina --> H2
+    H5 -- manage objects and apply effects to character --> H3
+    H5 -- keep history of waypoints, objects, PV lost --> H4
+    H5 --- S2
+    H5 --- S3
+    H5 --- S4
+    TT2 --- CHB
+    subgraph CHB[Choose book]
+        CBC(Container)
+        CBC --use to get access to books and have a list --> H1
+        CBC --get book selected to fill state --> H5
+        CBC --inject props : book list, tap listener--> CBV
+        CBV(View) --o CBV1(Header) & CBV2(FlatList) & CBV3(Button)
+        CBV1 & CBV2 & CBV3 ---> Components 
+    end
