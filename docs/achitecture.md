@@ -16,10 +16,10 @@
 | Principe SOLID | Signification | Implémentation en React Native |
 |:-:|---|---|
 | SRP (Single Responsibility Principle) | Un composant, un hook ou un store Zustand ne doit avoir qu’une seule raison de changer. | Séparer les composants UI, hooks métiers et stores Zustand |
-| OCP (Open/Closed Principle)|Le code doit être ouvert à l’extension mais fermé à la modification.| Rendre les composants extensibles sans modification (ex: via des props ou context providers). Utiliser des Context Providers pour injecter des dépendances, permettant de modifier les implémentations sans toucher au code métier|
+| OCP (Open/Closed Principle)|Le code doit être ouvert à l’extension mais fermé à la modification.| Rendre les composants extensibles sans modification (ex: via des props, children, render props). Utiliser des Context Providers pour injecter des dépendances, permettant de modifier les implémentations sans toucher au code métier, utiliser un service provider. |
 |LSP (Liskov Substitution Principle)|Les sous-types doivent pouvoir être remplacés par leurs super-types sans altérer le fonctionnement.| Garantir que les composants/hocs/hooks restent interchangeables via interfaces TypeScript. Tous les services injectés via un Context doivent respecter une interface TypeScript claire|
-|ISP (Interface Segregation Principle)|Préférer plusieurs interfaces spécifiques à une unique interface trop large.| Préférer plusieurs types ciblés plutôt qu’une seule grande interface. Ne pas imposer trop de responsabilités aux composants → Créer des hooks spécialisés (ex: useFetchUser, useCartManager)|
-|DIP (Dependency Inversion Principle)|Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau.| Injecter les dépendances via des hooks ou providers, pas en dur. Utiliser les Contexts comme couche d’abstraction pour injecter Zustand (par exemple) ou d’autres services|
+|ISP (Interface Segregation Principle)|Préférer plusieurs interfaces spécifiques à une unique interface trop large.| Préférer plusieurs types ciblés plutôt qu’une seule grande interface. Ne pas imposer trop de responsabilités aux composants → Penser à la composition |
+|DIP (Dependency Inversion Principle)|Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau.| Utiliser les Contexts comme couche d’abstraction pour injecter Zustand (par exemple) ou d’autres services |
 
 ### 2️⃣ Principes à respecter au quotidien
 
@@ -27,8 +27,8 @@
 - ✅ **Feature-Sliced Design** : Structurer le projet par fonctionnalités et non par type de fichier
 - ✅ **Responsabilité unique** : Chaque fichier doit avoir un rôle clair
 - ✅ **Séparation des responsabilités (SRP)** : UI, logique métier, gestion d’état
-- ✅ **Simplicité** : Zustand pour toute gestion d’état (global et local), React Query pour les données distantes : cache, revalidation et synchronisation serveur
-- ✅ **Extensibilité** : Penser à des interfaces génériques TypeScript
+- ✅ **Simplicité** : Zustand pour toute gestion d’état (global et local - pour composants complexes sinon prendre hooks -), React Query pour les données distantes : cache, revalidation et synchronisation serveur, Un service provider injecté qui facilitera les tests
+- ✅ **Extensibilité** : Penser à des interfaces génériques TypeScript, et au services providers
 - ✅ **Découplage** : Contexts comme couche d’injection de dépendance, pas pour la gestion d’état
 - ✅ **Sécurité** : TypeScript pour un typage strict et une meilleure maintenabilité
 - ✅ **Accessibilité** : Respecter les normes d’accessibilité (a11y) dans chaque composant et fonction
@@ -56,24 +56,24 @@ export const Button = ({ label, onPress }: { label: string; onPress: () => void 
 
 ### 2️⃣ Logique métier : Hooks personnalisés
 
-- **Responsabilité** : Encapsuler la logique métier et les appels API
+- **Responsabilité** : Encapsuler la logique métier et les appels API qui passent par RQuery
 - **Colocation** : Dans hooks/ avec tests associés
 - Exemple avec TypeScript et API :
 
 ```js
 // hooks/useAuth.ts
 import { useState } from "react";
-import { loginAPI } from "../api/auth";
+import { useAuthStore } from "../store/auth";
 
 export const useAuth = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [setUser, use, login] = useAuthStore<User | null>(null);
 
   const login = async (email: string, password: string) => {
-    const data = await loginAPI(email, password);
+    const data = await login(email, password);
     setUser(data);
   };
 
-  return { user, login };
+  return { user };
 };
 ```
 
@@ -99,21 +99,6 @@ interface UserState {
 export const useUserStore = create<UserState>((set) => ({
   user: null,
   setUser: (user) => set({ user }),
-}));
-
-// store/useAuthState.ts
-import { create } from "zustand";
-
-type AuthState = {
-  user: User | null;
-  login: (user: User) => void;
-  logout: () => void;
-};
-
-export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-  login: (user) => set({ user }),
-  logout: () => set({ user: null }),
 }));
 ```
 
