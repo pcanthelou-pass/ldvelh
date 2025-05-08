@@ -37,6 +37,8 @@
 
 ## 🏗 Architecture technique basée sur ces principes
 
+![mermaid-diagram-2025-05-08-183027](./mermaid-diagram-2025-05-08-183027.png)
+
 ### 1️⃣ UI : Composants de Présentation
 
 - **Responsabilité** : Purement visuels, sans état global
@@ -172,6 +174,8 @@ export const useUser = (userId: string) => {
   });  
 };
 ```
+
+![mermaid-diagram-2025-05-08-183009](./mermaid-diagram-2025-05-08-183009.png)
 
 ### 6️⃣ Sécurité & Robustesse : TypeScript
 
