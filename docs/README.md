@@ -2,6 +2,10 @@
 
 L'objectif principal d'un User Journey est de cartographier et de visualiser l'ensemble des interactions et des expériences d'un utilisateur avec un produit ou un service, du premier contact jusqu'à l'atteinte de ses objectifs.
 
+L'ensemble du user journey est ici https://app.textusm.com/edit/usm/e767aab5-ed74-4bd9-a2f1-82344b8c8f66
+
+---
+
 <https://excalidraw.com/>
 
 <https://app.icepanel.io/landscapes/0pErvXEGZbKyIB4KLaQN/versions/latest/overview>
