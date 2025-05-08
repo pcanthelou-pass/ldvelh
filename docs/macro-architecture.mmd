@@ -1,0 +1,30 @@
+---
+title: Architecture générale
+---
+flowchart TD
+    subgraph Core
+        Start((Start)) --> RQ[Cache manager<br /><small><i>like React Query</i></small>] 
+        direction LR
+        RQ ....-o|read write|Storage@{ shape: lin-cyl, label: "Local disk storage" }
+        ZS ..-o|read write|Storage
+        RQ ---> ZS([App Global State Stores<br /><small><i>like Zustand</i></small>])
+        ZS ----> IJ(Services provider)
+        VS[(Various services<br /><small><i>like theme, auth, push...</i></small>)] -.injected.-> IJ
+        IJ --> NAV{{Navigation}}
+        NAV -----o ScreenCs@{ shape: docs, label: "Screen Containers"} & ModalC@{ shape: documents, label: "Modal Container"}
+    end
+    subgraph libs
+        direction LR
+        Hooks@{ shape: subproc, label: "Hooks are business units<br /><small><i>managing state, events, datas</i></small>" }
+        IntelC[Intelligent Components<br /><small><i>also have container and dumb UI</i></small>]
+        IntelC --o Hooks & ZS
+        Hooks --o IJ & RQ & ZS
+    end
+    subgraph UI
+        ScreenCs --- SC@{ shape: subproc, label: "One Container"}
+        ModalC -.Same principle.- SC
+        SC --build and update--o DumbS[Dumb screen]
+        SC ........-o|uses|Hooks & ZS
+        DumbS --build and update--o DumbC[Components]
+        DumbS ----|build and update|IntelC
+    end
