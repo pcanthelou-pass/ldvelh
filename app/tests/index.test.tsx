@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react-native';
 
-import Index from '@/app/index';
+import Index from '@index';
 
 describe('<Index />', () => {
   it('Should render text correctly on home screen', () => {

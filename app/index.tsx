@@ -1,5 +1,5 @@
+import { Core } from '@core/index';
 import { Text, View } from 'react-native';
-import Core from './core/components/core';
 
 export default function Index() {
   return (
