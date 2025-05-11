@@ -1,8 +1,8 @@
-import React from 'react';
 import { Text, View } from "react-native";
+import Core from "./core/components/core";
 
 export default function Index() {
-  return (
+  return (<Core>
     <View
       style={{
         flex: 1,
@@ -11,6 +11,6 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    </View></Core>
   );
 }

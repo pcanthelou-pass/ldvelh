@@ -9,7 +9,7 @@ import { FC, ReactNode } from 'react'
 const RETURN_VALUE='Hello World'
 
 const useCustomHookToTest = () => {
-  return useQuery({queryKey:['customeHookTest'],queryFn: () => RETURN_VALUE})
+  return useQuery({queryKey:['customHookTest'],queryFn: () => RETURN_VALUE})
 }
 
 interface Props {
