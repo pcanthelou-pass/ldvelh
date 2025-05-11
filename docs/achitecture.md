@@ -46,7 +46,7 @@
 - Exemple :
 
 ```js
-// components/Button.tsx
+// /shared/ui/Button.tsx
 export const Button = ({ label, onPress }: { label: string; onPress: () => void }) => (
   <TouchableOpacity onPress={onPress}>
     <Text>{label}</Text>
@@ -61,19 +61,19 @@ export const Button = ({ label, onPress }: { label: string; onPress: () => void 
 - Exemple avec TypeScript et API :
 
 ```js
-// hooks/useAuth.ts
+// /features/items/hooks.ts
 import { useState } from "react";
-import { useAuthStore } from "../store/auth";
+import { useItemsStore } from "./store";
 
-export const useAuth = () => {
-  const [setUser, use, login] = useAuthStore<User | null>(null);
+export const useItems = () => {
+  const [items, whatever...] = useItemsStore<Favorite | null>(null);
 
-  const login = async (email: string, password: string) => {
-    const data = await login(email, password);
-    setUser(data);
+  const add = async (offer: Offer) => {
+    // do something with Items store
+    // persist it
   };
 
-  return { user };
+  return { add, items };
 };
 ```
 
@@ -88,17 +88,17 @@ Toute la gestion d’état passe par Zustand, même pour l’état local.
 - Exemple :
 
 ```js
-// store/useUserStore.ts
+// /features/items/store.ts
 import { create } from "zustand";
 
-interface UserState {
-  user: User | null;
-  setUser: (user: User) => void;
+interface ItemsState {
+  items: Favorite[] | null;
+  addFavorite: (fav: Favorite) => void;
 }
 
-export const useUserStore = create<UserState>((set) => ({
-  user: null,
-  setUser: (user) => set({ user }),
+export const useItemsStore = create<ItemsState>((set) => ({
+  items: null,
+  addFavorite: (favorite) => set([items, ...favorite]),
 }));
 ```
 
@@ -113,30 +113,75 @@ Les Contexts ne stockent pas d’état, ils fournissent les services et les hook
 - Exemple :
 
 ```js
+// /shared/services/notifications/useNotification.ts
+
 // Template ou exemple
-const UserContext = createContext<UserService | null>(null);
+interface INotificationService {
+  // whatever
+  notify(mesg: string): void
+}
 
-export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const userService = useMemo(() => new UserService(), []);
-  return <UserContext.Provider value={userService}>{children}</UserContext.Provider>;
+const NotificationContext = createContext<INotificationService | null>(null);
+
+export const NotificationProvider = ({ children, injectedService }: { children: ReactNode, injectedService : INotificationService }) => {
+  return <NotificationContext.Provider value={injectedService}>{children}</NotificationContext.Provider>;
 };
 
-// context/AuthContext.tsx
-import { createContext, useContext } from "react";
-import { useAuthStore } from "@/stores/authStore";
-
-const AuthContext = createContext<ReturnType<typeof useAuthStore> | null>(null);
-
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const auth = useAuthStore(); // Utilise Zustand pour gérer l’état
-  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used within an AuthProvider");
+export const useNotification = () => {
+  const context = useContext(NotificationContext);
+  if (!context) throw new Error("useNotification must be used within an NotificationProvider");
   return context;
 };
+  
+// And in NativeNotifications.ts
+import {Notifications} from 'react-native-notifications';
+const NativeLocaleNotificationService:INotificationService = () => ({
+  notify: (mesg:string) => {
+    Notifications.postLocalNotification({
+    body: mesg,
+    title: "Local Notification Title",
+    sound: "chime.aiff",
+    silent: false,
+    category: "SOME_CATEGORY",
+    userInfo: { },
+    fireDate: new Date(),
+});
+  }
+})
+
+  // And in MockNotifications.ts
+const MockLocaleNotificationService:INotificationService = () => ({
+  notify: (mesg:string) => {
+    console.log(mesg)
+});
+  }
+})
+
+// with a Core
+const Core = ({services, children}) => 
+...
+  <NotificationProvider injectedService={services.notification}>
+    ...
+      {children}
+    ...
+  </NotificationProvider>
+...
+</Core>
+  
+const services = {
+  notification: NativeLocaleNotificationService()
+}
+OU
+const services = {
+  notification: MockLocaleNotificationService()
+}
+
+<Core services={services}>...</core>
+
+├── App.tsx ou WrapperTests # le module de démarrage construit des services et les injectes dans Core.tsx
+│   ⊂ services = array of services
+│   => (<Core servcices={services}>
+
 ```
 
 ### 5️⃣ Gestion des données distantes : React Query
@@ -147,13 +192,14 @@ export const useAuth = () => {
 - Exemple :
 
 ```ts
-import { useQuery } from '@tanstack/react-query';  
-import { fetchUser } from '../services/api/user';  
+// /features/books/hooks.ts
 
-export const useUser = (userId: string) => {  
+import { useQuery } from '@tanstack/react-query';  
+import { fetchBooks } from '../api';  
+
+export const useBooks = () => {  
   return useQuery({  
-    queryKey: ['user', userId],  
-    queryFn: () => fetchUser(userId),  
+    queryFn: () => fetchBooks(),  
     staleTime: 1000 * 60 * 5, // 5 minutes  
     cacheTime: 1000 * 60 * 10, // 10 minutes  
   });  
@@ -170,10 +216,21 @@ export const useUser = (userId: string) => {
 - Exemple d’interface :
 
 ```ts
-interface User {
+// Les types /features/items/types.ts
+
+interface ItemType {
+  doOnChance: () => void;
+  doOnEndurance: () => void;
+  ...
+}
+
+interface Item {
   id: string;
+  quantity: number;
+  type: ItemType;
   name: string;
-  email: string;
+  description: string;
+  ...
 }
 ```
 
@@ -182,36 +239,27 @@ interface User {
 - **Responsabilité** : Organiser le code par fonctionnalité et non par type de fichier
 - **Colocation** : Chaque feature contient ses composants, hooks, store Zustand et API
 - **Utilisation typique** : Gestion modulaire et scalable d’une application
-- Exemple : Organisation d’une feature Alice
+- Exemple : Organisation d’une feature Book
 
 ```bash
-// features/alice/hooks/useAlice.test.tsx
-/src/features/alice  
- ├── /components  
- │    ├── AliceCard.tsx  
- │    ├── AliceList.tsx  
- ├── /hooks  
- │    ├── useAlice.ts  
- ├── /api  
- │    ├── aliceApi.ts  
- ├── /store  
- │    ├── aliceStore.ts (Zustand)  
- ├── index.ts  
-
-// Ou plus globalement par exemple
+// features/items
 /src
  ├── /features
- │   ├── /authentication
- │   │   ├── api.ts          # Appels API liés à l'authentification
- │   │   ├── store.ts        # Zustand store pour l'auth
- │   │   ├── hooks.ts        # useAuth()
+ │   ├── /books
+ │   │   ├── index.ts        # le chareur de module
+ │   │   ├── api.ts          # Appels API liés à la récupération de livres
+ │   │   ├── store.ts        # Zustand store pour les livres
+ │   │   ├── hooks.ts        # useBooks()
+ │   │   ├── types.ts        # useBooks()
  │   │   ├── components/
  │   │   ├── screens/
  │   │   ├── tests/
- │   ├── /dashboard
+ │   ├── /items
+ │   │   ├── index.ts
  │   │   ├── api.ts
  │   │   ├── store.ts
  │   │   ├── hooks.ts
+ │   │   ├── types.ts        
  │   │   ├── components/
  │   │   ├── screens/
  │   │   ├── tests/
@@ -219,8 +267,10 @@ interface User {
  ├── /shared
  │   ├── /ui                # Composants UI réutilisables (Button, Modal, etc.)
  │   ├── /hooks             # Hooks transverses (ex: useDebounce)
+ │   ├── /services          # Les services utilisés et injectés
  │   ├── /providers         # Contexts d’injection de dépendances
- ├── App.tsx
+ ├── App.tsx							  # le lanceur de expo avec l'injection des services de prod
+ ├── Core.tsx							  # le coeur de l'application utilisant les services injectés
 ```
 
 ### 8️⃣ Tests et qualité du code
@@ -231,30 +281,29 @@ interface User {
 - *Exemple* : Test d’un hook utilisant React Query et Zustand
 
 ```js
-// features/alice/hooks/useAlice.test.tsx
+// /features/items/tests/useItems.test.tsx
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useAlice } from './useAlice';
+import { useBooks } from '../hooks';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { createTestStore } from '../../store/aliceStore';
+import { createBookStore } from '../store';
 
-describe('useAlice Hook', () => {
-  it('should fetch and return alice data', async () => {
+describe('useBooks Hook', () => {
+  it('should fetch and return books data', async () => {
     const queryClient = new QueryClient();
-    const store = createTestStore();  // Zustand store
+    const store = createBookStore();  // Zustand store
+    const services = // get test's services
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <QueryClientProvider client={queryClient}>
-        <AliceProvider store={store}>
+      <Core client={queryClient} services=services>
           {children}
-        </AliceProvider>
-      </QueryClientProvider>
+      </Core>
     );
 
-    const { result, waitFor } = renderHook(() => useAlice(), { wrapper });
+    const { result, waitFor } = renderHook(() => useBooks(), { wrapper });
 
     await waitFor(() => result.current.isSuccess);
     
-    expect(result.current.data).toEqual(expect.objectContaining({ name: 'Alice' }));
+    expect(result.current.data).toEqual(expect.objectContaining({ name: 'Toto' }));
   });
 });
 ```
@@ -307,18 +356,18 @@ const CountComponent = () => {
  • Responsabilité : Permettre aux équipes de concevoir, tester et documenter les composants de manière isolée
  • Colocation : Les stories sont généralement placées dans un dossier stories/ ou au sein de chaque feature, directement avec les composants
  • Utilisation typique : Développer, tester et afficher les composants de manière isolée, garantir leur bonne intégration dans l’interface utilisateur
- • Exemple : Un composant AliceCard documenté dans Storybook
+ • Exemple : Un composant BookCard documenté dans Storybook
 
 ```js
-// features/alice/components/AliceCard.tsx
+// /features/books/components/BookCard.tsx
 import React from 'react';
 
-interface AliceCardProps {
+interface BookCardProps {
   name: string;
-  age: number;
+  description: string;
 }
 
-const AliceCard: React.FC<AliceCardProps> = ({ name, age }) => {
+const BookCard: React.FC<BookCardProps> = ({ name, age }) => {
   return (
     <div>
       <h2>{name}</h2>
@@ -327,23 +376,23 @@ const AliceCard: React.FC<AliceCardProps> = ({ name, age }) => {
   );
 };
 
-export default AliceCard;
+export default BookCard;
 
-// features/alice/components/AliceCard.stories.tsx
+// /features/books/components/BookCard.stories.tsx
 import React from 'react';
-import AliceCard from './AliceCard';
+import BookCard from './BookCard';
 
 export default {
-  title: 'Alice/AliceCard',
-  component: AliceCard,
+  title: 'Book/BookCard',
+  component: BookCard,
 };
 
-const Template = (args) => <AliceCard {...args} />;
+const Template = (args) => <BookCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'Alice',
-  age: 30,
+  name: 'Book',
+  description: 'Toto',
 };
 ```
 
@@ -352,36 +401,36 @@ Default.args = {
 - **Responsabilité** : S’assurer que l’application est accessible à tous les utilisateurs, y compris ceux avec des handicaps
 - **Colocation** : Les règles et tests d’accessibilité sont intégrés dans chaque feature, généralement dans les composants et les pages, pour garantir que chaque élément de l’UI est utilisable par tous
 - **Utilisation typique** : effectuer des tests d’accessibilité
-- Exemple : Améliorer l’accessibilité d’un composant AliceCard
+- Exemple : Améliorer l’accessibilité d’un composant BookCard
 
 ```js
-// features/alice/components/AliceCard.tsx
+// features/books/components/BookCard.tsx
 import React from 'react';
 
-interface AliceCardProps {
+interface BookCardProps {
   name: string;
-  age: number;
+  description: string;
 }
 
-const AliceCard: React.FC<AliceCardProps> = ({ name, age }) => {
+const BookCard: React.FC<BookCardProps> = ({ name, age }) => {
   return (
-    <div role="region" aria-labelledby="alice-card">
-      <h2 id="alice-card">{name}</h2>
-      <p>{age} years old</p>
+    <div role="region" aria-labelledby="books-card">
+      <h2 id="books-card">{name}</h2>
+      <p>{description}</p>
     </div>
   );
 };
 
 // Exemple avec Testing Library & a11y
-export default AliceCard;
+export default BookCard;
 
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import AliceCard from './AliceCard';
+import BookCard from './BookCard';
 
-test('AliceCard is accessible', async () => {
-  const { container } = render(<AliceCard name="Alice" age={30} />);
+test('BookCard is accessible', async () => {
+  const { container } = render(<BookCard name="Book" description={"Description"} />);
   
   // Vérification de l'accessibilité avec axe-core
   const results = await axe(container);
