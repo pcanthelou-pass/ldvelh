@@ -1,3 +1,4 @@
+import { IAlertService } from '@/app/shared/services/types';
 import { useQuery } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react-native';
 import { ReactNode } from 'react';
@@ -12,10 +13,18 @@ const useCustomHookToTest = () => {
   });
 };
 
-describe('<Core></Core>', () => {
+class MockAlertService implements IAlertService {
+  show(message: string): void | string | ReactNode {
+    return null;
+  }
+}
+
+const defaultServices = { alert: new MockAlertService() };
+
+describe('Cache in Core with React Query', () => {
   it('should have a cache manager in it', async () => {
     const wrapper = ({ children }: { children: ReactNode }) => (
-      <Core>{children}</Core>
+      <Core services={defaultServices}>{children}</Core>
     );
 
     const { result } = renderHook(() => useCustomHookToTest(), { wrapper });
