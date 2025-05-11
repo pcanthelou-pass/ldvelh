@@ -2383,6 +2383,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.75.7":
+  version: 5.75.7
+  resolution: "@tanstack/query-core@npm:5.75.7"
+  checksum: b70020c9671a6870660bc3322a6b541acaee944a7f57ea759b9df91509c6ae4c6dbbca8216ef98bc9fea9b985d0ec70cd2f3ae2f8549522e6ed8fbf96782fbb7
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.75.7":
+  version: 5.75.7
+  resolution: "@tanstack/react-query@npm:5.75.7"
+  dependencies:
+    "@tanstack/query-core": 5.75.7
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 39e86b868fb44479941f95c157cef6bf6097faf14dc4ad93ac0e2ffd7ebfbd636929f0a62d22cca541722e09367fbc89d50e9fd427584dd54674cc892a6afeb9
+  languageName: node
+  linkType: hard
+
 "@testing-library/react-native@npm:^13.2.0":
   version: 13.2.0
   resolution: "@testing-library/react-native@npm:13.2.0"
@@ -8122,6 +8140,7 @@ __metadata:
     "@react-navigation/bottom-tabs": ^7.3.10
     "@react-navigation/elements": ^2.3.8
     "@react-navigation/native": ^7.1.6
+    "@tanstack/react-query": ^5.75.7
     "@testing-library/react-native": ^13.2.0
     "@types/jest": ^29.5.14
     "@types/react": ~19.0.10
