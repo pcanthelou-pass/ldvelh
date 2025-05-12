@@ -8,7 +8,10 @@
     "checkJs": true,
     "paths": {
       "@index": ["./app/index.tsx"],
+      "@core": ["./app/core/index.ts"],
       "@core/*": ["./app/core/*"],
+      "@services": ["./app/shared/services/index.ts"],
+      "@shared/*": ["./app/shared/*"],
       "@/*": ["./*"]
     }
   },

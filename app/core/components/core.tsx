@@ -1,9 +1,9 @@
-import Services from '@/app/shared/services/types';
-import { ServicesProvider } from '@core/context';
+import { ServicesProvider } from '@core';
+import { Services } from '@services';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactNode } from 'react';
 
-const Core = ({
+export const Core = ({
   children,
   services
 }: {
@@ -17,5 +17,3 @@ const Core = ({
     </QueryClientProvider>
   );
 };
-
-export default Core;

@@ -3,18 +3,14 @@
  * Ce context ne fait que les exposer via le hook useServices()
  * - alert : pour afficher une alerte à l'utilisateur
  */
+import { Services } from '@shared/services';
 import { createContext, useContext, useMemo } from 'react';
-import Services from '../shared/services/types';
+import { ServicesProviderProps } from './types';
 
-const ServicesContext = createContext<Services | null>(null);
-
-interface ServicesProviderProps {
-  children: React.ReactNode;
-  services: Services;
-}
+export const ServicesContext = createContext<Services | null>(null);
 
 // Le hook principale à réutiliser dans les composants pour utiliser les services
-const useServices = (): Services => {
+export const useServices = (): Services => {
   const context = useContext(ServicesContext);
   if (!context) throw new Error('useServices must be within ServicesProvider');
   return context;
@@ -33,5 +29,3 @@ export const ServicesProvider = ({
     </ServicesContext.Provider>
   );
 };
-
-export default useServices;

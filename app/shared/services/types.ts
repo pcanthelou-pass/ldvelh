@@ -4,6 +4,6 @@ export interface IAlertService {
   show: (message: string) => void | string | ReactNode;
 }
 
-export default interface Services {
+export interface Services {
   alert: IAlertService;
 }
