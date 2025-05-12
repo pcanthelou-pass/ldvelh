@@ -1,9 +1,15 @@
 import { Core } from '@core/index';
 import { Text, View } from 'react-native';
+import { AlertService } from './shared/services/alert';
+import Services from './shared/services/types';
+
+const services: Services = {
+  alert: new AlertService()
+};
 
 export default function Index() {
   return (
-    <Core>
+    <Core services={services}>
       <View
         style={{
           flex: 1,
