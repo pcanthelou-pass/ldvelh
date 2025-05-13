@@ -1,18 +1,8 @@
 import { StateCreator } from 'zustand';
 
-export interface GameSlice {
-  date: string;
-  setDate: (date: string) => void;
-}
-
-export interface UserSlice {
-  pseudo: string;
-  setPseudo: (pseudo: string) => void;
-}
-
-export interface BookSlice {
-  title: string;
-}
+import { BookSlice } from './book';
+import { GameSlice } from './game';
+import { UserSlice } from './user';
 
 export interface Slices {
   game: StateCreator<GameSlice, [], [], GameSlice>;
