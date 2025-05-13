@@ -6,6 +6,12 @@ const services: Services = {
   alert: new AlertService()
 };
 
+// ce serait mieux de pouvoir faire
+// const services = new Services() ou on a un tableau ou autre de {[key: string] : Service}
+// services.register('alert', new AlertService())
+// services.unregister('alert', new AlertService())
+// Comme ça on pourrait les ajouter dynamiquement
+
 export default function Index() {
   return (
     <Core services={services}>

@@ -1,20 +1,29 @@
-import { Core, useGameStore } from '@core';
+import { Core, GameSlice, useGameStore } from '@core';
 import { IAlertService } from '@services';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import { ReactNode } from 'react';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
+import { StateCreator } from 'zustand';
 
 const MyComponent = () => {
-  const date = useGameStore((state) => state.date);
+  const { date, setDate } = useGameStore((state) => state);
+
+  const onPress = () => {
+    setDate('11/11/11');
+  };
 
   return (
     <View>
       <Text>{`Date: ${date}`}</Text>
+      <Button onPress={onPress} title={'Change date'} />
     </View>
   );
 };
 
-const DATE = '11/11/11';
+const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (set) => ({
+  date: '10/10/10',
+  setDate: (date?: string) => set(() => ({ date: date }))
+});
 
 class MockAlertService implements IAlertService {
   show(message: string): void | string | ReactNode {
@@ -23,13 +32,19 @@ class MockAlertService implements IAlertService {
 }
 
 const defaultServices = { alert: new MockAlertService() };
+const mockSlices = {
+  game: createGameSlice
+};
 
 describe('Store in Core', () => {
   it('should be able to use the store within a component', async () => {
+    const user = userEvent.setup();
     const Wrapper = ({ children }: { children: ReactNode }) => {
-      const setDate = useGameStore((state) => state.setDate);
-      setDate(DATE);
-      return <Core services={defaultServices}>{children}</Core>;
+      return (
+        <Core services={defaultServices} slices={mockSlices}>
+          {children}
+        </Core>
+      );
     };
 
     render(
@@ -38,6 +53,8 @@ describe('Store in Core', () => {
       </Wrapper>
     );
 
-    expect(screen.getByText(`Date: ${DATE}`)).toBeDefined();
+    expect(screen.getByText(`Date: 10/10/10`)).toBeDefined();
+    await user.press(screen.getByRole('button'));
+    expect(screen.getByText(`Date: 11/11/11`)).toBeDefined();
   });
 });

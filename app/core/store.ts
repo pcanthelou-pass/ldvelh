@@ -1,7 +1,13 @@
 import { create } from 'zustand';
-import { GameAction, GameState } from './types';
+import { GameSlice, Slices } from './types';
 
-export const useGameStore = create<GameState & GameAction>((set) => ({
-  date: Date().toString(),
-  setDate: (date?: string) => set(() => ({ date: date ?? Date().toString() }))
-}));
+export const createStoreFromSlices = (slices?: Slices) => {
+  if (slices) {
+    return create<GameSlice>()((...a) => ({
+      ...slices['game'](...a)
+    }));
+  }
+  return null;
+};
+
+export type StoreFromSlices = ReturnType<typeof createStoreFromSlices>;
