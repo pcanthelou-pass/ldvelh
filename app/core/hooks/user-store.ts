@@ -1,5 +1,5 @@
 import { UserSlice } from '../slices/user'
-import { useZeStore } from './generic'
+import { useZeStore } from './generic-store'
 
 export function useUserStore(
   selector: (state: UserSlice) => UserSlice,
