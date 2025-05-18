@@ -2,17 +2,17 @@ import { useBookStore, useGameStore } from '@core';
 import { ChooseStoryView } from './ChooseSimpleStoryView';
 
 export const ChooseSimpleStory = () => {
-  const book = useBookStore();
+  const selectedBook = useBookStore();
   const { setBook } = useGameStore();
 
   const onPress = () => {
-    setBook(book);
+    setBook(selectedBook);
   };
 
   return (
     <ChooseStoryView
-      title={book.title}
-      description={book.description}
+      title={selectedBook.title}
+      description={selectedBook.description}
       onPress={onPress}
     />
   );

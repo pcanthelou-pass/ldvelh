@@ -10,6 +10,7 @@ const MyComponent = () => {
   const { title, setTitle } = useBookStore()
 
   useEffect(() => {
+    setDate('10/10/10')
     setTitle('Test Book Title')
   }, [setTitle])
 

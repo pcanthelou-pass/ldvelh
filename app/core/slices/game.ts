@@ -16,7 +16,7 @@ export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
 ) => ({
   book: EmptyBook,
   date: Date.now().toString(),
-  setDate: (date: string) => set((state) => ({ ...state, date: date })),
+  setDate: (date: string) => set((state) => ({ ...state, date })),
   setBook: (book: Book) =>
-    set((state) => ({ ...state, book: book, date: Date.now().toString() })),
+    set((state) => ({ ...state, book, date: Date.now().toString() })),
 })
