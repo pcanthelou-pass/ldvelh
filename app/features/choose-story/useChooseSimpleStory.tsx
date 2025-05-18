@@ -1,5 +1,4 @@
-import { getStory } from '@core';
-import { useBookStore } from './book-store';
+import { getStory, useBookStore } from '@core';
 
 export const useChooseStory = () => {
   const { title, description } = getStory();

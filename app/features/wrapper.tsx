@@ -1,4 +1,4 @@
-import { BookSlice, Core, GameSlice, Slices, UserSlice } from '@core';
+import { Core, createBookSlice, GameSlice, Slices, UserSlice } from '@core';
 import { IAlertService } from '@services';
 import { ReactNode } from 'react';
 import { StateCreator } from 'zustand';
@@ -16,18 +16,6 @@ const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (set) => ({
 const createUserSlice: StateCreator<UserSlice, [], [], UserSlice> = (set) => ({
   pseudo: 'PSEUDO',
   setPseudo: (pseudo) => set(() => ({ pseudo }))
-});
-const createBookSlice: StateCreator<BookSlice, [], [], BookSlice> = (set) => ({
-  title: 'Test Book Title',
-  description: 'Test Book Description',
-  setTitle: (value: string) =>
-    set((state) => ({
-      title: value
-    })),
-  setDescription: (value: string) =>
-    set((state) => ({
-      description: value
-    }))
 });
 
 const mockedServices = { alert: new MockAlertService() };

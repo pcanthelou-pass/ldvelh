@@ -1,13 +1,17 @@
 import { Wrapper } from '@/app/features/wrapper'
-import { BookSlice, useGameStore, useUserStore, useZeStore } from '@core'
+import { useBookStore, useGameStore, useUserStore } from '@core'
 import { render, screen, userEvent } from '@testing-library/react-native'
+import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
 
 const MyComponent = () => {
-  const date = useGameStore((state) => state.date)
-  const setDate = useGameStore((state) => state.setDate)
-  const { pseudo, setPseudo } = useUserStore((state) => state)
-  const title = useZeStore<BookSlice>((state) => state.title)
+  const { date, setDate } = useGameStore()
+  const { pseudo, setPseudo } = useUserStore()
+  const { title, setTitle } = useBookStore()
+
+  useEffect(() => {
+    setTitle('Test Book Title')
+  }, [setTitle])
 
   const onPress = () => {
     setDate('11/11/11')
@@ -34,11 +38,11 @@ describe('Store in Core', () => {
       </Wrapper>,
     )
 
-    expect(screen.getByText('Test Book Title')).toBeDefined()
-    expect(screen.getByText(`Date: 10/10/10`)).toBeDefined()
-    expect(screen.getByText(`Bonjour PSEUDO`)).toBeDefined()
+    expect(screen.getByText('Test Book Title')).toBeVisible()
+    expect(screen.getByText(`Date: 10/10/10`)).toBeVisible()
+    expect(screen.getByText(`Bonjour PSEUDO`)).toBeVisible()
     await user.press(screen.getByRole('button'))
-    expect(screen.getByText(`Date: 11/11/11`)).toBeDefined()
-    expect(screen.getByText(`Bonjour TOTO`)).toBeDefined()
+    expect(screen.getByText(`Date: 11/11/11`)).toBeVisible()
+    expect(screen.getByText(`Bonjour TOTO`)).toBeVisible()
   })
 })
