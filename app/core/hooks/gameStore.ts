@@ -1,5 +1,5 @@
 import { GameSlice } from '../slices/game'
-import { useZeStore } from './generic-store'
+import { useZeStore } from './genericStore'
 
 export function useGameStore(
   selector?: (state: GameSlice) => GameSlice,

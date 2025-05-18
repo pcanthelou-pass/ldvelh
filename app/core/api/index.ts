@@ -1,1 +1,1 @@
-export * from './get-story';
+export * from './getStory';
