@@ -11,3 +11,9 @@ export interface Character {
   abilities: CharacterAbilities
   items: Items
 }
+
+export const EmptyCharacter: Character = {
+  name: '',
+  abilities: { agility: 0, endurance: 0, chance: 0 },
+  items: {},
+}
