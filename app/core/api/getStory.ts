@@ -1,3 +1,3 @@
-import * as story from './story.json';
+import * as story from './story.json'
 
-export const getStory = () => story;
+export const getStory = () => story

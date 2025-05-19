@@ -1,13 +1,13 @@
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native'
 
 export const ChooseStoryView = ({
   title,
   description,
-  onPress
+  onPress,
 }: {
-  title: string;
-  description: string;
-  onPress?: () => void;
+  title: string
+  description: string
+  onPress?: () => void
 }) => (
   <View>
     <View>
@@ -20,4 +20,4 @@ export const ChooseStoryView = ({
       <Button onPress={onPress} title="Entrer" />
     </View>
   </View>
-);
+)

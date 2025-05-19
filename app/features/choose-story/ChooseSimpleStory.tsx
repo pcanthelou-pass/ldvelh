@@ -1,13 +1,13 @@
-import { useBookStore, useGameStore } from '@core';
-import { ChooseStoryView } from './ChooseSimpleStoryView';
+import { useBookStore, useGameStore } from '@core'
+import { ChooseStoryView } from './ChooseSimpleStoryView'
 
 export const ChooseSimpleStory = () => {
-  const selectedBook = useBookStore();
-  const { setBook } = useGameStore();
+  const selectedBook = useBookStore()
+  const { setBook } = useGameStore()
 
   const onPress = () => {
-    setBook(selectedBook);
-  };
+    setBook(selectedBook)
+  }
 
   return (
     <ChooseStoryView
@@ -15,5 +15,5 @@ export const ChooseSimpleStory = () => {
       description={selectedBook.description}
       onPress={onPress}
     />
-  );
-};
+  )
+}

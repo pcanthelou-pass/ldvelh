@@ -1,3 +1,3 @@
-export * from './ChooseSimpleStory';
-export * from './ChooseSimpleStoryView';
-export * from './useChooseSimpleStory';
+export * from './ChooseSimpleStory'
+export * from './ChooseSimpleStoryView'
+export * from './useChooseSimpleStory'
