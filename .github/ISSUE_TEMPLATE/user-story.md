@@ -4,7 +4,6 @@ about: Une feature
 title: "[Feature] En tant que [type d'utilisateur], je veux [action] afin de [bénéfice]."
 labels: ''
 assignees: ''
-
 ---
 
 # En tant que [type d'utilisateur], je veux [action] afin de [bénéfice].
@@ -17,14 +16,15 @@ assignees: ''
 
 Brève explication du besoin de l'utilisateur.
 
-*[Ex. Cette User Story permet aux utilisateurs de voir un agenda d’événements culturels organisé par date et catégorie. Elle inclut des options de filtrage et tri pour que l’utilisateur puisse affiner sa recherche.]*
+_[Ex. Cette User Story permet aux utilisateurs de voir un agenda d’événements culturels organisé par date et catégorie. Elle inclut des options de filtrage et tri pour que l’utilisateur puisse affiner sa recherche.]_
 
 ## Liste des scénarios d'utilisation.
 
-*[Ex.
+\*[Ex.
+
 1. L'utilisateur clique sur "Mot de passe oublié".
 2. L'utilisateur reçoit un email avec un lien de réinitialisation.
-3. L'utilisateur définit un nouveau mot de passe.]*
+3. L'utilisateur définit un nouveau mot de passe.]\*
 
 ### User Journey Map : [Référence à la carte du parcours utilisateur.]
 
@@ -32,10 +32,11 @@ Brève explication du besoin de l'utilisateur.
 
 Liste des conditions qui doivent être remplies pour que la story soit considérée comme terminée.
 
-*[Ex.
+\*[Ex.
+
 1. L’agenda affiche les événements culturels sous forme de liste ou de carte, triés par date et catégorie.
 2. Les filtres sont fonctionnels et permettent une recherche par type d’événement (ex : musique, théâtre).
-3. Les détails d’un événement peuvent être consultés en cliquant sur l’événement.]*
+3. Les détails d’un événement peuvent être consultés en cliquant sur l’événement.]\*
 
 ## Critères d’acceptation techniques
 
@@ -45,6 +46,7 @@ Liste des conditions qui doivent être remplies pour que la story soit considér
 4. **Cache des données** : La liste des événements est mise en cache pour éviter les chargements redondants, avec une actualisation automatique toutes les 5 minutes.
 
 ## Dépendances
+
 L’API de récupération des événements doit être implémentée avant le travail sur les composants front-end.
 
 ## DoD

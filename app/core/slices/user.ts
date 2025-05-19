@@ -1,4 +1,4 @@
 export interface UserSlice {
-  pseudo: string;
-  setPseudo: (pseudo: string) => void;
+  pseudo: string
+  setPseudo: (pseudo: string) => void
 }

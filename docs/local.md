@@ -5,8 +5,8 @@
 Pour pouvoir utiliser les alias du type :
 
 ```ts
-import { Core } from '@core';
-import { AlertService, Services } from '@services';
+import { Core } from '@core'
+import { AlertService, Services } from '@services'
 ```
 
 Il faut configurer tsconfig.json et babel.config.js.

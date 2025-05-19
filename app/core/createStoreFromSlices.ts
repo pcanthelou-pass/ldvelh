@@ -1,5 +1,5 @@
-import { AllSlices, Slices } from '@core';
-import { create } from 'zustand';
+import { AllSlices, Slices } from '@core'
+import { create } from 'zustand'
 
 export const createStoreFromSlices = (slices?: Slices) => {
   if (slices) {
@@ -7,11 +7,11 @@ export const createStoreFromSlices = (slices?: Slices) => {
       return Object.values(slices).reduce(
         (acc, sliceCreator) => ({
           ...acc,
-          ...sliceCreator(...args)
+          ...sliceCreator(...args),
         }),
-        {} as AllSlices
-      );
-    });
+        {} as AllSlices,
+      )
+    })
   }
-  return null;
-};
+  return null
+}

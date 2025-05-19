@@ -1,4 +1,4 @@
-import { createStoreFromSlices, Slices } from '@core';
+import { createStoreFromSlices, Slices } from '@core'
 
 /**
  * Calcul dynamique des slices
@@ -8,6 +8,6 @@ export type AllSlices =
     ? R extends object
       ? R
       : never
-    : never;
+    : never
 
-export type StoreFromSlices = ReturnType<typeof createStoreFromSlices>;
+export type StoreFromSlices = ReturnType<typeof createStoreFromSlices>

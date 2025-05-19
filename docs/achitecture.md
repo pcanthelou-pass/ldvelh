@@ -13,13 +13,13 @@
 
 #### Organisation des responsabilités
 
-| Principe SOLID | Signification | Implémentation en React Native |
-|:-:|---|---|
-| SRP (Single Responsibility Principle) | Un composant, un hook ou un store Zustand ne doit avoir qu’une seule raison de changer. | Séparer les composants UI, hooks métiers et stores Zustand |
-| OCP (Open/Closed Principle)|Le code doit être ouvert à l’extension mais fermé à la modification.| Rendre les composants extensibles sans modification (ex: via des props, children, render props). Utiliser des Context Providers pour injecter des dépendances, permettant de modifier les implémentations sans toucher au code métier, utiliser un service provider. |
-|LSP (Liskov Substitution Principle)|Les sous-types doivent pouvoir être remplacés par leurs super-types sans altérer le fonctionnement.| Garantir que les composants/hocs/hooks restent interchangeables via interfaces TypeScript. Tous les services injectés via un Context doivent respecter une interface TypeScript claire|
-|ISP (Interface Segregation Principle)|Préférer plusieurs interfaces spécifiques à une unique interface trop large.| Préférer plusieurs types ciblés plutôt qu’une seule grande interface. Ne pas imposer trop de responsabilités aux composants → Penser à la composition |
-|DIP (Dependency Inversion Principle)|Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau.| Utiliser les Contexts comme couche d’abstraction pour injecter Zustand (par exemple) ou d’autres services |
+|            Principe SOLID             | Signification                                                                                       | Implémentation en React Native                                                                                                                                                                                                                                       |
+| :-----------------------------------: | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SRP (Single Responsibility Principle) | Un composant, un hook ou un store Zustand ne doit avoir qu’une seule raison de changer.             | Séparer les composants UI, hooks métiers et stores Zustand                                                                                                                                                                                                           |
+|      OCP (Open/Closed Principle)      | Le code doit être ouvert à l’extension mais fermé à la modification.                                | Rendre les composants extensibles sans modification (ex: via des props, children, render props). Utiliser des Context Providers pour injecter des dépendances, permettant de modifier les implémentations sans toucher au code métier, utiliser un service provider. |
+|  LSP (Liskov Substitution Principle)  | Les sous-types doivent pouvoir être remplacés par leurs super-types sans altérer le fonctionnement. | Garantir que les composants/hocs/hooks restent interchangeables via interfaces TypeScript. Tous les services injectés via un Context doivent respecter une interface TypeScript claire                                                                               |
+| ISP (Interface Segregation Principle) | Préférer plusieurs interfaces spécifiques à une unique interface trop large.                        | Préférer plusieurs types ciblés plutôt qu’une seule grande interface. Ne pas imposer trop de responsabilités aux composants → Penser à la composition                                                                                                                |
+| DIP (Dependency Inversion Principle)  | Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau.                       | Utiliser les Contexts comme couche d’abstraction pour injecter Zustand (par exemple) ou d’autres services                                                                                                                                                            |
 
 ### 2️⃣ Principes à respecter au quotidien
 
@@ -147,17 +147,17 @@ export const useAuth = () => {
 - Exemple :
 
 ```ts
-import { useQuery } from '@tanstack/react-query';  
-import { fetchUser } from '../services/api/user';  
+import { useQuery } from '@tanstack/react-query'
+import { fetchUser } from '../services/api/user'
 
-export const useUser = (userId: string) => {  
-  return useQuery({  
-    queryKey: ['user', userId],  
-    queryFn: () => fetchUser(userId),  
-    staleTime: 1000 * 60 * 5, // 5 minutes  
-    cacheTime: 1000 * 60 * 10, // 10 minutes  
-  });  
-};
+export const useUser = (userId: string) => {
+  return useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => fetchUser(userId),
+    staleTime: 1000 * 60 * 5, // 5 minutes
+    cacheTime: 1000 * 60 * 10, // 10 minutes
+  })
+}
 ```
 
 ![mermaid-diagram-2025-05-08-183009](./mermaid-diagram-2025-05-08-183009.png)
@@ -171,9 +171,9 @@ export const useUser = (userId: string) => {
 
 ```ts
 interface User {
-  id: string;
-  name: string;
-  email: string;
+  id: string
+  name: string
+  email: string
 }
 ```
 
@@ -186,17 +186,17 @@ interface User {
 
 ```bash
 // features/alice/hooks/useAlice.test.tsx
-/src/features/alice  
- ├── /components  
- │    ├── AliceCard.tsx  
- │    ├── AliceList.tsx  
- ├── /hooks  
- │    ├── useAlice.ts  
- ├── /api  
- │    ├── aliceApi.ts  
- ├── /store  
- │    ├── aliceStore.ts (Zustand)  
- ├── index.ts  
+/src/features/alice
+ ├── /components
+ │    ├── AliceCard.tsx
+ │    ├── AliceList.tsx
+ ├── /hooks
+ │    ├── useAlice.ts
+ ├── /api
+ │    ├── aliceApi.ts
+ ├── /store
+ │    ├── aliceStore.ts (Zustand)
+ ├── index.ts
 
 // Ou plus globalement par exemple
 /src
@@ -228,7 +228,7 @@ interface User {
 - **Responsabilité** : Garantir que le code fonctionne comme prévu et est maintenable
 - **Colocation** : Les tests doivent être proches de la fonctionnalité qu’ils testent (dans features/<feature>/tests)
 - **Utilisation typique** : Tests unitaires, tests d’intégration, tests des hooks, tests des API, et couverture du code
-- *Exemple* : Test d’un hook utilisant React Query et Zustand
+- _Exemple_ : Test d’un hook utilisant React Query et Zustand
 
 ```js
 // features/alice/hooks/useAlice.test.tsx
@@ -253,7 +253,7 @@ describe('useAlice Hook', () => {
     const { result, waitFor } = renderHook(() => useAlice(), { wrapper });
 
     await waitFor(() => result.current.isSuccess);
-    
+
     expect(result.current.data).toEqual(expect.objectContaining({ name: 'Alice' }));
   });
 });
@@ -304,10 +304,10 @@ const CountComponent = () => {
 
 ### 🔟 Documentation & Présentation des composants : Storybook
 
- • Responsabilité : Permettre aux équipes de concevoir, tester et documenter les composants de manière isolée
- • Colocation : Les stories sont généralement placées dans un dossier stories/ ou au sein de chaque feature, directement avec les composants
- • Utilisation typique : Développer, tester et afficher les composants de manière isolée, garantir leur bonne intégration dans l’interface utilisateur
- • Exemple : Un composant AliceCard documenté dans Storybook
+• Responsabilité : Permettre aux équipes de concevoir, tester et documenter les composants de manière isolée
+• Colocation : Les stories sont généralement placées dans un dossier stories/ ou au sein de chaque feature, directement avec les composants
+• Utilisation typique : Développer, tester et afficher les composants de manière isolée, garantir leur bonne intégration dans l’interface utilisateur
+• Exemple : Un composant AliceCard documenté dans Storybook
 
 ```js
 // features/alice/components/AliceCard.tsx
@@ -382,7 +382,7 @@ import AliceCard from './AliceCard';
 
 test('AliceCard is accessible', async () => {
   const { container } = render(<AliceCard name="Alice" age={30} />);
-  
+
   // Vérification de l'accessibilité avec axe-core
   const results = await axe(container);
   expect(results).toHaveNoViolations();
@@ -398,20 +398,20 @@ test('AliceCard is accessible', async () => {
 #### Outils de surveillance des performances
 
 - React Native Performance Monitor :
-Le Performance Monitor intégré dans React Native permet de surveiller les performances de votre application, y compris les mesures des temps de rendu et les ressources utilisées. Il vous aide à identifier les problèmes de performances en affichant des informations sur le frame rate, le rendu des composants, et plus encore.
-Vous pouvez activer le Performance Monitor dans votre projet React Native en ajoutant cette ligne dans votre code :
+  Le Performance Monitor intégré dans React Native permet de surveiller les performances de votre application, y compris les mesures des temps de rendu et les ressources utilisées. Il vous aide à identifier les problèmes de performances en affichant des informations sur le frame rate, le rendu des composants, et plus encore.
+  Vous pouvez activer le Performance Monitor dans votre projet React Native en ajoutant cette ligne dans votre code :
 
   ```js
-  import { PerformanceMonitor } from 'react-native-performance';
+  import { PerformanceMonitor } from 'react-native-performance'
 
-  PerformanceMonitor.start();
+  PerformanceMonitor.start()
   ```
 
 - React Query DevTools pour React Native :
-Bien que React Query DevTools soit principalement conçu pour le web, il existe une version compatible avec React Native qui vous permet de surveiller et de déboguer facilement les requêtes réseau dans votre application.
+  Bien que React Query DevTools soit principalement conçu pour le web, il existe une version compatible avec React Native qui vous permet de surveiller et de déboguer facilement les requêtes réseau dans votre application.
 
   ```js
-  import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+  import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
   // Dans ton composant principal
   export const App = () => {
@@ -420,29 +420,29 @@ Bien que React Query DevTools soit principalement conçu pour le web, il existe 
         <MyComponent />
         <ReactQueryDevtools initialIsOpen={false} />
       </>
-    );
-  };
+    )
+  }
   ```
 
 - Firebase Performance Monitoring :
-Firebase Performance Monitoring est un excellent choix pour surveiller les performances d’une application React Native, y compris le temps de chargement des écrans, les temps d’attente pour les API, et d’autres aspects critiques de l’expérience utilisateur. Firebase offre une solution complète de collecte des données de performance, et vous pouvez utiliser ses SDK pour suivre les appels d’API et d’autres événements dans l’application.
+  Firebase Performance Monitoring est un excellent choix pour surveiller les performances d’une application React Native, y compris le temps de chargement des écrans, les temps d’attente pour les API, et d’autres aspects critiques de l’expérience utilisateur. Firebase offre une solution complète de collecte des données de performance, et vous pouvez utiliser ses SDK pour suivre les appels d’API et d’autres événements dans l’application.
 
   ```js
-  import { perf } from '@react-native-firebase/perf';
+  import { perf } from '@react-native-firebase/perf'
 
-  const trace = perf().newTrace('load_data');
-  trace.start();
+  const trace = perf().newTrace('load_data')
+  trace.start()
 
   fetch('https://myapi.com/data')
-    .then(response => response.json())
-    .then(data => {
-      trace.stop(); // Arrête la mesure une fois les données récupérées
-      console.log(data);
+    .then((response) => response.json())
+    .then((data) => {
+      trace.stop() // Arrête la mesure une fois les données récupérées
+      console.log(data)
     })
-    .catch(error => {
-      trace.stop();
-      console.error(error);
-    });
+    .catch((error) => {
+      trace.stop()
+      console.error(error)
+    })
   ```
 
 - React DevTools : Permet d’analyser le comportement de vos composants React, y compris leur temps de rendu, les re-rendus inutiles, et l’impact des hooks comme useEffect.
@@ -460,8 +460,6 @@ Firebase Performance Monitoring est un excellent choix pour surveiller les perfo
 
 - React Profiler : Pour mesurer la performance des rendus des composants, la fréquence des re-rendus et identifier les bottlenecks.
 - Flipper : Un outil pour debugger et profiler les applications React Native, idéal pour observer les performances côté mobile.
-
-
 
 Les tests E2E
 

@@ -1,10 +1,10 @@
-import { Core } from '@core';
-import { AlertService, Services } from '@services';
-import { Text, View } from 'react-native';
+import { Core } from '@core'
+import { AlertService, Services } from '@services'
+import { Text, View } from 'react-native'
 
 const services: Services = {
-  alert: new AlertService()
-};
+  alert: new AlertService(),
+}
 
 // ce serait mieux de pouvoir faire
 // const services = new Services() ou on a un tableau ou autre de {[key: string] : Service}
@@ -19,11 +19,11 @@ export default function Index() {
         style={{
           flex: 1,
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <Text>Edit app/index.tsx to edit this screen.</Text>
       </View>
     </Core>
-  );
+  )
 }

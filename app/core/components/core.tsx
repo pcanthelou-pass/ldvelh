@@ -1,18 +1,18 @@
-import { ServicesProvider, Slices, StoreProvider } from '@core';
-import { Services } from '@services';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactNode } from 'react';
+import { ServicesProvider, Slices, StoreProvider } from '@core'
+import { Services } from '@services'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactNode } from 'react'
 
 export const Core = ({
   children,
   services,
-  slices
+  slices,
 }: {
-  children: ReactNode;
-  services: Services;
-  slices?: Slices;
+  children: ReactNode
+  services: Services
+  slices?: Slices
 }) => {
-  const clientQuery = new QueryClient();
+  const clientQuery = new QueryClient()
 
   return (
     <QueryClientProvider client={clientQuery}>
@@ -20,5 +20,5 @@ export const Core = ({
         <ServicesProvider services={services}>{children}</ServicesProvider>
       </StoreProvider>
     </QueryClientProvider>
-  );
-};
+  )
+}

@@ -9,10 +9,10 @@ L'objectif est d'avoir un repository configurer pour un environnement git :
 
 ## Justification du type de repo
 
-| Modèle      | Avantages                                                    | Inconvénients                                                |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Git Flow    | Une structure de branches bien définie (main, develop, feature, release, hotfix) orienté suivi de versions et optimisé pour organiser les fonctionnalités et les versions. Travailler sur plusieurs fonctionnalités en parallèle sans interférence. | Complexe pour un projet personnel avec un seul développeur et peut être ralentit par la gestion des merges de branches |
-| Trunk Based | Utilise une seule branche principale (main ou trunk) où tout le développement est intégré fréquemment donc moins de gestion de branches et de merges, et les modifications sont intégrées rapidement, permettant un retour d'expérience plus rapide. | Demande un sécurité plus importante (tests)                  |
+| Modèle      | Avantages                                                                                                                                                                                                                                            | Inconvénients                                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Git Flow    | Une structure de branches bien définie (main, develop, feature, release, hotfix) orienté suivi de versions et optimisé pour organiser les fonctionnalités et les versions. Travailler sur plusieurs fonctionnalités en parallèle sans interférence.  | Complexe pour un projet personnel avec un seul développeur et peut être ralentit par la gestion des merges de branches |
+| Trunk Based | Utilise une seule branche principale (main ou trunk) où tout le développement est intégré fréquemment donc moins de gestion de branches et de merges, et les modifications sont intégrées rapidement, permettant un retour d'expérience plus rapide. | Demande un sécurité plus importante (tests)                                                                            |
 
 ## Création du repository
 
@@ -112,6 +112,7 @@ Les **Conventional Commits** sont une convention de messages de commit qui fourn
 Un message de commit suivant la convention Conventional Commits se compose de trois parties principales :
 
 1. **Type** : Un mot court qui décrit la nature du changement. Les types courants incluent :
+
    - `feat` : Nouvelle fonctionnalité.
    - `fix` : Correction de bug.
    - `docs` : Modification de la documentation.

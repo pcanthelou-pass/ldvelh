@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
   return {
     presets: [['babel-preset-expo']],
     plugins: [
@@ -12,7 +12,7 @@ module.exports = function (api) {
             '@index': './app/index.tsx',
             '@core': './app/core/',
             '@shared': './app/shared/',
-            '@services': './app/shared/services/index.ts'
+            '@services': './app/shared/services/index.ts',
           },
           extensions: [
             '.ios.ts',
@@ -24,10 +24,10 @@ module.exports = function (api) {
             '.tsx',
             '.jsx',
             '.js',
-            '.json'
-          ]
-        }
-      ]
-    ]
-  };
-};
+            '.json',
+          ],
+        },
+      ],
+    ],
+  }
+}

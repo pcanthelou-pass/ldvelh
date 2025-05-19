@@ -1,3 +1,3 @@
 export interface BookSlice {
-  title: string;
+  title: string
 }

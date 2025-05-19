@@ -1,3 +1,3 @@
-export * from './game';
-export * from './generic';
-export * from './user';
+export * from './game'
+export * from './generic'
+export * from './user'

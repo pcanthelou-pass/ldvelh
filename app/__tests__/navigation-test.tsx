@@ -1,11 +1,11 @@
-import { renderRouter, screen } from 'expo-router/testing-library';
+import { renderRouter, screen } from 'expo-router/testing-library'
 
 describe('Navigation', () => {
   it('my-test', async () => {
     renderRouter(['index', 'books', 'book/[id]'], {
-      initialUrl: '/index'
-    });
+      initialUrl: '/index',
+    })
 
-    expect(screen).toHavePathname('/index');
-  });
-});
+    expect(screen).toHavePathname('/index')
+  })
+})

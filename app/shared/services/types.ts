@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 export interface IAlertService {
-  show: (message: string) => void | string | ReactNode;
+  show: (message: string) => void | string | ReactNode
 }
 
 export interface Services {
-  alert: IAlertService;
+  alert: IAlertService
 }

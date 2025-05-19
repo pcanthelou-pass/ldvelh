@@ -4,12 +4,12 @@ about: Regroupement de user stories
 title: "[Epic] Description de l'objectif global"
 labels: ''
 assignees: ''
-
 ---
 
 # [Epic] Description de l'objectif global
 
 ## Description
+
 [Ex. Cette Epic vise à permettre aux utilisateurs de créer et consulter un agenda culturel personnalisé en fonction de leurs préférences. Ils pourront ainsi découvrir, sélectionner, et suivre les événements culturels locaux et recevoir des rappels pour les événements sélectionnés.]
 
 ## Objectifs
@@ -17,16 +17,19 @@ assignees: ''
 - [Ex. Améliorer l’engagement utilisateur en proposant une fonctionnalité d’agenda interactif.]
 
 ### Résultats attendus
+
 - Réduction du taux d'abandon lors de l'authentification.
 - Augmentation de la satisfaction utilisateur.
 
 ### User Journey Map : [Référence à la carte du parcours utilisateur.]
 
 ### User Stories
+
 - En tant qu'utilisateur, je veux pouvoir réinitialiser mon mot de passe.
 - En tant qu'utilisateur, je veux pouvoir me connecter avec mon compte Google.
 
 ## Critères de complétion
+
 [Ex. 1. Les fonctionnalités de consultation, de sélection, de rappels et de partage d’événements sont déployées et testées sur toutes les plateformes (iOS, Android, Web).
 2. Le tracking des interactions principales (ex : ajout d’événements, partages) est en place pour les KPIs de rétention et d’engagement.
 3. L’Epic est considérée comme terminée lorsque toutes les User Stories associées sont complètes et les retours utilisateurs initiaux sont positifs (3.5/5 sur App Store et Google Play).]

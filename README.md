@@ -35,21 +35,22 @@ Voir la doc :
 ### **L'utilisateur fait l'histoire**
 
 - Lecture de la scène
+
   - Ecran de la scène (tiré d'un fichier xml ou json)
 
 - Résoudre un combat
 
-  - ​        Affichage des caractéristiques de l'adversaire
+  - ​ Affichage des caractéristiques de l'adversaire
 
-  - ​        Résolution au tour par tour des jets de dés
+  - ​ Résolution au tour par tour des jets de dés
 
-  - ​        Afficher les niveaux vie/chance du personnage
+  - ​ Afficher les niveaux vie/chance du personnage
 
-  - ​        Le personnage meurt -> Ecran de mort
+  - ​ Le personnage meurt -> Ecran de mort
 
-  - ​        Le personnage sort vainceur
+  - ​ Le personnage sort vainceur
 
-- ​    Utiliser un objet
+- ​ Utiliser un objet
 
   - Boire une potion d'endurance
 
@@ -59,16 +60,17 @@ Voir la doc :
 ### L'utilisateur termine l'histoire
 
 - Le personnage est en vie et a remplit l'objectif
+
   - Ecran de fin positif
 
 - OU Le personnage est en vie et n'a pas remplit l'objectif
+
   - Ecran de fin négatif
 
 - OU Le personnage est en mort
   - Ecran de mort
 
-### L'utilisateur ferme le livre**
+### L'utilisateur ferme le livre\*\*
 
 - Retourner à l'accueil
   - Arrivée directe à l'accueil
-
