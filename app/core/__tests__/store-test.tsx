@@ -12,7 +12,7 @@ const MyComponent = () => {
   useEffect(() => {
     setDate('10/10/10')
     setTitle('Test Book Title')
-  }, [setTitle])
+  }, [setTitle, setDate])
 
   const onPress = () => {
     setDate('11/11/11')
