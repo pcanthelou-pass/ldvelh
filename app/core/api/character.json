@@ -1,0 +1,18 @@
+{
+  "character": {
+    "name": "Le personnage",
+    "abilities": {
+      "agility": 12,
+      "endurance": 24,
+      "chance": 12
+    },
+    "items": {
+      "silex": { "power": "fire" },
+      "torch": { "quantity": 5, "power": "light", "need": "fire" },
+      "gold": { "quantity": 5, "value": 1, "power": "gold" },
+      "necklace": { "quantity": 1, "value": 10, "power": "gold" },
+      "water": { "quantity": 3, "power": "food" },
+      "ration": { "quantity": 5, "power": "food" }
+    }
+  }
+}
