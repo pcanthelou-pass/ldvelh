@@ -1,9 +1,10 @@
+import { Items } from '@core'
 import { Button } from 'react-native'
 import * as pregenerated from '../../core/api/character.json'
 import { BackpackView } from './components/BackpackView'
 import { CreatePregeneratedCharacterView } from './components/CreatePregeneratedCharacterView'
 
-const simpleParser = (items: object) => {
+const simpleParser = (items: Items) => {
   return Object.keys(items)
 }
 
