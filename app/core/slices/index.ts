@@ -1,4 +1,6 @@
 export * from './book'
+export * from './character'
 export * from './game'
+export * from './items'
 export * from './slices'
 export * from './user'
