@@ -6,6 +6,7 @@
     "baseUrl": "./",
     "esModuleInterop": true,
     "checkJs": true,
+    "noUncheckedIndexedAccess": true,
     "paths": {
       "@index": ["./app/index.tsx"],
       "@core": ["./app/core/index.ts"],
