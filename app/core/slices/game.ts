@@ -32,5 +32,9 @@ export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
       date: Date.now().toString(),
     })),
   setCharacter: (character: Character) =>
-    set((state) => ({ ...state, character, characterNotModified: character })),
+    set((state) => ({
+      ...state,
+      character,
+      characterNotModified: character,
+    })),
 })

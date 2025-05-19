@@ -15,7 +15,7 @@ export const CreatePregeneratedCharacterView = ({
 }: Character) => {
   return (
     <View>
-      <Text>{name}</Text>
+      <Text>Personnage</Text>
       <Text>Agilité : {agility}</Text>
       <Text>Endurance : {endurance}</Text>
       <Text>Chance : {chance}</Text>

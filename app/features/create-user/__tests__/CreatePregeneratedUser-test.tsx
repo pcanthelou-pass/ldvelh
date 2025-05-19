@@ -1,6 +1,21 @@
-import { render, screen } from '@testing-library/react-native'
+import { EmptyBook, useGameStore } from '@core'
+import { act, render, screen, userEvent } from '@testing-library/react-native'
+import { Button, Text } from 'react-native'
 import { Wrapper } from '../../wrapper'
 import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'
+
+const DisplayCharacterName = () => {
+  const { character, setBook } = useGameStore()
+  const onPress = () => {
+    setBook(EmptyBook)
+  }
+  return (
+    <>
+      <Text>nom : {character.name}</Text>
+      <Button title="Reload a book" onPress={onPress} />
+    </>
+  )
+}
 
 describe('<CreatePregeneratedCharacter/>', () => {
   it('Un écran intitulé "Personnage"', async () => {
@@ -9,7 +24,7 @@ describe('<CreatePregeneratedCharacter/>', () => {
         <CreatePregeneratedCharacter />
       </Wrapper>,
     )
-    expect(screen.getByText(/le personnage/i)).toBeVisible()
+    expect(screen.getByText(/Personnage/i)).toBeVisible()
   })
 
   it('Les caractéristiques du personnage sont affichées', async () => {
@@ -40,5 +55,32 @@ describe('<CreatePregeneratedCharacter/>', () => {
     )
     expect(await screen.findByRole(/button/i)).toBeTruthy()
     expect(await screen.findByText('Suivant')).toBeTruthy()
+  })
+  it('Si on fait suivant alors notre game store contient le personnage', async () => {
+    const user = userEvent.setup()
+    render(
+      <Wrapper>
+        <CreatePregeneratedCharacter />
+        <DisplayCharacterName />
+      </Wrapper>,
+    )
+    await user.press(await screen.findByText('Suivant'))
+    act(() => {})
+    expect(await screen.findByText(/nom : toto/i)).toBeVisible()
+  })
+  it('Et si on appel un setBook entre après avoir sélectionné un personnage alors il est redéfini', async () => {
+    const user = userEvent.setup()
+    render(
+      <Wrapper>
+        <CreatePregeneratedCharacter />
+        <DisplayCharacterName />
+      </Wrapper>,
+    )
+    await user.press(await screen.findByText('Suivant'))
+    act(() => {})
+    expect(await screen.findByText(/nom : toto/i)).toBeVisible()
+    await user.press(await screen.findByText('Reload a book'))
+    act(() => {})
+    expect(await screen.queryByText(/nom : toto/i)).not.toBeVisible()
   })
 })
