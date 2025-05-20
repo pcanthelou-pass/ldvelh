@@ -4,5 +4,50 @@
   "introduction": {
     "title": "Scène #1",
     "text": "Consequat pariatur pariatur consequat commodo consectetur magna excepteur anim exercitation veniam proident culpa minim. Qui labore id et et dolore veniam deserunt culpa fugiat velit quis. Cupidatat labore officia magna magna velit aute consequat. Incididunt occaecat tempor et magna ut sunt excepteur ea. Incididunt deserunt eiusmod non ipsum. Nostrud aliquip cillum excepteur occaecat proident ad laboris ad. Est sint duis proident enim et aute eu anim aute enim."
+  },
+  "scenes": {
+    "1": {
+      "question": "Scène #1",
+      "text": "Texte de la scène #1",
+      "next": {
+        "1-1": {
+          "question": "Scène #2-1",
+          "text": "Texte de la scène #2",
+          "next": {
+            "2-1": {
+              "question": "Scène #3-1",
+              "text": "Texte de la scène #3",
+              "next": {
+                "3-1": {
+                  "question": "Scène #4-1",
+                  "text": "Texte de la scène #4",
+                  "next": "end"
+                },
+                "3-2": {
+                  "question": "Scène #4-2",
+                  "text": "Texte de la scène #4",
+                  "next": "end"
+                },
+                "3-3": {
+                  "question": "Scène #4-3",
+                  "text": "Texte de la scène #4",
+                  "next": "end"
+                }
+              }
+            },
+            "2-2": {
+              "question": "Scène #3-2",
+              "text": "Texte de la scène #4",
+              "next": "end-fail"
+            }
+          },
+          "1-2": {
+            "question": "Scène #2-2",
+            "text": "Texte de la scène #1",
+            "next": "end-fail"
+          }
+        }
+      }
+    }
   }
 }
