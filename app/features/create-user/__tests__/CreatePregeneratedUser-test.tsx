@@ -1,5 +1,5 @@
 import { EmptyBook, useGameStore } from '@core'
-import { WrapperTest } from '@features/WrapperTest'
+import { WrapperTest } from '@features/helpers/WrapperTest'
 import { act, render, screen, userEvent } from '@testing-library/react-native'
 import { Button, Text } from 'react-native'
 import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'

@@ -1,5 +1,5 @@
 import { EmptyBook, EmptyCharacter, useGameStore } from '@core'
-import { WrapperTest } from '@features/WrapperTest'
+import { WrapperTest } from '@features/helpers'
 import { act, renderHook } from '@testing-library/react-native'
 
 export const TEST_BOOK = {
