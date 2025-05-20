@@ -45,7 +45,7 @@ describe('<CreatePregeneratedCharacter/>', () => {
       </Wrapper>,
     )
     expect(screen.getByText(/torch/i)).toBeVisible()
-    expect(screen.getByText(/necklace/i)).toBeVisible()
+    expect(await screen.queryByText(/necklace/i)).not.toBeVisible()
   })
   it('L\'écran contient juste un bouton "Suivant"', async () => {
     render(
