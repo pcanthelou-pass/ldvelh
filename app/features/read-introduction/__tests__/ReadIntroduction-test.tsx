@@ -1,4 +1,4 @@
-import { WrapperTest } from '@features'
+import { ReadIntroduction, WrapperTest } from '@features'
 import { render, screen, userEvent } from '@testing-library/react-native'
 
 describe('Given the user has selected a book and has a character', () => {
@@ -25,7 +25,7 @@ describe('Given the user has selected a book and has a character', () => {
     it('Then the reader may be able to go to the first scene', async () => {
       const user = userEvent.setup()
       const forward = jest.fn()
-      render(<ReadIntroduction forward />, { wrapper: WrapperTest })
+      render(<ReadIntroduction forward={forward} />, { wrapper: WrapperTest })
       await user.press(screen.getByText(/Et maintenant, tournez la page !/i))
       expect(forward).toHaveBeenCalledTimes(1)
     })
