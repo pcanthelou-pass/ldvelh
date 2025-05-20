@@ -10,9 +10,13 @@
       "silex": { "power": "fire" },
       "torch": { "quantity": 5, "power": "light", "need": "fire" },
       "gold": { "quantity": 5, "value": 1, "power": "gold" },
-      "necklace": { "quantity": 1, "value": 10, "power": "gold" },
-      "water": { "quantity": 3, "power": "food" },
-      "ration": { "quantity": 5, "power": "food" }
+      "water": { "quantity": 10, "power": "drink" },
+      "ration": {
+        "quantity": 10,
+        "power": "food",
+        "need": "drink",
+        "effect": { "endurance": 4 }
+      }
     }
   }
 }
