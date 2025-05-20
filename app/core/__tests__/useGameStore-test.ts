@@ -1,18 +1,18 @@
-import { Wrapper } from '@/app/features/wrapper'
 import { EmptyBook, EmptyCharacter, useGameStore } from '@core'
+import { WrapperTest } from '@features/WrapperTest'
 import { act, renderHook } from '@testing-library/react-native'
 
 describe('useGameStore', () => {
   it('when just created, has an empty book', () => {
-    const { result } = renderHook(useGameStore, { wrapper: Wrapper })
+    const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     expect(result.current.book).toBe(EmptyBook)
   })
   it('when just created, has an empty character', () => {
-    const { result } = renderHook(useGameStore, { wrapper: Wrapper })
+    const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     expect(result.current.character).toBe(EmptyCharacter)
   })
   it('when game is set, character is empty and book is filled', () => {
-    const { result } = renderHook(useGameStore, { wrapper: Wrapper })
+    const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
       result.current.setBook({
         title: 'Mon livre',
@@ -25,7 +25,7 @@ describe('useGameStore', () => {
     expect(result.current.character).toBe(EmptyCharacter)
   })
   it('when game is set and character is set then there is a save of the character', () => {
-    const { result } = renderHook(useGameStore, { wrapper: Wrapper })
+    const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
       result.current.setBook({
         title: 'Mon livre',

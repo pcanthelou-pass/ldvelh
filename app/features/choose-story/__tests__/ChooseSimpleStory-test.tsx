@@ -1,4 +1,5 @@
 import { useBookStore, useGameStore } from '@core'
+import { WrapperTest } from '@features/WrapperTest'
 import {
   render,
   screen,
@@ -7,7 +8,6 @@ import {
 } from '@testing-library/react-native'
 import { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
-import { Wrapper } from '../../wrapper'
 import { ChooseSimpleStory } from '../ChooseSimpleStory'
 
 const MockedComponent = () => {
@@ -34,9 +34,9 @@ const MockedComponent = () => {
 describe('<ChooseStory></ChooseStory>', () => {
   it('Should display the only book', async () => {
     render(
-      <Wrapper>
+      <WrapperTest>
         <MockedComponent />
-      </Wrapper>,
+      </WrapperTest>,
     )
 
     expect(screen.getByText(/book title test/i)).toBeVisible()
@@ -45,9 +45,9 @@ describe('<ChooseStory></ChooseStory>', () => {
 
   it('Should not display the only book as selected', async () => {
     render(
-      <Wrapper>
+      <WrapperTest>
         <MockedComponent />
-      </Wrapper>,
+      </WrapperTest>,
     )
 
     expect(await screen.findByText('Appuyer sur entrer')).toBeVisible()
@@ -57,9 +57,9 @@ describe('<ChooseStory></ChooseStory>', () => {
     const user = userEvent.setup()
 
     render(
-      <Wrapper>
+      <WrapperTest>
         <MockedComponent />
-      </Wrapper>,
+      </WrapperTest>,
     )
 
     expect(screen.getByText('Entrer')).toBeVisible()
