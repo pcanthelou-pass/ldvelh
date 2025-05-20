@@ -11,6 +11,8 @@
       "@index": ["./app/index.tsx"],
       "@core": ["./app/core/index.ts"],
       "@core/*": ["./app/core/*"],
+      "@features": ["./app/features/index.ts"],
+      "@features/*": ["./app/features/*"],
       "@services": ["./app/shared/services/index.ts"],
       "@shared/*": ["./app/shared/*"],
       "@/*": ["./*"]

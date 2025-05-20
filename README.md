@@ -30,7 +30,7 @@ Voir la doc :
 ### **L'utilisateur démarre l'histoire**
 
 - Lecture de l'introduction
-  - Ecran d'introduction (oon va directe ensuite à la première scène)
+  - Ecran d'introduction (on va directe ensuite à la première scène)
 
 ### **L'utilisateur fait l'histoire**
 

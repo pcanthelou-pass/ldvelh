@@ -27,7 +27,7 @@ const mockedSlices: Slices = {
   book: createBookSlice,
 }
 
-export const Wrapper = ({ children }: { children: ReactNode }) => (
+export const WrapperTest = ({ children }: { children: ReactNode }) => (
   <Core services={mockedServices} slices={mockedSlices}>
     {children}
   </Core>

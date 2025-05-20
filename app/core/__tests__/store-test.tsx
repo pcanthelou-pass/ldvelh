@@ -1,5 +1,5 @@
-import { Wrapper } from '@/app/features/wrapper'
 import { useBookStore, useGameStore, useUserStore } from '@core'
+import { WrapperTest } from '@features/WrapperTest'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
@@ -34,9 +34,9 @@ describe('Store in Core', () => {
     const user = userEvent.setup()
 
     render(
-      <Wrapper>
+      <WrapperTest>
         <MyComponent />
-      </Wrapper>,
+      </WrapperTest>,
     )
 
     expect(screen.getByText('Test Book Title')).toBeVisible()
