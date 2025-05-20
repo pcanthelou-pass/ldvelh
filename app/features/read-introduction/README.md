@@ -6,7 +6,7 @@ Ecran d'introduction (on va directe ensuite à la première scène)
 
 - Un écran avec le titre "L'histoire"
 - Un long texte
-- Un bouton "Se lancer"
+- Un bouton "Et maintenant, tournez la page !"
 
 ## Technique
 
