@@ -2,15 +2,26 @@ import { EmptyBook, EmptyCharacter, useGameStore } from '@core'
 import { WrapperTest } from '@features/WrapperTest'
 import { act, renderHook } from '@testing-library/react-native'
 
+export const TEST_BOOK = {
+  title: 'Mon livre',
+  description: 'Mon livre description',
+  introduction: {
+    title: 'Scène #1',
+    text: 'Dolor fugiat eiusmod',
+  },
+}
+
 describe('useGameStore', () => {
   it('when just created, has an empty book', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     expect(result.current.book).toBe(EmptyBook)
   })
+
   it('when just created, has an empty character', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     expect(result.current.character).toBe(EmptyCharacter)
   })
+
   it('when game is set, character is empty and book is filled', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
@@ -24,6 +35,7 @@ describe('useGameStore', () => {
     expect(result.current.book.title).toBe('Mon livre')
     expect(result.current.character).toBe(EmptyCharacter)
   })
+
   it('when game is set and character is set then there is a save of the character', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
@@ -48,5 +60,17 @@ describe('useGameStore', () => {
     expect(result.current.character.name).toBe('Mon personnage')
     expect(result.current.characterNotModified).not.toBe(EmptyCharacter)
     expect(result.current.characterNotModified.name).toBe('Mon personnage')
+  })
+
+  it('when the book is loaded it has an introduction part', () => {
+    const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
+    act(() => {
+      result.current.setBook(TEST_BOOK)
+    })
+
+    expect(result.current.book.introduction).toStrictEqual({
+      title: TEST_BOOK.introduction.title,
+      text: TEST_BOOK.introduction.text,
+    })
   })
 })

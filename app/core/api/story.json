@@ -1,4 +1,8 @@
 {
   "title": "Livre de test",
-  "description": "Cupidatat ut voluptate adipisicing proident. Enim elit adipisicing pariatur amet ullamco reprehenderit et adipisicing elit. Voluptate adipisicing adipisicing laborum ex nostrud dolor consequat exercitation adipisicing. Duis aliquip et cillum et commodo ad."
+  "description": "Cupidatat ut voluptate adipisicing proident. Enim elit adipisicing pariatur amet ullamco reprehenderit et adipisicing elit. Voluptate adipisicing adipisicing laborum ex nostrud dolor consequat exercitation adipisicing. Duis aliquip et cillum et commodo ad.",
+  "introduction": {
+    "title": "Scène #1",
+    "text": "Consequat pariatur pariatur consequat commodo consectetur magna excepteur anim exercitation veniam proident culpa minim. Qui labore id et et dolore veniam deserunt culpa fugiat velit quis. Cupidatat labore officia magna magna velit aute consequat. Incididunt occaecat tempor et magna ut sunt excepteur ea. Incididunt deserunt eiusmod non ipsum. Nostrud aliquip cillum excepteur occaecat proident ad laboris ad. Est sint duis proident enim et aute eu anim aute enim."
+  }
 }
