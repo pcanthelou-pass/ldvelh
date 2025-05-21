@@ -1,4 +1,11 @@
-import { Book, Character, EmptyBook, EmptyCharacter, useGameStore } from '@core'
+import {
+  Book,
+  Character,
+  EmptyBook,
+  EmptyCharacter,
+  rawGetSceneInfos,
+  useGameStore,
+} from '@core'
 import { WrapperTest } from '@features/helpers/WrapperTest'
 import { act, renderHook } from '@testing-library/react-native'
 
@@ -125,7 +132,7 @@ describe('useGameStore', () => {
     })
   })
 
-  describe('Given the book is loaded, a hero is created, the first scene to play is "1"', () => {
+  describe.only('Given the book is loaded, a hero is created', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
       result.current.setBook(TEST_BOOK as unknown as Book)
@@ -133,6 +140,16 @@ describe('useGameStore', () => {
       result.current.startBook()
     })
 
-    expect(result.current.currentScene).toBe('1')
+    it('Then the game store is well positioned on scene 1', () => {
+      expect(result.current.currentScene).toBe('1')
+    })
+
+    it('Then we are able to get first scenes infos', () => {
+      const infos = rawGetSceneInfos('1', result.current.book)
+      expect(infos).toStrictEqual([
+        { dest: '1-1', question: 'Scène #1-1' },
+        { dest: '1-2', question: 'Scène #1-2' },
+      ])
+    })
   })
 })
