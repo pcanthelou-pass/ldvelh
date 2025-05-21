@@ -1,5 +1,5 @@
 import { useBookStore, useGameStore, useUserStore } from '@core'
-import { WrapperTest } from '@features/helpers/WrapperTest'
+import { WrapperTest } from '@features'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
@@ -33,11 +33,7 @@ describe('Store in Core', () => {
   it('should be able to use the store within a component', async () => {
     const user = userEvent.setup()
 
-    render(
-      <WrapperTest>
-        <MyComponent />
-      </WrapperTest>,
-    )
+    render(<MyComponent />, { wrapper: WrapperTest })
 
     expect(screen.getByText('Test Book Title')).toBeVisible()
     expect(screen.getByText(`Date: 10/10/10`)).toBeVisible()

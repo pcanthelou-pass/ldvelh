@@ -1,13 +1,12 @@
 import { Scenes } from '@core'
-import { TEST_BOOK } from '@core/__tests__/useGameStore-test'
+import { ReadScene, useReadScene, WrapperTestExt } from '@features'
+import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
 import {
   render,
   renderHook,
   screen,
   userEvent,
 } from '@testing-library/react-native'
-import { WrapperTestExt } from '../../helpers/WrapperTestExt'
-import { ReadScene, useReadScene } from '../ReadScene'
 
 describe('Given the user has selected a book and has a character', () => {
   const user = userEvent.setup()

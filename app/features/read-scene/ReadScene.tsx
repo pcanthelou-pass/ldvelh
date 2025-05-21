@@ -1,12 +1,11 @@
+import { useGameStore } from '@core'
+import { View } from 'react-native'
 import {
-  getSceneInfosRaw,
-  SceneKey,
-  ScenePathway,
-  Scenes,
-  useGameStore,
-} from '@core'
-import React from 'react'
-import { Button, Text, View } from 'react-native'
+  ReadSceneActions,
+  ReadSceneEmptyView,
+  ReadSceneView,
+} from './components'
+import { useReadScene } from './hooks'
 
 export const ReadScene = ({
   onPressActionExt,
@@ -29,44 +28,4 @@ export const ReadScene = ({
   ) : (
     <ReadSceneEmptyView />
   )
-}
-
-const ReadSceneActions = ({
-  actions,
-  onPress,
-}: {
-  actions: ScenePathway
-  onPress: (dest: string) => void
-}) => {
-  return Object.entries(actions).map((entry) => (
-    <Button
-      key={entry[0]}
-      testID={`Choice${entry[1].dest}`}
-      title={entry[1].question}
-      onPress={() => {
-        onPress(entry[1].dest)
-      }}
-    />
-  ))
-}
-
-const ReadSceneEmptyView = () => (
-  <View>
-    <Text>Pas de scène !</Text>
-  </View>
-)
-
-export const ReadSceneView = ({ children }: { children: React.ReactNode }) => (
-  <View>
-    <Text>{children}</Text>
-  </View>
-)
-
-export const useReadScene = (current: SceneKey, scenes: Scenes | null) => {
-  if (scenes !== null) {
-    const waypoints = getSceneInfosRaw(current, scenes)
-    return { actions: waypoints, sceneText: scenes[current]?.text ?? '' }
-  } else {
-    return { actions: undefined, sceneText: '' }
-  }
 }

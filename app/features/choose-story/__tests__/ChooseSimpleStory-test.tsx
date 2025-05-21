@@ -1,5 +1,5 @@
 import { useBookStore, useGameStore } from '@core'
-import { WrapperTest } from '@features/helpers/WrapperTest'
+import { WrapperTest } from '@shared/helpers'
 import {
   render,
   screen,

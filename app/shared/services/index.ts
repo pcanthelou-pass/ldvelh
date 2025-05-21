@@ -1,2 +1,2 @@
-export * from './alert'
-export * from './types'
+export { AlertService } from './alert'
+export type { IAlertService, Services } from './types'

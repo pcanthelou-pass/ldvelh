@@ -1,4 +1,4 @@
-import { BookSlice, Scenes } from '../slices/book'
+import { BookSlice, Scenes } from '@core'
 import { useZeStore } from './genericStore'
 
 export type ScenePathwayQuestion = { question: string }

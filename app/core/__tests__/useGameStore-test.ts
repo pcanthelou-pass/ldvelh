@@ -6,79 +6,8 @@ import {
   getSceneInfosRaw,
   useGameStore,
 } from '@core'
-import { WrapperTest } from '@features/helpers/WrapperTest'
+import { TEST_BOOK, TEST_HERO, WrapperTest } from '@shared/helpers'
 import { act, renderHook } from '@testing-library/react-native'
-
-export const TEST_BOOK: Book = {
-  title: 'Mon livre',
-  description: 'Mon livre description',
-  introduction: {
-    title: 'Scène #1',
-    text: 'Dolor fugiat eiusmod',
-  },
-  scenes: {
-    '1': {
-      question: 'Scène #1',
-      text: 'Texte de la scène #1',
-      next: {
-        '1-1': {
-          question: 'Scène #1-1',
-          text: 'Texte de la scène #1 1',
-          next: {
-            '2-1': {
-              question: 'Scène #2-1',
-              text: 'Texte de la scène #2 1',
-              next: {
-                '3-1': {
-                  question: 'Scène #3-1',
-                  text: 'Texte de la scène #3 1',
-                  next: 'end',
-                },
-                '3-2': {
-                  question: 'Scène #3-2',
-                  text: 'Texte de la scène #3 2',
-                  next: 'end',
-                },
-                '3-3': {
-                  question: 'Scène #3-3',
-                  text: 'Texte de la scène #3 3',
-                  next: 'end',
-                },
-              },
-            },
-            '2-2': {
-              question: 'Scène #2-2',
-              text: 'Texte de la scène #2 2',
-              next: 'end-fail',
-            },
-          },
-        },
-        '1-2': {
-          question: 'Scène #1-2',
-          text: 'Texte de la scène #1 2',
-          next: 'end-fail',
-        },
-      },
-    },
-  },
-}
-
-export const TEST_HERO: Character = {
-  name: 'Héro',
-  abilities: {
-    agility: 8,
-    endurance: 18,
-    chance: 8,
-  },
-  items: {
-    "Potion d'endurance": {
-      quantity: 1,
-      value: 10,
-      power: 'potion',
-      effect: { endurance: 99 },
-    },
-  },
-}
 
 describe('useGameStore', () => {
   it('when just created, has an empty book', () => {

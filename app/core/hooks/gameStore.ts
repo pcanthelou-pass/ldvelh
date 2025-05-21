@@ -1,4 +1,4 @@
-import { GameSlice } from '../slices/game'
+import { GameSlice } from '@core'
 import { useZeStore } from './genericStore'
 
 export function useGameStore(

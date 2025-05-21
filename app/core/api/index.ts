@@ -1,1 +1,1 @@
-export * from './getStory'
+export { getStory } from './getStory'

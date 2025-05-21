@@ -1,6 +1,25 @@
-export * from './book'
-export * from './character'
-export * from './game'
-export * from './items'
-export * from './slices'
-export * from './user'
+export {
+  createBookSlice,
+  EmptyBook,
+  type Book,
+  type BookActions,
+  type BookIntroduction,
+  type BookSlice,
+  type Scene,
+  type SceneKey,
+  type Scenes,
+} from './book'
+export {
+  EmptyCharacter,
+  type Character,
+  type CharacterAbilities,
+} from './character'
+export {
+  createGameSlice,
+  type Game,
+  type GameActions,
+  type GameSlice,
+} from './game'
+export type { Items, ItemsProps } from './items'
+export type { Slices } from './slices'
+export type { UserSlice } from './user'

@@ -1,7 +1,6 @@
-import { TEST_BOOK } from '@core/__tests__/useGameStore-test'
-import { ReadIntroduction } from '@features'
+import { ReadIntroduction, WrapperTestExt } from '@features'
+import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
 import { render, screen, userEvent } from '@testing-library/react-native'
-import { WrapperTestExt } from '../../helpers/WrapperTestExt'
 
 describe('Given the user has selected a book and has a character', () => {
   const forward = jest.fn()

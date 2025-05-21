@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react-native'
-import { ReadIntroductionView } from '../components/ReadIntroductionView'
+import { ReadIntroductionView } from '../components'
 
 describe('Given the ReadIntroductionView component', () => {
   it('When rendered Then it shows is props title, text', () => {

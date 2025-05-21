@@ -1,6 +1,6 @@
+import { StoreContext } from '@core'
 import { useContext } from 'react'
 import { useStore } from 'zustand'
-import { StoreContext } from '../contexts'
 
 export function useZeStore<T>(selector?: any): T {
   const store = useContext(StoreContext)

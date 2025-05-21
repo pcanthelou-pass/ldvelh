@@ -1,5 +1,4 @@
-import { UserSlice } from '../slices/user'
-import { useZeStore } from './genericStore'
+import { UserSlice, useZeStore } from '@core'
 
 export function useUserStore(
   selector?: (state: UserSlice) => UserSlice,

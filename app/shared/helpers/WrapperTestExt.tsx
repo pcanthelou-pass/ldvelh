@@ -1,7 +1,8 @@
 import { useGameStore } from '@core'
-import { TEST_BOOK, TEST_HERO } from '@core/__tests__/useGameStore-test'
-import { WrapperTest } from '@features/helpers/WrapperTest'
+import { WrapperTest } from '@shared/helpers'
 import { useEffect } from 'react'
+import { TEST_BOOK } from './TEST_BOOK'
+import { TEST_HERO } from './TEST_HERO'
 
 const WrapperTestGameStore = ({ children }: { children: React.ReactNode }) => {
   const { setBook, setCharacter, startBook } = useGameStore()
@@ -10,7 +11,7 @@ const WrapperTestGameStore = ({ children }: { children: React.ReactNode }) => {
     setBook(TEST_BOOK)
     setCharacter(TEST_HERO)
     startBook()
-  }, [setBook, setCharacter])
+  }, [setBook, setCharacter, startBook])
 
   return children
 }

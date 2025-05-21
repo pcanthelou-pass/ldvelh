@@ -1,2 +1,2 @@
-export * from './components/ReadIntroductionView'
-export * from './ReadIntroduction'
+export { ReadIntroductionView } from './components/ReadIntroductionView'
+export { ReadIntroduction } from './ReadIntroduction'

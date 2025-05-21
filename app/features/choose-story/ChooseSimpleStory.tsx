@@ -1,5 +1,5 @@
 import { useBookStore, useGameStore } from '@core'
-import { ChooseStoryView } from './ChooseSimpleStoryView'
+import { ChooseStoryView } from './components'
 
 export const ChooseSimpleStory = () => {
   const selectedBook = useBookStore()

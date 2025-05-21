@@ -1,4 +1,9 @@
-export * from './bookStore'
-export * from './gameStore'
-export * from './genericStore'
-export * from './userStore'
+export {
+  getSceneInfosRaw,
+  useBookStore,
+  type ScenePathway,
+  type ScenePathwayQuestion,
+} from './bookStore'
+export { useGameStore } from './gameStore'
+export { useZeStore } from './genericStore'
+export { useUserStore } from './userStore'

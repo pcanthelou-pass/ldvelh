@@ -1,5 +1,5 @@
 import { useGameStore } from '@core'
-import { ReadIntroductionView } from './components/ReadIntroductionView'
+import { ReadIntroductionView } from './components'
 
 export const ReadIntroduction = ({ forward }: { forward?: () => void }) => {
   const { gameBook: book } = useGameStore()

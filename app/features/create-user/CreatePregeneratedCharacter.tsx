@@ -1,8 +1,7 @@
 import { Items, useGameStore } from '@core'
+import * as pregenerated from '@core/api/character.json'
 import { Button } from 'react-native'
-import * as pregenerated from '../../core/api/character.json'
-import { BackpackView } from './components/BackpackView'
-import { CreatePregeneratedCharacterView } from './components/CreatePregeneratedCharacterView'
+import { BackpackView, CreatePregeneratedCharacterView } from './components'
 
 const simpleParser = (items: Items) => {
   return Object.keys(items)
