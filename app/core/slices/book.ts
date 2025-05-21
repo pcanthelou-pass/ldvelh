@@ -13,12 +13,14 @@ export interface Scene {
   next: Scenes | EndPoint
 }
 
-export type Scenes = Record<string, Scene>
+export type SceneKey = string
+
+export type Scenes = Record<SceneKey, Scene>
 export interface Book {
   title: string
   description: string
   introduction: BookIntroduction
-  scenes: Record<string, Scene> | null
+  scenes: Scenes | null
 }
 
 export const EmptyBook = {
@@ -28,7 +30,7 @@ export const EmptyBook = {
     title: '',
     text: '',
   },
-  scenes: null,
+  scenes: Object,
 }
 export interface BookActions {
   setFullBook: (value: Book) => void

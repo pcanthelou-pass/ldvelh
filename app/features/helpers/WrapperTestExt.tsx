@@ -4,11 +4,12 @@ import { WrapperTest } from '@features/helpers/WrapperTest'
 import { useEffect } from 'react'
 
 const WrapperTestGameStore = ({ children }: { children: React.ReactNode }) => {
-  const { setBook, setCharacter } = useGameStore()
+  const { setBook, setCharacter, startBook } = useGameStore()
 
   useEffect(() => {
     setBook(TEST_BOOK)
     setCharacter(TEST_HERO)
+    startBook()
   }, [setBook, setCharacter])
 
   return children

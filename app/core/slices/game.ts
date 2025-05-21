@@ -5,7 +5,7 @@ import { Character, EmptyCharacter } from './character'
 export interface Game {
   date: string
   currentScene: string
-  book: Book
+  gameBook: Book
   character: Character
   characterNotModified: Character
 }
@@ -20,7 +20,7 @@ export type GameSlice = Game & GameActions
 export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
   set,
 ) => ({
-  book: EmptyBook,
+  gameBook: EmptyBook,
   currentScene: '',
   date: Date.now().toString(),
   character: EmptyCharacter,
@@ -29,7 +29,7 @@ export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
   setBook: (book: Book) =>
     set((state) => ({
       ...state,
-      book,
+      gameBook: book,
       currentScene: '',
       character: EmptyCharacter,
       characterNotModified: EmptyCharacter,

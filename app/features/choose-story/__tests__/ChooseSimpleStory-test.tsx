@@ -13,7 +13,7 @@ import { ChooseSimpleStory } from '../ChooseSimpleStory'
 const MockedComponent = () => {
   const [loading, setLoading] = useState(true)
   const { setTitle, setDescription } = useBookStore()
-  const { book } = useGameStore()
+  const { gameBook: book } = useGameStore()
   useEffect(() => {
     setTitle('Book Title Test')
     setDescription('Book Test Description')

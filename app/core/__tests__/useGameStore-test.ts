@@ -3,7 +3,7 @@ import {
   Character,
   EmptyBook,
   EmptyCharacter,
-  rawGetSceneInfos,
+  getSceneInfosRaw,
   useGameStore,
 } from '@core'
 import { WrapperTest } from '@features/helpers/WrapperTest'
@@ -83,7 +83,7 @@ export const TEST_HERO: Character = {
 describe('useGameStore', () => {
   it('when just created, has an empty book', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
-    expect(result.current.book).toBe(EmptyBook)
+    expect(result.current.gameBook).toBe(EmptyBook)
   })
 
   it('when just created, has an empty character', () => {
@@ -93,15 +93,15 @@ describe('useGameStore', () => {
 
   it('when game is set, character is empty and book is filled', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
-    expect(result.current.book).toBe(EmptyBook)
+    expect(result.current.gameBook).toBe(EmptyBook)
     expect(result.current.character).toStrictEqual(EmptyCharacter)
 
     act(() => {
       result.current.setBook(TEST_BOOK)
     })
 
-    expect(result.current.book).not.toStrictEqual(EmptyBook)
-    expect(result.current.book.title).toBe('Mon livre')
+    expect(result.current.gameBook).not.toStrictEqual(EmptyBook)
+    expect(result.current.gameBook.title).toBe('Mon livre')
     expect(result.current.character).toBe(EmptyCharacter)
   })
 
@@ -112,8 +112,8 @@ describe('useGameStore', () => {
       result.current.setCharacter(TEST_HERO as unknown as Character)
     })
 
-    expect(result.current.book).not.toBe(EmptyBook)
-    expect(result.current.book.title).toBe('Mon livre')
+    expect(result.current.gameBook).not.toBe(EmptyBook)
+    expect(result.current.gameBook.title).toBe('Mon livre')
     expect(result.current.character).not.toBe(EmptyCharacter)
     expect(result.current.character.name).toBe('Héro')
     expect(result.current.characterNotModified).not.toBe(EmptyCharacter)
@@ -126,13 +126,13 @@ describe('useGameStore', () => {
       result.current.setBook(TEST_BOOK as unknown as Book)
     })
 
-    expect(result.current.book.introduction).toStrictEqual({
+    expect(result.current.gameBook.introduction).toStrictEqual({
       title: TEST_BOOK.introduction.title,
       text: TEST_BOOK.introduction.text,
     })
   })
 
-  describe.only('Given the book is loaded, a hero is created', () => {
+  describe('Given the book is loaded, a hero is created', () => {
     const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
     act(() => {
       result.current.setBook(TEST_BOOK as unknown as Book)
@@ -145,7 +145,7 @@ describe('useGameStore', () => {
     })
 
     it('Then we are able to get first scenes infos', () => {
-      const infos = rawGetSceneInfos('1', result.current.book)
+      const infos = getSceneInfosRaw('1', result.current.gameBook.scenes)
       expect(infos).toStrictEqual([
         { dest: '1-1', question: 'Scène #1-1' },
         { dest: '1-2', question: 'Scène #1-2' },
