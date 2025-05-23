@@ -1,24 +1,47 @@
 import { useGameStore } from '@core'
+import { GameSlice } from '@core/slices/game'
 import { WrapperTest } from '@shared/helpers'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'
 
-const WrapperTestGameStore = ({ children }: { children: React.ReactNode }) => {
-  const { setBook, setCharacter, startBook } = useGameStore()
+type StartStoreCallback = (store: GameSlice) => void
+
+const WrapperTestPlusStore = ({
+  runOnStart,
+  children,
+}: {
+  runOnStart?: StartStoreCallback
+  children: React.ReactNode
+}) => {
+  const store = useGameStore()
+  const { setBook, setCharacter, startBook } = store
 
   useEffect(() => {
-    setBook(TEST_BOOK)
-    setCharacter(TEST_HERO)
-    startBook()
-  }, [setBook, setCharacter, startBook])
+    store.setBook(TEST_BOOK)
+    store.setCharacter(TEST_HERO)
+    store.startBook()
+
+    if (runOnStart) {
+      runOnStart(store)
+    }
+  }, [setBook, setCharacter, startBook, runOnStart])
 
   return children
 }
-export const WrapperTestExt = ({ children }: { children: React.ReactNode }) => {
+
+export const WrapperTestExt = ({
+  children,
+  runOnStart,
+}: {
+  runOnStart?: StartStoreCallback
+  children: React.ReactNode
+}) => {
   return (
     <WrapperTest>
-      <WrapperTestGameStore>{children}</WrapperTestGameStore>
+      <WrapperTestPlusStore runOnStart={runOnStart}>
+        {children}
+      </WrapperTestPlusStore>
     </WrapperTest>
   )
 }

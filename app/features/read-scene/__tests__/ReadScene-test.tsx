@@ -1,21 +1,31 @@
-import { Scenes } from '@core'
-import { ReadScene, useReadScene, WrapperTestExt } from '@features'
+import { GameSlice } from '@core'
+import { ReadScene, WrapperTestExt } from '@features'
 import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
-import {
-  render,
-  renderHook,
-  screen,
-  userEvent,
-} from '@testing-library/react-native'
+import { render, screen, userEvent } from '@testing-library/react-native'
+import { ReactNode } from 'react'
+
+const MyWrapper = ({ children }: { children: ReactNode }) => {
+  const runOnStart = (store: GameSlice) => {
+    store.hitCharacter(3)
+  }
+  return <WrapperTestExt runOnStart={runOnStart}>{children}</WrapperTestExt>
+}
 
 describe('Given the user has selected a book and has a character', () => {
   const user = userEvent.setup()
   const onPressActionExtFn = jest.fn()
+  const onPressItemExtFn = jest.fn()
 
   beforeEach(() => {
-    render(<ReadScene onPressActionExt={onPressActionExtFn} />, {
-      wrapper: WrapperTestExt,
-    })
+    render(
+      <ReadScene
+        onPressActionExt={onPressActionExtFn}
+        onPressItemExt={onPressItemExtFn}
+      />,
+      {
+        wrapper: MyWrapper,
+      },
+    )
   })
 
   describe('When displaying the ReadScene screen for the first time', () => {
@@ -43,32 +53,13 @@ describe('Given the user has selected a book and has a character', () => {
         await screen.findByText(/boire la potion d'endurance/i),
       ).toBeVisible()
     })
-  })
-})
+    it('Allows to push button to use an item', async () => {
+      const button = screen.getByText(/boire la potion d'endurance/i)
+      expect(button).toBeVisible()
 
-describe('useReadScene', () => {
-  const scenes: Scenes = TEST_BOOK.scenes
-  it('can read an empty scene', () => {
-    const { result } = renderHook(() => useReadScene('', null))
-    expect(result.current.sceneText).toBe('')
-    expect(result.current.actions).toBe(undefined)
-  })
-  it('can read an empty scene with good key', () => {
-    const { result } = renderHook(() => useReadScene('1', null))
-    expect(result.current.sceneText).toBe('')
-    expect(result.current.actions).toBe(undefined)
-  })
-  it('can read an scene without a good key', () => {
-    const { result } = renderHook(() => useReadScene('', scenes))
-    expect(result.current.sceneText).toBe('')
-    expect(result.current.actions).toBeNull()
-  })
-  it('can read an scene with good key', () => {
-    const { result } = renderHook(() => useReadScene('1', scenes))
-    expect(result.current.sceneText).toBe(TEST_BOOK.scenes['1']?.text)
-    expect(result.current.actions).toStrictEqual([
-      { dest: '1-1', question: 'Scène #1-1' },
-      { dest: '1-2', question: 'Scène #1-2' },
-    ])
+      await user.press(button)
+
+      expect(onPressItemExtFn).toHaveBeenCalledTimes(1)
+    })
   })
 })

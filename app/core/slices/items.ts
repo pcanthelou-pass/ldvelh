@@ -1,7 +1,8 @@
+export type ItemPowers = 'default' | 'potion'
 export interface ItemsProps {
   quantity: number
   value: number
-  power?: string
+  power: ItemPowers
   effect?: object
 }
 

@@ -14,12 +14,15 @@ export interface GameActions {
   setBook: (book: Book) => void
   setCharacter: (character: Character) => void
   startBook: () => void
+  resetEndurance: () => void
+  consumeItemByOne: (key: string) => void
+  hitCharacter: (hit: number) => void
 }
 export type GameSlice = Game & GameActions
 
-export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
-  set,
-) => ({
+export type GameStoreType = StateCreator<GameSlice, [], [], GameSlice>
+
+export const createGameSlice: GameStoreType = (set) => ({
   gameBook: EmptyBook,
   currentScene: '',
   date: Date.now().toString(),
@@ -46,5 +49,41 @@ export const createGameSlice: StateCreator<GameSlice, [], [], GameSlice> = (
     set((state) => ({
       ...state,
       currentScene: '1',
+    })),
+  hitCharacter: (hit: number = 2) =>
+    set((state) => ({
+      ...state,
+      character: {
+        ...state.character,
+        abilities: {
+          ...state.character.abilities,
+          endurance: state.character.abilities.endurance - hit,
+        },
+      },
+    })),
+  resetEndurance: () =>
+    set((state) => ({
+      ...state,
+      character: {
+        ...state.character,
+        abilities: {
+          ...state.character.abilities,
+          endurance: state.characterNotModified.abilities.endurance,
+        },
+      },
+    })),
+  consumeItemByOne: (key: string) =>
+    set((state) => ({
+      ...state,
+      character: {
+        ...state.character,
+        items: {
+          ...state.character.items,
+          [key]: {
+            ...state.character.items[key],
+            quantity: state.character.items[key]?.quantity - 1,
+          },
+        },
+      },
     })),
 })

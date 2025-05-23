@@ -1,3 +1,4 @@
+export { getActionableItems as useActionableItems } from '../../core/hooks/getActionableItems'
 export { ReadSceneActions } from './components/ReadSceneActions'
 export { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
 export { ReadSceneView } from './components/ReadSceneView'
