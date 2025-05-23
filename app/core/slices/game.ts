@@ -16,7 +16,7 @@ export interface GameActions {
   startBook: () => void
   resetEndurance: () => void
   consumeItemByOne: (key: string) => void
-  hitCharacter: (hit: number) => void
+  hitCharacter: (hit?: number) => void
 }
 export type GameSlice = Game & GameActions
 

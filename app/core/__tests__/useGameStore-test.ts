@@ -80,5 +80,28 @@ describe('useGameStore', () => {
         { dest: '1-2', question: 'Scène #1-2' },
       ])
     })
+
+    it('Then the hero can be hitted', () => {
+      const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
+      act(() => {
+        result.current.setBook(TEST_BOOK as unknown as Book)
+        result.current.setCharacter(TEST_HERO as unknown as Character)
+        result.current.startBook()
+        result.current.hitCharacter()
+      })
+
+      expect(result.current.character.abilities.endurance).toBe(
+        result.current.characterNotModified.abilities.endurance - 2,
+      )
+      expect(result.current.characterNotModified.abilities.endurance).toBe(
+        result.current.character.abilities.endurance + 2,
+      )
+      act(() => {
+        result.current.resetEndurance()
+      })
+      expect(result.current.character.abilities.endurance).toBe(
+        result.current.characterNotModified.abilities.endurance,
+      )
+    })
   })
 })
