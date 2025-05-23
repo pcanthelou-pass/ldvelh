@@ -15,17 +15,16 @@ const WrapperTestPlusStore = ({
   children: React.ReactNode
 }) => {
   const store = useGameStore()
-  const { setBook, setCharacter, startBook } = store
+  const { setBook, setCharacter } = store
 
   useEffect(() => {
     store.setBook(TEST_BOOK)
     store.setCharacter(TEST_HERO)
-    store.startBook()
 
     if (runOnStart) {
       runOnStart(store)
     }
-  }, [setBook, setCharacter, startBook, runOnStart])
+  }, [setBook, setCharacter, runOnStart])
 
   return children
 }

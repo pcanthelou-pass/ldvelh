@@ -6,6 +6,7 @@ import { ReactNode } from 'react'
 
 const MyWrapper = ({ children }: { children: ReactNode }) => {
   const runOnStart = (store: GameSlice) => {
+    store.startBook()
     store.hitCharacter(3)
   }
   return <WrapperTestExt runOnStart={runOnStart}>{children}</WrapperTestExt>
