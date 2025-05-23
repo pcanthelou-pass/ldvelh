@@ -28,4 +28,12 @@ describe('useReadScene', () => {
       { dest: '1-2', question: 'Scène #1-2' },
     ])
   })
+  it('can read an inside scene with good key', () => {
+    const { result } = renderHook(() => useReadScene('1-1', scenes))
+    expect(result.current.sceneText).toBe(TEST_BOOK.scenes['1-1']?.text)
+    expect(result.current.actions).toStrictEqual([
+      { dest: '2-1', question: 'Scène #2-1' },
+      { dest: '2-2', question: 'Scène #2-2' },
+    ])
+  })
 })

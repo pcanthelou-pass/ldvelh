@@ -81,6 +81,24 @@ describe('useGameStore', () => {
       ])
     })
 
+    // it('Then we are able to move to another scenes', () => {
+    //   const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
+    //   act(() => {
+    //     result.current.startBook()
+    //     result.current.moveToScene('1-1')
+    //   })
+    //   expect(result.current.currentScene).toBe('1-1')
+    //   expect(result.current.history).toStrictEqual(['1'])
+    //   const infos = getSceneInfosRaw(
+    //     result.current.currentScene,
+    //     result.current.gameBook.scenes,
+    //   )
+    //   expect(infos).toStrictEqual([
+    //     { dest: '1-1', question: 'Scène #1-1' },
+    //     { dest: '1-2', question: 'Scène #1-2' },
+    //   ])
+    // })
+
     it('Then the hero can be hitted', () => {
       const { result } = renderHook(useGameStore, { wrapper: WrapperTest })
       act(() => {

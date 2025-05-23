@@ -1,10 +1,11 @@
 import { StateCreator } from 'zustand'
-import { Book, EmptyBook } from './book'
+import { Book, EmptyBook, SceneKey } from './book'
 import { Character, EmptyCharacter } from './character'
 
 export interface Game {
   date: string
-  currentScene: string
+  history: SceneKey[]
+  currentScene: SceneKey
   gameBook: Book
   character: Character
   characterNotModified: Character
@@ -17,6 +18,7 @@ export interface GameActions {
   resetEndurance: () => void
   consumeItemByOne: (key: string) => void
   hitCharacter: (hit?: number) => void
+  moveToScene: (scene: SceneKey) => void
 }
 export type GameSlice = Game & GameActions
 
@@ -24,6 +26,7 @@ export type GameStoreType = StateCreator<GameSlice, [], [], GameSlice>
 
 export const createGameSlice: GameStoreType = (set) => ({
   gameBook: EmptyBook,
+  history: [],
   currentScene: '',
   date: Date.now().toString(),
   character: EmptyCharacter,
@@ -34,6 +37,7 @@ export const createGameSlice: GameStoreType = (set) => ({
       ...state,
       gameBook: book,
       currentScene: '',
+      history: [],
       character: EmptyCharacter,
       characterNotModified: EmptyCharacter,
       date: Date.now().toString(),
@@ -42,13 +46,21 @@ export const createGameSlice: GameStoreType = (set) => ({
     set((state) => ({
       ...state,
       currentScene: '',
+      history: [],
       character,
       characterNotModified: character,
     })),
   startBook: () =>
     set((state) => ({
       ...state,
+      history: [],
       currentScene: '1',
+    })),
+  moveToScene: (scene: SceneKey) =>
+    set((state) => ({
+      ...state,
+      history: [...state.history, state.currentScene],
+      currentScene: scene,
     })),
   hitCharacter: (hit: number = 2) =>
     set((state) => ({

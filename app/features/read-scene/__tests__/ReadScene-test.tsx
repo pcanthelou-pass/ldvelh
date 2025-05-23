@@ -35,10 +35,11 @@ describe('Given the user has selected a book and has a character', () => {
     })
     it('Then it show the choices for the next scenes', async () => {
       expect(
-        await screen.findByText(TEST_BOOK.scenes['1'].next['1-1'].question),
+        //nextIds
+        await screen.findByText(TEST_BOOK.scenes['1-1'].question),
       ).toBeVisible()
       expect(
-        await screen.findByText(TEST_BOOK.scenes['1'].next['1-2'].question),
+        await screen.findByText(TEST_BOOK.scenes['1-2'].question),
       ).toBeVisible()
     })
     it('Allows to push button to change current scene', async () => {

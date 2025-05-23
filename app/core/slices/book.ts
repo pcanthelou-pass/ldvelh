@@ -5,22 +5,28 @@ export interface BookIntroduction {
   text: string
 }
 
-type EndPoint = 'end' | 'end-fail'
-
-export interface Scene {
-  question: string
-  text: string
-  next: Scenes | EndPoint
-}
+type EndPoint = 'success' | 'failure'
 
 export type SceneKey = string
 
+// Une scène « plate » :
+export interface Scene {
+  id: SceneKey // identifiant unique
+  question: string // titre / question
+  text: string // texte de la scène
+  nextIds: string[] // liste d'id de la ou des scènes suivantes
+  isEnding?: boolean // true si c'est une scène de fin
+  endingType?: EndPoint
+}
+
 export type Scenes = Record<SceneKey, Scene>
+
+// Livre complet normalisé
 export interface Book {
   title: string
   description: string
   introduction: BookIntroduction
-  scenes: Scenes | null
+  scenes: Scenes
 }
 
 export const EmptyBook = {
@@ -30,7 +36,7 @@ export const EmptyBook = {
     title: '',
     text: '',
   },
-  scenes: Object,
+  scenes: null,
 }
 export interface BookActions {
   setFullBook: (value: Book) => void
@@ -51,6 +57,6 @@ export const createBookSlice: StateCreator<BookSlice, [], [], BookSlice> = (
   setDescription: (value: string) => set((state) => ({ description: value })),
   setIntroduction: (value: BookIntroduction) =>
     set((state) => ({ introduction: value })),
-  setScenes: (value: Record<string, Scene>) =>
+  setScenes: (value: Record<SceneKey, Scene>) =>
     set((state) => ({ scenes: value })),
 })

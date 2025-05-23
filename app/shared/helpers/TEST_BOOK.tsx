@@ -3,53 +3,66 @@ import { Book } from '@core'
 export const TEST_BOOK: Book = {
   title: 'Mon livre',
   description: 'Mon livre description',
-  introduction: {
-    title: 'Scène #1',
-    text: 'Dolor fugiat eiusmod',
-  },
+  introduction: { title: 'Mon livre description', text: '' },
   scenes: {
     '1': {
+      id: '1',
       question: 'Scène #1',
       text: 'Texte de la scène #1',
-      next: {
-        '1-1': {
-          question: 'Scène #1-1',
-          text: 'Texte de la scène #1 1',
-          next: {
-            '2-1': {
-              question: 'Scène #2-1',
-              text: 'Texte de la scène #2 1',
-              next: {
-                '3-1': {
-                  question: 'Scène #3-1',
-                  text: 'Texte de la scène #3 1',
-                  next: 'end',
-                },
-                '3-2': {
-                  question: 'Scène #3-2',
-                  text: 'Texte de la scène #3 2',
-                  next: 'end',
-                },
-                '3-3': {
-                  question: 'Scène #3-3',
-                  text: 'Texte de la scène #3 3',
-                  next: 'end',
-                },
-              },
-            },
-            '2-2': {
-              question: 'Scène #2-2',
-              text: 'Texte de la scène #2 2',
-              next: 'end-fail',
-            },
-          },
-        },
-        '1-2': {
-          question: 'Scène #1-2',
-          text: 'Texte de la scène #1 2',
-          next: 'end-fail',
-        },
-      },
+      nextIds: ['1-1', '1-2'],
+    },
+    '1-1': {
+      id: '1-1',
+      question: 'Scène #1-1',
+      text: 'Texte de la scène #1 1',
+      nextIds: ['2-1', '2-2'],
+    },
+    '1-2': {
+      id: '1-2',
+      question: 'Scène #1-2',
+      text: 'Texte de la scène #1 2',
+      nextIds: [],
+      isEnding: true,
+      endingType: 'failure',
+    },
+    '2-1': {
+      id: '2-1',
+      question: 'Scène #2-1',
+      text: 'Texte de la scène #2 1',
+      nextIds: ['3-1', '3-2', '3-3'],
+    },
+    '2-2': {
+      id: '2-2',
+      question: 'Scène #2-2',
+      text: 'Texte de la scène #2 2',
+      nextIds: [],
+      isEnding: true,
+      endingType: 'failure',
+    },
+    // scènes finales « success »
+    '3-1': {
+      id: '3-1',
+      question: 'Scène #3-1',
+      text: '…',
+      nextIds: [],
+      isEnding: true,
+      endingType: 'success',
+    },
+    '3-2': {
+      id: '3-2',
+      question: 'Scène #3-2',
+      text: '…',
+      nextIds: [],
+      isEnding: true,
+      endingType: 'success',
+    },
+    '3-3': {
+      id: '3-3',
+      question: 'Scène #3-3',
+      text: '…',
+      nextIds: [],
+      isEnding: true,
+      endingType: 'success',
     },
   },
 }
