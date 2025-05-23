@@ -52,7 +52,9 @@ export const ItemBuilder = (item: ItemBuilderProps): Item => {
 }
 
 export const getActionableItems = (items: Items): Item[] => {
-  return Object.entries(items).map(([key, item]) => {
-    return ItemBuilder({ ...item, name: key })
-  })
+  return Object.entries(items)
+    .filter(([key, item]) => item.quantity > 0)
+    .map(([key, item]) => {
+      return ItemBuilder({ ...item, name: key })
+    })
 }

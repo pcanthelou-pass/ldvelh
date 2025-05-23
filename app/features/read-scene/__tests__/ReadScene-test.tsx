@@ -61,5 +61,12 @@ describe('Given the user has selected a book and has a character', () => {
 
       expect(onPressItemExtFn).toHaveBeenCalledTimes(1)
     })
+    it('A used item without quatity is not usable again and disappear', async () => {
+      const button = screen.getByText(/boire la potion d'endurance/i)
+      await user.press(button)
+      expect(
+        await screen.queryByText(/boire la potion d'endurance/i),
+      ).not.toBeVisible()
+    })
   })
 })
