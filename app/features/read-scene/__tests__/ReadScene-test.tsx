@@ -71,4 +71,14 @@ describe('Given the user has selected a book and has a character', () => {
       ).not.toBeVisible()
     })
   })
+  describe('When displaying an successful ending scene', () => {
+    it.failing('Does not show other actions', () => {})
+    it.failing('Does show it is successful', () => {})
+    it.failing('Does show a button to go the homepage', () => {})
+  })
+  describe('When displaying a failing ending scene', () => {
+    it.failing('Does not show other actions', () => {})
+    it.failing('Does show it is a failure', () => {})
+    it.failing('Does show a button to go the homepage', () => {})
+  })
 })

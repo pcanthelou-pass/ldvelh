@@ -36,4 +36,27 @@ describe('useReadScene', () => {
       { dest: '2-2', question: 'Scène #2-2' },
     ])
   })
+  it('can keep the reading order in the book if a bad key is given', () => {
+    const { result } = renderHook(() => useReadScene('7-1', scenes))
+    expect(result.current.sceneText).toBe('')
+    expect(result.current.actions).toStrictEqual(null)
+  })
+  it('knows it is not the end', () => {
+    const { result } = renderHook(() => useReadScene('2-1', scenes))
+    expect(result.current.isFailure).toBeFalsy()
+    expect(result.current.isSuccess).toBeFalsy()
+    expect(result.current.actions).not.toStrictEqual([])
+  })
+  it('knows it is the end and a success', () => {
+    const { result } = renderHook(() => useReadScene('3-1', scenes))
+    expect(result.current.isFailure).toBeFalsy()
+    expect(result.current.isSuccess).toBeTruthy()
+    expect(result.current.actions).toStrictEqual([])
+  })
+  it('knows it is the end and a failure', () => {
+    const { result } = renderHook(() => useReadScene('2-2', scenes))
+    expect(result.current.isFailure).toBeTruthy()
+    expect(result.current.isSuccess).toBeFalsy()
+    expect(result.current.actions).toStrictEqual([])
+  })
 })
