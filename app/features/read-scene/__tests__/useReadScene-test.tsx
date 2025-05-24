@@ -43,20 +43,17 @@ describe('useReadScene', () => {
   })
   it('knows it is not the end', () => {
     const { result } = renderHook(() => useReadScene('2-1', scenes))
-    expect(result.current.isFailure).toBeFalsy()
-    expect(result.current.isSuccess).toBeFalsy()
+    expect(result.current.kind).toBe('normal')
     expect(result.current.actions).not.toStrictEqual([])
   })
   it('knows it is the end and a success', () => {
     const { result } = renderHook(() => useReadScene('3-1', scenes))
-    expect(result.current.isFailure).toBeFalsy()
-    expect(result.current.isSuccess).toBeTruthy()
+    expect(result.current.kind).toBe('success')
     expect(result.current.actions).toStrictEqual([])
   })
   it('knows it is the end and a failure', () => {
     const { result } = renderHook(() => useReadScene('2-2', scenes))
-    expect(result.current.isFailure).toBeTruthy()
-    expect(result.current.isSuccess).toBeFalsy()
+    expect(result.current.kind).toBe('failure')
     expect(result.current.actions).toStrictEqual([])
   })
 })

@@ -1,15 +1,35 @@
 import { SceneKey, Scenes, getSceneInfosRaw } from '@core'
+import { SceneInfo } from '@core/hooks/bookStore'
 
-export const useReadScene = (current: SceneKey, scenes: Scenes | null) => {
+export type SceneKind = 'empty' | 'normal' | 'success' | 'failure'
+
+export interface UseReadSceneHook {
+  actions: SceneInfo[] | null | undefined
+  sceneText: string
+  kind: SceneKind
+}
+
+export const getKindFromScene = (
+  current: SceneKey,
+  scenes: Scenes | null,
+): SceneKind => {
+  if (!scenes?.[current]) return 'empty'
+  if (scenes[current].isEnding) return scenes[current]?.endingType ?? 'empty'
+  return 'normal'
+}
+
+export const useReadScene = (
+  current: SceneKey,
+  scenes: Scenes | null,
+): UseReadSceneHook => {
   if (scenes !== null) {
     const waypoints = getSceneInfosRaw(current, scenes)
     return {
       actions: waypoints,
       sceneText: scenes[current]?.text ?? '',
-      isSuccess: scenes[current]?.endingType === 'success',
-      isFailure: scenes[current]?.endingType === 'failure',
+      kind: getKindFromScene(current, scenes),
     }
   } else {
-    return { actions: undefined, sceneText: '' }
+    return { actions: undefined, sceneText: '', kind: 'empty' }
   }
 }

@@ -1,0 +1,15 @@
+import { Button, Text, View } from 'react-native'
+import { ReadSceneView } from './ReadSceneView'
+
+export const ReadSceneFailureView = (
+  sceneText: string,
+  onPressQuit: () => void,
+) => {
+  return (
+    <View>
+      <Text>Vous avez échoué.</Text>
+      <ReadSceneView>{sceneText}</ReadSceneView>
+      <Button title="Quitter" onPress={onPressQuit} />
+    </View>
+  )
+}
