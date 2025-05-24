@@ -43,7 +43,7 @@ export const TEST_BOOK: Book = {
     '3-1': {
       id: '3-1',
       question: 'Scène #3-1',
-      text: '…',
+      text: 'Texte de la scène #3 1',
       nextIds: [],
       isEnding: true,
       endingType: 'success',
@@ -51,7 +51,7 @@ export const TEST_BOOK: Book = {
     '3-2': {
       id: '3-2',
       question: 'Scène #3-2',
-      text: '…',
+      text: 'Texte de la scène #3 2',
       nextIds: [],
       isEnding: true,
       endingType: 'success',
@@ -59,7 +59,7 @@ export const TEST_BOOK: Book = {
     '3-3': {
       id: '3-3',
       question: 'Scène #3-3',
-      text: '…',
+      text: 'Texte de la scène #3 3',
       nextIds: [],
       isEnding: true,
       endingType: 'success',
