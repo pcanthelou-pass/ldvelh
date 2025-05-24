@@ -19,6 +19,7 @@ export interface GameActions {
   consumeItemByOne: (key: string) => void
   hitCharacter: (hit?: number) => void
   moveToScene: (scene: SceneKey) => void
+  quitGame: () => void
 }
 export type GameSlice = Game & GameActions
 
@@ -55,6 +56,15 @@ export const createGameSlice: GameStoreType = (set) => ({
       ...state,
       history: [],
       currentScene: '1',
+    })),
+  quitGame: () =>
+    set((state) => ({
+      ...state,
+      gameBook: EmptyBook,
+      history: [],
+      currentScene: '',
+      character: EmptyCharacter,
+      characterNotModified: EmptyCharacter,
     })),
   moveToScene: (scene: SceneKey) =>
     set((state) => ({
