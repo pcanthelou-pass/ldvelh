@@ -29,14 +29,14 @@ export interface Book {
   scenes: Scenes
 }
 
-export const EmptyBook = {
+export const EmptyBook: Book = {
   title: '',
   description: '',
   introduction: {
     title: '',
     text: '',
   },
-  scenes: null,
+  scenes: {},
 }
 export interface BookActions {
   setFullBook: (value: Book) => void
