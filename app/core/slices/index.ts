@@ -19,7 +19,8 @@ export {
   type Game,
   type GameActions,
   type GameSlice,
+  type GameStoreType,
 } from './game'
-export type { Items, ItemsProps } from './items'
+export type { ItemPowers, Items, ItemsProps } from './items'
 export type { Slices } from './slices'
 export type { UserSlice } from './user'

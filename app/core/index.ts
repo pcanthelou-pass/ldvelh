@@ -1,4 +1,7 @@
 export { getStory } from './api/getStory'
+export { Attacker, type RoundAttackType } from './classes/attacker'
+export { D6, D6x2 } from './classes/dice'
+export { Fight } from './classes/fight'
 export { Core } from './components/core'
 export {
   ServicesContext,
@@ -15,11 +18,20 @@ export { createStoreFromSlices } from './createStoreFromSlices'
 export {
   getSceneInfosRaw,
   useBookStore,
-  type ScenePathway,
-  type ScenePathwayQuestion,
+  type SceneInfo,
 } from './hooks/bookStore'
 export { useGameStore } from './hooks/gameStore'
 export { useZeStore } from './hooks/genericStore'
+export {
+  createItemTypeDefault,
+  createItemTypePotion,
+  getActionableItems,
+  ItemBuilder,
+  ItemFactories,
+  type Item,
+  type ItemBuilderProps,
+  type ItemFactory,
+} from './hooks/getActionableItems'
 export { useUserStore } from './hooks/userStore'
 export {
   createBookSlice,
@@ -42,8 +54,9 @@ export {
   type Game,
   type GameActions,
   type GameSlice,
+  type GameStoreType,
 } from './slices/game'
-export type { Items, ItemsProps } from './slices/items'
+export type { ItemPowers, Items, ItemsProps } from './slices/items'
 export type { Slices } from './slices/slices'
 export type { UserSlice } from './slices/user'
 export type { AllSlices, StoreFromSlices } from './types'
