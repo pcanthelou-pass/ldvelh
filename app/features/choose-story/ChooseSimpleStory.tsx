@@ -1,5 +1,5 @@
+import { useChooseStory } from '@core'
 import { ChooseStoryView } from './components'
-import { useChooseStory } from './hooks'
 
 export const ChooseSimpleStory = () => {
   const { selectedBook, setBook } = useChooseStory()

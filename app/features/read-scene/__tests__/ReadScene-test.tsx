@@ -1,5 +1,6 @@
 import { GameSlice } from '@core'
-import { ReadScene, WrapperTestExt } from '@features'
+import { ReadScene } from '@features'
+import { WrapperTestExt } from '@shared/helpers'
 import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
 import { act, render, screen, userEvent } from '@testing-library/react-native'
 import { ReactNode } from 'react'

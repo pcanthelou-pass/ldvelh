@@ -6,7 +6,7 @@ export const ReadIntroductionView = ({
   children,
 }: {
   title: string
-  forward: () => void
+  forward?: () => void
   children: React.ReactNode
 }) => (
   <View>

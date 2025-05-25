@@ -1,5 +1,5 @@
 import { useBookStore, useGameStore, useUserStore } from '@core'
-import { WrapperTest } from '@features'
+import { WrapperTest } from '@shared/helpers'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'

@@ -1,8 +1,8 @@
 import { Items } from '@core'
 import { Button, View } from 'react-native'
+import { usePregeneratedCharacter } from '../../core/hooks/usePregeneratedCharacter'
 import { Backpack } from './Backpack'
 import { CreatePregeneratedCharacterView } from './components'
-import { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 
 export const CreatePregeneratedCharacter = () => {
   const { name, agility, endurance, chance, items, onSetCharacter } =

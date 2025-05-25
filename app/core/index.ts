@@ -32,6 +32,16 @@ export {
   type ItemBuilderProps,
   type ItemFactory,
 } from './hooks/getActionableItems'
+export { useChooseStory } from './hooks/useChooseSimpleStory'
+export { useItemSimpleParser } from './hooks/useItemSimpleParser'
+export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
+export { useReadIntroduction } from './hooks/useReadIntroduction'
+export {
+  getKindFromScene,
+  useReadScene,
+  type SceneKind,
+  type UseReadSceneHook,
+} from './hooks/useReadScene'
 export { useUserStore } from './hooks/userStore'
 export {
   createBookSlice,
@@ -40,6 +50,7 @@ export {
   type BookActions,
   type BookIntroduction,
   type BookSlice,
+  type OpponentType,
   type Scene,
   type SceneKey,
   type Scenes,

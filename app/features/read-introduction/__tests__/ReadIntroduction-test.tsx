@@ -1,4 +1,5 @@
-import { ReadIntroduction, WrapperTestExt } from '@features'
+import { ReadIntroduction } from '@features'
+import { WrapperTestExt } from '@shared/helpers'
 import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
 import { render, screen, userEvent } from '@testing-library/react-native'
 
