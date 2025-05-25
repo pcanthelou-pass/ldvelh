@@ -1,3 +1,4 @@
+export { useReadScene } from '../core/hooks/useReadScene'
 export { WrapperTest } from '../shared/helpers/WrapperTest'
 export { WrapperTestExt } from '../shared/helpers/WrapperTestExt'
 export { ChooseSimpleStory } from './choose-story/ChooseSimpleStory'
@@ -5,5 +6,4 @@ export { ChooseStoryView } from './choose-story/components/ChooseSimpleStoryView
 export { useChooseStory } from './choose-story/hooks/useChooseSimpleStory'
 export { CreatePregeneratedCharacter } from './create-user/CreatePregeneratedCharacter'
 export { ReadIntroduction } from './read-introduction/ReadIntroduction'
-export { useReadScene } from './read-scene/hooks/useReadScene'
 export { ReadScene } from './read-scene/ReadScene'

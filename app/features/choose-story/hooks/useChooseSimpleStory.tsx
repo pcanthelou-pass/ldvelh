@@ -1,9 +1,7 @@
-import { getStory, useBookStore } from '@core'
+import { useBookStore, useGameStore } from '@core'
 
 export const useChooseStory = () => {
-  const { title, description } = getStory()
-  const { setTitle, setDescription } = useBookStore((state) => state)
-  setTitle(title)
-  setDescription(description)
-  return { title, description }
+  const selectedBook = useBookStore()
+  const { setBook } = useGameStore()
+  return { selectedBook, setBook }
 }

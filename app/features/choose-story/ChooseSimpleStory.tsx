@@ -1,9 +1,8 @@
-import { useBookStore, useGameStore } from '@core'
 import { ChooseStoryView } from './components'
+import { useChooseStory } from './hooks'
 
 export const ChooseSimpleStory = () => {
-  const selectedBook = useBookStore()
-  const { setBook } = useGameStore()
+  const { selectedBook, setBook } = useChooseStory()
 
   const onPress = () => {
     setBook(selectedBook)

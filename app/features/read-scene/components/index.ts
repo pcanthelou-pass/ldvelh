@@ -1,3 +1,6 @@
+export { AttackerRow } from './AttackerRow'
+export { AttackersView } from './AttackersView'
+export { FightSceneView } from './FightSceneView'
 export { ItemsActionsView } from './ItemsActionsView'
 export { ReadSceneActions } from './ReadSceneActions'
 export { ReadSceneEmptyView } from './ReadSceneEmptyView'

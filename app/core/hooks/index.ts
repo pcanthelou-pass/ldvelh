@@ -11,4 +11,10 @@ export {
   type ItemBuilderProps,
   type ItemFactory,
 } from './getActionableItems'
+export {
+  getKindFromScene,
+  useReadScene,
+  type SceneKind,
+  type UseReadSceneHook,
+} from './useReadScene'
 export { useUserStore } from './userStore'
