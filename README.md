@@ -17,45 +17,45 @@ Voir la doc :
 
 ## Version #1
 
-### **L'utilisateur choisit une histoire**
+### L'utilisateur choisit une histoire
 
-- Sélection de l'histoire
-  - Sélectionner une seule histoire = juste un bouton entrer
+- Sélection de l'histoire X
+  - Sélectionner une seule histoire = juste un bouton entrer X
 
-### **L'utilisateur créé son personnage**
+### L'utilisateur créé son personnage
 
-- Créer un personnage
-  - Le personnage est déjà pré-tiré = afficher juste le personnage
+- Créer un personnage X
+  - Le personnage est déjà pré-tiré = afficher juste le personnage X
 
-### **L'utilisateur démarre l'histoire**
+### L'utilisateur démarre l'histoire
 
-- Lecture de l'introduction
-  - Ecran d'introduction (on va directe ensuite à la première scène)
+- Lecture de l'introduction X
+  - Ecran d'introduction (on va directe ensuite à la première scène) X
 
-### **L'utilisateur fait l'histoire**
+### L'utilisateur fait l'histoire
 
-- Lecture de la scène
+- Lecture de la scène X
 
-  - Ecran de la scène (tiré d'un fichier xml ou json)
+  - Ecran de la scène (tiré d'un fichier xml ou json) X
 
 - Résoudre un combat
 
-  - ​ Affichage des caractéristiques de l'adversaire
+  - ​ Affichage des caractéristiques de l'adversaire X
 
-  - ​ Résolution au tour par tour des jets de dés
+  - ​ Résolution au tour par tour des jets de dés X
 
-  - ​ Afficher les niveaux vie/chance du personnage
+  - ​ Afficher les niveaux vie/chance du personnage X
 
   - ​ Le personnage meurt -> Ecran de mort
 
   - ​ Le personnage sort vainceur
 
-- ​ Utiliser un objet
+- ​ Utiliser un objet X
 
-  - Boire une potion d'endurance
+  - Boire une potion d'endurance X
 
-- Sélection de la prochaine scène
-  - L'utilisateur sélectionne son choix
+- Sélection de la prochaine scène X
+  - L'utilisateur sélectionne son choix X
 
 ### L'utilisateur termine l'histoire
 
@@ -70,7 +70,7 @@ Voir la doc :
 - OU Le personnage est en mort
   - Ecran de mort
 
-### L'utilisateur ferme le livre\*\*
+### L'utilisateur ferme le livre
 
 - Retourner à l'accueil
   - Arrivée directe à l'accueil
