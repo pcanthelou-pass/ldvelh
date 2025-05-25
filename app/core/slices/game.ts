@@ -32,80 +32,56 @@ export const createGameSlice: GameStoreType = (set) => ({
   date: Date.now().toString(),
   character: EmptyCharacter,
   characterNotModified: EmptyCharacter,
-  setDate: (date: string) => set((state) => ({ ...state, date })),
+  setDate: (date: string) =>
+    set((state) => {
+      state.date = date
+    }),
   setBook: (book: Book) =>
-    set((state) => ({
-      ...state,
-      gameBook: book,
-      currentScene: '',
-      history: [],
-      character: EmptyCharacter,
-      characterNotModified: EmptyCharacter,
-      date: Date.now().toString(),
-    })),
+    set((state) => {
+      state.gameBook = book
+      state.currentScene = ''
+      state.history = []
+      state.character = EmptyCharacter
+      state.characterNotModified = EmptyCharacter
+      state.date = Date.now().toString()
+    }),
   setCharacter: (character: Character) =>
-    set((state) => ({
-      ...state,
-      currentScene: '',
-      history: [],
-      character,
-      characterNotModified: character,
-    })),
+    set((state) => {
+      state.currentScene = ''
+      state.history = []
+      state.character = character
+      state.characterNotModified = character
+    }),
   startBook: () =>
-    set((state) => ({
-      ...state,
-      history: [],
-      currentScene: '1',
-    })),
+    set((state) => {
+      state.history = []
+      state.currentScene = '1'
+    }),
   quitGame: () =>
-    set((state) => ({
-      ...state,
-      gameBook: EmptyBook,
-      history: [],
-      currentScene: '',
-      character: EmptyCharacter,
-      characterNotModified: EmptyCharacter,
-    })),
+    set((state) => {
+      state.gameBook = EmptyBook
+      state.history = []
+      state.currentScene = ''
+      state.character = EmptyCharacter
+      state.characterNotModified = EmptyCharacter
+    }),
   moveToScene: (scene: SceneKey) =>
-    set((state) => ({
-      ...state,
-      history: [...state.history, state.currentScene],
-      currentScene: scene,
-    })),
+    set((state) => {
+      state.history.push(state.currentScene)
+      state.currentScene = scene
+    }),
   hitCharacter: (hit: number = 2) =>
-    set((state) => ({
-      ...state,
-      character: {
-        ...state.character,
-        abilities: {
-          ...state.character.abilities,
-          endurance: state.character.abilities.endurance - hit,
-        },
-      },
-    })),
+    set((state) => {
+      state.character.abilities.endurance -= hit
+    }),
   resetEndurance: () =>
-    set((state) => ({
-      ...state,
-      character: {
-        ...state.character,
-        abilities: {
-          ...state.character.abilities,
-          endurance: state.characterNotModified.abilities.endurance,
-        },
-      },
-    })),
+    set((state) => {
+      state.character.abilities.endurance =
+        state.characterNotModified.abilities.endurance
+    }),
   consumeItemByOne: (key: string) =>
-    set((state) => ({
-      ...state,
-      character: {
-        ...state.character,
-        items: {
-          ...state.character.items,
-          [key]: {
-            ...state.character.items[key],
-            quantity: state.character.items[key]?.quantity - 1,
-          },
-        },
-      },
-    })),
+    set((state) => {
+      if (state.character.items[key].quantity)
+        state.character.items[key].quantity -= 1
+    }),
 })
