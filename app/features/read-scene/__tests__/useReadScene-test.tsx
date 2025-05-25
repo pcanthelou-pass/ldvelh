@@ -26,6 +26,7 @@ describe('useReadScene', () => {
     expect(result.current.actions).toStrictEqual([
       { dest: '1-1', question: 'Scène #1-1' },
       { dest: '1-2', question: 'Scène #1-2' },
+      { dest: '1-3', question: 'Scène #1-3' },
     ])
   })
   it('can read an inside scene with good key', () => {

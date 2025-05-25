@@ -83,6 +83,7 @@ describe('useGameStore', () => {
       expect(infos).toStrictEqual([
         { dest: '1-1', question: 'Scène #1-1' },
         { dest: '1-2', question: 'Scène #1-2' },
+        { dest: '1-3', question: 'Scène #1-3' },
       ])
       expect(result.current.gameBook).toStrictEqual(TEST_BOOK)
     })

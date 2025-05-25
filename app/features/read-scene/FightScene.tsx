@@ -1,19 +1,7 @@
 import { Attacker, Character, Fight } from '@core'
 import { OpponentType } from '@core/slices/book'
-import { useState } from 'react'
-import { Button, Text, View } from 'react-native'
-
-interface AttackerRowProps {
-  name: string
-  agility: number
-  endurance: number
-}
-
-const AttackerRow = ({ name, agility, endurance }: AttackerRowProps) => (
-  <View>
-    <Text>{`${name} - Agilité : ${agility} - Endurance : ${endurance}`}</Text>
-  </View>
-)
+import { Attackers } from './Attackers'
+import { FightSceneView } from './components/FightSceneView'
 
 export const FightScene = (sceneInfo: OpponentType, character: Character) => {
   const opponent = new Attacker({
@@ -33,53 +21,14 @@ export const FightScene = (sceneInfo: OpponentType, character: Character) => {
   const onPressFlee = () => {}
 
   return (
-    <View>
-      <View>
-        <Text>Combat</Text>
-      </View>
-      <View>
-        <Text>{sceneInfo.text}</Text>
-      </View>
-      <FightRow
+    <FightSceneView sceneInfo={sceneInfo}>
+      <Attackers
         sceneInfo={sceneInfo}
         character={character}
         fight={fight}
         stopFight={stopFight}
+        onPressFlee={onPressFlee}
       />
-      <Button title="Fuir" onPress={onPressFlee} />
-    </View>
-  )
-}
-
-const FightRow = ({ sceneInfo, character, fight, stopFight }) => {
-  const [opponentEndurance, setOpponentEndurance] = useState(
-    () => sceneInfo.endurance,
-  )
-  const [heroEndurance, setHeroEndurance] = useState(
-    () => character.abilities.endurance,
-  )
-  const onPressAttack = () => {
-    fight.resolveRound()
-    if (fight.canContinue()) {
-      setOpponentEndurance(fight.opponentEndurance())
-      setHeroEndurance(fight.heroEndurance())
-    } else {
-      stopFight()
-    }
-  }
-  return (
-    <>
-      <AttackerRow
-        name={sceneInfo.name}
-        agility={sceneInfo.agility}
-        endurance={opponentEndurance}
-      />
-      <AttackerRow
-        name={character.name}
-        agility={character.abilities.agility}
-        endurance={heroEndurance}
-      />
-      <Button title="Attaquer" onPress={onPressAttack} />
-    </>
+    </FightSceneView>
   )
 }
