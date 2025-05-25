@@ -1,0 +1,1 @@
+export { usePregeneratedCharacter } from './usePregeneratedCharacter'

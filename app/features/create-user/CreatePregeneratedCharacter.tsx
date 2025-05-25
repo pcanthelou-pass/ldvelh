@@ -1,39 +1,27 @@
-import { Items, useGameStore } from '@core'
-import * as pregenerated from '@core/api/character.json'
-import { Button } from 'react-native'
-import { BackpackView, CreatePregeneratedCharacterView } from './components'
-
-const simpleParser = (items: Items) => {
-  return Object.keys(items)
-}
+import { Items } from '@core'
+import { Button, View } from 'react-native'
+import { Backpack } from './Backpack'
+import { CreatePregeneratedCharacterView } from './components'
+import { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 
 export const CreatePregeneratedCharacter = () => {
-  const { name, abilities, items } = pregenerated.character
-  const { agility, endurance, chance } = abilities
-  const { setCharacter } = useGameStore()
+  const { name, agility, endurance, chance, items, onSetCharacter } =
+    usePregeneratedCharacter()
 
   const onPress = () => {
-    setCharacter({
-      name,
-      abilities: {
-        agility,
-        endurance,
-        chance,
-      },
-      items: {},
-    })
+    onSetCharacter()
   }
 
   return (
-    <>
+    <View>
       <CreatePregeneratedCharacterView
         name={name}
         agility={agility}
         endurance={endurance}
         chance={chance}
       />
-      <BackpackView items={simpleParser(items)} />
+      <Backpack items={items as unknown as Items} />
       <Button title="Suivant" onPress={onPress} />
-    </>
+    </View>
   )
 }

@@ -11,6 +11,7 @@ export {
   type ItemBuilderProps,
   type ItemFactory,
 } from './getActionableItems'
+export { useItemSimpleParser } from './useItemSimpleParser'
 export {
   getKindFromScene,
   useReadScene,
