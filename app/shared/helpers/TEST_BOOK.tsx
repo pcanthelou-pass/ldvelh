@@ -9,7 +9,7 @@ export const TEST_BOOK: Book = {
       id: '1',
       question: 'Scène #1',
       text: 'Texte de la scène #1',
-      nextIds: ['1-1', '1-2'],
+      nextIds: ['1-1', '1-2', '1-3'],
     },
     '1-1': {
       id: '1-1',
@@ -24,6 +24,18 @@ export const TEST_BOOK: Book = {
       nextIds: [],
       isEnding: true,
       endingType: 'failure',
+    },
+    '1-3': {
+      id: '1-3',
+      question: 'Scène #1-3',
+      text: 'Texte de la scène après le combat',
+      nextIds: ['2-1'],
+      opponent: {
+        text: 'Vous devez battre Toto',
+        name: 'Monster',
+        agility: 8,
+        endurance: 8,
+      },
     },
     '2-1': {
       id: '2-1',

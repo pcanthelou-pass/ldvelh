@@ -1,7 +1,7 @@
 import { SceneKey, Scenes, getSceneInfosRaw } from '@core'
 import { SceneInfo } from '@core/hooks/bookStore'
 
-export type SceneKind = 'empty' | 'normal' | 'success' | 'failure'
+export type SceneKind = 'empty' | 'normal' | 'success' | 'failure' | 'fight'
 
 export interface UseReadSceneHook {
   actions: SceneInfo[] | null | undefined
@@ -15,6 +15,7 @@ export const getKindFromScene = (
 ): SceneKind => {
   if (!scenes?.[current]) return 'empty'
   if (scenes[current].isEnding) return scenes[current]?.endingType ?? 'empty'
+  if (scenes[current].opponent) return 'fight'
   return 'normal'
 }
 

@@ -9,6 +9,13 @@ type EndPoint = 'success' | 'failure'
 
 export type SceneKey = string
 
+export interface OpponentType {
+  name: string
+  agility: number
+  endurance: number
+  text: string
+}
+
 // Une scène « plate » :
 export interface Scene {
   id: SceneKey // identifiant unique
@@ -17,6 +24,7 @@ export interface Scene {
   nextIds: string[] // liste d'id de la ou des scènes suivantes
   isEnding?: boolean // true si c'est une scène de fin
   endingType?: EndPoint
+  opponent?: OpponentType
 }
 
 export type Scenes = Record<SceneKey, Scene>
