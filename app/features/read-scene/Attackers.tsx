@@ -1,15 +1,22 @@
+import { Attacker, Character, Fight } from '@core'
 import { useState } from 'react'
 import { AttackersView } from './components/AttackersView'
 
 export const Attackers = ({
-  sceneInfo,
+  opponent,
   character,
   fight,
   stopFight,
   onFlee,
+}: {
+  opponent: Attacker
+  character: Character
+  fight: Fight
+  stopFight: () => void
+  onFlee: () => void
 }) => {
   const [opponentEndurance, setOpponentEndurance] = useState(
-    () => sceneInfo.endurance,
+    () => opponent.endurance,
   )
   const [heroEndurance, setHeroEndurance] = useState(
     () => character.abilities.endurance,
@@ -34,7 +41,7 @@ export const Attackers = ({
       heroEndurance={heroEndurance}
       onPressAttack={onPressAttack}
       opponentEndurance={opponentEndurance}
-      sceneInfo={sceneInfo}
+      opponent={opponent}
       onPressFlee={onPressFlee}
     />
   )

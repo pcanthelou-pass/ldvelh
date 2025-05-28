@@ -1,4 +1,4 @@
-import { EndPoint, OpponentType } from '@core/classes'
+import { Attacker, EndPoint } from '@core/classes'
 
 export type SceneKey = string
 
@@ -10,7 +10,7 @@ export interface Scene {
   nextIds: string[] // liste d'id de la ou des scènes suivantes
   isEnding?: boolean // true si c'est une scène de fin
   endingType?: EndPoint
-  opponent?: OpponentType
+  opponent?: Attacker
 }
 
 export type Scenes = Record<SceneKey, Scene>

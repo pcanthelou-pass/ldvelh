@@ -1,16 +1,16 @@
-import { OpponentType } from '@core/classes/opponenttype'
+import { Attacker } from '@core'
 import { Text, View } from 'react-native'
 
 export const FightSceneView: React.FC<{
-  sceneInfo: OpponentType
+  opponent: Attacker
   children: React.ReactNode
-}> = ({ sceneInfo, children }) => (
+}> = ({ opponent, children }) => (
   <View>
     <View>
       <Text>Combat</Text>
     </View>
     <View>
-      <Text>{sceneInfo.text}</Text>
+      <Text>{opponent.text}</Text>
     </View>
     {children}
   </View>

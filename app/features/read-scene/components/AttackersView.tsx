@@ -1,25 +1,26 @@
+import { Attacker, Character } from '@core'
 import { Button } from 'react-native'
 import { AttackerRow } from './AttackerRow'
 
 export const AttackersView: React.FC<{
-  character: unknown
-  heroEndurance: unknown
+  character: Character
+  heroEndurance: number
   onPressAttack: () => void
-  opponentEndurance: unknown
-  sceneInfo: unknown
+  opponentEndurance: number
+  opponent: Attacker
   onPressFlee: () => void
 }> = ({
   character,
   heroEndurance,
   onPressAttack,
   opponentEndurance,
-  sceneInfo,
+  opponent,
   onPressFlee,
 }) => (
   <>
     <AttackerRow
-      name={sceneInfo.name}
-      agility={sceneInfo.agility}
+      name={opponent.name}
+      agility={opponent.agility}
       endurance={opponentEndurance}
     />
     <AttackerRow

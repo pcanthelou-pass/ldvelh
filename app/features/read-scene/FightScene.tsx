@@ -1,15 +1,10 @@
 import { Attacker, Character, Fight } from '@core'
-import { OpponentType } from '@core/classes/opponenttype'
 import { Attackers } from './Attackers'
 import { FightSceneView } from './components/FightSceneView'
 
-export const FightScene = (sceneInfo: OpponentType, character: Character) => {
-  const opponent = new Attacker({
-    agility: sceneInfo.agility,
-    endurance: sceneInfo.endurance,
-  })
-
+export const FightScene = (opponent: Attacker, character: Character) => {
   const hero = new Attacker({
+    name: 'Héro',
     agility: character.abilities.agility,
     endurance: character.abilities.endurance,
   })
@@ -21,9 +16,9 @@ export const FightScene = (sceneInfo: OpponentType, character: Character) => {
   const onPressFlee = () => {}
 
   return (
-    <FightSceneView sceneInfo={sceneInfo}>
+    <FightSceneView opponent={opponent}>
       <Attackers
-        sceneInfo={sceneInfo}
+        opponent={opponent}
         character={character}
         fight={fight}
         stopFight={stopFight}

@@ -3,21 +3,33 @@ import { D6x2 } from './dice'
 export type RoundAttackType = (attacker?: Attacker) => number
 
 export class Attacker {
+  name: string
   endurance: number
   agility: number
+  chance?: number
+  text?: string
   _attack?: RoundAttackType
 
   constructor({
+    name,
+    text,
     endurance,
     agility,
+    chance,
     attack,
   }: {
+    name: string
+    text?: string
     endurance: number
     agility: number
+    chance?: number
     attack?: RoundAttackType
   }) {
+    this.name = name
+    this.text = text
     this.endurance = endurance
     this.agility = agility
+    this.chance = chance
     this._attack = attack
   }
 
