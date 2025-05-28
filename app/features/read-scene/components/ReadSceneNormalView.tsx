@@ -1,5 +1,4 @@
-import { Item } from '@core/hooks'
-import { SceneInfo } from '@core/hooks/bookStore'
+import { Item, SceneInfo } from '@core'
 import { View } from 'react-native'
 import { ItemsActionsView } from './ItemsActionsView'
 import { ReadSceneActions } from './ReadSceneActions'

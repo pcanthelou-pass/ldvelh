@@ -1,7 +1,6 @@
-import { Scenes } from '@core'
+import { Scenes, useReadScene } from '@core'
 import { TEST_BOOK } from '@shared/helpers'
 import { renderHook } from '@testing-library/react-native'
-import { useReadScene } from '../hooks'
 
 describe('useReadScene', () => {
   const scenes: Scenes = TEST_BOOK.scenes

@@ -1,5 +1,5 @@
 import { GameActions, Items, ItemsProps } from '@core'
-import { ItemPowers } from '@core/slices/items'
+import { ItemPowers } from '@core/classes/items'
 
 /*
   items: {

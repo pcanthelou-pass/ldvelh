@@ -1,4 +1,3 @@
-import { ScenePathway } from '@core'
 import { Button } from 'react-native'
 
 export const ReadSceneActions = ({

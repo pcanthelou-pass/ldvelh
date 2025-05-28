@@ -1,5 +1,4 @@
-import { Items } from '@core'
-import { useItemSimpleParser } from '@core/hooks'
+import { Items, useItemSimpleParser } from '@core'
 import { BackpackEmptyView } from './components/BackpackEmptyView'
 import { BackpackFilledView } from './components/BackpackFilledView'
 

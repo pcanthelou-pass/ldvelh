@@ -1,6 +1,7 @@
+import { Character, EmptyCharacter } from '@core'
+import { SceneKey } from '@core/classes'
 import { StateCreator } from 'zustand'
-import { Book, EmptyBook, SceneKey } from './book'
-import { Character, EmptyCharacter } from './character'
+import { Book, EmptyBook } from './book'
 
 export interface Game {
   date: string

@@ -1,22 +1,16 @@
-import { SceneKey, Scenes, getSceneInfosRaw } from '@core'
-import { SceneInfo } from '@core/hooks/bookStore'
-
-export type SceneKind = 'empty' | 'normal' | 'success' | 'failure' | 'fight'
+import {
+  SceneInfo,
+  SceneKey,
+  SceneKind,
+  Scenes,
+  getKindFromScene,
+  getSceneInfosRaw,
+} from '@core'
 
 export interface UseReadSceneHook {
   actions: SceneInfo[] | null | undefined
   sceneText: string
   kind: SceneKind
-}
-
-export const getKindFromScene = (
-  current: SceneKey,
-  scenes: Scenes | null,
-): SceneKind => {
-  if (!scenes?.[current]) return 'empty'
-  if (scenes[current].isEnding) return scenes[current]?.endingType ?? 'empty'
-  if (scenes[current].opponent) return 'fight'
-  return 'normal'
 }
 
 export const useReadScene = (

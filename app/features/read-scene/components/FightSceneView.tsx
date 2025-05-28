@@ -1,4 +1,4 @@
-import { OpponentType } from '@core/slices/book'
+import { OpponentType } from '@core/classes/opponenttype'
 import { Text, View } from 'react-native'
 
 export const FightSceneView: React.FC<{

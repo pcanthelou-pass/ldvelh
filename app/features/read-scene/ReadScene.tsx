@@ -1,5 +1,4 @@
-import { useGameStore } from '@core'
-import { getActionableItems, Item } from '@core/hooks'
+import { getActionableItems, Item, useGameStore, useReadScene } from '@core'
 import { useState } from 'react'
 import {
   ReadSceneEmptyView,
@@ -9,7 +8,6 @@ import {
   ReadSceneSuccessView,
 } from './components'
 import { FightScene } from './FightScene'
-import { useReadScene } from './hooks'
 
 export const ReadScene = ({
   onPressActionExt,

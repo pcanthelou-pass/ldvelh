@@ -1,7 +1,33 @@
 export { getStory } from './api/getStory'
 export { Attacker, type RoundAttackType } from './classes/attacker'
+export type { BookIntroduction } from './classes/bookintroduction'
+export {
+  EmptyCharacter,
+  type Character,
+  type CharacterAbilities,
+} from './classes/character'
 export { D6, D6x2 } from './classes/dice'
+export type { EndPoint } from './classes/endpoint'
 export { Fight } from './classes/fight'
+export {
+  createItemTypeDefault,
+  createItemTypePotion,
+  getActionableItems,
+  ItemBuilder,
+  ItemFactories,
+  type Item,
+  type ItemBuilderProps,
+  type ItemFactory,
+} from './classes/getActionableItems'
+export { getKindFromScene } from './classes/getKindFromScene'
+export { getSceneInfosRaw } from './classes/getSceneInfosRaw'
+export type { ItemPowers, Items, ItemsProps } from './classes/items'
+export type { OpponentType } from './classes/opponenttype'
+export type { SceneInfo } from './classes/SceneInfo'
+export type { SceneKind } from './classes/SceneKind'
+export type { Scene, SceneKey, Scenes } from './classes/scenes'
+export { useItemSimpleParser } from './classes/useItemSimpleParser'
+export { useReadScene, type UseReadSceneHook } from './classes/useReadScene'
 export { Core } from './components/core'
 export {
   ServicesContext,
@@ -15,51 +41,20 @@ export {
   type StoreProviderProps,
 } from './contexts/store'
 export { createStoreFromSlices } from './createStoreFromSlices'
-export {
-  getSceneInfosRaw,
-  useBookStore,
-  type SceneInfo,
-} from './hooks/bookStore'
+export { useBookStore } from './hooks/bookStore'
 export { useGameStore } from './hooks/gameStore'
 export { useZeStore } from './hooks/genericStore'
-export {
-  createItemTypeDefault,
-  createItemTypePotion,
-  getActionableItems,
-  ItemBuilder,
-  ItemFactories,
-  type Item,
-  type ItemBuilderProps,
-  type ItemFactory,
-} from './hooks/getActionableItems'
 export { useChooseStory } from './hooks/useChooseSimpleStory'
-export { useItemSimpleParser } from './hooks/useItemSimpleParser'
 export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 export { useReadIntroduction } from './hooks/useReadIntroduction'
-export {
-  getKindFromScene,
-  useReadScene,
-  type SceneKind,
-  type UseReadSceneHook,
-} from './hooks/useReadScene'
 export { useUserStore } from './hooks/userStore'
 export {
   createBookSlice,
   EmptyBook,
   type Book,
   type BookActions,
-  type BookIntroduction,
   type BookSlice,
-  type OpponentType,
-  type Scene,
-  type SceneKey,
-  type Scenes,
 } from './slices/book'
-export {
-  EmptyCharacter,
-  type Character,
-  type CharacterAbilities,
-} from './slices/character'
 export {
   createGameSlice,
   type Game,
@@ -67,7 +62,6 @@ export {
   type GameSlice,
   type GameStoreType,
 } from './slices/game'
-export type { ItemPowers, Items, ItemsProps } from './slices/items'
 export type { Slices } from './slices/slices'
 export type { UserSlice } from './slices/user'
 export type { AllSlices, StoreFromSlices } from './types'

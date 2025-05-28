@@ -1,5 +1,5 @@
 import { Attacker, Character, Fight } from '@core'
-import { OpponentType } from '@core/slices/book'
+import { OpponentType } from '@core/classes/opponenttype'
 import { Attackers } from './Attackers'
 import { FightSceneView } from './components/FightSceneView'
 
