@@ -1,7 +1,13 @@
-import { Character, EmptyCharacter } from '@core'
-import { SceneKey } from '@core/classes'
+import {
+  Book,
+  Character,
+  EmptyBook,
+  EmptyCharacter,
+  fromRawBook,
+  RawBookType,
+  SceneKey,
+} from '@core'
 import { StateCreator } from 'zustand'
-import { Book, EmptyBook } from './book'
 
 export interface Game {
   date: string
@@ -13,7 +19,7 @@ export interface Game {
 }
 export interface GameActions {
   setDate: (date: string) => void
-  setBook: (book: Book) => void
+  setBook: (book: RawBookType) => void
   setCharacter: (character: Character) => void
   startBook: () => void
   resetEndurance: () => void
@@ -30,21 +36,21 @@ export const createGameSlice: GameStoreType = (set) => ({
   gameBook: EmptyBook,
   history: [],
   currentScene: '',
-  date: Date.now().toString(),
+  date: '',
   character: EmptyCharacter,
   characterNotModified: EmptyCharacter,
   setDate: (date: string) =>
     set((state) => {
       state.date = date
     }),
-  setBook: (book: Book) =>
+  setBook: (rawBook: RawBookType) =>
     set((state) => {
-      state.gameBook = book
+      state.gameBook = fromRawBook(rawBook)
       state.currentScene = ''
       state.history = []
       state.character = EmptyCharacter
       state.characterNotModified = EmptyCharacter
-      state.date = Date.now().toString()
+      state.date = ''
     }),
   setCharacter: (character: Character) =>
     set((state) => {

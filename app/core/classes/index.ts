@@ -1,9 +1,30 @@
-export { Attacker, type RoundAttackType } from './attacker'
-export type { BookIntroduction } from './bookintroduction'
-export { EmptyCharacter, type Character } from './character'
+export { Attacker } from './attacker'
+export type { RoundAttackType } from './attacker'
+export { EmptyBook, EmptyBookIntroduction, fromRawBook } from './book'
+export type { Book, BookIntroduction } from './book'
+export {
+  BookScene,
+  BookScenes,
+  EmptyBookScene,
+  EmptyRawBook,
+  FailureBookScene,
+  FightBookScene,
+  NormalBookScene,
+  SceneBuilder,
+  SuccessBookScene,
+} from './book-scene'
+export type {
+  EndPoint,
+  RawBookSceneType,
+  RawBookType,
+  SceneKey,
+  SceneKind,
+  ScenesRecord,
+} from './book-scene'
+export { EmptyCharacter } from './character'
+export type { Character } from './character'
 export { CharacterAbilities, EmptyAbilities } from './character-abilities'
 export { D6, D6x2, Dice } from './dice'
-export type { EndPoint } from './endpoint'
 export { Fight } from './fight'
 export {
   createItemTypeDefault,
@@ -11,15 +32,9 @@ export {
   getActionableItems,
   ItemBuilder,
   ItemFactories,
-  type Item,
-  type ItemBuilderProps,
-  type ItemFactory,
 } from './getActionableItems'
-export { getKindFromScene } from './getKindFromScene'
-export { getSceneInfosRaw } from './getSceneInfosRaw'
+export type { Item, ItemBuilderProps, ItemFactory } from './getActionableItems'
 export type { ItemPowers, Items, ItemsProps } from './items'
-export type { SceneInfo } from './SceneInfo'
-export type { SceneKind } from './SceneKind'
-export type { Scene, SceneKey, Scenes } from './scenes'
 export { useItemSimpleParser } from './useItemSimpleParser'
-export { useReadScene, type UseReadSceneHook } from './useReadScene'
+export { useReadScene } from './useReadScene'
+export type { UseReadSceneHook } from './useReadScene'

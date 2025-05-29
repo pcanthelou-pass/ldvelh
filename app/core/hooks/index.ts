@@ -1,4 +1,3 @@
-export { useBookStore } from './bookStore'
 export { useGameStore } from './gameStore'
 export { useZeStore } from './genericStore'
 export { useChooseStory } from './useChooseSimpleStory'

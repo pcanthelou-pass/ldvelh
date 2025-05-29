@@ -1,30 +1,31 @@
 import {
-  SceneInfo,
+  BookScene,
+  BookScenes,
+  EmptyBookScene,
+  RawBookSceneType,
   SceneKey,
-  SceneKind,
-  Scenes,
-  getKindFromScene,
-  getSceneInfosRaw,
 } from '@core'
 
 export interface UseReadSceneHook {
-  actions: SceneInfo[] | null | undefined
-  sceneText: string
-  kind: SceneKind
+  actions: any[] | null | undefined
+  scene: BookScene
 }
 
 export const useReadScene = (
   current: SceneKey,
-  scenes: Scenes | null,
+  scenes: Record<string, RawBookSceneType> | null,
 ): UseReadSceneHook => {
-  if (scenes !== null) {
-    const waypoints = getSceneInfosRaw(current, scenes)
+  if (scenes !== null && current !== '') {
+    const scene = BookScenes.fromRawBookType(scenes).getScene(current)
     return {
-      actions: waypoints,
-      sceneText: scenes[current]?.text ?? '',
-      kind: getKindFromScene(current, scenes),
+      actions:
+        scene.nextScenes?.map((next) => ({
+          dest: next.id,
+          question: next.question,
+        })) ?? null,
+      scene: scene,
     }
   } else {
-    return { actions: undefined, sceneText: '', kind: 'empty' }
+    return { actions: null, scene: new EmptyBookScene() }
   }
 }

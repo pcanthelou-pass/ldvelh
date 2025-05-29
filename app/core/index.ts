@@ -1,66 +1,77 @@
-export { getStory } from './api/getStory'
-export { Attacker, type RoundAttackType } from './classes/attacker'
-export type { BookIntroduction } from './classes/bookintroduction'
-export { EmptyCharacter, type Character } from './classes/character'
+export { getStory } from './api'
 export {
+  Attacker,
+  BookScene,
+  BookScenes,
   CharacterAbilities,
-  EmptyAbilities,
-} from './classes/character-abilities'
-export { D6, D6x2, Dice } from './classes/dice'
-export type { EndPoint } from './classes/endpoint'
-export { Fight } from './classes/fight'
-export {
   createItemTypeDefault,
   createItemTypePotion,
+  D6,
+  D6x2,
+  Dice,
+  EmptyAbilities,
+  EmptyBook,
+  EmptyBookIntroduction,
+  EmptyBookScene,
+  EmptyCharacter,
+  EmptyRawBook,
+  FailureBookScene,
+  Fight,
+  FightBookScene,
+  fromRawBook,
   getActionableItems,
   ItemBuilder,
   ItemFactories,
-  type Item,
-  type ItemBuilderProps,
-  type ItemFactory,
-} from './classes/getActionableItems'
-export { getKindFromScene } from './classes/getKindFromScene'
-export { getSceneInfosRaw } from './classes/getSceneInfosRaw'
-export type { ItemPowers, Items, ItemsProps } from './classes/items'
-export type { SceneInfo } from './classes/SceneInfo'
-export type { SceneKind } from './classes/SceneKind'
-export type { Scene, SceneKey, Scenes } from './classes/scenes'
-export { useItemSimpleParser } from './classes/useItemSimpleParser'
-export { useReadScene, type UseReadSceneHook } from './classes/useReadScene'
-export { Core } from './components/core'
+  NormalBookScene,
+  SceneBuilder,
+  SuccessBookScene,
+  useItemSimpleParser,
+  useReadScene,
+} from './classes'
+export type {
+  Book,
+  BookIntroduction,
+  Character,
+  EndPoint,
+  Item,
+  ItemBuilderProps,
+  ItemFactory,
+  ItemPowers,
+  Items,
+  ItemsProps,
+  RawBookSceneType,
+  RawBookType,
+  RoundAttackType,
+  SceneKey,
+  SceneKind,
+  ScenesRecord,
+  UseReadSceneHook,
+} from './classes'
+export { Core } from './components'
 export {
   ServicesContext,
   ServicesProvider,
-  useServices,
-  type ServicesProviderProps,
-} from './contexts/services'
-export {
   StoreContext,
   StoreProvider,
-  type StoreProviderProps,
-} from './contexts/store'
+  useServices,
+} from './contexts'
+export type { ServicesProviderProps, StoreProviderProps } from './contexts'
 export { createStoreFromSlices } from './createStoreFromSlices'
-export { useBookStore } from './hooks/bookStore'
-export { useGameStore } from './hooks/gameStore'
-export { useZeStore } from './hooks/genericStore'
-export { useChooseStory } from './hooks/useChooseSimpleStory'
-export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
-export { useReadIntroduction } from './hooks/useReadIntroduction'
-export { useUserStore } from './hooks/userStore'
 export {
-  createBookSlice,
-  EmptyBook,
-  type Book,
-  type BookActions,
-  type BookSlice,
-} from './slices/book'
-export {
-  createGameSlice,
-  type Game,
-  type GameActions,
-  type GameSlice,
-  type GameStoreType,
-} from './slices/game'
-export type { Slices } from './slices/slices'
-export type { UserSlice } from './slices/user'
+  useChooseStory,
+  useGameStore,
+  usePregeneratedCharacter,
+  useReadIntroduction,
+  useUserStore,
+  useZeStore,
+} from './hooks'
+export { createGameSlice } from './slices'
+export type {
+  Game,
+  GameActions,
+  GameSlice,
+  GameStoreType,
+  Slices,
+  UserSlice,
+} from './slices'
 export type { AllSlices, StoreFromSlices } from './types'

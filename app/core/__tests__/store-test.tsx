@@ -1,18 +1,17 @@
-import { useBookStore, useGameStore, useUserStore } from '@core'
-import { WrapperTest } from '@shared/helpers'
+import { useGameStore, useUserStore } from '@core'
+import { TEST_BOOK, WrapperTest } from '@shared/helpers'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
 
 const MyComponent = () => {
-  const { date, setDate } = useGameStore()
+  const { date, setDate, setBook, gameBook } = useGameStore()
   const { pseudo, setPseudo } = useUserStore()
-  const { title, setTitle } = useBookStore()
 
   useEffect(() => {
+    setBook(TEST_BOOK)
     setDate('10/10/10')
-    setTitle('Test Book Title')
-  }, [setTitle, setDate])
+  }, [setBook, setDate])
 
   const onPress = () => {
     setDate('11/11/11')
@@ -21,7 +20,7 @@ const MyComponent = () => {
 
   return (
     <View>
-      <Text>{title}</Text>
+      <Text>{gameBook.title}</Text>
       <Text>{`Date: ${date}`}</Text>
       <Text>{`Bonjour ${pseudo}`}</Text>
       <Button onPress={onPress} title={'Change date'} />
@@ -35,7 +34,7 @@ describe('Store in Core', () => {
 
     render(<MyComponent />, { wrapper: WrapperTest })
 
-    expect(screen.getByText('Test Book Title')).toBeVisible()
+    expect(screen.getByText('Mon livre')).toBeVisible()
     expect(screen.getByText(`Date: 10/10/10`)).toBeVisible()
     expect(screen.getByText(`Bonjour PSEUDO`)).toBeVisible()
     await user.press(screen.getByRole('button'))
