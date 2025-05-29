@@ -9,10 +9,7 @@
   "exportall.config.namedExports": true,
   "exportall.config.exclude": ["-test.", ".test.", ".spec."],
   "exportall.config.semis": false,
-  "exportall.config.folderListener": [
-    "./app/core/**",
-    "./app/features/**",
-    "./app/shared/**"
-  ],
-  "exportall.config.quote": "\""
+  "exportall.config.folderListener": ["./app/core/**", "./app/features/**"],
+  "exportall.config.quote": "\"",
+  "exportall.config.relExclusion": ["/app/shared/helpers"]
 }
