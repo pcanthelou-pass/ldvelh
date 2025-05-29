@@ -21,7 +21,7 @@ export const FightScene = (opponent: Attacker, character: Character) => {
         character={character}
         fight={fight}
         stopFight={stopFight}
-        onPressFlee={onPressFlee}
+        onPressFleeExt={onPressFlee}
       />
     </FightSceneView>
   )

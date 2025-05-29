@@ -7,13 +7,13 @@ export const Attackers = ({
   character,
   fight,
   stopFight,
-  onFlee,
+  onPressFleeExt,
 }: {
   opponent: Attacker
   character: Character
   fight: Fight
   stopFight: () => void
-  onFlee: () => void
+  onPressFleeExt: () => void
 }) => {
   const [opponentEndurance, setOpponentEndurance] = useState(
     () => opponent.abilities.endurance,
@@ -32,7 +32,7 @@ export const Attackers = ({
   }
 
   const onPressFlee = () => {
-    onFlee()
+    onPressFleeExt()
   }
 
   return (
