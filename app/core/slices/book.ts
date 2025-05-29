@@ -23,7 +23,7 @@ export interface BookActions {
   setTitle: (value: string) => void
   setDescription: (value: string) => void
   setIntroduction: (value: BookIntroduction) => void
-  setScenes: (value: Record<string, Scene>) => void
+  setScenes: (value: Scenes) => void
 }
 
 export type BookSlice = Book & BookActions
