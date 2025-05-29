@@ -1,4 +1,4 @@
-import { Item, SceneInfo } from '@core'
+import { BookScene, Item } from '@core'
 import { View } from 'react-native'
 import { ItemsActionsView } from './ItemsActionsView'
 import { ReadSceneActions } from './ReadSceneActions'
@@ -8,7 +8,7 @@ export const ReadSceneNormalView = (
   sceneText: string,
   items: Item[],
   onPressItem: (item: Item) => void,
-  actions: SceneInfo[] | null | undefined,
+  actions: BookScene[] | null | undefined,
   onPressAction: (key: string) => void,
 ) => {
   return (

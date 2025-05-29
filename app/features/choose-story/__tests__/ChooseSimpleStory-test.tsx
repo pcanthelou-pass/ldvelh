@@ -1,4 +1,4 @@
-import { useBookStore, useGameStore } from '@core'
+import { useGameStore } from '@core/hooks/gameStore'
 import { WrapperTest } from '@shared/helpers'
 import {
   render,
@@ -12,13 +12,10 @@ import { ChooseSimpleStory } from '../ChooseSimpleStory'
 
 const MockedComponent = () => {
   const [loading, setLoading] = useState(true)
-  const { setTitle, setDescription } = useBookStore()
-  const { gameBook: book } = useGameStore()
+  const { gameBook } = useGameStore()
   useEffect(() => {
-    setTitle('Book Title Test')
-    setDescription('Book Test Description')
     setLoading(false)
-  }, [setTitle, setDescription, setLoading])
+  }, [setLoading, gameBook])
   return loading ? (
     <View>
       <Text>Loading...</Text>
@@ -26,29 +23,20 @@ const MockedComponent = () => {
   ) : (
     <>
       <ChooseSimpleStory />
-      {!book?.title && <Text>Appuyer sur entrer</Text>}
+      {!gameBook?.title && <Text>Appuyer sur entrer</Text>}
     </>
   )
 }
 
 describe('<ChooseStory></ChooseStory>', () => {
   it('Should display the only book', async () => {
-    render(
-      <WrapperTest>
-        <MockedComponent />
-      </WrapperTest>,
-    )
+    render(<MockedComponent />, { wrapper: WrapperTest })
 
-    expect(screen.getByText(/book title test/i)).toBeVisible()
-    expect(screen.getByText(/book test description/i)).toBeVisible()
+    expect(screen.getByText(/Mon livre description/i)).toBeVisible()
   })
 
   it('Should not display the only book as selected', async () => {
-    render(
-      <WrapperTest>
-        <MockedComponent />
-      </WrapperTest>,
-    )
+    render(<MockedComponent />, { wrapper: WrapperTest })
 
     expect(await screen.findByText('Appuyer sur entrer')).toBeVisible()
   })
@@ -56,11 +44,7 @@ describe('<ChooseStory></ChooseStory>', () => {
   it('should update the game state when pressing enter', async () => {
     const user = userEvent.setup()
 
-    render(
-      <WrapperTest>
-        <MockedComponent />
-      </WrapperTest>,
-    )
+    render(<MockedComponent />, { wrapper: WrapperTest })
 
     expect(screen.getByText('Entrer')).toBeVisible()
     await user.press(screen.getByText('Entrer'))

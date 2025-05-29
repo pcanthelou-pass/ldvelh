@@ -1,17 +1,18 @@
 import { useChooseStory } from '@core'
+import { TEST_BOOK } from '@shared/helpers'
 import { ChooseStoryView } from './components'
 
 export const ChooseSimpleStory = () => {
-  const { selectedBook, setBook } = useChooseStory()
+  const { setBook } = useChooseStory()
 
   const onPress = () => {
-    setBook(selectedBook)
+    setBook(TEST_BOOK)
   }
 
   return (
     <ChooseStoryView
-      title={selectedBook.title}
-      description={selectedBook.description}
+      title={TEST_BOOK.title}
+      description={TEST_BOOK.description}
       onPress={onPress}
     />
   )

@@ -1,5 +1,5 @@
-import { EmptyBook, useGameStore } from '@core'
-import { WrapperTest } from '@shared/helpers'
+import { useGameStore } from '@core'
+import { TEST_BOOK, WrapperTest } from '@shared/helpers'
 import { act, render, screen, userEvent } from '@testing-library/react-native'
 import { Button, Text } from 'react-native'
 import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'
@@ -7,7 +7,7 @@ import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'
 const DisplayCharacterName = () => {
   const { character, setBook } = useGameStore()
   const onPress = () => {
-    setBook(EmptyBook)
+    setBook(TEST_BOOK)
   }
   return (
     <>
@@ -28,41 +28,30 @@ describe('<CreatePregeneratedCharacter/>', () => {
   })
 
   it('Les caractéristiques du personnage sont affichées', async () => {
-    render(
-      <WrapperTest>
-        <CreatePregeneratedCharacter />
-      </WrapperTest>,
-    )
+    render(<CreatePregeneratedCharacter />, { wrapper: WrapperTest })
     expect(screen.getByText(/agilité : 12/i)).toBeVisible()
     expect(screen.getByText(/endurance : 24/i)).toBeVisible()
     expect(screen.getByText(/chance : 12/i)).toBeVisible()
   })
 
   it("Et son équipement aussi, mais juste les clés, ce n'est pas important ici", async () => {
-    render(
-      <WrapperTest>
-        <CreatePregeneratedCharacter />
-      </WrapperTest>,
-    )
+    render(<CreatePregeneratedCharacter />, { wrapper: WrapperTest })
     expect(screen.getByText(/torch/i)).toBeVisible()
     expect(await screen.queryByText(/necklace/i)).not.toBeVisible()
   })
   it('L\'écran contient juste un bouton "Suivant"', async () => {
-    render(
-      <WrapperTest>
-        <CreatePregeneratedCharacter />
-      </WrapperTest>,
-    )
+    render(<CreatePregeneratedCharacter />, { wrapper: WrapperTest })
     expect(await screen.findByRole(/button/i)).toBeTruthy()
     expect(await screen.findByText('Suivant')).toBeTruthy()
   })
   it('Si on fait suivant alors notre game store contient le personnage', async () => {
     const user = userEvent.setup()
     render(
-      <WrapperTest>
+      <>
         <CreatePregeneratedCharacter />
         <DisplayCharacterName />
-      </WrapperTest>,
+      </>,
+      { wrapper: WrapperTest },
     )
     await user.press(await screen.findByText('Suivant'))
     act(() => {})
@@ -71,10 +60,11 @@ describe('<CreatePregeneratedCharacter/>', () => {
   it('Et si on appel un setBook entre après avoir sélectionné un personnage alors il est redéfini', async () => {
     const user = userEvent.setup()
     render(
-      <WrapperTest>
+      <>
         <CreatePregeneratedCharacter />
         <DisplayCharacterName />
-      </WrapperTest>,
+      </>,
+      { wrapper: WrapperTest },
     )
     await user.press(await screen.findByText('Suivant'))
     act(() => {})

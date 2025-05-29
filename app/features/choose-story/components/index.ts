@@ -1,1 +1,1 @@
-export { ChooseStoryView } from './ChooseSimpleStoryView'
+export { ChooseStoryView, title } from './ChooseSimpleStoryView'

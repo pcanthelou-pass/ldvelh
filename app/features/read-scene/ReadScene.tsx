@@ -1,11 +1,16 @@
 import {
-  Attacker,
+  BookScene,
+  EmptyBookScene,
+  FailureBookScene,
+  FightBookScene,
   getActionableItems,
   Item,
+  NormalBookScene,
+  SuccessBookScene,
   useGameStore,
-  useReadScene,
 } from '@core'
 import { useState } from 'react'
+import { FightScene } from './FightScene'
 import {
   ReadSceneEmptyView,
   ReadSceneFailureView,
@@ -13,7 +18,6 @@ import {
   ReadSceneNormalView,
   ReadSceneSuccessView,
 } from './components'
-import { FightScene } from './FightScene'
 
 export const ReadScene = ({
   onPressActionExt,
@@ -30,7 +34,11 @@ export const ReadScene = ({
   const store = useGameStore()
   const { currentScene, gameBook, character, moveToScene, quitGame } = store
   const { scenes } = gameBook
-  const { sceneText, actions, kind } = useReadScene(currentScene, scenes)
+
+  const theScene: BookScene = scenes
+    ? scenes.getScene(currentScene)
+    : new EmptyBookScene()
+
   const items = getActionableItems(character.items)
 
   const onPressAction = (key: string) => {
@@ -53,27 +61,26 @@ export const ReadScene = ({
     onPressFightExt?.()
   }
 
-  if (fightingMode && scenes[currentScene]?.opponent) {
-    const opponent = new Attacker({ ...scenes[currentScene].opponent })
-    return FightScene(opponent, character)
+  if (fightingMode) {
+    return FightScene(theScene.opponent, character)
   }
 
-  switch (kind) {
-    case 'empty':
+  switch (true) {
+    case theScene instanceof EmptyBookScene:
       return <ReadSceneEmptyView />
-    case 'normal':
+    case theScene instanceof NormalBookScene:
       return ReadSceneNormalView(
-        sceneText,
+        theScene.text,
         items,
         onPressItem,
-        actions,
+        theScene.nextScenes,
         onPressAction,
       )
-    case 'fight':
-      return ReadSceneFightView(sceneText, onPressFight)
-    case 'success':
-      return ReadSceneSuccessView(sceneText, onPressQuit)
-    case 'failure':
-      return ReadSceneFailureView(sceneText, onPressQuit)
+    case theScene instanceof FightBookScene:
+      return ReadSceneFightView(theScene.text, onPressFight)
+    case theScene instanceof SuccessBookScene:
+      return ReadSceneSuccessView(theScene.text, onPressQuit)
+    case theScene instanceof FailureBookScene:
+      return ReadSceneFailureView(theScene.text, onPressQuit)
   }
 }
