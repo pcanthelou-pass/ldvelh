@@ -13,7 +13,6 @@ export {
   AttackerRow,
   Attackers,
   AttackersView,
-  de,
   FightScene,
   FightSceneView,
   ItemsActionsView,
@@ -25,5 +24,4 @@ export {
   ReadSceneNormalView,
   ReadSceneSuccessView,
   ReadSceneView,
-  scène,
 } from './read-scene'
