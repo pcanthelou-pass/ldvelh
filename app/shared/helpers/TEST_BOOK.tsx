@@ -1,9 +1,12 @@
-import { Book } from '@core'
+import { RawBookType } from '@core/classes/book-scene'
 
-export const TEST_BOOK: Book = {
+export const TEST_BOOK: RawBookType = {
   title: 'Mon livre',
   description: 'Mon livre description',
-  introduction: { title: 'Mon livre description', text: '' },
+  introduction: {
+    title: 'Mon livre introduction',
+    text: 'Mon livre introduction description',
+  },
   scenes: {
     '1': {
       id: '1',

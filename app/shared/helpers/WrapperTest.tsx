@@ -1,10 +1,4 @@
-import {
-  Core,
-  createBookSlice,
-  createGameSlice,
-  Slices,
-  UserSlice,
-} from '@core'
+import { Core, createGameSlice, Slices, UserSlice } from '@core'
 import { IAlertService } from '@services'
 import { ReactNode } from 'react'
 import { StateCreator } from 'zustand'
@@ -24,7 +18,6 @@ const mockedServices = { alert: new MockAlertService() }
 const mockedSlices: Slices = {
   game: createGameSlice,
   user: createUserSlice,
-  book: createBookSlice,
 }
 
 export const WrapperTest = ({ children }: { children: ReactNode }) => (
