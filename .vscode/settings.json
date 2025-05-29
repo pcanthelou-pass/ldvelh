@@ -6,26 +6,13 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "autoBarrel.enable": true,
-  "autoBarrel.language.defaultLanguage": "TypeScript",
-  "autoBarrel.files.disableRecursiveBarrelling": false,
-  "autoBarrel.files.includeExtensionOnExport": ["ts", "tsx"],
-  "autoBarrel.files.ignoreFilePathPatternOnExport": [
-    "**/*.test.*",
-    "**/*-test.*",
-    "**/index.*"
+  "exportall.config.namedExports": true,
+  "exportall.config.exclude": ["-test.", ".test.", ".spec."],
+  "exportall.config.semis": false,
+  "exportall.config.folderListener": [
+    "./app/core/**",
+    "./app/features/**",
+    "./app/shared/**"
   ],
-  "autoBarrel.files.maxSearchRecursionDepth": 2,
-  "autoBarrel.files.supportsHiddenFiles": true,
-  "autoBarrel.files.preserveGitignoreSettings": false,
-  "autoBarrel.files.keepExtensionOnExport": false,
-  "autoBarrel.files.detectExportsInFiles": true,
-  "autoBarrel.files.useNamedExports": true,
-  "autoBarrel.files.exportDefaultFilename": "filename",
-  "autoBarrel.files.configuredDefaultFilename": "index",
-  "autoBarrel.formatting.headerCommentTemplate": [],
-  "autoBarrel.formatting.excludeSemiColonAtEndOfLine": true,
-  "autoBarrel.formatting.useSingleQuotes": true,
-  "autoBarrel.formatting.endOfLine": "lf",
-  "autoBarrel.formatting.insertFinalNewline": true
+  "exportall.config.quote": "\""
 }
