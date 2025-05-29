@@ -1,4 +1,10 @@
-import { getActionableItems, Item, useGameStore, useReadScene } from '@core'
+import {
+  Attacker,
+  getActionableItems,
+  Item,
+  useGameStore,
+  useReadScene,
+} from '@core'
 import { useState } from 'react'
 import {
   ReadSceneEmptyView,
@@ -48,7 +54,7 @@ export const ReadScene = ({
   }
 
   if (fightingMode && scenes[currentScene]?.opponent) {
-    const opponent = scenes[currentScene].opponent
+    const opponent = new Attacker({ ...scenes[currentScene].opponent })
     return FightScene(opponent, character)
   }
 
