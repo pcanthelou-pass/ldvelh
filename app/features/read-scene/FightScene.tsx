@@ -5,8 +5,7 @@ import { FightSceneView } from './components/FightSceneView'
 export const FightScene = (opponent: Attacker, character: Character) => {
   const hero = new Attacker({
     name: 'Héro',
-    agility: character.abilities.agility,
-    endurance: character.abilities.endurance,
+    abilities: character.abilities,
   })
 
   const fight = new Fight(opponent, hero)

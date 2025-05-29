@@ -1,4 +1,4 @@
-import { Attacker, D6, D6x2, Fight } from '@core/classes'
+import { Attacker, CharacterAbilities, D6, D6x2, Fight } from '@core/classes'
 
 describe('Given a D6', () => {
   it('When launched it has a result between 1 and 6', () => {
@@ -17,8 +17,24 @@ describe('Given a Hero and an Opponent', () => {
   describe('When fighting Then chain round and each round make a roll and describe attack result', () => {
     it('When both attacks are the same then nothing happen and the fight goes to next round', () => {
       const fight = new Fight(
-        new Attacker({ agility: 2, endurance: 4, attack: () => 2 }),
-        new Attacker({ agility: 2, endurance: 4, attack: () => 2 }),
+        new Attacker({
+          name: 'Opponent',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
+        new Attacker({
+          name: 'Hero',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
       )
       fight.resolveRound()
       expect(fight.canContinue()).toBeTruthy()
@@ -27,8 +43,24 @@ describe('Given a Hero and an Opponent', () => {
     })
     it('When Opponent attack > Hero attack then the Hero is wounded and the fight goes to next round', () => {
       const fight = new Fight(
-        new Attacker({ agility: 2, endurance: 4, attack: () => 4 }),
-        new Attacker({ agility: 2, endurance: 4, attack: () => 2 }),
+        new Attacker({
+          name: 'Opponent',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 4,
+        }),
+        new Attacker({
+          name: 'Hero',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
       )
       fight.resolveRound()
       expect(fight.canContinue()).toBeTruthy()
@@ -37,8 +69,24 @@ describe('Given a Hero and an Opponent', () => {
     })
     it('When Opponent attack < Hero attack then the Opponent is wounded and the fight goes to next round', () => {
       const fight = new Fight(
-        new Attacker({ agility: 2, endurance: 4, attack: () => 2 }),
-        new Attacker({ agility: 2, endurance: 4, attack: () => 4 }),
+        new Attacker({
+          name: 'Opponent',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
+        new Attacker({
+          name: 'Hero',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 4,
+        }),
       )
       fight.resolveRound()
       expect(fight.canContinue()).toBeTruthy()
@@ -47,8 +95,24 @@ describe('Given a Hero and an Opponent', () => {
     })
     it('When Opponent has 0 endurance at end of round the fight end', () => {
       const fight = new Fight(
-        new Attacker({ agility: 2, endurance: 2, attack: () => 2 }),
-        new Attacker({ agility: 2, endurance: 4, attack: () => 4 }),
+        new Attacker({
+          name: 'Opponent',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 2,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
+        new Attacker({
+          name: 'Hero',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 4,
+        }),
       )
       fight.resolveRound()
       expect(fight.canContinue()).toBeFalsy()
@@ -57,8 +121,24 @@ describe('Given a Hero and an Opponent', () => {
     })
     it('When Hero has 0 endurance at end of round the fight end', () => {
       const fight = new Fight(
-        new Attacker({ agility: 2, endurance: 2, attack: () => 4 }),
-        new Attacker({ agility: 2, endurance: 4, attack: () => 2 }),
+        new Attacker({
+          name: 'Opponent',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 2,
+            chance: 0,
+          }),
+          attack: () => 4,
+        }),
+        new Attacker({
+          name: 'Hero',
+          abilities: new CharacterAbilities({
+            agility: 2,
+            endurance: 4,
+            chance: 0,
+          }),
+          attack: () => 2,
+        }),
       )
       fight.resolveRound()
       fight.resolveRound()

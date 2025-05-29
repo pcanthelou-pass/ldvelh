@@ -20,7 +20,7 @@ export const AttackersView: React.FC<{
   <>
     <AttackerRow
       name={opponent.name}
-      agility={opponent.agility}
+      agility={opponent.abilities.agility}
       endurance={opponentEndurance}
     />
     <AttackerRow

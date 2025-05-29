@@ -10,7 +10,7 @@ export const FightSceneView: React.FC<{
       <Text>Combat</Text>
     </View>
     <View>
-      <Text>{opponent.text}</Text>
+      <Text>{opponent.description}</Text>
     </View>
     {children}
   </View>

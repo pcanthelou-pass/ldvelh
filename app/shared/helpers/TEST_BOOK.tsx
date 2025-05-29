@@ -31,10 +31,9 @@ export const TEST_BOOK: Book = {
       text: 'Texte de la scène après le combat',
       nextIds: ['2-1'],
       opponent: {
-        text: 'Vous devez battre Toto',
+        description: 'Vous devez battre Toto',
         name: 'Monster',
-        agility: 8,
-        endurance: 8,
+        abilities: { agility: 8, endurance: 8, chance: 0 },
       },
     },
     '2-1': {

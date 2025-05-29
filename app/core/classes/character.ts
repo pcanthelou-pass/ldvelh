@@ -1,10 +1,5 @@
+import { CharacterAbilities, EmptyAbilities } from './character-abilities'
 import { Items } from './items'
-
-export interface CharacterAbilities {
-  agility: number
-  endurance: number
-  chance: number
-}
 
 export interface Character {
   name: string
@@ -14,6 +9,6 @@ export interface Character {
 
 export const EmptyCharacter: Character = {
   name: '',
-  abilities: { agility: 0, endurance: 0, chance: 0 },
+  abilities: EmptyAbilities,
   items: {},
 }

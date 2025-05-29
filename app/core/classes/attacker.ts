@@ -1,51 +1,59 @@
+import { CharacterAbilities } from './character-abilities'
 import { D6x2 } from './dice'
 
 export type RoundAttackType = (attacker?: Attacker) => number
 
 export class Attacker {
   name: string
-  endurance: number
-  agility: number
-  chance?: number
-  text?: string
+  abilities: CharacterAbilities
+  description?: string
   _attack?: RoundAttackType
 
   constructor({
     name,
-    text,
-    endurance,
-    agility,
-    chance,
+    description,
+    abilities,
     attack,
   }: {
     name: string
-    text?: string
-    endurance: number
-    agility: number
+    abilities: CharacterAbilities
+    description?: string
     chance?: number
     attack?: RoundAttackType
   }) {
     this.name = name
-    this.text = text
-    this.endurance = endurance
-    this.agility = agility
-    this.chance = chance
+    this.abilities = abilities
+    this.description = description
     this._attack = attack
   }
 
+  static fromJson({
+    name,
+    description,
+    abilities,
+  }: {
+    name: string
+    description: string
+    abilities: CharacterAbilities
+  }): Attacker {
+    return new Attacker({ name, abilities, description })
+  }
+
   attack(): number {
-    return this._attack?.(this) ?? this.agility + D6x2()
+    if (!this?.abilities?.agility)
+      throw Error(`Attacker has no abilities:${JSON.stringify(this.abilities)}`)
+    return this._attack?.(this) ?? this.abilities.agility + D6x2()
   }
 
   getEndurance(): number {
-    return this.endurance
+    return this.abilities.endurance
   }
 
   alive(): boolean {
-    return this.endurance > 0
+    return this.abilities.endurance > 0
   }
 
   hit(value: number = 2): void {
-    this.endurance -= value
+    this.abilities.endurance -= value
   }
 }

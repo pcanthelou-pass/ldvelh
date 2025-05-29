@@ -1,5 +1,4 @@
-import { GameActions, Items, ItemsProps } from '@core'
-import { ItemPowers } from '@core/classes/items'
+import { GameActions, ItemPowers, Items, ItemsProps } from '@core'
 
 /*
   items: {

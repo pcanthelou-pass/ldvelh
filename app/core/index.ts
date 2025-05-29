@@ -1,12 +1,12 @@
 export { getStory } from './api/getStory'
 export { Attacker, type RoundAttackType } from './classes/attacker'
 export type { BookIntroduction } from './classes/bookintroduction'
+export { EmptyCharacter, type Character } from './classes/character'
 export {
-  EmptyCharacter,
-  type Character,
-  type CharacterAbilities,
-} from './classes/character'
-export { D6, D6x2 } from './classes/dice'
+  CharacterAbilities,
+  EmptyAbilities,
+} from './classes/character-abilities'
+export { D6, D6x2, Dice } from './classes/dice'
 export type { EndPoint } from './classes/endpoint'
 export { Fight } from './classes/fight'
 export {
@@ -22,7 +22,6 @@ export {
 export { getKindFromScene } from './classes/getKindFromScene'
 export { getSceneInfosRaw } from './classes/getSceneInfosRaw'
 export type { ItemPowers, Items, ItemsProps } from './classes/items'
-export type { OpponentType } from './classes/opponenttype'
 export type { SceneInfo } from './classes/SceneInfo'
 export type { SceneKind } from './classes/SceneKind'
 export type { Scene, SceneKey, Scenes } from './classes/scenes'

@@ -16,7 +16,7 @@ export const Attackers = ({
   onFlee: () => void
 }) => {
   const [opponentEndurance, setOpponentEndurance] = useState(
-    () => opponent.endurance,
+    () => opponent.abilities.endurance,
   )
   const [heroEndurance, setHeroEndurance] = useState(
     () => character.abilities.endurance,
