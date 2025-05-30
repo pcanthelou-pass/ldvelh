@@ -1,4 +1,4 @@
-import { ServicesProvider, Slices, StoreProvider } from '@core'
+import { ServicesProvider, StoreProvider, StoresProps } from '@core'
 import { Services } from '@services'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
@@ -10,7 +10,7 @@ export const Core = ({
 }: {
   children: ReactNode
   services: Services
-  slices?: Slices
+  slices?: StoresProps
 }) => {
   const clientQuery = new QueryClient()
 

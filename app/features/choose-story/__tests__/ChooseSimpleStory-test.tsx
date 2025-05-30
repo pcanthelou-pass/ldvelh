@@ -12,7 +12,7 @@ import { ChooseSimpleStory } from '../ChooseSimpleStory'
 
 const MockedComponent = () => {
   const [loading, setLoading] = useState(true)
-  const { gameBook } = useGameStore()
+  const gameBook = useGameStore((state) => state.gameBook)
   useEffect(() => {
     setLoading(false)
   }, [setLoading, gameBook])

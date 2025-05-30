@@ -25,7 +25,7 @@ describe('usActionableItems', () => {
   })
   it('The item apply is effect on a character', () => {
     const items: Item[] = getActionableItems(TEST_ITEMS)
-    const { result } = renderHook(() => useGameStore(), {
+    const { result } = renderHook(() => useGameStore((state) => state), {
       wrapper: WrapperTestExt,
     })
     act(() => {

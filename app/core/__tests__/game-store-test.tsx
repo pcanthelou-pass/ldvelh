@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { Button, Text, View } from 'react-native'
 
 const MyComponent = () => {
-  const { date, setDate, setBook, gameBook } = useGameStore()
+  const { date, setDate, setBook, gameBook } = useGameStore((state) => state)
 
   useEffect(() => {
     setBook(TEST_BOOK)

@@ -29,7 +29,7 @@ export const ReadScene = ({
   onPressFightExt?: () => void
 }) => {
   const [fightingMode, setFightingMode] = useState(false)
-  const store = useGameStore()
+  const store = useGameStore((state) => state)
   const { currentScene, gameBook, character, moveToScene, quitGame } = store
   const { scenes } = gameBook
 

@@ -46,7 +46,6 @@ export type { ItemPowers, Items, ItemsProps } from './classes/items'
 export { useItemSimpleParser } from './classes/useItemSimpleParser'
 export { useReadScene, type UseReadSceneHook } from './classes/useReadScene'
 export { Core } from './components/core'
-export { GameContext, GameProvider, useGameContext } from './contexts/game'
 export {
   ServicesContext,
   ServicesProvider,
@@ -57,25 +56,21 @@ export {
   StoreContext,
   StoreProvider,
   type StoreProviderProps,
+  type StoresProps,
 } from './contexts/store'
-export { createStoreFromSlices } from './createStoreFromSlices'
 export { useGameStore } from './hooks/gameStore'
-export { useZeStore } from './hooks/genericStore'
 export { useChooseStory } from './hooks/useChooseSimpleStory'
 export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 export { useReadIntroduction } from './hooks/useReadIntroduction'
 export { useUserStore } from './hooks/userStore'
 export {
-  createGameSlice,
   createGameStore,
+  DEFAULT_GAME_PROPS,
   type GameActions,
   type GameProps,
-  type GameSlice,
   type GameState,
   type GameStore,
-  type GameStoreType,
 } from './stores/game'
-export type { Slices } from './stores/slices'
 export {
   createUserStore,
   type UserActions,
@@ -83,4 +78,3 @@ export {
   type UserState,
   type UserStore,
 } from './stores/user'
-export type { AllSlices, StoreFromSlices } from './types'

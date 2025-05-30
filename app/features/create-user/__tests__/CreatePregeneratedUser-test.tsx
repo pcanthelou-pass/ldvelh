@@ -5,7 +5,7 @@ import { Button, Text } from 'react-native'
 import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'
 
 const DisplayCharacterName = () => {
-  const { character, setBook } = useGameStore()
+  const { character, setBook } = useGameStore((state) => state)
   const onPress = () => {
     setBook(TEST_BOOK)
   }

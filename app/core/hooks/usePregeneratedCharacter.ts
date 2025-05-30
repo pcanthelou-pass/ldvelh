@@ -5,7 +5,7 @@ export const usePregeneratedCharacter = () => {
   const { name, abilities, items } = pregenerated.character
   const { agility, endurance, chance } = abilities
 
-  const { setCharacter } = useGameStore()
+  const setCharacter = useGameStore((state) => state.setCharacter)
 
   const onSetCharacter = () => {
     setCharacter({

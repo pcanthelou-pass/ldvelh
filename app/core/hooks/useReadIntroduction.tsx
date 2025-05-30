@@ -1,10 +1,10 @@
 import { useGameStore } from '@core'
 
 export const useReadIntroduction = () => {
-  const { gameBook: book } = useGameStore()
+  const introduction = useGameStore((state) => state.gameBook.introduction)
 
   return {
-    title: book?.introduction?.title ?? 'Error',
-    introduction: book?.introduction?.text,
+    title: introduction?.title ?? 'Error',
+    introduction: introduction?.text,
   }
 }

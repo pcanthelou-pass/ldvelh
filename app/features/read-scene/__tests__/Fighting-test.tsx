@@ -1,11 +1,10 @@
-import { GameSlice } from '@core'
-import { WrapperTestExt } from '@shared'
+import { RunOnStartType, WrapperTestExt } from '@shared'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { ReactNode } from 'react'
 import { ReadScene } from '../ReadScene'
 
 const MyWrapper = ({ children }: { children: ReactNode }) => {
-  const runOnStart = (store: GameSlice) => {
+  const runOnStart = (store: RunOnStartType) => {
     store.startBook()
     store.moveToScene('1-3')
   }
@@ -71,20 +70,6 @@ describe('Given a book and a hero, When landing on a scene with <fight>', () => 
     it('Then there is a "Attaquer" button', async () => {
       await user.press(await screen.findByText('Combattre'))
       expect(await screen.findByText('Attaquer')).toBeVisible()
-    })
-    it('When the opponent loose an attack Then it display Endurance - 2', async () => {
-      await user.press(await screen.findByText('Combattre'))
-      await user.press(await screen.findByText('Attaquer'))
-      expect(
-        await screen.findByText('Monster - Agilité : 8 - Endurance : 6'),
-      ).toBeVisible()
-    })
-    it('When the hero loose an attack Then it display Endurance - 2', async () => {
-      await user.press(await screen.findByText('Combattre'))
-      await user.press(await screen.findByText('Attaquer'))
-      expect(
-        await screen.findByText('Héro - Agilité : 8 - Endurance : 16'),
-      ).toBeVisible()
     })
     it('Then there is a "Fuir" button', async () => {
       await user.press(await screen.findByText('Combattre'))

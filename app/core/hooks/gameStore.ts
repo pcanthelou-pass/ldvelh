@@ -1,8 +1,12 @@
-import { GameSlice } from '@core'
-import { useZeStore } from './genericStore'
+import { createGameStore, GameState, GameStore } from '@core'
+import { useStore } from 'zustand'
 
-export function useGameStore(
-  selector?: (state: GameSlice) => GameSlice,
-): GameSlice {
-  return useZeStore<GameSlice>(selector)
+let GAME_STORE: GameStore
+
+export function useGameStore<U>(selector: (state: GameState) => U) {
+  if (!GAME_STORE) {
+    GAME_STORE = createGameStore()
+  }
+
+  return useStore(GAME_STORE, selector)
 }

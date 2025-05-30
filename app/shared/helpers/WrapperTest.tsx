@@ -1,4 +1,4 @@
-import { Core, createGameSlice, Slices } from '@core'
+import { Core, createGameStore, createUserStore } from '@core'
 import { IAlertService } from '@services'
 import { ReactNode } from 'react'
 
@@ -9,8 +9,9 @@ class MockAlertService implements IAlertService {
 }
 
 const mockedServices = { alert: new MockAlertService() }
-const mockedSlices: Slices = {
-  game: createGameSlice,
+const mockedSlices = {
+  game: createGameStore,
+  user: createUserStore,
 }
 
 export const WrapperTest = ({ children }: { children: ReactNode }) => (

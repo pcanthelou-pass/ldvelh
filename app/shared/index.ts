@@ -1,6 +1,6 @@
 export { TEST_BOOK } from './helpers/TEST_BOOK'
 export { TEST_HERO } from './helpers/TEST_HERO'
 export { WrapperTest } from './helpers/WrapperTest'
-export { WrapperTestExt } from './helpers/WrapperTestExt'
+export { WrapperTestExt, type RunOnStartType } from './helpers/WrapperTestExt'
 export { AlertService } from './services/alert'
 export type { IAlertService, Services } from './services/types'

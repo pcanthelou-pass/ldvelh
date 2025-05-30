@@ -1,13 +1,11 @@
-import { GameSlice } from '@core'
-import { TEST_BOOK, WrapperTestExt } from '@shared'
+import { RunOnStartType, TEST_BOOK, WrapperTestExt } from '@shared'
 import { act, render, screen, userEvent } from '@testing-library/react-native'
 import { ReactNode } from 'react'
 import { ReadScene } from '../ReadScene'
 
 const MyWrapper = ({ children }: { children: ReactNode }) => {
-  const runOnStart = (store: GameSlice) => {
+  const runOnStart = (store: RunOnStartType) => {
     store.startBook()
-    store.hitCharacter(3)
   }
   return <WrapperTestExt runOnStart={runOnStart}>{children}</WrapperTestExt>
 }
