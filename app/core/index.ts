@@ -58,11 +58,9 @@ export {
   type StoreProviderProps,
   type StoresProps,
 } from './contexts/store'
-export { useGameStore } from './hooks/gameStore'
 export { useChooseStory } from './hooks/useChooseSimpleStory'
 export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 export { useReadIntroduction } from './hooks/useReadIntroduction'
-export { useUserStore } from './hooks/userStore'
 export {
   createGameStore,
   DEFAULT_GAME_PROPS,
@@ -71,6 +69,7 @@ export {
   type GameState,
   type GameStore,
 } from './stores/game'
+export { useGameStore } from './stores/gameStore'
 export {
   createUserStore,
   type UserActions,
@@ -78,3 +77,4 @@ export {
   type UserState,
   type UserStore,
 } from './stores/user'
+export { useUserStore } from './stores/userStore'
