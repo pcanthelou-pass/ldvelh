@@ -5,7 +5,7 @@ import {
   SuccessBookScene,
   useReadScene,
 } from '@core'
-import { TEST_BOOK } from '@shared/helpers'
+import { TEST_BOOK } from '@shared'
 import { renderHook } from '@testing-library/react-native'
 
 describe('useReadScene', () => {

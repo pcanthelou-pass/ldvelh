@@ -1,5 +1,5 @@
 import { useReadIntroduction } from '@core'
-import { ReadIntroductionView } from './components'
+import { ReadIntroductionView } from './components/ReadIntroductionView'
 
 export const ReadIntroduction = ({ forward }: { forward?: () => void }) => {
   const { title, introduction } = useReadIntroduction()

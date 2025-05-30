@@ -1,5 +1,5 @@
 import { getActionableItems, Item, useGameStore } from '@core'
-import { TEST_HERO, WrapperTest, WrapperTestExt } from '@shared/helpers'
+import { TEST_HERO, WrapperTest, WrapperTestExt } from '@shared'
 import { act, renderHook } from '@testing-library/react-native'
 
 const TEST_ITEMS = TEST_HERO.items

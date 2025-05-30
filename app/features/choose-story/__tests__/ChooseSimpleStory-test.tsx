@@ -1,5 +1,5 @@
-import { useGameStore } from '@core/hooks/gameStore'
-import { WrapperTest } from '@shared/helpers'
+import { useGameStore } from '@core'
+import { WrapperTest } from '@shared'
 import {
   render,
   screen,

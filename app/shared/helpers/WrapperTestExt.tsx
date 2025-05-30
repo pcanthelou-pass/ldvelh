@@ -1,9 +1,8 @@
-import { useGameStore } from '@core'
-import { GameSlice } from '@core/stores/game'
-import { WrapperTest } from '@shared/helpers'
+import { GameSlice, useGameStore } from '@core'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'
+import { WrapperTest } from './WrapperTest'
 
 type StartStoreCallback = (store: GameSlice) => void
 

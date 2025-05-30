@@ -1,5 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native'
-import { ChooseStoryView } from '../components'
+import { ChooseStoryView } from '../components/ChooseSimpleStoryView'
 
 describe('<ChooseStoryView></ChooseStoryView>', () => {
   it('should display the component with texts', () => {

@@ -1,4 +1,4 @@
-import { BookScenes, RawBookType } from '@core/classes'
+import { BookScenes, RawBookType } from '@core'
 
 export interface BookIntroduction {
   title: string

@@ -1,4 +1,4 @@
-import { createUserStore, UserState, UserStore } from '@core/stores/user'
+import { createUserStore, UserState, UserStore } from '@core'
 import { useStore } from 'zustand'
 
 let USER_STORE: UserStore

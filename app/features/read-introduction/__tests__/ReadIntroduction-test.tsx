@@ -1,6 +1,5 @@
 import { ReadIntroduction } from '@features'
-import { WrapperTestExt } from '@shared/helpers'
-import { TEST_BOOK } from '@shared/helpers/TEST_BOOK'
+import { TEST_BOOK, WrapperTestExt } from '@shared'
 import { render, screen, userEvent } from '@testing-library/react-native'
 
 describe('Given the user has selected a book and has a character', () => {

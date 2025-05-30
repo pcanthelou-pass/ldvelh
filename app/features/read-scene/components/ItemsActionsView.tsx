@@ -1,4 +1,4 @@
-import { Item } from '@core/hooks'
+import { Item } from '@core'
 import { Button, View } from 'react-native'
 
 export const ItemsActionsView = ({

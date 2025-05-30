@@ -1,2 +1,2 @@
 export { ChooseSimpleStory } from './ChooseSimpleStory'
-export { ChooseStoryView, title } from './components'
+export { ChooseStoryView } from './components/ChooseSimpleStoryView'

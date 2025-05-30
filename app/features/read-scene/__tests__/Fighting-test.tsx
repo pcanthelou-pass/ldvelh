@@ -1,8 +1,8 @@
 import { GameSlice } from '@core'
-import { ReadScene } from '@features'
-import { WrapperTestExt } from '@shared/helpers'
+import { WrapperTestExt } from '@shared'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { ReactNode } from 'react'
+import { ReadScene } from '../ReadScene'
 
 const MyWrapper = ({ children }: { children: ReactNode }) => {
   const runOnStart = (store: GameSlice) => {

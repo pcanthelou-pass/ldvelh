@@ -1,4 +1,4 @@
-import { Attacker, CharacterAbilities, D6, D6x2, Fight } from '@core/classes'
+import { Attacker, CharacterAbilities, D6, D6x2, Fight } from '@core'
 
 describe('Given a D6', () => {
   it('When launched it has a result between 1 and 6', () => {

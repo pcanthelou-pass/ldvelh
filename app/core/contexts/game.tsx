@@ -1,4 +1,4 @@
-import { createGameStore, GameState, GameStore } from '@core/stores/game'
+import { createGameStore, GameState, GameStore } from '@core'
 import { createContext, useContext, useRef } from 'react'
 import { useStore } from 'zustand'
 

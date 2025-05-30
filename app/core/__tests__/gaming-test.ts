@@ -1,5 +1,5 @@
 import { Character, useGameStore } from '@core'
-import { TEST_BOOK, TEST_HERO, WrapperTest } from '@shared/helpers'
+import { TEST_BOOK, TEST_HERO, WrapperTest } from '@shared'
 import { act, renderHook } from '@testing-library/react-native'
 
 describe('Given the book is loaded, a hero is created', () => {

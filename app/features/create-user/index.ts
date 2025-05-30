@@ -1,4 +1,3 @@
-export { usePregeneratedCharacter } from '../../core/hooks/usePregeneratedCharacter'
 export { Backpack } from './Backpack'
 export { BackpackEmptyView } from './components/BackpackEmptyView'
 export { BackpackFilledView } from './components/BackpackFilledView'

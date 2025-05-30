@@ -1,16 +1,14 @@
 export { Attackers } from './Attackers'
-export {
-  AttackerRow,
-  AttackersView,
-  FightSceneView,
-  ItemsActionsView,
-  ReadSceneActions,
-  ReadSceneEmptyView,
-  ReadSceneFailureView,
-  ReadSceneFightView,
-  ReadSceneNormalView,
-  ReadSceneSuccessView,
-  ReadSceneView,
-} from './components'
+export { AttackerRow } from './components/AttackerRow'
+export { AttackersView } from './components/AttackersView'
+export { FightSceneView } from './components/FightSceneView'
+export { ItemsActionsView } from './components/ItemsActionsView'
+export { ReadSceneActions } from './components/ReadSceneActions'
+export { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
+export { ReadSceneFailureView } from './components/ReadSceneFailureView'
+export { ReadSceneFightView } from './components/ReadSceneFightView'
+export { ReadSceneNormalView } from './components/ReadSceneNormalView'
+export { ReadSceneSuccessView } from './components/ReadSceneSuccessView'
+export { ReadSceneView } from './components/ReadSceneView'
 export { FightScene } from './FightScene'
 export { ReadScene } from './ReadScene'

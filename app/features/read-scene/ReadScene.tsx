@@ -11,13 +11,11 @@ import {
 } from '@core'
 import { useState } from 'react'
 import { FightScene } from './FightScene'
-import {
-  ReadSceneEmptyView,
-  ReadSceneFailureView,
-  ReadSceneFightView,
-  ReadSceneNormalView,
-  ReadSceneSuccessView,
-} from './components'
+import { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
+import { ReadSceneFailureView } from './components/ReadSceneFailureView'
+import { ReadSceneFightView } from './components/ReadSceneFightView'
+import { ReadSceneNormalView } from './components/ReadSceneNormalView'
+import { ReadSceneSuccessView } from './components/ReadSceneSuccessView'
 
 export const ReadScene = ({
   onPressActionExt,

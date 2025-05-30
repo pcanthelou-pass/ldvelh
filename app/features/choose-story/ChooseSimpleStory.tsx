@@ -1,6 +1,6 @@
 import { useChooseStory } from '@core'
-import { TEST_BOOK } from '@shared/helpers'
-import { ChooseStoryView } from './components'
+import { TEST_BOOK } from '@shared'
+import { ChooseStoryView } from './components/ChooseSimpleStoryView'
 
 export const ChooseSimpleStory = () => {
   const { setBook } = useChooseStory()
