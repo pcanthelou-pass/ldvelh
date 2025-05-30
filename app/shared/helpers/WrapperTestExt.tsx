@@ -1,5 +1,5 @@
 import { useGameStore } from '@core'
-import { GameSlice } from '@core/slices/game'
+import { GameSlice } from '@core/stores/game'
 import { WrapperTest } from '@shared/helpers'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
