@@ -15,6 +15,7 @@ export {
   NormalBookScene,
   SuccessBookScene,
   type EndPoint,
+  type NextSceneButtonsProps,
   type SceneKey,
   type SceneKind,
 } from './classes/book-scene/book-scene'
@@ -38,13 +39,14 @@ export {
   getActionableItems,
   ItemBuilder,
   ItemFactories,
+  useItemSimpleParser,
   type Item,
   type ItemBuilderProps,
   type ItemFactory,
-} from './classes/getActionableItems'
-export type { ItemPowers, Items, ItemsProps } from './classes/items'
-export { useItemSimpleParser } from './classes/useItemSimpleParser'
-export { useReadScene, type UseReadSceneHook } from './classes/useReadScene'
+  type ItemPowers,
+  type Items,
+  type ItemsProps,
+} from './classes/items'
 export { Core } from './components/core'
 export {
   ServicesContext,

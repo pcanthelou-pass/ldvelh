@@ -5,12 +5,25 @@ export type SceneKind = 'empty' | 'normal' | 'fight' | EndPoint
 export type EndPoint = 'success' | 'failure'
 
 export type SceneKey = string
+export interface NextSceneButtonsProps {
+  actions: any[] | null | undefined
+}
 
 export abstract class BookScene {
   protected _nextScenes: BookScene[] | null
 
   get nextScenes() {
     return this._nextScenes
+  }
+
+  get nextSceneActions(): NextSceneButtonsProps {
+    return {
+      actions:
+        this._nextScenes?.map((next) => ({
+          dest: next.id,
+          question: next.question,
+        })) ?? null,
+    }
   }
 
   id: SceneKey // identifiant unique
