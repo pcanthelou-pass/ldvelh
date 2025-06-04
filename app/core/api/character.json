@@ -1,21 +1,17 @@
 {
   "character": {
-    "name": "Toto",
+    "name": "Mon héro",
     "abilities": {
       "agility": 12,
       "endurance": 24,
       "chance": 12
     },
     "items": {
-      "silex": { "power": "fire" },
-      "torch": { "quantity": 5, "power": "light", "need": "fire" },
-      "gold": { "quantity": 5, "value": 1, "power": "gold" },
-      "water": { "quantity": 10, "power": "drink" },
-      "ration": {
-        "quantity": 10,
-        "power": "food",
-        "need": "drink",
-        "effect": { "endurance": 4 }
+      "Potion d'endurance": {
+        "quantity": 2,
+        "value": 10,
+        "power": "potion",
+        "effect": { "endurance": 99 }
       }
     }
   }

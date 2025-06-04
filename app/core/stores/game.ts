@@ -1,45 +1,17 @@
-import {
-  Book,
-  Character,
-  EmptyBook,
-  EmptyCharacter,
-  fromRawBook,
-  RawBookType,
-  SceneKey,
-} from '@core'
+import { BuildBackpack } from '@core/actions/build-backpack'
+import { BuildScene } from '@core/actions/build-scene'
+import { CharacterRawProps, EmptyCharacter } from '@core/types/character'
+import { EmptyScene } from '@core/types/scene'
 import { createStore } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
+import { BookProps, EmptyBook } from '../types/book'
+import { DEFAULT_GAME_PROPS, GameProps, GameState } from '../types/game'
 
-export interface GameProps {
-  date: string
-  history: SceneKey[]
-  currentScene: SceneKey
-  gameBook: Book
-  character: Character
-  characterNotModified: Character
-}
-export interface GameActions {
-  setDate: (date: string) => void
-  setBook: (book: RawBookType) => void
-  setCharacter: (character: Character) => void
-  startBook: () => void
-  resetEndurance: () => void
-  consumeItemByOne: (key: string) => void
-  hitCharacter: (hit?: number) => void
-  moveToScene: (scene: SceneKey) => void
-  quitGame: () => void
-}
-export type GameState = GameProps & GameActions
+import { enableMapSet } from 'immer'
+
+enableMapSet()
+
 export type GameStore = ReturnType<typeof createGameStore>
-
-export const DEFAULT_GAME_PROPS: GameProps = {
-  gameBook: EmptyBook,
-  history: [],
-  currentScene: '',
-  date: '',
-  character: EmptyCharacter,
-  characterNotModified: EmptyCharacter,
-}
 
 export const createGameStore = (initProps?: Partial<GameProps>) => {
   return createStore<GameState>()(
@@ -50,39 +22,47 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         set((state) => {
           state.date = date
         }),
-      setBook: (rawBook: RawBookType) =>
+      setBook: (rawBook: BookProps) =>
         set((state) => {
-          state.gameBook = fromRawBook(rawBook)
-          state.currentScene = ''
+          state.gameBook = rawBook
+          state.currentScene = { ...EmptyScene, actions: [] }
           state.history = []
           state.character = EmptyCharacter
           state.characterNotModified = EmptyCharacter
           state.date = ''
         }),
-      setCharacter: (character: Character) =>
-        set((state) => {
-          state.currentScene = ''
+      setCharacter: (character: CharacterRawProps) => {
+        const items = BuildBackpack(character.items)
+        return set((state) => {
+          state.currentScene = { ...EmptyScene, actions: [] }
           state.history = []
-          state.character = character
-          state.characterNotModified = character
-        }),
+          state.character = {
+            ...character,
+            items: items,
+          }
+          state.characterNotModified = {
+            ...character,
+            items: items,
+          }
+        })
+      },
       startBook: () =>
         set((state) => {
           state.history = []
-          state.currentScene = '1'
+          state.currentScene = BuildScene('1', state.gameBook.scenes)
         }),
       quitGame: () =>
         set((state) => {
           state.gameBook = EmptyBook
           state.history = []
-          state.currentScene = ''
+          state.currentScene = { ...EmptyScene, actions: [] }
           state.character = EmptyCharacter
           state.characterNotModified = EmptyCharacter
         }),
-      moveToScene: (scene: SceneKey) =>
+      moveToScene: (scene: string) =>
         set((state) => {
-          state.history.push(state.currentScene)
-          state.currentScene = scene
+          state.history.push(state.currentScene.id)
+          state.currentScene = BuildScene(scene, state.gameBook.scenes)
         }),
       hitCharacter: (hit: number = 2) =>
         set((state) => {
@@ -93,11 +73,12 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
           state.character.abilities.endurance =
             state.characterNotModified.abilities.endurance
         }),
-      consumeItemByOne: (key: string) =>
-        set((state) => {
-          if (state.character.items[key].quantity)
-            state.character.items[key].quantity -= 1
-        }),
+      consumeItemByOne: (key: string) => {
+        return set((state) => {
+          if (state.character.items.get(key).quantity > 0)
+            state.character.items.get(key).quantity -= 1
+        })
+      },
     })),
   )
 }

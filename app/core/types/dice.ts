@@ -1,5 +1,6 @@
 export class Dice {
   private readonly side: number
+  randomizer: () => number = Math.random // provide a random value between 0 and 1
 
   constructor(side: number = 6) {
     this.side = side
@@ -7,11 +8,7 @@ export class Dice {
 
   roll(rolls: number = 1) {
     return Array<number>(rolls)
-      .fill(1 + Math.floor(Math.random() * this.side))
+      .fill(1 + Math.floor(this.randomizer() * (this.side - 1)))
       .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
   }
 }
-
-export const D6 = (): number => new Dice().roll()
-
-export const D6x2 = (): number => new Dice().roll(2)

@@ -1,12 +1,12 @@
-import { CharacterAbilitiesProps } from './character-abilities'
+import { AbilitiesProps } from '@core/types/abilities'
 
-export type RoundAttackProps = (attacker: AttackerProps) => number
+export type RoundAttackProps = (attacker?: AttackerStatsProps) => number
 
-export type HitProps = (attacker: AttackerProps, value?: number) => number
+export type HitProps = (attacker?: AttackerStatsProps, value?: number) => number
 
 export interface AttackerStatsProps {
   name: string
-  abilities: CharacterAbilitiesProps
+  abilities: AbilitiesProps
   description?: string
 }
 
