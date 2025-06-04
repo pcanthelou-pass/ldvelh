@@ -36,7 +36,7 @@ export interface GameProps {
 export interface GameActions {
   setDate: (date: string) => void
   setBook: (book: BookProps) => void
-  setCharacter: (character: CharacterRawProps) => void
+  setCharacter: (character: CharacterRawProps) => CharacterProps
   /**
    * set the current scene to '1'
    * @returns

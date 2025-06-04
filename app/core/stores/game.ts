@@ -33,7 +33,7 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         }),
       setCharacter: (character: CharacterRawProps) => {
         const items = BuildBackpack(character.items)
-        return set((state) => {
+        set((state) => {
           state.currentScene = { ...EmptyScene, actions: [] }
           state.history = []
           state.character = {
@@ -45,6 +45,7 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
             items: items,
           }
         })
+        return { ...character, items: items }
       },
       startBook: () =>
         set((state) => {

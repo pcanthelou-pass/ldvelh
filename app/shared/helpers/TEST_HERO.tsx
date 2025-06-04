@@ -9,7 +9,7 @@ export const TEST_HERO: Character = {
   },
   items: {
     "Potion d'endurance": {
-      quantity: 1,
+      quantity: 2,
       value: 10,
       power: 'potion',
       effect: { endurance: 99 },

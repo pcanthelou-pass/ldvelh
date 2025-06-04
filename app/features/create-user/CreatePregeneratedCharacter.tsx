@@ -1,15 +1,17 @@
-import { Items, usePregeneratedCharacter } from '@core'
+import { usePregeneratedCharacter } from '@core'
 import { Button, View } from 'react-native'
 import { Backpack } from './Backpack'
 import { CreatePregeneratedCharacterView } from './components/CreatePregeneratedCharacterView'
 
 export const CreatePregeneratedCharacter = () => {
-  const { name, agility, endurance, chance, items, onSetCharacter } =
-    usePregeneratedCharacter()
+  const character = usePregeneratedCharacter()
+  const {
+    name,
+    abilities: { agility, endurance, chance },
+    items,
+  } = character
 
-  const onPress = () => {
-    onSetCharacter()
-  }
+  const onPress = () => {}
 
   return (
     <View>
@@ -19,7 +21,7 @@ export const CreatePregeneratedCharacter = () => {
         endurance={endurance}
         chance={chance}
       />
-      <Backpack items={items as unknown as Items} />
+      <Backpack items={items} />
       <Button title="Suivant" onPress={onPress} />
     </View>
   )

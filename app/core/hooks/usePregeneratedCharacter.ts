@@ -1,10 +1,11 @@
-import { useGameStore } from '@core'
+import { CharacterRawProps, useGameStore } from '@core'
 import * as pregenerated from '@core/api/character.json'
 
 export const usePregeneratedCharacter = () => {
   const setCharacter = useGameStore((state) => state.setCharacter)
+  const character = setCharacter(
+    pregenerated.character as unknown as CharacterRawProps,
+  )
 
-  setCharacter(pregenerated.character)
-
-  return pregenerated.character
+  return character
 }
