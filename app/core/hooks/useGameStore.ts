@@ -1,7 +1,7 @@
 import { createGameStore, GameState, GameStore } from '@core'
 import { useStore } from 'zustand'
 
-let GAME_STORE: GameStore
+export let GAME_STORE: GameStore
 
 export function useGameStore<U>(selector: (state: GameState) => U) {
   if (!GAME_STORE) {

@@ -1,14 +1,4 @@
-import {
-  BookScene,
-  EmptyBookScene,
-  FailureBookScene,
-  FightBookScene,
-  getActionableItems,
-  Item,
-  NormalBookScene,
-  SuccessBookScene,
-  useGameStore,
-} from '@core'
+import { ItemProps, useGameStore } from '@core'
 import { useState } from 'react'
 import { FightScene } from './FightScene'
 import { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
@@ -24,27 +14,22 @@ export const ReadScene = ({
   onPressFightExt,
 }: {
   onPressActionExt?: (key: string) => void
-  onPressItemExt?: (item: Item) => void
+  onPressItemExt?: (item: ItemProps) => void
   onPressQuitExt?: () => void
   onPressFightExt?: () => void
 }) => {
   const [fightingMode, setFightingMode] = useState(false)
   const store = useGameStore((state) => state)
-  const { currentScene, gameBook, character, moveToScene, quitGame } = store
-  const { scenes } = gameBook
+  const { currentScene, character, moveToScene, quitGame } = store
 
-  const theScene: BookScene = scenes
-    ? scenes.getScene(currentScene)
-    : new EmptyBookScene()
-
-  const items = getActionableItems(character.items)
+  const items = character.items
 
   const onPressAction = (key: string) => {
     moveToScene(key)
     onPressActionExt?.(key)
   }
 
-  const onPressItem = (item: Item) => {
+  const onPressItem = (item: ItemProps) => {
     item.action(store)
     onPressItemExt?.(item)
   }
@@ -60,25 +45,25 @@ export const ReadScene = ({
   }
 
   if (fightingMode) {
-    return FightScene(theScene.opponent, character)
+    return FightScene(currentScene.opponent, character)
   }
 
   switch (true) {
-    case theScene instanceof EmptyBookScene:
+    case currentScene.id === '':
       return <ReadSceneEmptyView />
-    case theScene instanceof NormalBookScene:
+    case !!currentScene.opponent:
+      return ReadSceneFightView(currentScene.text, onPressFight)
+    case currentScene.isEnding && currentScene.endingType === 'success':
+      return ReadSceneSuccessView(currentScene.text, onPressQuit)
+    case currentScene.isEnding && currentScene.endingType === 'failure':
+      return ReadSceneFailureView(currentScene.text, onPressQuit)
+    default:
       return ReadSceneNormalView(
-        theScene.text,
+        currentScene.text,
         items,
         onPressItem,
-        theScene.nextScenes,
+        currentScene.actions,
         onPressAction,
       )
-    case theScene instanceof FightBookScene:
-      return ReadSceneFightView(theScene.text, onPressFight)
-    case theScene instanceof SuccessBookScene:
-      return ReadSceneSuccessView(theScene.text, onPressQuit)
-    case theScene instanceof FailureBookScene:
-      return ReadSceneFailureView(theScene.text, onPressQuit)
   }
 }

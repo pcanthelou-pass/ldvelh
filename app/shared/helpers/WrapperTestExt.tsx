@@ -1,10 +1,10 @@
-import { useGameStore } from '@core'
+import { GameState, useGameStore } from '@core'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'
 import { WrapperTest } from './WrapperTest'
 
-export type RunOnStartType = (store: ReturnType<typeof useGameStore>) => void
+export type RunOnStartType = (store: GameState) => void
 
 const WrapperTestPlusStore = ({
   runOnStart,

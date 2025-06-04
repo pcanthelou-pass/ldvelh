@@ -1,23 +1,21 @@
-import { Item } from '@core'
+import { BackpackItems, ItemProps } from '@core'
 import { Button, View } from 'react-native'
 
 export const ItemsActionsView = ({
   items,
   onPress,
 }: {
-  items: Item[]
-  onPress: (item: Item) => void
+  items: BackpackItems
+  onPress: (item: ItemProps) => void
 }) => {
-  return items.map((item) => {
-    return (
-      <View key={item.name}>
-        <Button
-          title={item.name}
-          onPress={() => {
-            onPress(item)
-          }}
-        />
-      </View>
-    )
-  })
+  return Array.from(items).map(([key, item]) => (
+    <View key={item.name}>
+      <Button
+        title={item.name}
+        onPress={() => {
+          onPress(item)
+        }}
+      />
+    </View>
+  ))
 }

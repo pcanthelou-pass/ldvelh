@@ -74,12 +74,14 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
           state.character.abilities.endurance =
             state.characterNotModified.abilities.endurance
         }),
-      consumeItemByOne: (key: string) => {
-        return set((state) => {
-          if (state.character.items.get(key).quantity > 0)
+      consumeItemByOne: (key: string) =>
+        set((state) => {
+          if (state.character.items.get(key).quantity > 1)
             state.character.items.get(key).quantity -= 1
-        })
-      },
+          else {
+            state.character.items.delete(key)
+          }
+        }),
     })),
   )
 }

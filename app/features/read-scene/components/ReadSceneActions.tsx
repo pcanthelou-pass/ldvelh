@@ -1,20 +1,20 @@
-import { BookScene } from '@core'
+import { SceneAction } from '@core'
 import { Button } from 'react-native'
 
 export const ReadSceneActions = ({
   actions,
   onPress,
 }: {
-  actions: BookScene[]
+  actions: SceneAction[]
   onPress: (dest: string) => void
 }) => {
-  return Object.entries(actions).map((entry) => (
+  return Object.entries(actions).map(([key, action]) => (
     <Button
-      key={entry[0]}
-      testID={`Choice${entry[1].id}`}
-      title={entry[1].question}
+      key={key}
+      testID={`Choice${key}`}
+      title={action.label}
       onPress={() => {
-        onPress(entry[1].id)
+        onPress(action.dest)
       }}
     />
   ))
