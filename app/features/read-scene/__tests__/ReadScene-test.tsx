@@ -76,7 +76,7 @@ describe('Given the user has selected a book and has a character', () => {
         GAME_STORE.getState().characterNotModified.abilities.endurance,
       )
     })
-    it('A used item without quatity is not usable again and disappear', async () => {
+    it('A used item without quantity is not usable again and disappear', async () => {
       await user.press(screen.getByText(/boire la potion d'endurance/i))
       expect(
         await screen.queryByText(/boire la potion d'endurance/i),

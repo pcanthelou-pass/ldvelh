@@ -1,13 +1,13 @@
-import { Attacker, Character } from '@core'
+import { AttackerProps } from '@core'
 import { Button } from 'react-native'
 import { AttackerRow } from './AttackerRow'
 
 export const AttackersView: React.FC<{
-  character: Character
+  character: AttackerProps
   heroEndurance: number
   onPressAttack: () => void
   opponentEndurance: number
-  opponent: Attacker
+  opponent: AttackerProps
   onPressFlee: () => void
 }> = ({
   character,

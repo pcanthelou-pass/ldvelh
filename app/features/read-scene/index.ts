@@ -1,4 +1,4 @@
-export { Attackers } from './Attackers'
+export { Attackers } from './AttackersScene'
 export { AttackerRow } from './components/AttackerRow'
 export { AttackersView } from './components/AttackersView'
 export { FightSceneView } from './components/FightSceneView'

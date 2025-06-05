@@ -1,8 +1,8 @@
-import { Attacker } from '@core'
+import { AttackerProps } from '@core'
 import { Text, View } from 'react-native'
 
 export const FightSceneView: React.FC<{
-  opponent: Attacker
+  opponent: AttackerProps
   children: React.ReactNode
 }> = ({ opponent, children }) => (
   <View>

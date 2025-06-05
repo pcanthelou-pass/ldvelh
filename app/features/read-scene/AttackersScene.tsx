@@ -1,16 +1,16 @@
-import { Attacker, Character, Fight } from '@core'
+import { AttackerProps, Fight } from '@core'
 import { useState } from 'react'
 import { AttackersView } from './components/AttackersView'
 
-export const Attackers = ({
+export const AttackersScene = ({
   opponent,
   character,
   fight,
   stopFight,
   onPressFleeExt,
 }: {
-  opponent: Attacker
-  character: Character
+  opponent: AttackerProps
+  character: AttackerProps
   fight: Fight
   stopFight: () => void
   onPressFleeExt: () => void
@@ -23,9 +23,9 @@ export const Attackers = ({
   )
   const onPressAttack = () => {
     fight.resolveRound()
-    if (fight.canContinue()) {
-      setOpponentEndurance(fight.opponentEndurance())
-      setHeroEndurance(fight.heroEndurance())
+    if (fight.canContinue) {
+      setOpponentEndurance(fight.opponentEndurance)
+      setHeroEndurance(fight.heroEndurance)
     } else {
       stopFight()
     }

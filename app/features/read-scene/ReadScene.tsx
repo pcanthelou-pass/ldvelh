@@ -18,11 +18,8 @@ export const ReadScene = ({
   onPressQuitExt?: () => void
   onPressFightExt?: () => void
 }) => {
-  const [fightingMode, setFightingMode] = useState(false)
   const store = useGameStore((state) => state)
-  const { currentScene, character, moveToScene, quitGame } = store
-
-  const items = character.items
+  const { moveToScene, quitGame } = store
 
   const onPressAction = (key: string) => {
     moveToScene(key)
@@ -39,31 +36,83 @@ export const ReadScene = ({
     onPressQuitExt?.()
   }
 
-  const onPressFight = () => {
-    setFightingMode(true)
-    onPressFightExt?.()
-  }
+  const views = BuildSceneByPredicate(
+    onPressFightExt ?? (() => {}),
+    onPressQuit,
+    onPressItem,
+    onPressAction,
+  )
 
-  if (fightingMode) {
-    return FightScene(currentScene.opponent, character)
-  }
+  const { render } = views.find((v) => v.predicate())!
 
-  switch (true) {
-    case currentScene.id === '':
-      return <ReadSceneEmptyView />
-    case !!currentScene.opponent:
-      return ReadSceneFightView(currentScene.text, onPressFight)
-    case currentScene.isEnding && currentScene.endingType === 'success':
-      return ReadSceneSuccessView(currentScene.text, onPressQuit)
-    case currentScene.isEnding && currentScene.endingType === 'failure':
-      return ReadSceneFailureView(currentScene.text, onPressQuit)
-    default:
-      return ReadSceneNormalView(
-        currentScene.text,
-        items,
-        onPressItem,
-        currentScene.actions,
-        onPressAction,
-      )
-  }
+  return render()
+}
+
+function BuildSceneByPredicate(
+  onPressFightExt: () => void,
+  onPressQuit: () => void,
+  onPressItem: (item: ItemProps) => void,
+  onPressAction: (key: string) => void,
+) {
+  const [fightingMode, setFightingMode] = useState(false)
+  const store = useGameStore((state) => state)
+  const { currentScene, character } = store
+
+  const items = character.items
+
+  return [
+    {
+      predicate: () => currentScene.id === '',
+      render: () => <ReadSceneEmptyView />,
+    },
+    {
+      predicate: () => !currentScene.isEnding && fightingMode,
+      render: () => <FightScene />,
+    },
+    {
+      predicate: () => !fightingMode && !!currentScene.opponent,
+      render: () => (
+        <ReadSceneFightView
+          sceneText={currentScene.text}
+          onPressFight={() => {
+            setFightingMode(true)
+            onPressFightExt?.()
+          }}
+        />
+      ),
+    },
+    {
+      predicate: () =>
+        currentScene.isEnding && currentScene.endingType === 'success',
+      render: () => (
+        <ReadSceneSuccessView
+          sceneText={currentScene.text}
+          onPressQuit={onPressQuit}
+        />
+      ),
+    },
+    {
+      predicate: () =>
+        currentScene.isEnding && currentScene.endingType === 'failure',
+      render: () => (
+        <ReadSceneFailureView
+          sceneText={currentScene.text}
+          onPressQuit={onPressQuit}
+        />
+      ),
+    },
+    {
+      predicate: () =>
+        !currentScene.opponent && !fightingMode && !currentScene.isEnding,
+      render: () => (
+        <ReadSceneNormalView
+          sceneText={currentScene.text}
+          items={items}
+          onPressItem={onPressItem}
+          actions={currentScene.actions}
+          onPressAction={onPressAction}
+        />
+      ),
+    },
+  ]
 }

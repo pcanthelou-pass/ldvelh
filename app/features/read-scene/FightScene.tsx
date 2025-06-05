@@ -1,27 +1,34 @@
-import { Attacker, Character, Fight } from '@core'
-import { Attackers } from './Attackers'
+import { AttackerProps, BuildAttacker, Fight, useGameStore } from '@core'
+import { AttackersScene } from './AttackersScene'
 import { FightSceneView } from './components/FightSceneView'
 
-export const FightScene = (opponent: Attacker, character: Character) => {
-  const hero = new Attacker({
-    name: 'Héro',
-    abilities: character.abilities,
-  })
+const useFight = () => {
+  const opponent = useGameStore(
+    (state) => state.currentScene.opponent as unknown as AttackerProps,
+  )
 
-  const fight = new Fight(opponent, hero)
+  const character = BuildAttacker(useGameStore((state) => state.character))
+
+  const fight = new Fight(opponent, character)
 
   const stopFight = () => {}
 
-  const onPressFlee = () => {}
+  const fleeFight = () => {}
+
+  return { opponent, character, fight, stopFight, fleeFight }
+}
+
+export const FightScene = () => {
+  const { opponent, character, fight, stopFight, fleeFight } = useFight()
 
   return (
     <FightSceneView opponent={opponent}>
-      <Attackers
+      <AttackersScene
         opponent={opponent}
         character={character}
         fight={fight}
         stopFight={stopFight}
-        onPressFleeExt={onPressFlee}
+        onPressFleeExt={fleeFight}
       />
     </FightSceneView>
   )
