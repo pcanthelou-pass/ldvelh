@@ -33,6 +33,13 @@ export default function RootLayout() {
           name="read-introduction/index"
           options={({ navigation }) => ({ title: 'Introduction' })}
         />
+        <Stack.Screen
+          name="read-scene/index"
+          options={({ navigation }) => ({
+            title: 'Scène',
+            headerBackVisible: false,
+          })}
+        />
       </Stack>
     </Core>
   )

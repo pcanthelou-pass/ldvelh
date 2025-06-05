@@ -1,3 +1,4 @@
+import { ReadScene } from './ReadScene'
 export { AttackersScene } from './AttackersScene'
 export { AttackerRow } from './components/AttackerRow'
 export { AttackersView } from './components/AttackersView'
@@ -11,4 +12,5 @@ export { ReadSceneNormalView } from './components/ReadSceneNormalView'
 export { ReadSceneSuccessView } from './components/ReadSceneSuccessView'
 export { ReadSceneView } from './components/ReadSceneView'
 export { FightScene } from './FightScene'
-export { ReadScene } from './ReadScene'
+
+export default ReadScene
