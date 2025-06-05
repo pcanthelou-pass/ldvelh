@@ -10,8 +10,8 @@ class MockAlertService implements IAlertService {
 
 const mockedServices = { alert: new MockAlertService() }
 const mockedSlices = {
-  game: createGameStore,
-  user: createUserStore,
+  game: createGameStore(),
+  user: createUserStore(),
 }
 
 export const WrapperTest = ({ children }: { children: ReactNode }) => (

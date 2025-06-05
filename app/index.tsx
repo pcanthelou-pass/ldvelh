@@ -1,4 +1,4 @@
-import { Core } from '@core'
+import { Core, createGameStore, createUserStore } from '@core'
 import { AlertService, Services } from '@services'
 import { Text, View } from 'react-native'
 
@@ -13,8 +13,13 @@ const services: Services = {
 // Comme ça on pourrait les ajouter dynamiquement
 
 export default function Index() {
+  const slices = {
+    // On peut ajouter des slices ici si besoin, par exemple :
+    game: createGameStore(),
+    user: createUserStore(),
+  }
   return (
-    <Core services={services}>
+    <Core services={services} slices={slices}>
       <View
         style={{
           flex: 1,
