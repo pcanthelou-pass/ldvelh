@@ -20,10 +20,10 @@ export default function RootLayout() {
   return (
     <Core services={services} slices={slices}>
       <Stack>
-        <Stack.Screen name="index" options={{ title: 'LDVELH' }} />
+        <Stack.Screen name="index" options={{ title: 'Mon livre' }} />
         <Stack.Screen
-          name="features/choose-story"
-          options={{ title: 'Choisir une histoire' }}
+          name="choose-story/index"
+          options={({ navigation }) => ({ title: 'Choisir une histoire' })}
         />
       </Stack>
     </Core>

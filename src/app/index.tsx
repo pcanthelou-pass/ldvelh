@@ -1,5 +1,7 @@
-import { Text, View } from 'react-native'
+import { useRouter } from 'expo-router'
+import { Button, Text, View } from 'react-native'
 export default function Index() {
+  const router = useRouter()
   return (
     <View
       style={{
@@ -8,7 +10,11 @@ export default function Index() {
         alignItems: 'center',
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>Welcome</Text>
+      <Button
+        title="Choisir une histoire"
+        onPress={() => router.replace('/choose-story')} // Use replace to avoid going back to this screen
+      />
     </View>
   )
 }

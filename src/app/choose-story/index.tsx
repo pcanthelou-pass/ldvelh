@@ -16,11 +16,6 @@ const ChooseSimpleStory = () => {
       onPress={onPress}
     />
   )
-  // return (
-  //   <View>
-  //     <Text>About screen</Text>
-  //   </View>
-  // )
 }
 
 export default ChooseSimpleStory
