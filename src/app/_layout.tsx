@@ -29,6 +29,10 @@ export default function RootLayout() {
           name="create-user/index"
           options={({ navigation }) => ({ title: 'Choisir un héro' })}
         />
+        <Stack.Screen
+          name="read-introduction/index"
+          options={({ navigation }) => ({ title: 'Introduction' })}
+        />
       </Stack>
     </Core>
   )
