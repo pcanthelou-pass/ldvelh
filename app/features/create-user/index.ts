@@ -1,4 +1,4 @@
-export { Backpack } from './Backpack'
+export { Backpack, useBackpackToDisplay } from './Backpack'
 export { BackpackEmptyView } from './components/BackpackEmptyView'
 export { BackpackFilledView } from './components/BackpackFilledView'
 export { BackpackHeader } from './components/BackpackHeader'
