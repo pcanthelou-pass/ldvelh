@@ -60,6 +60,12 @@ export interface GameActions {
    */
   hitCharacter: (hit?: number) => void
   /**
+   * the opponent is wounded by the hero
+   * @param hit the number of hit points
+   * @returns
+   */
+  hitOpponent: (hit?: number) => void
+  /**
    * change the current scene by the one selected by the player
    * or to the end of the book
    * @param scene the scene key to load

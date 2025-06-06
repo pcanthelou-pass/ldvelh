@@ -11,6 +11,5 @@ export { ReadSceneFightView } from './components/ReadSceneFightView'
 export { ReadSceneNormalView } from './components/ReadSceneNormalView'
 export { ReadSceneSuccessView } from './components/ReadSceneSuccessView'
 export { ReadSceneView } from './components/ReadSceneView'
-export { FightScene } from './FightScene'
 
 export default ReadScene

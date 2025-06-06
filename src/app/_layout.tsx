@@ -1,6 +1,8 @@
 import { Core, createGameStore, createUserStore } from '@/src/core'
 import { AlertService, Services } from '@/src/shared/services'
 import { Stack } from 'expo-router'
+import { enableMapSet } from 'immer'
+enableMapSet()
 
 const services: Services = {
   alert: new AlertService(),
@@ -20,10 +22,14 @@ export default function RootLayout() {
   return (
     <Core services={services} slices={slices}>
       <Stack>
+        <Stack.Screen name="/" options={{ title: 'Mon livre' }} />
         <Stack.Screen name="index" options={{ title: 'Mon livre' }} />
         <Stack.Screen
           name="choose-story/index"
-          options={({ navigation }) => ({ title: 'Choisir une histoire' })}
+          options={({ navigation }) => ({
+            title: 'Choisir une histoire',
+            headerBackVisible: false,
+          })}
         />
         <Stack.Screen
           name="create-user/index"
@@ -37,6 +43,13 @@ export default function RootLayout() {
           name="read-scene/index"
           options={({ navigation }) => ({
             title: 'Scène',
+            headerBackVisible: false,
+          })}
+        />
+        <Stack.Screen
+          name="read-scene/fight-scene"
+          options={({ navigation }) => ({
+            title: 'Combat',
             headerBackVisible: false,
           })}
         />
