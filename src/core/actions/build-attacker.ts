@@ -10,10 +10,7 @@ const defaultAttack: RoundAttackProps = (
   attacker?: AttackerStatsProps,
 ): number => (attacker?.abilities?.agility ?? 0) + D6x2()
 
-const defaultHit: HitProps = (
-  attacker?: AttackerStatsProps,
-  value: number = 2,
-): number => (attacker?.abilities?.endurance ?? 0) - value
+const defaultHit: HitProps = (): number => 2
 
 /**
  *
@@ -24,6 +21,6 @@ export const BuildAttacker = (props: AttackerStatsProps): AttackerProps => {
   return {
     ...props,
     attack: () => defaultAttack(props),
-    hit: () => defaultHit(props),
+    hit: () => defaultHit(),
   }
 }

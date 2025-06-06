@@ -1,6 +1,5 @@
 import { ItemProps, useGameStore } from '@/src/core'
-import { useState } from 'react'
-import { FightScene } from './FightScene'
+import { useRouter } from 'expo-router'
 import { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
 import { ReadSceneFailureView } from './components/ReadSceneFailureView'
 import { ReadSceneFightView } from './components/ReadSceneFightView'
@@ -11,14 +10,13 @@ export const ReadScene = ({
   onPressActionExt,
   onPressItemExt,
   onPressQuitExt,
-  onPressFightExt,
 }: {
   onPressActionExt?: (key: string) => void
   onPressItemExt?: (item: ItemProps) => void
   onPressQuitExt?: () => void
-  onPressFightExt?: () => void
 }) => {
   const store = useGameStore((state) => state)
+  const router = useRouter()
   const { moveToScene, quitGame } = store
 
   const onPressAction = (key: string) => {
@@ -34,14 +32,10 @@ export const ReadScene = ({
   const onPressQuit = () => {
     quitGame()
     onPressQuitExt?.()
+    router.replace('/choose-story')
   }
 
-  const views = BuildSceneByPredicate(
-    onPressFightExt ?? (() => {}),
-    onPressQuit,
-    onPressItem,
-    onPressAction,
-  )
+  const views = BuildSceneByPredicate(onPressQuit, onPressItem, onPressAction)
 
   const { render } = views.find((v) => v.predicate())!
 
@@ -49,16 +43,16 @@ export const ReadScene = ({
 }
 
 function BuildSceneByPredicate(
-  onPressFightExt: () => void,
   onPressQuit: () => void,
   onPressItem: (item: ItemProps) => void,
   onPressAction: (key: string) => void,
 ) {
-  const [fightingMode, setFightingMode] = useState(false)
   const store = useGameStore((state) => state)
   const { currentScene, character } = store
 
   const items = character.items
+
+  const router = useRouter()
 
   return [
     {
@@ -66,17 +60,14 @@ function BuildSceneByPredicate(
       render: () => <ReadSceneEmptyView />,
     },
     {
-      predicate: () => !currentScene.isEnding && fightingMode,
-      render: () => <FightScene />,
-    },
-    {
-      predicate: () => !fightingMode && !!currentScene.opponent,
+      predicate: () =>
+        !!currentScene.opponent &&
+        currentScene.opponent.abilities.endurance > 0,
       render: () => (
         <ReadSceneFightView
           sceneText={currentScene.text}
           onPressFight={() => {
-            setFightingMode(true)
-            onPressFightExt?.()
+            router.push('/read-scene/fight-scene')
           }}
         />
       ),
@@ -102,8 +93,7 @@ function BuildSceneByPredicate(
       ),
     },
     {
-      predicate: () =>
-        !currentScene.opponent && !fightingMode && !currentScene.isEnding,
+      predicate: () => !currentScene.isEnding,
       render: () => (
         <ReadSceneNormalView
           sceneText={currentScene.text}

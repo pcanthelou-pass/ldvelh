@@ -7,10 +7,6 @@ import { immer } from 'zustand/middleware/immer'
 import { BookProps, EmptyBook } from '../types/book'
 import { DEFAULT_GAME_PROPS, GameProps, GameState } from '../types/game'
 
-import { enableMapSet } from 'immer'
-
-enableMapSet()
-
 export type GameStore = ReturnType<typeof createGameStore>
 
 export const createGameStore = (initProps?: Partial<GameProps>) => {
@@ -69,6 +65,10 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         set((state) => {
           state.character.abilities.endurance -= hit
         }),
+      hitOpponent: (hit: number = 2) =>
+        set((state) => {
+          state.currentScene.opponent.abilities.endurance -= hit
+        }),
       resetEndurance: () =>
         set((state) => {
           state.character.abilities.endurance =
@@ -76,9 +76,14 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         }),
       consumeItemByOne: (key: string) =>
         set((state) => {
-          if (state.character.items.get(key).quantity > 1)
-            state.character.items.get(key).quantity -= 1
-          else {
+          const item = state.character.items.get(key)
+          if (!item) return
+          if (item.quantity > 1) {
+            state.character.items.set(key, {
+              ...item,
+              quantity: item.quantity - 1,
+            })
+          } else {
             state.character.items.delete(key)
           }
         }),

@@ -4,10 +4,18 @@ export class Fight {
   opponent: AttackerProps
   hero: AttackerProps
   round: number = 0
+  opponentEndurance: number
+  heroWound: number
+  heroEndurance: number
+  opponentWound: number
 
   constructor(opponent: AttackerProps, hero: AttackerProps) {
     this.opponent = opponent
     this.hero = hero
+    this.opponentEndurance = opponent.abilities.endurance
+    this.heroEndurance = hero.abilities.endurance
+    this.heroWound = 0
+    this.opponentWound = 0
     this.round = 0
   }
 
@@ -15,27 +23,22 @@ export class Fight {
     const opponentAttack = this.opponent.attack()
     const heroAttack = this.hero.attack()
     if (opponentAttack > heroAttack) {
-      this.hero.abilities.endurance -= this.opponent.hit()
+      this.heroWound += this.opponent.hit()
+      this.heroEndurance -= this.opponent.hit()
     }
     if (opponentAttack < heroAttack) {
-      this.opponent.abilities.endurance -= this.hero.hit()
+      this.opponentWound += this.hero.hit()
+      this.opponentEndurance -= this.hero.hit()
     }
     this.round++
   }
 
-  get heroEndurance(): number {
-    return this.hero.abilities.endurance
-  }
-
-  get opponentEndurance(): number {
-    return this.opponent.abilities.endurance
-  }
   get heroIsDead(): boolean {
-    return this.hero.abilities.endurance === 0
+    return this.heroEndurance === 0
   }
 
   get opponentIsDead(): boolean {
-    return this.opponent.abilities.endurance === 0
+    return this.opponentEndurance === 0
   }
 
   get canContinue(): boolean {
