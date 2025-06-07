@@ -1,18 +1,37 @@
+import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
-import { useGameStore } from '../useGameStore'
 import { usePregeneratedCharacter } from '../usePregeneratedCharacter'
 
 describe('usePregeneratedCharacter', () => {
-  it('should load the default character', () => {
-    const { result } = renderHook(() =>
-      useGameStore((state) => state.character),
-    )
+  it('should set the character from pregenerated data', () => {
+    const { result } = renderHook(() => usePregeneratedCharacter(), {
+      wrapper: WrapperTestExt,
+    })
 
-    expect(result.current.name).not.toBe('Mon héro')
+    const character = result.current
 
-    renderHook(() => usePregeneratedCharacter())
+    expect(character).toHaveProperty('name', 'Héro')
+  })
+  it('should return character abilities', () => {
+    const { result } = renderHook(() => usePregeneratedCharacter(), {
+      wrapper: WrapperTestExt,
+    })
 
-    expect(result.current.name).toBe('Mon héro')
-    expect(result.current.items[0]).toHaveProperty('name')
+    const character = result.current
+
+    expect(character).toHaveProperty('agility')
+    expect(character).toHaveProperty('endurance')
+    expect(character).toHaveProperty('chance')
+  })
+  it('should return character items', () => {
+    const { result } = renderHook(() => usePregeneratedCharacter(), {
+      wrapper: WrapperTestExt,
+    })
+
+    const character = result.current
+
+    expect(character.items).toBeDefined()
+    expect(character.items).toHaveLength(1)
+    expect(character.items[0]).toHaveProperty('power', 'potion')
   })
 })

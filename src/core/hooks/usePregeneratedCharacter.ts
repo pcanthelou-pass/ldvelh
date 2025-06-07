@@ -10,5 +10,9 @@ export const usePregeneratedCharacter = () => {
     setCharacter(pregenerated.character as unknown as CharacterRawProps)
   }, [setCharacter])
 
-  return character
+  return {
+    ...character.abilities,
+    name: character.name,
+    items: character.items || [],
+  }
 }

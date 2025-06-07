@@ -1,20 +1,15 @@
 import { usePregeneratedCharacter } from '@core'
-import { useRouter } from 'expo-router'
 import { Button, View } from 'react-native'
+import { useGoToReadIntroduction } from '../../navigation/useGoToReadIntroduction'
 import { Backpack } from './Backpack'
 import { CreatePregeneratedCharacterView } from './components/CreatePregeneratedCharacterView'
 
 export const CreatePregeneratedCharacter = () => {
-  const character = usePregeneratedCharacter()
-  const {
-    name,
-    abilities: { agility, endurance, chance },
-    items,
-  } = character
-  const router = useRouter()
+  const { name, agility, endurance, chance, items } = usePregeneratedCharacter()
+  const route = useGoToReadIntroduction()
 
   const onPress = () => {
-    router.push('/read-introduction')
+    route()
   }
 
   return (
