@@ -1,17 +1,7 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
+import { mockReplace } from '../mocks/mockReplace'
 import { useGoToFirstScene } from '../useGoToFirstScene'
-
-/**
- * Mocking the useRouter hook from expo-router to test navigation functionality.
- * This allows us to simulate the navigation behavior without needing a full app context.
- */
-const mockReplace = jest.fn()
-jest.mock('expo-router', () => ({
-  useRouter: () => ({
-    replace: mockReplace,
-  }),
-}))
 
 /**
  * WrapperTestExt is a custom wrapper that provides necessary context for the hooks being tested.
