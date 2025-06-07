@@ -1,7 +1,7 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
 import { mockReplace } from '../mocks/mockReplace'
-import { useGoToChooseStory } from '../useGotToChooseStory'
+import { useGoToChooseStory } from '../useGoToChooseStory'
 
 describe('useGoToChooseStory', () => {
   beforeEach(() => {

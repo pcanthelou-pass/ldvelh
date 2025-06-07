@@ -1,6 +1,6 @@
 export { mockPush, mockReplace } from './mocks/mockReplace'
+export { useGoToChooseStory } from './useGoToChooseStory'
 export { useGoToCreateUser } from './useGoToCreateUser'
 export { useGoToFightScene } from './useGoToFightScene'
 export { useGoToFirstScene } from './useGoToFirstScene'
 export { useGoToReadIntroduction } from './useGoToReadIntroduction'
-export { useGoToChooseStory } from './useGotToChooseStory'
