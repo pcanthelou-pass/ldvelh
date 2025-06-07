@@ -1,22 +1,20 @@
 import { useChooseStory } from '@core'
-import { TEST_BOOK } from '@shared'
-import { useRouter } from 'expo-router'
-import { useCallback } from 'react'
+import { useGoToCreateUSer } from '../../navigation/useGoToCreateUSer'
 import ChooseStoryView from './components/ChooseSimpleStoryView'
 
 const ChooseSimpleStory = () => {
-  const { setBook } = useChooseStory()
-  const router = useRouter()
+  const { title, description, getSelectedBook, setBook } = useChooseStory()
+  const route = useGoToCreateUSer()
 
-  const onPress = useCallback(async () => {
-    setBook(TEST_BOOK)
-    router.push('/create-user')
-  }, [])
+  const onPress = () => {
+    setBook(getSelectedBook())
+    route()
+  }
 
   return (
     <ChooseStoryView
-      title={TEST_BOOK.title}
-      description={TEST_BOOK.description}
+      title={title}
+      description={description}
       onPress={onPress}
     />
   )

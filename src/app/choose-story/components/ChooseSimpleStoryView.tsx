@@ -7,7 +7,7 @@ const ChooseStoryView = ({
 }: {
   title: string
   description: string
-  onPress?: () => void
+  onPress: () => void
 }) => (
   <View>
     <View>
