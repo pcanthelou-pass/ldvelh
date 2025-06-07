@@ -6,15 +6,11 @@ import { ReadSceneFightView } from './components/ReadSceneFightView'
 import { ReadSceneNormalView } from './components/ReadSceneNormalView'
 import { ReadSceneSuccessView } from './components/ReadSceneSuccessView'
 
-export function BuildSceneByPredicate(
+function BuildSceneByPredicate(
   onPressQuit: () => void,
   onPressItem: (item: ItemProps) => void,
   onPressAction: (key: string) => void,
 ) {
-  // const store = useGameStore((state) => state)
-  // const { currentScene, character } = store
-
-  // const items = character.items
   const {
     sceneIsEmpty,
     sceneNeedFight,
@@ -64,4 +60,16 @@ export function BuildSceneByPredicate(
       ),
     },
   ]
+}
+
+export const useBuildSceneByPredicate = (
+  onPressQuit: () => void,
+  onPressItem: (item: ItemProps) => void,
+  onPressAction: (key: string) => void,
+) => {
+  const views = BuildSceneByPredicate(onPressQuit, onPressItem, onPressAction)
+
+  const { render } = views.find((v) => v.predicate())!
+
+  return render
 }

@@ -1,6 +1,6 @@
 import { ItemProps, useReadScene } from '@core'
 import { useGoToChooseStory } from '@navigation'
-import { BuildSceneByPredicate } from './BuildSceneByPredicate'
+import { useBuildSceneByPredicate } from './BuildSceneByPredicate'
 
 export const ReadScene = ({
   onPressActionExt,
@@ -30,9 +30,11 @@ export const ReadScene = ({
     router()
   }
 
-  const views = BuildSceneByPredicate(onPressQuit, onPressItem, onPressAction)
-
-  const { render } = views.find((v) => v.predicate())!
+  const render = useBuildSceneByPredicate(
+    onPressQuit,
+    onPressItem,
+    onPressAction,
+  )
 
   return render()
 }
