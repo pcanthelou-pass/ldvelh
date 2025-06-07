@@ -1,4 +1,4 @@
-import { Fight } from '@/src/core'
+import { Fight } from '../fight'
 
 describe('Given a Hero and an Opponent', () => {
   describe('When fighting Then chain round and each round make a roll and describe attack result', () => {

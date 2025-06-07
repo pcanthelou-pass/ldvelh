@@ -1,4 +1,4 @@
-import { BuildAttacker, Scene, SceneAction, ScenesProps } from '@/src/core'
+import { BuildAttacker, Scene, SceneAction, ScenesProps } from '@core'
 
 const BuildSceneActions = (ids: string[], scenes: ScenesProps): SceneAction[] =>
   ids

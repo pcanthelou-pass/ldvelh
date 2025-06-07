@@ -1,4 +1,4 @@
-import { AttackerProps } from '@/src/core'
+import { AttackerProps } from '@core'
 import { Button } from 'react-native'
 import { AttackerRow } from './AttackerRow'
 

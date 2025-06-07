@@ -1,5 +1,5 @@
-import { GameState } from '@/src/core/types/game'
-import { BuildBackpack } from '../../actions/build-backpack'
+import { BuildBackpack } from '@core'
+import { GameState } from '../game'
 
 describe('Backpack', () => {
   it('Can build a empty backpack', () => {

@@ -1,4 +1,4 @@
-import { usePregeneratedCharacter } from '@/src/core'
+import { usePregeneratedCharacter } from '@core'
 import { useRouter } from 'expo-router'
 import { Button, View } from 'react-native'
 import { Backpack } from './Backpack'

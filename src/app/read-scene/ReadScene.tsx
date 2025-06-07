@@ -1,4 +1,4 @@
-import { ItemProps, useGameStore } from '@/src/core'
+import { ItemProps, useGameStore } from '@core'
 import { useRouter } from 'expo-router'
 import { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
 import { ReadSceneFailureView } from './components/ReadSceneFailureView'

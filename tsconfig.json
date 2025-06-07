@@ -9,14 +9,11 @@
     "noUncheckedIndexedAccess": true,
     "paths": {
       "@index": ["src/app/index.tsx"],
+      "@features/*": ["src/app/*"],
       "@core": ["src/core/index.ts"],
-      "@core/*": ["src/core/*"],
-      "@features": ["src/app/features/index.ts"],
-      "@features/*": ["src/app/features/*"],
       "@services": ["src/shared/services/index.ts"],
       "@shared": ["src/shared/index.ts"],
-      "@shared/*": ["src/shared/*"],
-      "@/*": ["./*"]
+      "@navigation": ["src/navigation/index.ts"]
     }
   },
   "exclude": [

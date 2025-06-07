@@ -1,6 +1,6 @@
-import { RawBookType } from '@core/classes/book-scene'
+import { BookProps } from '@core'
 
-export const TEST_BOOK: RawBookType = {
+export const TEST_BOOK: BookProps = {
   title: 'Mon livre',
   description: 'Mon livre description',
   introduction: {

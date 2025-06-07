@@ -1,5 +1,5 @@
-import { useGameStore } from '@/src/core'
-import { TEST_BOOK } from '@/src/shared'
+import { useGameStore } from '@core'
+import { TEST_BOOK } from '@shared'
 import { renderHook } from '@testing-library/react-native'
 import { act } from 'react'
 

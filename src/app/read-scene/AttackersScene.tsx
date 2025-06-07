@@ -1,4 +1,4 @@
-import { AttackerProps, Fight } from '@/src/core'
+import { AttackerProps, Fight } from '@core'
 import { useState } from 'react'
 import { AttackersView } from './components/AttackersView'
 

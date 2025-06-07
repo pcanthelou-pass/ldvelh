@@ -1,5 +1,5 @@
-import { EmptyBook } from '@/src/core/types/book'
-import { TEST_BOOK } from '@/src/shared'
+import { EmptyBook } from '@core'
+import { TEST_BOOK } from '@shared'
 import { act, renderHook } from '@testing-library/react-native'
 import { useChooseStory } from '../useChooseSimpleStory'
 

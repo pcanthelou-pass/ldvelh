@@ -1,4 +1,4 @@
-import { GameState } from '@/src/core/types/game'
+import { GameState } from './game'
 import { ItemPower } from './Item-power'
 import { ItemProps, ItemStatsProps } from './items'
 

@@ -1,4 +1,4 @@
-import { AttackerProps, BuildAttacker, Fight, useGameStore } from '@/src/core'
+import { AttackerProps, BuildAttacker, Fight, useGameStore } from '@core'
 import { useRouter } from 'expo-router'
 import { AttackersScene } from './AttackersScene'
 import { FightSceneView } from './components/FightSceneView'

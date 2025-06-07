@@ -1,4 +1,4 @@
-import { ItemBuilder } from '@/src/core'
+import { ItemBuilder } from '@core'
 import { BackpackItems, BackpackItemsStats } from '../types/backpack'
 
 /**

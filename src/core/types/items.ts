@@ -1,4 +1,4 @@
-import { GameState } from '@/src/core'
+import { GameState } from './game'
 import { ItemPower } from './Item-power'
 
 export type RunEffectProps = (store?: GameState) => void

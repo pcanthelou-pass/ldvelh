@@ -9,11 +9,12 @@ module.exports = function (api) {
           root: ['./'],
           alias: {
             '@': './',
-            '@core': './src/core/',
+            '@core': './src/core/index.ts',
             '@features': './src/app/',
             '@index': './src/app/index.tsx',
             '@services': './src/shared/services/index.ts',
-            '@shared': './src/shared/',
+            '@shared': './src/shared/index.ts',
+            '@navigation': './src/navigation/index.ts',
           },
           extensions: [
             '.ios.ts',

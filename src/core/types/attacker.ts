@@ -1,4 +1,4 @@
-import { AbilitiesProps } from '@/src/core/types/abilities'
+import { AbilitiesProps } from './abilities'
 
 export type RoundAttackProps = (attacker?: AttackerStatsProps) => number
 

@@ -1,4 +1,4 @@
-import { WrapperTest } from '@/src/shared'
+import { WrapperTest } from '@shared'
 import { render, screen } from '@testing-library/react-native'
 import { CreatePregeneratedCharacter } from '../CreatePregeneratedCharacter'
 

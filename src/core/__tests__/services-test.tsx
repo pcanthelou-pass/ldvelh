@@ -1,5 +1,5 @@
-import { Core, useServices } from '@/src/core'
-import { IAlertService } from '@/src/shared/services'
+import { Core, useServices } from '@core'
+import { IAlertService } from '@shared'
 import { render, screen } from '@testing-library/react-native'
 import { ReactNode } from 'react'
 import { Text, View } from 'react-native'

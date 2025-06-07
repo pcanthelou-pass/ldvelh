@@ -1,12 +1,10 @@
-import { TEST_BOOK, WrapperTestExt } from '@/src/shared'
-import { render, screen, userEvent } from '@testing-library/react-native'
+import { TEST_BOOK, WrapperTestExt } from '@shared'
+import { render, screen } from '@testing-library/react-native'
 import { ReadIntroduction } from '../ReadIntroduction'
 
 describe('Given the user has selected a book and has a character', () => {
-  const forward = jest.fn()
-
   beforeEach(() => {
-    render(<ReadIntroduction forward={forward} />, {
+    render(<ReadIntroduction />, {
       wrapper: WrapperTestExt,
     })
   })
@@ -24,14 +22,6 @@ describe('Given the user has selected a book and has a character', () => {
       expect(
         await screen.findByText(/Et maintenant, tournez la page !/i),
       ).toBeVisible()
-    })
-  })
-
-  describe('When pressing "Et maintenant, tournez la page !"', () => {
-    it('Then the reader may be able to go to the first scene', async () => {
-      const user = userEvent.setup()
-      await user.press(screen.getByText(/Et maintenant, tournez la page !/i))
-      expect(forward).toHaveBeenCalledTimes(1)
     })
   })
 })

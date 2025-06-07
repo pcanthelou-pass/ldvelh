@@ -1,8 +1,5 @@
-import {
-  BookIntroductionProps,
-  EmptyBookIntroduction,
-} from '@/src/core/types/introduction'
-import { EmptyScenes, ScenesProps } from '@/src/core/types/scenes'
+import { BookIntroductionProps, EmptyBookIntroduction } from './introduction'
+import { EmptyScenes, ScenesProps } from './scenes'
 
 export type BookProps = {
   title: string

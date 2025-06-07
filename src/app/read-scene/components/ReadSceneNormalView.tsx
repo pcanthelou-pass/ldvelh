@@ -1,4 +1,4 @@
-import { BackpackItems, ItemProps, SceneAction } from '@/src/core'
+import { BackpackItems, ItemProps, SceneAction } from '@core'
 import { View } from 'react-native'
 import { ItemsActionsView } from './ItemsActionsView'
 import { ReadSceneActions } from './ReadSceneActions'

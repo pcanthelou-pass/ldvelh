@@ -1,5 +1,5 @@
-import { Core, createGameStore, createUserStore } from '@/src/core'
-import { IAlertService } from '@/src/shared/services'
+import { Core, createGameStore, createUserStore } from '@core'
+import { IAlertService } from '@shared/services'
 import { ReactNode } from 'react'
 
 class MockAlertService implements IAlertService {

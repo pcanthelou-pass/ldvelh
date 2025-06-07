@@ -1,11 +1,17 @@
-import { BuildBackpack } from '@/src/core/actions/build-backpack'
-import { BuildScene } from '@/src/core/actions/build-scene'
-import { CharacterRawProps, EmptyCharacter } from '@/src/core/types/character'
-import { EmptyScene } from '@/src/core/types/scene'
+import {
+  BookProps,
+  BuildBackpack,
+  BuildScene,
+  CharacterRawProps,
+  DEFAULT_GAME_PROPS,
+  EmptyBook,
+  EmptyCharacter,
+  EmptyScene,
+  GameProps,
+  GameState,
+} from '@core'
 import { createStore } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
-import { BookProps, EmptyBook } from '../types/book'
-import { DEFAULT_GAME_PROPS, GameProps, GameState } from '../types/game'
 
 export type GameStore = ReturnType<typeof createGameStore>
 

@@ -1,10 +1,6 @@
-import {
-  CharacterProps,
-  CharacterRawProps,
-  EmptyCharacter,
-} from '@/src/core/types/character'
-import { EmptyScene, Scene } from '@/src/core/types/scene'
 import { BookProps, EmptyBook } from './book'
+import { CharacterProps, CharacterRawProps, EmptyCharacter } from './character'
+import { EmptyScene, Scene } from './scene'
 
 export interface GameProps {
   /**

@@ -1,5 +1,5 @@
-import { ServicesProvider, StoreProvider, StoresProps } from '@/src/core'
-import { Services } from '@/src/shared/services'
+import { ServicesProvider, StoreProvider, StoresProps } from '@core'
+import { Services } from '@shared'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
 

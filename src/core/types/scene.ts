@@ -1,4 +1,4 @@
-import { AttackerProps } from '@/src/core/types/attacker'
+import { AttackerProps } from './attacker'
 
 export type EndingTypeProps = 'failure' | 'success'
 

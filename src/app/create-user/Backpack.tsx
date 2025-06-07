@@ -1,4 +1,4 @@
-import { BackpackItems } from '@/src/core'
+import { BackpackItems } from '@core'
 import { BackpackEmptyView } from './components/BackpackEmptyView'
 import { BackpackFilledView } from './components/BackpackFilledView'
 

@@ -1,4 +1,4 @@
-import { GameState, useGameStore } from '@/src/core'
+import { GameState, useGameStore } from '@core'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'

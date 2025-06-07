@@ -1,16 +1,15 @@
 import { useReadIntroduction } from '@core'
-import { useRouter } from 'expo-router'
-import { useCallback } from 'react'
+import { useGoToFirstScene } from '../../navigation/useGoToFirstScene'
 import { ReadIntroductionView } from './components/ReadIntroductionView'
 
 export const ReadIntroduction = () => {
   const { title, introduction, startBook } = useReadIntroduction()
-  const router = useRouter()
+  const route = useGoToFirstScene()
 
-  const forward = useCallback(() => {
+  const forward = () => {
     startBook()
-    router.replace('/read-scene')
-  }, [startBook, router])
+    route()
+  }
 
   return (
     <ReadIntroductionView title={title} forward={forward}>

@@ -1,4 +1,4 @@
-import { AttackerProps } from '@/src/core'
+import { AttackerProps } from '@core'
 import { Text, View } from 'react-native'
 
 export const FightSceneView: React.FC<{

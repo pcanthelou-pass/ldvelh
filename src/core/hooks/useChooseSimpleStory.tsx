@@ -1,4 +1,4 @@
-import { useGameStore } from '@/src/core'
+import { useGameStore } from '@core'
 
 export const useChooseStory = () => {
   const { gameBook, setBook } = useGameStore((state) => state)

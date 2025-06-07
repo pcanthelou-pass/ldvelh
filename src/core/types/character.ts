@@ -1,5 +1,5 @@
-import { AbilitiesProps, EmptyAbilitiesProps } from '@/src/core/types/abilities'
 import { EmptyBackpackItems } from '../actions/build-backpack'
+import { AbilitiesProps, EmptyAbilitiesProps } from './abilities'
 import { BackpackItems } from './backpack'
 import { ItemStatsProps } from './items'
 

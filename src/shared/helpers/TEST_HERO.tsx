@@ -1,4 +1,4 @@
-import { Character } from '@/src/core'
+import { Character } from '@core'
 
 export const TEST_HERO: Character = {
   name: 'Héro',

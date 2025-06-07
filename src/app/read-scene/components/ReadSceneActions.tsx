@@ -1,4 +1,4 @@
-import { SceneAction } from '@/src/core'
+import { SceneAction } from '@core'
 import { Button } from 'react-native'
 
 export const ReadSceneActions = ({

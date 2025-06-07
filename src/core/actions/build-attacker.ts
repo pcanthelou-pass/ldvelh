@@ -1,4 +1,4 @@
-import { D6x2 } from '@/src/core/actions/D6'
+import { D6x2 } from '@core'
 import {
   AttackerProps,
   AttackerStatsProps,
