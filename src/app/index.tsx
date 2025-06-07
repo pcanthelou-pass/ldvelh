@@ -1,7 +1,8 @@
-import { useRouter } from 'expo-router'
+import { useGoToChooseStory } from '@navigation'
 import { Button, Text, View } from 'react-native'
+
 export default function Index() {
-  const router = useRouter()
+  const route = useGoToChooseStory()
   return (
     <View
       style={{
@@ -11,10 +12,7 @@ export default function Index() {
       }}
     >
       <Text>Welcome</Text>
-      <Button
-        title="Choisir une histoire"
-        onPress={() => router.replace('/choose-story')} // Use replace to avoid going back to this screen
-      />
+      <Button title="Choisir une histoire" onPress={route} />
     </View>
   )
 }

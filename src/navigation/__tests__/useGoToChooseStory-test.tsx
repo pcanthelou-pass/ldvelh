@@ -1,6 +1,6 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
-import { useGoToFirstScene } from '../useGoToFirstScene'
+import { useGoToChooseStory } from '../useGotToChooseStory'
 
 /**
  * Mocking the useRouter hook from expo-router to test navigation functionality.
@@ -13,21 +13,17 @@ jest.mock('expo-router', () => ({
   }),
 }))
 
-/**
- * WrapperTestExt is a custom wrapper that provides necessary context for the hooks being tested.
- * It is used to render the hook in a test environment that mimics the app's structure.
- */
-describe('useGoToFirstScene', () => {
+describe('useGoToChooseStory', () => {
   beforeEach(() => {
     mockReplace.mockClear()
   })
 
-  it('should go to read scene', async () => {
-    const { result } = renderHook(() => useGoToFirstScene(), {
+  it('should go to choose story scene', async () => {
+    const { result } = renderHook(() => useGoToChooseStory(), {
       wrapper: WrapperTestExt,
     })
     expect(typeof result.current).toBe('function')
     result.current()
-    expect(mockReplace).toHaveBeenCalledWith('/read-scene')
+    expect(mockReplace).toHaveBeenCalledWith('/choose-story')
   })
 })
