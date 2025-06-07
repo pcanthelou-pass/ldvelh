@@ -1,0 +1,1 @@
+export { useGoToFirstScene } from './useGoToFirstScene'
