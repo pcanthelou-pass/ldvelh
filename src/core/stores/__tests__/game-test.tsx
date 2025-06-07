@@ -146,7 +146,7 @@ describe('Game (store)', () => {
     )
   })
 
-  it.skip('should be able to consume a potion', () => {
+  it('should be able to consume a potion', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { setCharacter, startBook, setBook, moveToScene, consumeItemByOne } =
       result.current
@@ -157,13 +157,9 @@ describe('Game (store)', () => {
       moveToScene('1-3')
     })
 
-    expect(
-      store.getState().character.items.get("Potion d'endurance").quantity,
-    ).toBe(2)
+    expect(store.getState().character.items[0].quantity).toBe(2)
 
     act(() => consumeItemByOne("Potion d'endurance"))
-    expect(
-      store.getState().character.items.get("Potion d'endurance").quantity,
-    ).toBe(1)
+    expect(store.getState().character.items[0].quantity).toBe(1)
   })
 })

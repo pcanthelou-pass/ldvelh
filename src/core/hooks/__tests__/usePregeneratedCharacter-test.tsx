@@ -13,8 +13,6 @@ describe('usePregeneratedCharacter', () => {
     renderHook(() => usePregeneratedCharacter())
 
     expect(result.current.name).toBe('Mon héro')
-    expect(result.current.items.get("Potion d'endurance")).toHaveProperty(
-      'name',
-    )
+    expect(result.current.items[0]).toHaveProperty('name')
   })
 })

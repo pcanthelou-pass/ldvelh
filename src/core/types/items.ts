@@ -19,4 +19,5 @@ interface ItemActionProps {
   action: (store?: GameState) => void
 }
 
-export type ItemProps = { name: string } & ItemStatsProps & ItemActionProps
+export type ItemProps = { name: string; key: string } & ItemStatsProps &
+  ItemActionProps

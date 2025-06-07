@@ -59,7 +59,7 @@ describe('Given the user has selected a book and has a character', () => {
         await screen.findByText(/boire la potion d'endurance/i),
       ).toBeVisible()
     })
-    it.skip('Allows to push button to use an item and this item apply effects', async () => {
+    it('Allows to push button to use an item and this item apply effects', async () => {
       expect(GAME_STORE.getState().character.abilities.endurance).toBe(
         GAME_STORE.getState().characterNotModified.abilities.endurance - 4,
       )
@@ -75,7 +75,7 @@ describe('Given the user has selected a book and has a character', () => {
         GAME_STORE.getState().characterNotModified.abilities.endurance,
       )
     })
-    it.skip('A used item without quantity is not usable again and disappear', async () => {
+    it('A used item without quantity is not usable again and disappear', async () => {
       await user.press(screen.getByText(/boire la potion d'endurance/i))
       expect(
         await screen.queryByText(/boire la potion d'endurance/i),
@@ -107,7 +107,7 @@ describe('Given the user has selected a book and has a character', () => {
     it('Does show it is successful', () => {
       expect(screen.getByText(/vous avez réussi/i)).toBeVisible()
     })
-    it.skip('Does show a button to go the homepage', async () => {
+    it('Does show a button to go the homepage', async () => {
       expect(screen.getByText('Quitter')).toBeVisible()
       await user.press(screen.getByText('Quitter'))
       expect(onPressQuitExtFn).toHaveBeenCalledTimes(1)
@@ -128,7 +128,7 @@ describe('Given the user has selected a book and has a character', () => {
     it('Does show it is a failure', () => {
       expect(screen.getByText(/vous avez échoué/i)).toBeVisible()
     })
-    it.skip('Does show a button to go the homepage', async () => {
+    it('Does show a button to go the homepage', async () => {
       expect(screen.getByText('Quitter')).toBeVisible()
       await user.press(screen.getByText('Quitter'))
       expect(onPressQuitExtFn).toHaveBeenCalledTimes(1)

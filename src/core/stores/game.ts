@@ -82,15 +82,18 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         }),
       consumeItemByOne: (key: string) =>
         set((state) => {
-          const item = state.character.items.get(key)
+          const index = state.character.items.findLastIndex(
+            (i) => i.key === key,
+          )
+          const item = state.character.items[index]
           if (!item) return
           if (item.quantity > 1) {
-            state.character.items.set(key, {
+            state.character.items[index] = {
               ...item,
               quantity: item.quantity - 1,
-            })
+            }
           } else {
-            state.character.items.delete(key)
+            state.character.items.splice(index, 1)
           }
         }),
     })),

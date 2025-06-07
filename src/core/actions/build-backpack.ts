@@ -6,11 +6,11 @@ import { BackpackItems, BackpackItemsStats } from '../types/backpack'
  */
 
 export const BuildBackpack = (items: BackpackItemsStats): BackpackItems => {
-  const bp = new Map()
+  const bp: BackpackItems = []
   Object.entries(items)
     .filter(([key, item]) => item.quantity > 0)
     .forEach(([key, item]) => {
-      bp.set(key, ItemBuilder(key, item))
+      bp.push(ItemBuilder(key, item))
     })
 
   return bp

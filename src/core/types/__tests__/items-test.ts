@@ -5,7 +5,7 @@ describe('Backpack', () => {
   it('Can build a empty backpack', () => {
     const bp = BuildBackpack({})
 
-    expect(bp.size).toBe(0)
+    expect(bp.length).toBe(0)
   })
   describe('Can build a backpack', () => {
     const bp = BuildBackpack({
@@ -18,18 +18,18 @@ describe('Backpack', () => {
     })
 
     it('Has one item', () => {
-      expect(bp.size).toBe(1)
+      expect(bp.length).toBe(1)
     })
 
     it('Is contain a potion', () => {
-      const item = bp.get("Potion d'endurance")
+      const item = bp[0]
 
       expect(item?.name).toBe("Boire la potion d'endurance")
       expect(item?.power).toBe('potion')
     })
 
     it('Can apply effect', () => {
-      const item = bp.get("Potion d'endurance")
+      const item = bp[0]
       const store = {
         resetEndurance: jest.fn(),
         consumeItemByOne: jest.fn(),

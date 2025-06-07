@@ -18,7 +18,9 @@ const BuildItemNormal: ItemFactory = (
   ...item,
   name,
   action: (store?: GameState) => {
-    item?.effect?.(store)
+    if (typeof item?.effect === 'function') {
+      item.effect(store)
+    }
   },
 })
 
@@ -27,6 +29,7 @@ const BuildItemPotion: ItemFactory = (
   item: ItemStatsProps,
 ): ItemProps => ({
   ...item,
+  key: name,
   name: `Boire la ${name.toLocaleLowerCase()}`,
   action: (store?: GameState) => {
     store?.resetEndurance()

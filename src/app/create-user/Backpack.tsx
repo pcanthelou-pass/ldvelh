@@ -3,7 +3,7 @@ import { BackpackEmptyView } from './components/BackpackEmptyView'
 import { BackpackFilledView } from './components/BackpackFilledView'
 
 export const useBackpackToDisplay = (items: BackpackItems): string[] => {
-  return Array.from(items.keys())
+  return items.map((item) => item.name)
 }
 
 export const Backpack = ({ items }: { items: BackpackItems }) => {

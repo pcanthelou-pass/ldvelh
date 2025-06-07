@@ -1,12 +1,11 @@
 import { EmptyBackpackItems } from '../actions/build-backpack'
 import { AbilitiesProps, EmptyAbilitiesProps } from './abilities'
-import { BackpackItems } from './backpack'
-import { ItemStatsProps } from './items'
+import { BackpackItems, BackpackItemsStats } from './backpack'
 
 export interface CharacterRawProps {
   name: string
   abilities: AbilitiesProps
-  items: Record<string, ItemStatsProps>
+  items: BackpackItemsStats
 }
 export interface CharacterProps {
   name: string

@@ -8,7 +8,7 @@ export const ItemsActionsView = ({
   items: BackpackItems
   onPress: (item: ItemProps) => void
 }) => {
-  return Array.from(items).map(([key, item]) => (
+  return items.map((item) => (
     <View key={item.name}>
       <Button
         title={item.name}
