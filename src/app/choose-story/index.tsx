@@ -1,10 +1,10 @@
 import { useChooseStory } from '@core'
-import { useGoToCreateUSer } from '../../navigation/useGoToCreateUSer'
+import { useGoToCreateUser } from '../../navigation/useGoToCreateUser'
 import ChooseStoryView from './components/ChooseSimpleStoryView'
 
 const ChooseSimpleStory = () => {
   const { title, description, getSelectedBook, setBook } = useChooseStory()
-  const route = useGoToCreateUSer()
+  const route = useGoToCreateUser()
 
   const onPress = () => {
     setBook(getSelectedBook())

@@ -1,8 +1,8 @@
 import { useRouter } from 'expo-router'
 
-export const useGoToCreateUser = () => {
+export const useGoToFightScene = () => {
   const router = useRouter()
   return () => {
-    router.push('/create-user')
+    router.push('/read-scene/fight-scene')
   }
 }
