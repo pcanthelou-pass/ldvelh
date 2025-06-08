@@ -1,16 +1,15 @@
-import { usePregeneratedCharacter } from '@core'
+import { useRandomCharacter } from '@core'
 import { Button, View } from 'react-native'
 import { useGoToReadIntroduction } from '../../navigation/useGoToReadIntroduction'
 import { Backpack } from './Backpack'
 import { FullCharacterView } from './components/FullCharacterView'
 
 /**
- *
- * @returns A component that displays a pregenerated character with their attributes and items.
+ * A component that displays a randomly generated character with their attributes and items.
  * It allows the user to proceed to the next step in the character creation process.
  */
-export const CreatePregeneratedCharacter = () => {
-  const { name, agility, endurance, chance, items } = usePregeneratedCharacter()
+export const CreateRandomCharacter = () => {
+  const { name, agility, endurance, chance, items } = useRandomCharacter()
   const route = useGoToReadIntroduction()
 
   const onPress = () => {

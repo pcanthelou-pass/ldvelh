@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react-native'
-import { CreatePregeneratedCharacterView } from '../components/CreatePregeneratedCharacterView'
+import { FullCharacterView } from '../components/FullCharacterView'
 
 describe('CreatePregeneratedCharacterView', () => {
   it('should render the component', () => {
     render(
-      <CreatePregeneratedCharacterView
+      <FullCharacterView
         name={'Un héro'}
         agility={1}
         endurance={2}

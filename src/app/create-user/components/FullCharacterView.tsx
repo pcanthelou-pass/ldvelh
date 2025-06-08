@@ -7,7 +7,7 @@ interface Character {
   chance: number
 }
 
-export const CreatePregeneratedCharacterView = ({
+export const FullCharacterView = ({
   name,
   agility,
   endurance,
