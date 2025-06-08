@@ -9,12 +9,19 @@ const ChooseStoryView = ({
   description: string
   onPress: () => void
 }) => (
-  <View>
-    <View>
-      <Text>{title}</Text>
-    </View>
-    <View>
-      <Text>{description}</Text>
+  <View
+    style={{
+      flex: 1,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginHorizontal: 20,
+    }}
+  >
+    <View style={{ flex: 1, width: '100%' }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', marginVertical: 20 }}>
+        {title}
+      </Text>
+      <Text style={{ fontSize: 16, marginBottom: 20 }}>{description}</Text>
     </View>
     <View>
       <Button onPress={onPress} title="Entrer" />

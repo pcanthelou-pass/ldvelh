@@ -47,9 +47,9 @@ Voir la doc :
 
   - ​ Afficher les niveaux vie/chance du personnage X
 
-  - ​ Le personnage meurt -> Ecran de mort
+  - ​ Le personnage meurt -> Ecran de mort X
 
-  - ​ Le personnage sort vainceur
+  - ​ Le personnage sort vainceur X
 
 - ​ Utiliser un objet X
 
@@ -69,7 +69,7 @@ Voir la doc :
   - Ecran de fin négatif
 
 - OU Le personnage est en mort
-  - Ecran de mort
+  - Ecran de mort X
 
 ### L'utilisateur ferme le livre
 
