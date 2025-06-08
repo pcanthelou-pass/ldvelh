@@ -1,5 +1,8 @@
 export { ButtonNav } from './ButtonNav'
 export { CenteredScreenView } from './CenteredScreenView'
 export { CenteredView } from './CenteredView'
+export { Paragraph } from './Paragraph'
+export { Title } from './Title'
+export { TopView } from './TopView'
 export { WelcomeText } from './WelcomeText'
 export { WelcomeTitle } from './WelcomeTitle'
