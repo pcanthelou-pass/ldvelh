@@ -1,4 +1,5 @@
 import { View } from 'react-native'
+import { space } from './constant'
 
 export const CenteredScreenView = ({
   children,
@@ -10,7 +11,7 @@ export const CenteredScreenView = ({
       flex: 1,
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingHorizontal: 20,
+      paddingHorizontal: space,
       backgroundColor: 'white',
     }}
   >

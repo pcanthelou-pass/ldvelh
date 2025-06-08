@@ -1,6 +1,6 @@
 import { useRandomCharacter } from '@core'
-import { Button, View } from 'react-native'
-import { useGoToReadIntroduction } from '../../navigation/useGoToReadIntroduction'
+import { useGoToReadIntroduction } from '@navigation'
+import { ButtonNav, CenteredScreenView } from '@ui'
 import { Backpack } from './Backpack'
 import { FullCharacterView } from './components/FullCharacterView'
 
@@ -17,7 +17,7 @@ export const CreateRandomCharacter = () => {
   }
 
   return (
-    <View>
+    <CenteredScreenView>
       <FullCharacterView
         name={name}
         agility={agility}
@@ -25,7 +25,7 @@ export const CreateRandomCharacter = () => {
         chance={chance}
       />
       <Backpack items={items} />
-      <Button title="Suivant" onPress={onPress} />
-    </View>
+      <ButtonNav title="Suivant" onPress={onPress} />
+    </CenteredScreenView>
   )
 }

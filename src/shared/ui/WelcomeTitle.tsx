@@ -1,7 +1,10 @@
 import { Text } from 'react-native'
+import { megaTitleSize, space } from './constant'
 
 export const WelcomeTitle = ({ title }: { title: string }) => (
-  <Text style={{ fontSize: 24, marginBottom: 20, fontWeight: 'bold' }}>
+  <Text
+    style={{ fontSize: megaTitleSize, marginBottom: space, fontWeight: 'bold' }}
+  >
     {title}
   </Text>
 )

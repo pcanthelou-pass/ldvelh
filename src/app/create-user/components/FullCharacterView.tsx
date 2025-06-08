@@ -1,7 +1,7 @@
+import { Center } from '@ui'
 import { Ability } from './Ability'
 import { HeroAbilities } from './HeroAbilities'
 import { HeroName } from './HeroName'
-import { HeroWrapper } from './HeroWrapper'
 
 interface Character {
   name: string
@@ -17,13 +17,13 @@ export const FullCharacterView = ({
   chance,
 }: Character) => {
   return (
-    <HeroWrapper>
+    <Center>
       <HeroName name={name} />
       <HeroAbilities>
         <Ability label="Agility" value={agility} />
         <Ability label="Endurance" value={endurance} />
         <Ability label="Chance" value={chance} />
       </HeroAbilities>
-    </HeroWrapper>
+    </Center>
   )
 }
