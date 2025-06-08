@@ -16,6 +16,7 @@ export {
   type StoreProviderProps,
   type StoresProps,
 } from './contexts/store'
+export { useCharacterStats } from './hooks/useCharacterStats'
 export { useChooseStory } from './hooks/useChooseSimpleStory'
 export { useFight } from './hooks/useFight'
 export { GAME_STORE, useGameStore } from './hooks/useGameStore'

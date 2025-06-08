@@ -1,6 +1,8 @@
-import { ItemProps, useReadScene } from '@core'
+import { ItemProps, useCharacterStats, useReadScene } from '@core'
 import { useGoToChooseStory } from '@navigation'
+import { View } from 'react-native'
 import { useBuildSceneByPredicate } from './BuildSceneByPredicate'
+import { CharacterView } from './components/CharacterView'
 
 export const ReadScene = ({
   onPressActionExt,
@@ -12,6 +14,7 @@ export const ReadScene = ({
   onPressQuitExt?: () => void
 }) => {
   const { actionItem, moveToScene, quitGame } = useReadScene()
+  const { name, agility, endurance, chance } = useCharacterStats()
   const router = useGoToChooseStory()
 
   const onPressAction = (key: string) => {
@@ -36,5 +39,17 @@ export const ReadScene = ({
     onPressAction,
   )
 
-  return render()
+  return (
+    <View>
+      <CharacterView
+        name={name}
+        agility={agility}
+        endurance={endurance}
+        chance={chance}
+      />
+      {render()}
+    </View>
+  )
 }
+
+export default ReadScene
