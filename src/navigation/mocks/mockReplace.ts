@@ -4,9 +4,11 @@
  */
 export const mockReplace = jest.fn()
 export const mockPush = jest.fn()
+export const mockGoBack = jest.fn()
 jest.mock('expo-router', () => ({
   useRouter: () => ({
     replace: mockReplace,
     push: mockPush,
+    back: mockGoBack,
   }),
 }))
