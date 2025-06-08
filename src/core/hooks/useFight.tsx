@@ -51,9 +51,15 @@ export const useFight = (
   }
 
   const fleeFight = () => {
-    hitCharacter(fight.current.heroWound + 2)
-    hitOpponent(99)
-    onAfterFlee?.()
+    if (fight.current.heroEndurance <= 2) {
+      fight.current.heroEndurance = 0
+      fight.current.heroWound += 2
+      dieFight()
+    } else {
+      hitCharacter(fight.current.heroWound + 2)
+      hitOpponent(99)
+      onAfterFlee?.()
+    }
   }
 
   const [opponentEndurance, setOpponentEndurance] = useState(
