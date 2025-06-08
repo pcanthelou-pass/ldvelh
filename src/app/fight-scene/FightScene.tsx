@@ -1,5 +1,5 @@
 import { useFight } from '@core'
-import { useGoBack } from '@navigation'
+import { useGoBack, useGoToDieScene, useGoToFleeScene } from '@navigation'
 import { AttackersView } from './components/AttackersView'
 import { FightSceneView } from './components/FightSceneView'
 
@@ -11,22 +11,23 @@ import { FightSceneView } from './components/FightSceneView'
  */
 const FightScene = () => {
   const goBack = useGoBack()
+  const goToDieScene = useGoToDieScene()
+  const goToFleeScene = useGoToFleeScene()
 
-  const onAfterContinue = () => {
-    // Logic to execute after continuing the fight
-  }
+  const onAfterContinue = () => {}
+
   const onAfterDie = () => {
-    // Logic to execute after the character dies
-    goBack()
+    goToDieScene()
   }
+
   const onAfterFlee = () => {
-    // Logic to execute after fleeing the fight
-    goBack()
+    goToFleeScene()
   }
+
   const onAfterSurvive = () => {
-    // Logic to execute after surviving the fight
     goBack()
   }
+
   const {
     opponentEndurance,
     heroEndurance,

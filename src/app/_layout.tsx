@@ -47,9 +47,23 @@ export default function RootLayout() {
           })}
         />
         <Stack.Screen
-          name="read-scene/fight-scene"
+          name="fight-scene/index"
           options={({ navigation }) => ({
             title: 'Combat',
+            headerBackVisible: false,
+          })}
+        />
+        <Stack.Screen
+          name="die-scene/index"
+          options={({ navigation }) => ({
+            title: 'Mort',
+            headerBackVisible: false,
+          })}
+        />
+        <Stack.Screen
+          name="flee-scene/index"
+          options={({ navigation }) => ({
+            title: 'Fuite',
             headerBackVisible: false,
           })}
         />

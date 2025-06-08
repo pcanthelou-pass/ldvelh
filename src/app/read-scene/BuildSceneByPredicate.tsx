@@ -22,7 +22,7 @@ function BuildSceneByPredicate(
     actions,
   } = useReadScene()
 
-  const route = useGoToFightScene()
+  const fightScene = useGoToFightScene()
 
   return [
     {
@@ -32,7 +32,7 @@ function BuildSceneByPredicate(
     {
       predicate: () => sceneNeedFight,
       render: () => (
-        <ReadSceneFightView sceneText={text} onPressFight={route} />
+        <ReadSceneFightView sceneText={text} onPressFight={fightScene} />
       ),
     },
     {

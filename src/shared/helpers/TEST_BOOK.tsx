@@ -44,6 +44,11 @@ export const TEST_BOOK: BookProps = {
       question: 'Scène #2-1',
       text: 'Texte de la scène #2 1',
       nextIds: ['3-1', '3-2', '3-3'],
+      opponent: {
+        description: 'Vous devez battre le méga monstre show',
+        name: 'Trop fort',
+        abilities: { agility: 12, endurance: 24, chance: 12 },
+      },
     },
     '2-2': {
       id: '2-2',

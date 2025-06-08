@@ -26,6 +26,7 @@ Voir la doc :
 
 - Créer un personnage X
   - Le personnage est déjà pré-tiré = afficher juste le personnage X
+  - Les caractéristiques sont aléatoires X
 
 ### L'utilisateur démarre l'histoire
 
@@ -72,5 +73,5 @@ Voir la doc :
 
 ### L'utilisateur ferme le livre
 
-- Retourner à l'accueil
-  - Arrivée directe à l'accueil
+- Retourner à l'accueil X
+  - Arrivée directe à l'accueil X
