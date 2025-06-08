@@ -1,6 +1,6 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
-import { mockPush } from '../mocks/mockReplace'
+import { mockPush } from 'src/shared/helpers/mocks/mockReplace'
 import { useGoToReadIntroduction } from '../useGoToReadIntroduction'
 
 describe('useGoToReadIntroduction', () => {

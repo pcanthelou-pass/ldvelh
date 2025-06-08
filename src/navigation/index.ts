@@ -1,4 +1,3 @@
-export { mockPush, mockReplace } from './mocks/mockReplace'
 export { useGoBack } from './useGoBack'
 export { useGoToChooseStory } from './useGoToChooseStory'
 export { useGoToCreateUser } from './useGoToCreateUser'

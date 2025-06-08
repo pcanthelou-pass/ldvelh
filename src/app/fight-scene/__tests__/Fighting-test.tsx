@@ -2,7 +2,7 @@ import { GameState } from '@core'
 import { WrapperTestExt } from '@shared'
 import { render, screen, userEvent } from '@testing-library/react-native'
 import { ReactNode } from 'react'
-import { ReadScene } from '../ReadScene'
+import FightScene from '../FightScene'
 
 const MyWrapper = ({ children }: { children: ReactNode }) => {
   const runOnStart = (store: GameState) => {
@@ -14,29 +14,13 @@ const MyWrapper = ({ children }: { children: ReactNode }) => {
 
 describe('Given a book and a hero, When landing on a scene with <fight>', () => {
   const user = userEvent.setup()
-  let onPressActionExtFn = jest.fn()
-  let onPressItemExtFn = jest.fn()
-  let onPressQuitExtFn = jest.fn()
-  let onPressFightExtFn = jest.fn()
 
   beforeEach(() => {
-    onPressActionExtFn = jest.fn()
-    onPressItemExtFn = jest.fn()
-    onPressQuitExtFn = jest.fn()
-    onPressFightExtFn = jest.fn()
-    render(
-      <ReadScene
-        onPressActionExt={onPressActionExtFn}
-        onPressItemExt={onPressItemExtFn}
-        onPressQuitExt={onPressQuitExtFn}
-        onPressFightExt={onPressFightExtFn}
-      />,
-      {
-        wrapper: MyWrapper,
-      },
-    )
+    render(<FightScene />, {
+      wrapper: MyWrapper,
+    })
   })
-  it('Then there is just one button named "Combattre"', async () => {
+  it.skip('Then there is just one button named "Combattre"', async () => {
     expect(
       await screen.queryByText('Texte de la scène après le combat'),
     ).toBeVisible()

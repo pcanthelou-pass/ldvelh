@@ -1,6 +1,6 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
-import { mockGoBack, mockReplace } from '../mocks/mockReplace'
+import { mockGoBack, mockReplace } from 'src/shared/helpers/mocks/mockReplace'
 import { useGoBack } from '../useGoBack'
 
 describe('useGoBack', () => {

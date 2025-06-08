@@ -20,12 +20,12 @@ export const AttackersView: React.FC<{
   <>
     <AttackerRow
       name={opponent.name}
-      agility={opponent.abilities.agility}
+      agility={opponent?.abilities?.agility ?? 0}
       endurance={opponentEndurance}
     />
     <AttackerRow
       name={character.name}
-      agility={character.abilities.agility}
+      agility={character?.abilities?.agility ?? 0}
       endurance={heroEndurance}
     />
     <Button title="Attaquer" onPress={onPressAttack} />

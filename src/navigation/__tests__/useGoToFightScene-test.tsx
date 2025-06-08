@@ -1,6 +1,6 @@
 import { WrapperTestExt } from '@shared'
 import { renderHook } from '@testing-library/react-native'
-import { mockPush } from '../mocks/mockReplace'
+import { mockPush } from 'src/shared/helpers/mocks/mockReplace'
 import { useGoToFightScene } from '../useGoToFightScene'
 
 describe('useGoToFightScene', () => {
@@ -14,6 +14,6 @@ describe('useGoToFightScene', () => {
     })
     expect(typeof result.current).toBe('function')
     result.current()
-    expect(mockPush).toHaveBeenCalledWith('/read-scene/fight-scene')
+    expect(mockPush).toHaveBeenCalledWith('/fight-scene')
   })
 })

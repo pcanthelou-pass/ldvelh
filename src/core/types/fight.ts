@@ -12,8 +12,8 @@ export class Fight {
   constructor(opponent: AttackerProps, hero: AttackerProps) {
     this.opponent = opponent
     this.hero = hero
-    this.opponentEndurance = opponent.abilities.endurance
-    this.heroEndurance = hero.abilities.endurance
+    this.opponentEndurance = opponent?.abilities?.endurance ?? 0
+    this.heroEndurance = hero?.abilities?.endurance ?? 0
     this.heroWound = 0
     this.opponentWound = 0
     this.round = 0
