@@ -14,6 +14,7 @@ module.exports = function (api) {
             '@index': './src/app/index.tsx',
             '@services': './src/shared/services/index.ts',
             '@shared': './src/shared/index.ts',
+            '@ui': './src/shared/ui/index.ts',
             '@navigation': './src/navigation/index.ts',
           },
           extensions: [
