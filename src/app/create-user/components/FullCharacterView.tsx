@@ -1,4 +1,7 @@
-import { Text, View } from 'react-native'
+import { Ability } from './Ability'
+import { HeroAbilities } from './HeroAbilities'
+import { HeroName } from './HeroName'
+import { HeroWrapper } from './HeroWrapper'
 
 interface Character {
   name: string
@@ -14,11 +17,13 @@ export const FullCharacterView = ({
   chance,
 }: Character) => {
   return (
-    <View>
-      <Text>{name ?? 'Personnage'}</Text>
-      <Text>Agilité : {agility}</Text>
-      <Text>Endurance : {endurance}</Text>
-      <Text>Chance : {chance}</Text>
-    </View>
+    <HeroWrapper>
+      <HeroName name={name} />
+      <HeroAbilities>
+        <Ability label="Agility" value={agility} />
+        <Ability label="Endurance" value={endurance} />
+        <Ability label="Chance" value={chance} />
+      </HeroAbilities>
+    </HeroWrapper>
   )
 }
