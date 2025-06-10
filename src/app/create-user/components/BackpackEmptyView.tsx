@@ -1,7 +1,7 @@
-import { Text, View } from 'react-native'
+import { CenteredView, Paragraph } from '@ui'
 
 export const BackpackEmptyView = () => (
-  <View>
-    <Text>Sac à dos vide</Text>
-  </View>
+  <CenteredView>
+    <Paragraph>Sac à dos vide</Paragraph>
+  </CenteredView>
 )

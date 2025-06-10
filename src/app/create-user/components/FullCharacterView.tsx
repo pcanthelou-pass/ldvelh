@@ -1,6 +1,5 @@
-import { Center } from '@ui'
+import { Center, HeroAbilities } from '@ui'
 import { Ability } from './Ability'
-import { HeroAbilities } from './HeroAbilities'
 import { HeroName } from './HeroName'
 
 interface Character {

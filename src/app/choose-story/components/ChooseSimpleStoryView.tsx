@@ -1,4 +1,4 @@
-import { ButtonNav, CenteredScreenView, Paragraph, Title, TopView } from '@ui'
+import { ButtonNav, CenteredScreenView, TextBox, Title, TopView } from '@ui'
 
 const ChooseStoryView = ({
   title,
@@ -12,7 +12,7 @@ const ChooseStoryView = ({
   <CenteredScreenView>
     <TopView>
       <Title>{title}</Title>
-      <Paragraph>{description}</Paragraph>
+      <TextBox>{description}</TextBox>
     </TopView>
     <ButtonNav onPress={onPress} title="Entrer" />
   </CenteredScreenView>

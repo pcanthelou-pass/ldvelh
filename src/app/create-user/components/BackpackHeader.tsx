@@ -1,7 +1,9 @@
-import { Text } from 'react-native'
+import { NormalView, Paragraph } from '@ui'
 
 export const BackpackHeader = ({ items }: { items: string[] }) => (
-  <Text>
-    {items.length} objet{items.length > 1 ? 's' : ''}
-  </Text>
+  <NormalView>
+    <Paragraph>
+      Le sac à dos contient {items.length} objet{items.length > 1 ? 's' : ''}
+    </Paragraph>
+  </NormalView>
 )

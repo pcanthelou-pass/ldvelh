@@ -1,13 +1,15 @@
-import { Text, View } from 'react-native'
+import { Paragraph, TopView } from '@ui'
 import { BackpackHeader } from './BackpackHeader'
 
 export const BackpackFilledView = ({ items }: { items: string[] }) => {
   return (
-    <View>
+    <TopView>
       <BackpackHeader items={items} />
-      {items.map((item) => (
-        <Text key={item}>{item}</Text>
-      ))}
-    </View>
+      <TopView>
+        {items.map((item) => (
+          <Paragraph key={item}>{item}</Paragraph>
+        ))}
+      </TopView>
+    </TopView>
   )
 }

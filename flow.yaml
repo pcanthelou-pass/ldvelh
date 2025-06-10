@@ -1,0 +1,12 @@
+appId: host.exp.Exponent
+---
+- launchApp
+- tapOn: 'my-hero-book'
+- assertVisible: 'Bienvenue'
+- tapOn: 'Choisir une histoire'
+- assertVisible: 'Choisir une histoire'
+- assertVisible: 'Mon livre'
+- tapOn: 'Entrer'
+- assertVisible: 'Mon héro'
+- assertVisible: 'Agility'
+- assertVisible: '8'

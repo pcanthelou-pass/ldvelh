@@ -1,8 +1,21 @@
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { paragraphSize, space } from './constant'
 
 export const Paragraph = ({ children }: { children: React.ReactNode }) => (
-  <Text style={{ fontSize: paragraphSize, marginBottom: space }}>
-    {children}
-  </Text>
+  <View
+    style={{
+      alignContent: 'flex-start',
+      width: '100%',
+    }}
+  >
+    <Text
+      style={{
+        fontSize: paragraphSize,
+        marginBottom: space,
+        lineHeight: paragraphSize * 1.4,
+      }}
+    >
+      {children}
+    </Text>
+  </View>
 )
