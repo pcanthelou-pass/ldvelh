@@ -18,10 +18,12 @@ export const ReadSceneNormalView = ({
   onPressAction: (key: string) => void
 }) => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <ReadSceneView>{sceneText}</ReadSceneView>
-      <ItemsActionsView items={items} onPress={onPressItem} />
-      <ReadSceneActions actions={actions} onPress={onPressAction} />
+      <View style={{ borderTopWidth: 1 }}>
+        <ItemsActionsView items={items} onPress={onPressItem} />
+        <ReadSceneActions actions={actions} onPress={onPressAction} />
+      </View>
     </View>
   )
 }

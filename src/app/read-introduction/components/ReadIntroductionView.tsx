@@ -1,4 +1,10 @@
-import { ButtonNav, CenteredScreenView, Title } from '@ui'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  ScreenWithNav,
+  Title,
+} from '@ui'
 import { TextBox } from '../../../shared/ui/TextBox'
 
 export const ReadIntroductionView = ({
@@ -10,9 +16,13 @@ export const ReadIntroductionView = ({
   forward?: () => void
   children: React.ReactNode
 }) => (
-  <CenteredScreenView>
-    <Title>{title}</Title>
-    <TextBox>{children}</TextBox>
-    <ButtonNav title="Et maintenant, tournez la page !" onPress={forward} />
-  </CenteredScreenView>
+  <ScreenWithNav>
+    <AboveNavWrapper>
+      <Title>{title}</Title>
+      <TextBox>{children}</TextBox>
+    </AboveNavWrapper>
+    <NavWrapper>
+      <ButtonNav title="Et maintenant, tournez la page !" onPress={forward} />
+    </NavWrapper>
+  </ScreenWithNav>
 )

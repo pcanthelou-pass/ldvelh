@@ -18,6 +18,7 @@ function BuildSceneByPredicate(
     sceneIsFailure,
     sceneIsNormal,
     text,
+    fightText,
     items,
     actions,
   } = useReadScene()
@@ -32,7 +33,7 @@ function BuildSceneByPredicate(
     {
       predicate: () => sceneNeedFight,
       render: () => (
-        <ReadSceneFightView sceneText={text} onPressFight={fightScene} />
+        <ReadSceneFightView sceneText={fightText} onPressFight={fightScene} />
       ),
     },
     {

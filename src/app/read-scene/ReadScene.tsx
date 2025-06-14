@@ -40,7 +40,15 @@ export const ReadScene = ({
   )
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignContent: 'flex-start',
+        paddingHorizontal: 20,
+        backgroundColor: 'white',
+      }}
+    >
       <CharacterView
         name={name}
         agility={agility}

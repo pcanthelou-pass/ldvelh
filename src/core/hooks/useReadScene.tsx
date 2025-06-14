@@ -15,6 +15,8 @@ export const useReadScene = () => {
     sceneIsNormal: !currentScene.isEnding,
     items: character.items,
     text: currentScene.text,
+    fightText:
+      (!!currentScene.opponent && currentScene.opponent.description) || '',
     actions: currentScene.actions,
     actionItem: (item: ItemProps) => {
       item.action(store)
