@@ -1,6 +1,4 @@
-import { Character } from '@core'
-
-export const TEST_HERO: Character = {
+export const TEST_HERO = {
   name: 'Héro',
   abilities: {
     agility: 8,
@@ -9,10 +7,16 @@ export const TEST_HERO: Character = {
   },
   items: {
     "Potion d'endurance": {
-      quantity: 2,
+      quantity: 1,
       value: 10,
       power: 'potion',
       effect: { endurance: 99 },
+    },
+    'Potion de chance': {
+      quantity: 1,
+      value: 10,
+      power: 'potion',
+      effect: { chance: 99 },
     },
   },
 }

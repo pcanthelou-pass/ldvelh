@@ -7,6 +7,7 @@ const BuildItemUnknown: ItemFactory = (
   item: ItemStatsProps,
 ): ItemProps => ({
   ...item,
+  key: name,
   name: `Object inconnu : ${name.toLocaleLowerCase()}`,
   action: (store?: GameState) => {},
 })
@@ -16,6 +17,7 @@ const BuildItemNormal: ItemFactory = (
   item: ItemStatsProps,
 ): ItemProps => ({
   ...item,
+  key: name,
   name,
   action: (store?: GameState) => {
     if (typeof item?.effect === 'function') {

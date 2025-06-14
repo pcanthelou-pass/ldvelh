@@ -2,8 +2,13 @@ import { BackpackItems } from '@core'
 import { BackpackEmptyView } from './components/BackpackEmptyView'
 import { BackpackFilledView } from './components/BackpackFilledView'
 
-export const useBackpackToDisplay = (items: BackpackItems): string[] => {
-  return items.map((item) => item.key)
+export type ubtd = {
+  key: string
+  count: number
+}
+
+export const useBackpackToDisplay = (items: BackpackItems): ubtd[] => {
+  return items.map((item) => ({ key: item.key, count: item.quantity }))
 }
 
 export const Backpack = ({ items }: { items: BackpackItems }) => {

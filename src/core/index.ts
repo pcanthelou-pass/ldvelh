@@ -3,6 +3,7 @@ export { BuildBackpack, EmptyBackpackItems } from './actions/build-backpack'
 export { BuildScene } from './actions/build-scene'
 export { D6, D6x2 } from './actions/D6'
 export { createResource } from './api/createResource'
+export { getBooks } from './api/getBooks'
 export { getStory } from './api/getStory'
 export { Core } from './components/core'
 export {
