@@ -1,4 +1,10 @@
-import { Button, Text, View } from 'react-native'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  ScreenWithNav,
+  Title,
+} from '@ui'
 import { ReadSceneView } from './ReadSceneView'
 
 export const ReadSceneFailureView = ({
@@ -9,10 +15,14 @@ export const ReadSceneFailureView = ({
   onPressQuit: () => void
 }) => {
   return (
-    <View>
-      <Text>Vous avez échoué.</Text>
-      <ReadSceneView>{sceneText}</ReadSceneView>
-      <Button title="Quitter" onPress={onPressQuit} />
-    </View>
+    <ScreenWithNav>
+      <AboveNavWrapper>
+        <Title>Vous avez échoué.</Title>
+        <ReadSceneView>{sceneText}</ReadSceneView>
+      </AboveNavWrapper>
+      <NavWrapper>
+        <ButtonNav title="Quitter" onPress={onPressQuit} />
+      </NavWrapper>
+    </ScreenWithNav>
   )
 }
