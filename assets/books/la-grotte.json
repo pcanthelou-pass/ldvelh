@@ -1,0 +1,171 @@
+{
+  "title": "Les mésaventures de Grok, gobelin maladroit",
+  "description": "Un jeune gobelin voleur tente désespérément de rejoindre son père perdu dans la forêt sauvage.",
+  "introduction": {
+    "title": "Une quête inattendue",
+    "text": "Grok, un jeune gobelin un peu simplet et voleur à ses heures perdues, quitte courageusement son village souterrain pour rejoindre son père parti chasser. Peu habitué au danger, chaque pas pourrait être son dernier... ou le premier d’une grande aventure."
+  },
+  "scenes": {
+    "1": {
+      "id": "1",
+      "question": "Quitter la grotte par le sentier escarpé ou la fissure sombre ?",
+      "text": "Tu observes deux chemins possibles pour sortir : le sentier escarpé connu mais risqué, ou la fissure sombre pleine de mystères.",
+      "nextIds": ["1-1", "1-2"]
+    },
+    "1-1": {
+      "id": "1-1",
+      "question": "Prendre prudemment le sentier",
+      "text": "Tu glisses maladroitement, mais réussis à atteindre le bas indemne. La forêt lugubre s’étend devant toi. Tu entends également un clapotis régulier sur ta gauche.",
+      "nextIds": ["2-1", "2-2"]
+    },
+    "1-2": {
+      "id": "1-2",
+      "question": "S’engager courageusement dans la fissure sombre",
+      "text": "La fissure est humide et sombre, tu te cognes plusieurs fois la tête avant d’apercevoir la sortie devant la forêt.",
+      "nextIds": ["2-1", "2-2"]
+    },
+    "2-1": {
+      "id": "2-1",
+      "question": "Suivre le ruisseau",
+      "text": "Tu marches paisiblement pour rejoindre ce qui semble être un ruisseau, jusqu’à apercevoir une silhouette humaine. Tu préfères t’éloigner. Tu hésites un instant, les bruits de la forêt t’effrayent.",
+      "nextIds": ["5-1", "5-2"]
+    },
+    "5-1": {
+      "id": "5-1",
+      "question": "Grimper à un arbre",
+      "text": "Un aigle t’attaque dès que tu atteins la cime !",
+      "nextIds": ["6"],
+      "opponent": {
+        "name": "Aigle furieux",
+        "description": "Un aigle féroce te fonce dessus en piqué !",
+        "abilities": { "agility": 10, "endurance": 8, "chance": 3 }
+      }
+    },
+    "5-2": {
+      "id": "5-2",
+      "question": "Aller directement à la rivière",
+      "text": "Tu arrives à la rivière sans incident notable.",
+      "nextIds": ["7"]
+    },
+    "2-2": {
+      "id": "2-2",
+      "question": "Explorer la forêt dense",
+      "text": "Une végétation inquiétante se resserre autour de toi, les ombres sont de plus en plus inquiétante et tu aimerais bien être accompagné de ton père !",
+      "nextIds": ["3"]
+    },
+    "3": {
+      "id": "3",
+      "question": "Combat : Serpent venimeux",
+      "text": "Tu triomphes maladroitement du serpent qui te barrait la route.",
+      "nextIds": ["5"],
+      "opponent": {
+        "name": "Serpent venimeux",
+        "description": "Un serpent menaçant surgit brusquement devant toi !",
+        "abilities": { "agility": 7, "endurance": 5, "chance": 2 }
+      }
+    },
+    "6": {
+      "id": "6",
+      "question": "Après le combat, redescendre et atteindre la rivière",
+      "text": "Blessé mais vivant, tu rejoins enfin la rivière.",
+      "nextIds": ["7"]
+    },
+    "7": {
+      "id": "7",
+      "question": "Chercher un gué ou construire un radeau précaire ?",
+      "text": "Tu observes le courant violent, incertain.",
+      "nextIds": ["8", "9"]
+    },
+    "8": {
+      "id": "8",
+      "question": "Construire un radeau",
+      "text": "Ton radeau se disloque immédiatement, tu dois affronter une anguille électrique !",
+      "nextIds": ["10"],
+      "opponent": {
+        "name": "Anguille électrique",
+        "description": "Une créature aquatique surgit furieusement des flots !",
+        "abilities": { "agility": 9, "endurance": 7, "chance": 4 }
+      }
+    },
+    "9": {
+      "id": "9",
+      "question": "Chercher un gué",
+      "text": "Tu traverses difficilement mais sûrement.",
+      "nextIds": ["11"]
+    },
+    "12": {
+      "id": "12",
+      "question": "Te cacher dans les buissons",
+      "text": "Terrifié par les humains, tu te jettes derrière un buisson épineux qui griffe ta peau verte. Tu retiens ton souffle alors qu’ils passent à quelques mètres en riant et criant. Lorsque le calme revient, tu remarques un morceau de tissu abandonné au sol, ressemblant à celui que portait ton père. Ton cœur se serre d’espoir et d’inquiétude à la fois.",
+      "nextIds": ["14"]
+    },
+    "13": {
+      "id": "13",
+      "question": "Avancer ouvertement vers les humains",
+      "text": "Tu avances maladroitement, sourire naïf aux lèvres. Les enfants hurlent de surprise et courent dans toutes les directions, laissant tomber leurs épées de bois. Satisfait mais confus, tu récupères une de ces épées, qui pourrait t’être utile plus tard. Cependant, tu sens que tu as attiré trop d’attention sur toi.",
+      "nextIds": ["14"]
+    },
+    "14": {
+      "id": "14",
+      "question": "Entrer dans la clairière lumineuse ou contourner par les bois sombres ?",
+      "text": "Devant toi s’étend une clairière baignée de lumière, rassurante mais étrangement silencieuse. À ta droite, les bois sombres promettent une discrétion plus grande mais évoquent un danger inconnu. Tu hésites longuement, pesant le confort immédiat contre la prudence nécessaire pour survivre.",
+      "nextIds": ["15", "16"]
+    },
+    "15": {
+      "id": "15",
+      "question": "Traverser la clairière",
+      "text": "Tu traverses la clairière, profitant un instant du doux soleil. Mais rapidement, des lianes s’animent et s’enroulent autour de tes jambes. Tu comprends avec horreur que tu es pris au piège d’une plante carnivore géante, affamée depuis longtemps.",
+      "nextIds": ["17"],
+      "opponent": {
+        "name": "Plante carnivore",
+        "description": "Les lianes visqueuses se referment sur toi !",
+        "abilities": { "agility": 6, "endurance": 12, "chance": 2 }
+      }
+    },
+    "16": {
+      "id": "16",
+      "question": "Contourner par les bois sombres",
+      "text": "Les bois t’enveloppent de leur obscurité protectrice. Chaque craquement sous tes pieds te fait sursauter. Pourtant, tu avances sans encombre, bien qu’épuisé par la tension constante. Finalement, tu aperçois au loin une silhouette familière à côté d’un feu de camp.",
+      "nextIds": ["18"]
+    },
+    "17": {
+      "id": "17",
+      "question": "Échapper à la plante et courir",
+      "text": "Tu te dégages en panique des lianes, arrachant quelques feuilles gluantes dans ta fuite éperdue. Le cœur battant à tout rompre, tu trébuches finalement hors de portée du danger, jurant de ne plus jamais sous-estimer la nature.",
+      "nextIds": ["18"]
+    },
+    "18": {
+      "id": "18",
+      "question": "Approcher discrètement ou appeler ton père ? ",
+      "text": "La silhouette est clairement celle de ton père, concentré à aiguiser sa lame près du feu. Tu hésites : une approche discrète pourrait être plus sage, mais l’émotion te pousse à appeler. Après tout, le danger semble derrière toi désormais.",
+      "nextIds": ["19", "20"]
+    },
+    "19": {
+      "id": "19",
+      "question": "Appeler ton père joyeusement",
+      "text": "Tu cries de joie en courant vers lui. Il relève la tête, surpris mais heureux. Cependant, le bruit a attiré une dernière menace, une silhouette sombre surgit soudainement des ombres, brandissant une lame brillante.",
+      "nextIds": ["21"]
+    },
+    "20": {
+      "id": "20",
+      "question": "Approcher discrètement",
+      "text": "Tu avances silencieusement, rassuré par la vision familière de ton père. Il te remarque et sourit doucement, admiratif de ta prudence inattendue. Vous partagez un moment paisible autour du feu avant de reprendre ensemble la route vers le village, victorieux et soudés.",
+      "nextIds": [],
+      "isEnding": true,
+      "endingType": "success"
+    },
+    "21": {
+      "id": "21",
+      "question": "Combat final contre le voleur de forêt",
+      "text": "Le combat est intense, chaque mouvement maladroit de ta part compensé par l’expérience guerrière de ton père. Finalement, la menace est vaincue, et vous partagez un regard soulagé mais épuisé. Ta quête imprévue touche enfin à sa fin.",
+      "nextIds": [],
+      "isEnding": true,
+      "endingType": "success",
+      "opponent": {
+        "name": "Voleur de forêt",
+        "description": "Un voleur dangereux vous attaque !",
+        "abilities": { "agility": 11, "endurance": 10, "chance": 5 }
+      }
+    }
+  }
+}

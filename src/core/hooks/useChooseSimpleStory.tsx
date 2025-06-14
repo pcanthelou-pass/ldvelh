@@ -1,7 +1,7 @@
 import { useGameStore } from '@core'
 import { TEST_BOOK } from '../../shared/helpers/TEST_BOOK'
 
-export const useChooseStory = () => {
+export const useChooseSimpleStory = () => {
   const setBook = useGameStore((state) => state.setBook)
 
   const getSelectedBook = () => {

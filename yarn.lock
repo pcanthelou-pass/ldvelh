@@ -5386,6 +5386,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-file-system@npm:~18.1.10":
+  version: 18.1.10
+  resolution: "expo-file-system@npm:18.1.10"
+  peerDependencies:
+    expo: "*"
+    react-native: "*"
+  checksum: 2dc26898cc13e1933fec417e587c81fd87139f617afc266d82f47189391b83c345c6e7a0e097448fcfcd6bf7039da6aae263154f75d2944e611738cd126c386c
+  languageName: node
+  linkType: hard
+
 "expo-file-system@npm:~18.1.9":
   version: 18.1.9
   resolution: "expo-file-system@npm:18.1.9"
@@ -8529,8 +8539,10 @@ __metadata:
     eslint-config-universe: ^15.0.3
     eslint-plugin-prettier: ^5.4.0
     expo: ~53.0.7
+    expo-asset: ~11.1.5
     expo-blur: ~14.1.4
     expo-constants: ~17.1.5
+    expo-file-system: ~18.1.10
     expo-font: ~13.3.1
     expo-haptics: ~14.1.4
     expo-image: ~2.1.6

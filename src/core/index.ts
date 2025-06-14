@@ -2,6 +2,7 @@ export { BuildAttacker } from './actions/build-attacker'
 export { BuildBackpack, EmptyBackpackItems } from './actions/build-backpack'
 export { BuildScene } from './actions/build-scene'
 export { D6, D6x2 } from './actions/D6'
+export { createResource } from './api/createResource'
 export { getStory } from './api/getStory'
 export { Core } from './components/core'
 export {
@@ -17,7 +18,8 @@ export {
   type StoresProps,
 } from './contexts/store'
 export { useCharacterStats } from './hooks/useCharacterStats'
-export { useChooseStory } from './hooks/useChooseSimpleStory'
+export { useChooseSimpleStory } from './hooks/useChooseSimpleStory'
+export { useChooseStory } from './hooks/useChooseStory'
 export { useDieScene } from './hooks/useDieScene'
 export { useFight } from './hooks/useFight'
 export { useFleeScene } from './hooks/useFleeScene'
