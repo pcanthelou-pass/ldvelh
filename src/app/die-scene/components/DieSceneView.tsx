@@ -1,4 +1,11 @@
-import { Button, Text, View } from 'react-native'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  Paragraph,
+  ScreenWithNav,
+  Title,
+} from '@ui'
 
 export const DieSceneView = ({
   title,
@@ -9,9 +16,13 @@ export const DieSceneView = ({
   children: React.ReactNode
   onPress: () => void
 }) => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>{title}</Text>
-    <Text>{children}</Text>
-    <Button onPress={onPress} title="Quitter" />
-  </View>
+  <ScreenWithNav>
+    <AboveNavWrapper>
+      <Title>{title}</Title>
+      <Paragraph>{children}</Paragraph>
+    </AboveNavWrapper>
+    <NavWrapper>
+      <ButtonNav onPress={onPress} title="Quitter" />
+    </NavWrapper>
+  </ScreenWithNav>
 )
