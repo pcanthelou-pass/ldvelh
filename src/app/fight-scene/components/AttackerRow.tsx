@@ -1,4 +1,6 @@
-import { Text, View } from 'react-native'
+import { Ability } from '@features/create-user/components/Ability'
+import { HeroAbilities } from '@ui'
+import { View } from 'react-native'
 
 interface AttackerRowProps {
   name: string
@@ -7,6 +9,9 @@ interface AttackerRowProps {
 }
 export const AttackerRow = ({ name, agility, endurance }: AttackerRowProps) => (
   <View>
-    <Text>{`${name} - Agilité : ${agility} - Endurance : ${endurance}`}</Text>
+    <HeroAbilities>
+      <Ability label="Agilité" value={agility} />
+      <Ability label="Endurance" value={endurance} />
+    </HeroAbilities>
   </View>
 )

@@ -1,17 +1,26 @@
 import { AttackerProps } from '@core'
-import { Text, View } from 'react-native'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  ScreenWithNav,
+  Title,
+} from '@ui'
 
 export const FightSceneView: React.FC<{
   opponent: AttackerProps
   children: React.ReactNode
-}> = ({ opponent, children }) => (
-  <View>
-    <View>
-      <Text>Combat</Text>
-    </View>
-    <View>
-      <Text>{opponent.description}</Text>
-    </View>
-    {children}
-  </View>
+  onPressAttack: () => void
+  onPressFlee: () => void
+}> = ({ opponent, children, onPressAttack, onPressFlee }) => (
+  <ScreenWithNav>
+    <AboveNavWrapper>
+      <Title>{opponent.description}</Title>
+      {children}
+    </AboveNavWrapper>
+    <NavWrapper>
+      <ButtonNav title="Attaquer" onPress={onPressAttack} />
+      <ButtonNav title="Fuir" onPress={onPressFlee} />
+    </NavWrapper>
+  </ScreenWithNav>
 )

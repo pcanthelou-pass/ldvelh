@@ -39,14 +39,16 @@ const FightScene = () => {
   } = useFight(onAfterContinue, onAfterDie, onAfterFlee, onAfterSurvive)
 
   return (
-    <FightSceneView opponent={opponent}>
+    <FightSceneView
+      opponent={opponent}
+      onPressAttack={onNewRound}
+      onPressFlee={fleeFight}
+    >
       <AttackersView
         character={character}
         heroEndurance={heroEndurance}
-        onPressAttack={onNewRound}
         opponentEndurance={opponentEndurance}
         opponent={opponent}
-        onPressFlee={fleeFight}
       />
     </FightSceneView>
   )
