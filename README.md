@@ -60,13 +60,13 @@ Voir la doc :
 
 ### L'utilisateur termine l'histoire
 
-- Le personnage est en vie et a remplit l'objectif
+- Le personnage est en vie et a remplit l'objectif X
 
-  - Ecran de fin positif
+  - Ecran de fin positif X
 
-- OU Le personnage est en vie et n'a pas remplit l'objectif
+- OU Le personnage est en vie et n'a pas remplit l'objectif X
 
-  - Ecran de fin négatif
+  - Ecran de fin négatif X
 
 - OU Le personnage est en mort
   - Ecran de mort X

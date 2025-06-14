@@ -10,10 +10,10 @@ describe('FleeScene', () => {
   it('should render correctly', () => {
     render(<FleeScene />, { wrapper: WrapperTestExt })
 
-    expect(screen.getByText('Fuite')).toBeTruthy()
     expect(screen.getByText('Héro a réussi à fuir !')).toBeTruthy()
     expect(screen.getByText('Vous avez perdu 2 points de vie.')).toBeTruthy()
-    expect(screen.getByText('Endurance restante : 18')).toBeTruthy()
+    expect(screen.getByText('endurance restante')).toBeTruthy()
+    expect(screen.getByText('18')).toBeTruthy()
   })
   it('should handle button press', async () => {
     const user = userEvent.setup()

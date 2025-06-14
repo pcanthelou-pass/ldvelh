@@ -1,6 +1,7 @@
 import { Core, createGameStore, createUserStore } from '@core'
 import { IAlertService } from '@shared'
 import { ReactNode } from 'react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 class MockAlertService implements IAlertService {
   show(message: string): void | string | ReactNode {
@@ -15,7 +16,9 @@ const mockedSlices = {
 }
 
 export const WrapperTest = ({ children }: { children: ReactNode }) => (
-  <Core services={mockedServices} slices={mockedSlices}>
-    {children}
-  </Core>
+  <SafeAreaProvider>
+    <Core services={mockedServices} slices={mockedSlices}>
+      {children}
+    </Core>
+  </SafeAreaProvider>
 )

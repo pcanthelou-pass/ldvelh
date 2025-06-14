@@ -12,6 +12,7 @@ describe('CreatePregeneratedCharacterView', () => {
       />,
     )
     expect(screen.getByText('Un héro')).toBeVisible()
-    expect(screen.getByText('Endurance : 2')).toBeVisible()
+    expect(screen.getByText('Endurance')).toBeVisible()
+    expect(screen.getByText('2')).toBeVisible()
   })
 })

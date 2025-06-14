@@ -6,97 +6,93 @@
 # release3: RELEASE 3
 L'utilisateur choisit une histoire
     Sélection de l'histoire
-        Sélectionner une seule histoire = juste un bouton entrer
+        Sélectionner une seule histoire = juste un bouton entrer: |{"bg":"#D3F8E2"}
             Charger une nouvelle histoire
                 Afficher la liste des histoire
                 Voir les histoires déjà faites
                     Changer le design de l'UI
 L'utilisateur créé son personnage
     Créer un personnage
-        Le personnage est déjà pré-tiré = afficher juste le personnage
-            L'utilisateur tire les caractéristiques
+        Le personnage est déjà pré-tiré = afficher juste le personnage: |{"bg":"#D3F8E2"}
+        L'utilisateur tire les caractéristiques |{"bg":"#D3F8E2"}
             L'utilisateur reçoit un pack de démarrage
                 L'utilisateur peut choisir une classe
                 L'utilisateur choisit un pack de démarrage
     OU Charger un personnage
-        Non
-            Non
+        -
+            -
                 L'utilisateur sauvegarde le personnage
                 L'utilisateur charge le personnage
 L'utilisateur démarre l'histoire
     Lecture de l'introduction
-        Ecran d'introduction (oon va directe ensuite à la première scène)
-            Animations
+        Ecran d'introduction (oon va directe ensuite à la première scène): |{"bg":"#D3F8E2"}
+            -
                 Variantes possibles selon la classe
 L'utilisateur fait l'histoire
     Lecture de la scène
-        Ecran de la scène (tiré d'un fichier xml ou json)
-            Animations
+        Ecran de la scène (tiré d'un fichier xml ou json): |{"bg":"#D3F8E2"}
+            -
                 Variantes possibles selon la classe
     Résoudre un combat
-        Affichage des caractéristiques de l'adversaire
-        Résolution au tour par tour des jets de dés
-        Afficher les niveaux vie/chance du personnage
-        Le personnage meurt -> Ecran de mort
-        Le personnage sort vainceur
+        Affichage des caractéristiques de l'adversaire |{"bg":"#D3F8E2"}
+        Résolution au tour par tour des jets de dés |{"bg":"#D3F8E2"}
+        Afficher les niveaux vie/chance du personnage |{"bg":"#D3F8E2"}
+        Fuir le combat |{"bg":"#D3F8E2"}
+        Le personnage meurt -> Ecran de mort |{"bg":"#D3F8E2"}
+        Le personnage sort vainceur |{"bg":"#D3F8E2"}
             Avoir de la chance
-            Boire une potion
-            Fuir le combat
                 Combat contre plusieurs ennemis
                 Fuir le combat complexe
                     Les combats donnent de l'expérience (5 pour 1 pt)
     Utiliser un objet
-        Boire une potion d'endurance
+        Boire une potion d'endurance |{"bg":"#D3F8E2"}
             Boire une potion de chance
             Ajouter un objet à son inventaire (choix de scènes qui disparaissent quand faits)
+                Boire une potion durant le combat plutôt qu'attaquer
     Sélection de la prochaine scène
-        L'utilisateur sélectionne son choix
+        L'utilisateur sélectionne son choix |{"bg":"#D3F8E2"}
             Un choix apparait avec la présence d'un objet dans l'inventaire
-            Animation de transition
                 Possibilité de revenir à la scène précédente
                     Les choix donnent de l'expérience  (10 pour 1 pt)
 L'utilisateur intérragit avec l'UI
     Il affiche son personnage
-        Non
+        -
             Une modale affiche les données du personnage
-            Un bouton permet d'afficher l'inventaire
+            Un bouton permet de basculer vers l'inventaire
             Un bouton permet de revenir à l'histoire
     Il affiche l'inventaire
-        Non
+        -
             Une modale affiche les objets
             Utiliser un objet d'inventaire
-            Un bouton permet d'afficher le personnage
+            Un bouton permet de basculer vers le personnage
             Un bouton permet de revenir à l'histoire
     Il affiche l'historique
-        Non
-            Non 
+        -
+            -
                 Une modale affiche en ordre inverse les 
 L'utilisateur termine l'histoire
     Le personnage est en vie et a remplit l'objectif
-        Ecran de fin positif
-            Améliorations à voir
+        Ecran de fin positif |{"bg":"#D3F8E2"}
+            -
                 Le personnage est réinitialisé
                 Le personnage gagne 3 points d'expérience
     OU Le personnage est en vie et n'a pas remplit l'objectif
-        Ecran de fin négatif
-            Améliorations à voir
+        Ecran de fin négatif |{"bg":"#D3F8E2"}
+            -
                 Le personnage est réinitialisé
                 Le personnage gagne 1 point d'expérience
     OU Le personnage est en mort
-        Ecran de mort
-            Améliorations à voir
+        Ecran de mort |{"bg":"#D3F8E2"}
     L'utilisateur dépense des points d'expérience
-        Non
-            Non
+        -
+            -
                 Augmenter une caractéristique
-                Choisit un nouveau sort
-                Choisit une nouvelle compétence
+                    Choisit un nouveau sort
+                    Choisit une nouvelle compétence
 L'utilisateur ferme le livre
     Enregistrer le personnage
-        Non
-            Non
+        -
+            -
                 Le système sauvegarde le personnage
     Retourner à l'accueil
-        Arrivée directe à l'accueil
-            Animation de transition
-                Non
+        Arrivée directe à l'accueil |{"bg":"#D3F8E2"}

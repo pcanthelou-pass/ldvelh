@@ -6,7 +6,11 @@ describe('<ChooseStory></ChooseStory>', () => {
   it('Should display the only book', async () => {
     render(<ChooseSimpleStory />, { wrapper: WrapperTest })
 
-    expect(screen.getByText(/Mon livre description/i)).toBeVisible()
+    expect(
+      screen.getByText(
+        /Fugiat ipsum sunt cupidatat cillum duis eiusmod adipisicing excepteur quis Lorem proident ut eu labore./i,
+      ),
+    ).toBeVisible()
   })
 
   it('Should not display the only book as selected', async () => {
