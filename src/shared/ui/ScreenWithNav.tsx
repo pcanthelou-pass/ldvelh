@@ -15,7 +15,7 @@ export const ScreenWithNav = ({ children }: { children: React.ReactNode }) => {
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
         paddingHorizontal: space,
-        backgroundColor: 'white',
+        backgroundColor: 'yellow',
       }}
     >
       {children}

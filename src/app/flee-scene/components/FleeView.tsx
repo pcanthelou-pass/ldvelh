@@ -1,4 +1,12 @@
-import { Button, Text, View } from 'react-native'
+import {
+  Ability,
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  Paragraph,
+  ScreenWithNav,
+  Title,
+} from '@ui'
 
 export const FleeView = ({
   name,
@@ -9,15 +17,14 @@ export const FleeView = ({
   endurance: any
   onPressNext: () => void
 }) => (
-  <View>
-    <View>
-      <Text>Fuite</Text>
-    </View>
-    <View>
-      <Text>{name} a réussi à fuir !</Text>
-      <Text>Vous avez perdu 2 points de vie.</Text>
-      <Text>Endurance restante : {endurance}</Text>
-    </View>
-    <Button title="Continuer" onPress={onPressNext} />
-  </View>
+  <ScreenWithNav>
+    <AboveNavWrapper centered>
+      <Title>{name} a réussi à fuir !</Title>
+      <Paragraph align="center">Vous avez perdu 2 points de vie.</Paragraph>
+      <Ability label="endurance restante" value={endurance} />
+    </AboveNavWrapper>
+    <NavWrapper>
+      <ButtonNav title="Continuer" onPress={onPressNext} />
+    </NavWrapper>
+  </ScreenWithNav>
 )

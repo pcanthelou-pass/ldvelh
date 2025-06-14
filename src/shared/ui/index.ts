@@ -1,3 +1,4 @@
+export { Ability } from './Ability'
 export { AbilityBox, AbilityBoxTitle, AbilityBoxValue } from './AbilityBox'
 export { AboveNavWrapper } from './AboveNavWrapper'
 export { ButtonNav } from './ButtonNav'

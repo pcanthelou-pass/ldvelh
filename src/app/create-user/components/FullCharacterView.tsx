@@ -1,5 +1,5 @@
 import { HeroAbilities } from '@ui'
-import { Ability } from './Ability'
+import { Ability } from '../../../shared/ui/Ability'
 import { HeroName } from './HeroName'
 
 interface Character {

@@ -1,28 +1,38 @@
 import { Text, View } from 'react-native'
 import { paragraphSize, space } from './constant'
 
+const aligner = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+  justify: 'justify',
+  auto: 'auto',
+}
+
 export const Paragraph = ({
-  justified = false,
+  align = 'left',
   children,
 }: {
-  justified?: boolean
+  align?: 'left' | 'center' | 'right' | 'justify'
   children: React.ReactNode
-}) => (
-  <View
-    style={{
-      alignContent: 'flex-start',
-      width: '100%',
-    }}
-  >
-    <Text
+}) => {
+  return (
+    <View
       style={{
-        fontSize: paragraphSize,
-        marginBottom: space,
-        lineHeight: paragraphSize * 1.4,
-        textAlign: justified ? 'justify' : 'left',
+        alignContent: 'flex-start',
+        width: '100%',
       }}
     >
-      {children}
-    </Text>
-  </View>
-)
+      <Text
+        style={{
+          fontSize: paragraphSize,
+          marginBottom: space,
+          lineHeight: paragraphSize * 1.4,
+          textAlign: aligner[align],
+        }}
+      >
+        {children}
+      </Text>
+    </View>
+  )
+}

@@ -1,6 +1,6 @@
-import { Ability } from '@features/create-user/components/Ability'
 import { HeroAbilities } from '@ui'
 import { View } from 'react-native'
+import { Ability } from 'src/shared/ui/Ability'
 
 interface AttackerRowProps {
   name: string

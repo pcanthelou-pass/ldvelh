@@ -12,7 +12,8 @@ export const AboveNavWrapper = ({
       flex: 1,
       justifyContent: centered ? 'center' : 'flex-start',
       alignItems: centered ? 'center' : 'flex-start',
-      width: 'auto',
+      width: '100%',
+      backgroundColor: 'white',
     }}
   >
     {children}
