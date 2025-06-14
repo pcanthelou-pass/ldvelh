@@ -1,4 +1,11 @@
-import { ButtonNav, CenteredScreenView, TextBox, Title, TopView } from '@ui'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  ScreenWithNav,
+  TextBox,
+  Title,
+} from '@ui'
 
 const ChooseStoryView = ({
   title,
@@ -9,13 +16,15 @@ const ChooseStoryView = ({
   description: string
   onPress: () => void
 }) => (
-  <CenteredScreenView>
-    <TopView>
+  <ScreenWithNav>
+    <AboveNavWrapper>
       <Title>{title}</Title>
       <TextBox>{description}</TextBox>
-    </TopView>
-    <ButtonNav onPress={onPress} title="Entrer" />
-  </CenteredScreenView>
+    </AboveNavWrapper>
+    <NavWrapper>
+      <ButtonNav onPress={onPress} title="Entrer" />
+    </NavWrapper>
+  </ScreenWithNav>
 )
 
 export default ChooseStoryView
