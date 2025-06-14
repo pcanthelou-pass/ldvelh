@@ -19,7 +19,7 @@ export const FullCharacterView = ({
     <>
       <HeroName name={name} />
       <HeroAbilities>
-        <Ability label="Agility" value={agility} />
+        <Ability label="Agilité" value={agility} />
         <Ability label="Endurance" value={endurance} />
         <Ability label="Chance" value={chance} />
       </HeroAbilities>
