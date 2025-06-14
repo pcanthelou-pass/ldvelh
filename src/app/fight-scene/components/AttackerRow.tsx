@@ -1,4 +1,3 @@
-import { HeroAbilities } from '@ui'
 import { View } from 'react-native'
 import { Ability } from 'src/shared/ui/Ability'
 
@@ -8,10 +7,7 @@ interface AttackerRowProps {
   endurance: number
 }
 export const AttackerRow = ({ name, agility, endurance }: AttackerRowProps) => (
-  <View>
-    <HeroAbilities>
-      <Ability label="Agilité" value={agility} />
-      <Ability label="Endurance" value={endurance} />
-    </HeroAbilities>
+  <View style={{ width: '100%' }}>
+    <Ability label={name} value={endurance} />
   </View>
 )

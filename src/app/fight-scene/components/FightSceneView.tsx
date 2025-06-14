@@ -14,8 +14,8 @@ export const FightSceneView: React.FC<{
   onPressFlee: () => void
 }> = ({ opponent, children, onPressAttack, onPressFlee }) => (
   <ScreenWithNav>
-    <AboveNavWrapper>
-      <Title>{opponent.description}</Title>
+    <AboveNavWrapper centered>
+      <Title centered>{opponent.description}</Title>
       {children}
     </AboveNavWrapper>
     <NavWrapper>
