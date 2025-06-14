@@ -1,7 +1,3 @@
-import { CenteredView, Paragraph } from '@ui'
+import { Paragraph } from '@ui'
 
-export const BackpackEmptyView = () => (
-  <CenteredView>
-    <Paragraph>Sac à dos vide</Paragraph>
-  </CenteredView>
-)
+export const BackpackEmptyView = () => <Paragraph>Sac à dos vide</Paragraph>

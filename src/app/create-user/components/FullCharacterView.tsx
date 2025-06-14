@@ -1,4 +1,4 @@
-import { Center, HeroAbilities } from '@ui'
+import { HeroAbilities } from '@ui'
 import { Ability } from './Ability'
 import { HeroName } from './HeroName'
 
@@ -16,13 +16,13 @@ export const FullCharacterView = ({
   chance,
 }: Character) => {
   return (
-    <Center>
+    <>
       <HeroName name={name} />
       <HeroAbilities>
         <Ability label="Agility" value={agility} />
         <Ability label="Endurance" value={endurance} />
         <Ability label="Chance" value={chance} />
       </HeroAbilities>
-    </Center>
+    </>
   )
 }

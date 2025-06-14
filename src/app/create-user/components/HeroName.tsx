@@ -1,8 +1,3 @@
-import { Center, Space, Title } from '@ui'
+import { Title } from '@ui'
 
-export const HeroName = ({ name }: { name: string }) => (
-  <Center>
-    <Title>{name}</Title>
-    <Space />
-  </Center>
-)
+export const HeroName = ({ name }: { name: string }) => <Title>{name}</Title>

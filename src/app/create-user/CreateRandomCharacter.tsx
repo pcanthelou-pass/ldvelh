@@ -1,6 +1,12 @@
 import { useRandomCharacter } from '@core'
 import { useGoToReadIntroduction } from '@navigation'
-import { ButtonNav, CenteredScreenView, Space, TopView } from '@ui'
+import {
+  AboveNavWrapper,
+  ButtonNav,
+  NavWrapper,
+  ScreenWithNav,
+  Space,
+} from '@ui'
 import { Backpack } from './Backpack'
 import { FullCharacterView } from './components/FullCharacterView'
 
@@ -17,8 +23,8 @@ export const CreateRandomCharacter = () => {
   }
 
   return (
-    <CenteredScreenView>
-      <TopView>
+    <ScreenWithNav>
+      <AboveNavWrapper>
         <FullCharacterView
           name={name}
           agility={agility}
@@ -27,8 +33,10 @@ export const CreateRandomCharacter = () => {
         />
         <Space count={3} />
         <Backpack items={items} />
-      </TopView>
-      <ButtonNav title="Suivant" onPress={onPress} />
-    </CenteredScreenView>
+      </AboveNavWrapper>
+      <NavWrapper>
+        <ButtonNav title="Suivant" onPress={onPress} />
+      </NavWrapper>
+    </ScreenWithNav>
   )
 }

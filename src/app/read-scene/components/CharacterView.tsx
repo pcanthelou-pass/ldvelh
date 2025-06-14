@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native'
+import { Ability } from '@features/create-user/components/Ability'
+import { View } from 'react-native'
 
 interface CharacterViewProps {
   name: string
@@ -12,8 +13,24 @@ export const CharacterView = ({
   endurance,
   chance,
 }: CharacterViewProps) => (
-  <View>
-    <Text>Héro</Text>
-    <Text>{`${name} [Agilité : ${agility} - Endurance : ${endurance} - Chance : ${chance}]`}</Text>
+  <View
+    style={{
+      marginVertical: 10,
+      paddingTop: 5,
+      paddingBottom: 10,
+      backgroundColor: '#f0f0f0',
+      borderRadius: 20,
+    }}
+  >
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+      }}
+    >
+      <Ability label="agilité" value={agility} />
+      <Ability label="endurance" value={endurance} />
+      <Ability label="chance" value={chance} />
+    </View>
   </View>
 )
