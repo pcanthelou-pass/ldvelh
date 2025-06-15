@@ -56,7 +56,6 @@
       "isEnding": true,
       "endingType": "failure"
     },
-    // scènes finales « success »
     "3-1": {
       "id": "3-1",
       "question": "Scène #3-1",

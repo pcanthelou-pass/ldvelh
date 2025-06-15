@@ -7,15 +7,16 @@
 L'utilisateur choisit une histoire
     Sélection de l'histoire
         Sélectionner une seule histoire = juste un bouton entrer: |{"bg":"#D3F8E2"}
-            Charger une nouvelle histoire
-                Afficher la liste des histoire
-                Voir les histoires déjà faites
-                    Changer le design de l'UI
+            Choisir entre deux histoires
+                Charger une histoire non terminée
+                    Afficher la liste des histoire
+                    Voir les histoires déjà faites
+                        Changer le design de l'UI
 L'utilisateur créé son personnage
     Créer un personnage
         Le personnage est déjà pré-tiré = afficher juste le personnage: |{"bg":"#D3F8E2"}
         L'utilisateur tire les caractéristiques |{"bg":"#D3F8E2"}
-            L'utilisateur reçoit un pack de démarrage
+            L'utilisateur reçoit un pack de démarrage: |{"bg":"#D3F8E2"}
                 L'utilisateur peut choisir une classe
                 L'utilisateur choisit un pack de démarrage
     OU Charger un personnage
