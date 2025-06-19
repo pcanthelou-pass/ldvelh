@@ -25,6 +25,7 @@ export { useDieScene } from './hooks/useDieScene'
 export { useFight } from './hooks/useFight'
 export { useFleeScene } from './hooks/useFleeScene'
 export { GAME_STORE, useGameStore } from './hooks/useGameStore'
+export { useGetStoriesToChoose } from './hooks/useGetStoriesToChoose'
 export { usePregeneratedCharacter } from './hooks/usePregeneratedCharacter'
 export { useRandomCharacter } from './hooks/useRandomCharacter'
 export { useReadIntroduction } from './hooks/useReadIntroduction'
@@ -76,6 +77,7 @@ export {
   type SceneProps,
 } from './types/scene'
 export { EmptyScenes, type ScenesProps } from './types/scenes'
+export type { ShortListOfStories } from './types/shortlistofstories'
 export {
   DEFAULT_PROPS,
   type UserActions,
