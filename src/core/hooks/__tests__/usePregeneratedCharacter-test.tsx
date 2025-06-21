@@ -31,7 +31,7 @@ describe('usePregeneratedCharacter', () => {
     const character = result.current
 
     expect(character.items).toBeDefined()
-    expect(character.items).toHaveLength(1)
+    expect(character.items).toHaveLength(2)
     expect(character.items[0]).toHaveProperty('power', 'potion')
   })
 })

@@ -1,11 +1,11 @@
-import { useChooseStory } from '@core'
+import { useChooseSimpleStory } from '@core'
 import { useGoToCreateUser } from '../../navigation/useGoToCreateUser'
 import ChooseStoryLoadingView from './components/ChooseSimpleStoryLoadingView'
 import ChooseStoryView from './components/ChooseSimpleStoryView'
 
 const ChooseSimpleStory = () => {
   const { title, description, getSelectedBook, setBook, loading } =
-    useChooseStory('LA_GROTTE')
+    useChooseSimpleStory()
   const route = useGoToCreateUser()
 
   const onPress = () => {

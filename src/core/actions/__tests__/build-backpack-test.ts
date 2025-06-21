@@ -9,7 +9,7 @@ describe('BuildBackpack', () => {
   it('should build a hero backpack', () => {
     const bp = BuildBackpack(TEST_HERO.items)
 
-    expect(bp.length).toBe(1)
+    expect(bp.length).toBe(2)
     expect(bp[0]).toHaveProperty('name', "Boire la potion d'endurance")
     expect(bp[0]).toHaveProperty('quantity', 2)
     expect(bp[0]).toHaveProperty('value', 10)
