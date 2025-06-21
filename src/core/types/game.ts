@@ -56,6 +56,11 @@ export interface GameActions {
    */
   hitCharacter: (hit?: number) => void
   /**
+   * the character use 1 point of chance
+   * @returns
+   */
+  decreaseChance: () => void
+  /**
    * the opponent is wounded by the hero
    * @param hit the number of hit points
    * @returns

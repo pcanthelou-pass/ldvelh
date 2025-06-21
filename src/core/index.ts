@@ -18,6 +18,7 @@ export {
   type StoreProviderProps,
   type StoresProps,
 } from './contexts/store'
+export { default as useChance } from './hooks/useChance'
 export { useCharacterStats } from './hooks/useCharacterStats'
 export { useChooseSimpleStory } from './hooks/useChooseSimpleStory'
 export { useChooseStory } from './hooks/useChooseStory'

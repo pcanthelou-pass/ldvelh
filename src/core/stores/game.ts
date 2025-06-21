@@ -75,6 +75,10 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         set((state) => {
           state.currentScene.opponent.abilities.endurance -= hit
         }),
+      decreaseChance: () =>
+        set((state) => {
+          state.character.abilities.chance -= 1
+        }),
       resetEndurance: () =>
         set((state) => {
           state.character.abilities.endurance =
