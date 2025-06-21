@@ -1,6 +1,6 @@
 import { WrapperTest } from '@shared'
 import { render, screen } from '@testing-library/react-native'
-import ChooseSimpleStory from '..'
+import ChooseSimpleStory from '../choose-simple-story'
 
 describe('<ChooseStory></ChooseStory>', () => {
   it('Should display the only book', async () => {

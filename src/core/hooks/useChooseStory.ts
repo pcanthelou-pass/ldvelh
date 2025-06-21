@@ -5,14 +5,18 @@ import { getBooks } from '../api/getBooks'
 
 export function useChooseStory(filename: 'TEST_BOOK' | 'LA_GROTTE') {
   const setBook = useGameStore((s) => s.setBook)
-  const [bookState, setBookState] = useState<BookProps | null>(null)
+  const [bookState, setBookState] = useState<BookProps | undefined>()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (getBooks(filename)) {
-      setBookState(getBooks(filename))
-      setLoading(false)
+    async function runIt() {
+      const books = await getBooks()
+      if (books) {
+        setBookState(books[0])
+        setLoading(false)
+      }
     }
+    runIt()
   }, [filename])
 
   return {

@@ -1,28 +1,27 @@
-import { useChooseSimpleStory } from '@core'
-import { useGoToCreateUser } from '../../navigation/useGoToCreateUser'
-import ChooseStoryLoadingView from './components/ChooseSimpleStoryLoadingView'
-import ChooseStoryView from './components/ChooseSimpleStoryView'
+import { useGetStoriesToChoose } from '@core'
+import { useGoToCreateUser } from '@navigation'
+import { useEffect } from 'react'
+import StoriesToChooseEmptyView from './components/StoriesToChooseEmptyView'
+import { StoriesToChooseLoadingView } from './components/StoriesToChooseLoadingView'
+import { StoriesToChooseView } from './components/StoriesToChooseView'
 
-const ChooseSimpleStory = () => {
-  const { title, description, getSelectedBook, setBook, loading } =
-    useChooseSimpleStory()
+const ChooseStory = () => {
+  const { loading, books, load, selectBook } = useGetStoriesToChoose()
   const route = useGoToCreateUser()
 
-  const onPress = () => {
-    const book = getSelectedBook()
-    if (book) {
-      setBook(book)
-      route()
-    }
+  useEffect(() => {
+    load()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onPress = async (key: string | number) => {
+    await selectBook(key)
+    route()
   }
-  if (loading) return <ChooseStoryLoadingView />
-  return (
-    <ChooseStoryView
-      title={title}
-      description={description}
-      onPress={onPress}
-    />
-  )
+
+  if (loading) return <StoriesToChooseLoadingView />
+  else if (books.length === 0) return <StoriesToChooseEmptyView />
+  return <StoriesToChooseView books={books} onSelect={onPress} />
 }
 
-export default ChooseSimpleStory
+export default ChooseStory

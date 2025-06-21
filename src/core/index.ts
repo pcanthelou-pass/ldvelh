@@ -77,7 +77,7 @@ export {
   type SceneProps,
 } from './types/scene'
 export { EmptyScenes, type ScenesProps } from './types/scenes'
-export type { ShortListOfStories } from './types/shortlistofstories'
+export type { ShortListOfStories, ShortStory } from './types/shortlistofstories'
 export {
   DEFAULT_PROPS,
   type UserActions,

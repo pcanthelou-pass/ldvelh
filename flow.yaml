@@ -5,7 +5,7 @@ appId: host.exp.Exponent
 - assertVisible: 'Bienvenue'
 - tapOn: 'Choisir une histoire'
 - assertVisible: 'Choisir une histoire'
-- tapOn: 'Entrer'
+- tapOn: 'Fugiat.*'
 - assertVisible: 'Mon héro'
 - assertVisible: 'Agilité.*'
 - assertVisible: 'Endurance.*'

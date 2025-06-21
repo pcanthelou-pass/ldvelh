@@ -8,8 +8,14 @@ class MockAlertService implements IAlertService {
     return null
   }
 }
+// class MockApiService implements IApiService {
+//  getBooks:
+//  getStory:
+// }
 
-const mockedServices = { alert: new MockAlertService() }
+const mockedServices = {
+  alert: new MockAlertService() /*, api: new MockApiService*/,
+}
 const mockedSlices = {
   game: createGameStore(),
   user: createUserStore(),
