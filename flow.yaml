@@ -20,6 +20,17 @@ appId: host.exp.Exponent
 - tapOn: 'Combattre'
 - repeat:
     while:
-      notVisible: 'Endurance 0'
+      notVisible: 'Scène #2-1'
     commands:
       - tapOn: 'Attaquer'
+- tapOn: 'Scène #2-1'
+- assertVisible: 'Vous devez battre.*'
+- tapOn: 'Combattre'
+- assertVisible: 'Vous devez battre.*'
+- tapOn: 'Fuir'
+- assertVisible: 'Vous avez perdu 2 points de vie.'
+- tapOn: 'Continuer'
+- assertVisible: 'Scène #3-3'
+- tapOn: 'Scène #3-3'
+- assertVisible: 'Vous avez réussi !!!'
+- tapOn: 'Quitter'
