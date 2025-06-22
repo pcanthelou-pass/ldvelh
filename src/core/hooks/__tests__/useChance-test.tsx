@@ -1,7 +1,6 @@
-import { CharacterRawProps, GameState } from '@core'
+import { CharacterRawProps, GameState, useChance } from '@core'
 import { TEST_HERO, WrapperTestExt } from '@shared'
 import { act, renderHook } from '@testing-library/react-native'
-import useChance from '../useChance'
 
 const WrapperTestExtHeroChance =
   (chance: number) =>

@@ -14,7 +14,16 @@ const mockFightInstance = {
   opponentWound: 2,
   canContinue: true,
   heroIsDead: false,
-  resolveRound: jest.fn(),
+  doResolveRound: jest.fn(),
+  round: 0,
+  doWoundHero: jest.fn(),
+  doSuccessChance: jest.fn(),
+  doFailChance: jest.fn(),
+  opponent: mockOpponent,
+  hero: mockCharacter,
+  heroHasBeenTouched: false,
+  opponentHasBeenTouched: false,
+  opponentIsDead: false,
 }
 
 jest.mock('@core', () => ({
@@ -27,6 +36,10 @@ jest.mock('@core', () => ({
       hitOpponent: mockHitOpponent,
     }),
   ),
+  useChance: () => ({
+    chance: 0,
+    tryChance: () => ({ onSuccess: jest.fn(), onFailure: jest.fn() }),
+  }),
   Fight: function () {
     return mockFightInstance
   },
@@ -80,11 +93,13 @@ describe('useFight', () => {
   })
 
   it('should call fleeFight correctly', () => {
+    mockFightInstance.canContinue = true
+    mockFightInstance.heroIsDead = false
     const { result } = renderHook(() => useFight())
     act(() => {
       result.current.fleeFight()
     })
-    expect(mockHitCharacter).toHaveBeenCalledWith(4) // heroWound + 2
+    expect(mockHitCharacter).toHaveBeenCalledWith(2) // heroWound + 2
     expect(mockHitOpponent).toHaveBeenCalledWith(99)
   })
 })

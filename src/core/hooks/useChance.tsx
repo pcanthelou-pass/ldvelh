@@ -1,7 +1,7 @@
 import { D6x2 } from '../actions/D6'
 import { useGameStore } from './useGameStore'
 
-const useChance = () => {
+export const useChance = () => {
   const chance = useGameStore((state) => state.character.abilities.chance)
   const decreaseChance = useGameStore((state) => state.decreaseChance)
 
@@ -24,5 +24,3 @@ const useChance = () => {
 
   return { tryChance, canTryChance, chance }
 }
-
-export default useChance

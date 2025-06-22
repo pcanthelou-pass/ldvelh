@@ -16,6 +16,10 @@ const FightScene = () => {
 
   const onAfterContinue = () => {}
 
+  const tryChance = () => {
+    tryChanceFight()
+  }
+
   const onAfterDie = () => {
     goToDieScene()
   }
@@ -34,8 +38,12 @@ const FightScene = () => {
     onNewRound,
     opponent,
     character,
-
+    round,
+    opponentHasBeenTouched,
+    heroHasBeenTouched,
     fleeFight,
+    tryChanceFight,
+    chance,
   } = useFight(onAfterContinue, onAfterDie, onAfterFlee, onAfterSurvive)
 
   return (
@@ -43,12 +51,17 @@ const FightScene = () => {
       opponent={opponent}
       onPressAttack={onNewRound}
       onPressFlee={fleeFight}
+      onPressChance={tryChance}
+      round={round}
     >
       <AttackersView
         character={character}
         heroEndurance={heroEndurance}
         opponentEndurance={opponentEndurance}
         opponent={opponent}
+        chance={chance}
+        opponentIsTouched={opponentHasBeenTouched}
+        heroIsTouched={heroHasBeenTouched}
       />
     </FightSceneView>
   )

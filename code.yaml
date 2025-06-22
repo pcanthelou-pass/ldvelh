@@ -1,0 +1,28 @@
+appId: host.exp.Exponent
+---
+- launchApp
+- tapOn: 'my-hero-book'
+- tapOn: 'Choisir une histoire'
+- tapOn: 'Fugiat.*'
+- tapOn: 'Suivant'
+- tapOn: 'Et maintenant, tournez la page !'
+- tapOn: 'Scène #1-3'
+- tapOn: 'Combattre'
+- repeat:
+    while:
+      notVisible: 'Tenter sa chance'
+    commands:
+      - tapOn: 'Attaquer'
+- tapOn: 'Tenter sa chance'
+# - repeat:
+#     while:
+#       notVisible: 'Scène #2-1'
+#     commands:
+#       - tapOn: 'Attaquer'
+# - tapOn: 'Scène #2-1'
+# - assertVisible: 'Vous devez battre.*'
+# - tapOn: 'Combattre'
+# - tapOn: 'Attaquer'
+# - tapOn: 'Attaquer'
+# - tapOn: 'Tenter sa chance'
+# - tapOn: 'Tenter sa chance'

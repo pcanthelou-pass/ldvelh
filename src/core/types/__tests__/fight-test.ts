@@ -25,7 +25,7 @@ describe('Given a Hero and an Opponent', () => {
           hit: () => 2,
         },
       )
-      fight.resolveRound()
+      fight.doResolveRound()
       expect(fight.canContinue).toBeTruthy()
       expect(fight.heroEndurance).toBe(4)
       expect(fight.opponentEndurance).toBe(4)
@@ -53,7 +53,7 @@ describe('Given a Hero and an Opponent', () => {
           hit: () => 2,
         },
       )
-      fight.resolveRound()
+      fight.doResolveRound()
       expect(fight.canContinue).toBeTruthy()
       expect(fight.heroIsDead).toBeFalsy()
       expect(fight.opponentEndurance).toBe(4)
@@ -81,7 +81,7 @@ describe('Given a Hero and an Opponent', () => {
           hit: () => 2,
         },
       )
-      fight.resolveRound()
+      fight.doResolveRound()
       expect(fight.canContinue).toBeTruthy()
       expect(fight.heroEndurance).toBe(4)
       expect(fight.opponentEndurance).toBe(2)
@@ -110,7 +110,7 @@ describe('Given a Hero and an Opponent', () => {
           hit: () => 4,
         },
       )
-      fight.resolveRound()
+      fight.doResolveRound()
       expect(fight.canContinue).toBeFalsy()
       expect(fight.heroEndurance).toBe(4)
       expect(fight.opponentEndurance).toBe(0)

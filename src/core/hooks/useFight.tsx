@@ -1,4 +1,10 @@
-import { AttackerProps, BuildAttacker, Fight, useGameStore } from '@core'
+import {
+  AttackerProps,
+  BuildAttacker,
+  Fight,
+  useChance,
+  useGameStore,
+} from '@core'
 import { useEffect, useRef, useState } from 'react'
 
 /**
@@ -14,6 +20,11 @@ export const useFight = (
   onAfterFlee?: (() => void) | undefined,
   onAfterSurvive?: (() => void) | undefined,
 ) => {
+  const [heroHasBeenTouched, setHeroHasBeenTouched] = useState(false)
+  const [opponentHasBeenTouched, setOpponentHasBeenTouched] = useState(false)
+
+  const { tryChance, chance } = useChance()
+
   const opponent = BuildAttacker(
     useGameStore(
       (state) => state.currentScene.opponent as unknown as AttackerProps,
@@ -23,14 +34,43 @@ export const useFight = (
   const character = BuildAttacker(useGameStore((state) => state.character))
   const hitCharacter = useGameStore((state) => state.hitCharacter)
   const hitOpponent = useGameStore((state) => state.hitOpponent)
-
-  const fight = useRef<Fight>(new Fight(null, null))
+  const [round, setRound] = useState<number>(0)
+  const fight = useRef<Fight>(new Fight(opponent, character))
 
   useEffect(() => {
     fight.current = new Fight(opponent, character)
     setOpponentEndurance(opponent?.abilities?.endurance ?? 0)
     setHeroEndurance(character?.abilities?.endurance ?? 0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const tryChanceFight = () => {
+    tryChance({
+      onSuccess: () => {
+        fight.current.doSuccessChance()
+        setOpponentEndurance(fight.current.opponentEndurance)
+        setHeroEndurance(fight.current.heroEndurance)
+        _round()
+      },
+      onFailure: () => {
+        fight.current.doFailChance()
+        setOpponentEndurance(fight.current.opponentEndurance)
+        setHeroEndurance(fight.current.heroEndurance)
+        _round()
+      },
+    })
+  }
+
+  const fleeFight = () => {
+    fight.current.doWoundHero(2)
+    if (fight.current.heroIsDead) {
+      dieFight()
+    } else {
+      hitCharacter(fight.current.heroWound)
+      hitOpponent(99)
+      onAfterFlee?.()
+    }
+  }
 
   const continueFight = () => {
     setOpponentEndurance(fight.current.opponentEndurance)
@@ -50,18 +90,6 @@ export const useFight = (
     onAfterDie?.()
   }
 
-  const fleeFight = () => {
-    if (fight.current.heroEndurance <= 2) {
-      fight.current.heroEndurance = 0
-      fight.current.heroWound += 2
-      dieFight()
-    } else {
-      hitCharacter(fight.current.heroWound + 2)
-      hitOpponent(99)
-      onAfterFlee?.()
-    }
-  }
-
   const [opponentEndurance, setOpponentEndurance] = useState(
     () => opponent?.abilities?.endurance ?? 0,
   )
@@ -70,7 +98,14 @@ export const useFight = (
   )
 
   const onNewRound = () => {
-    fight.current.resolveRound()
+    fight.current.doResolveRound()
+    setRound((round) => round + 1)
+    setHeroHasBeenTouched(fight.current.heroHasBeenTouched)
+    setOpponentHasBeenTouched(fight.current.opponentHasBeenTouched)
+    _round()
+  }
+
+  const _round = () => {
     if (fight.current.canContinue) {
       continueFight()
     } else if (fight.current.heroIsDead) {
@@ -86,6 +121,11 @@ export const useFight = (
     fleeFight,
     opponentEndurance,
     heroEndurance,
+    chance,
     onNewRound,
+    round,
+    tryChanceFight,
+    heroHasBeenTouched,
+    opponentHasBeenTouched,
   }
 }
