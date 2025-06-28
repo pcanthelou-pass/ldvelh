@@ -1,4 +1,5 @@
-import { ItemProps, useGameStore } from '@core'
+import { ItemProps } from '@types'
+import { useGameStore } from './useGameStore'
 
 export const useReadScene = () => {
   const store = useGameStore((state) => state)

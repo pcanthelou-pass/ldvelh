@@ -1,4 +1,5 @@
-import { createGameStore, GameState, GameStore } from '@core'
+import { createGameStore, GameStore } from '@stores'
+import { GameState } from '@types'
 import { useStore } from 'zustand'
 
 export let GAME_STORE: GameStore

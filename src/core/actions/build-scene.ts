@@ -1,11 +1,12 @@
-import { BuildAttacker, Scene, SceneAction, ScenesProps } from '@core'
+import { Scene, SceneAction, ScenesProps } from '../types'
+import { BuildAttacker } from './build-attacker'
 
 const BuildSceneActions = (ids: string[], scenes: ScenesProps): SceneAction[] =>
   ids
     .filter((key) => !!scenes[key])
     .map((id: string) => ({
-      dest: scenes[id].id,
-      label: scenes[id].question,
+      dest: scenes[id]!.id,
+      label: scenes[id]!.question,
     }))
 
 export const BuildScene = (current: string, scenes: ScenesProps): Scene => {

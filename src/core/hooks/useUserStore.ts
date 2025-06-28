@@ -1,4 +1,5 @@
-import { createUserStore, UserState, UserStore } from '@core'
+import { UserStore, createUserStore } from '@stores'
+import { UserState } from '@types'
 import { useStore } from 'zustand'
 
 let USER_STORE: UserStore

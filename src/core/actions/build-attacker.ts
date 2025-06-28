@@ -1,10 +1,10 @@
-import { D6x2 } from '@core'
 import {
   AttackerProps,
   AttackerStatsProps,
   HitProps,
   RoundAttackProps,
-} from '../types/attacker'
+} from '../types'
+import { D6x2 } from './D6'
 
 const defaultAttack: RoundAttackProps = (
   attacker?: AttackerStatsProps,

@@ -3,7 +3,7 @@
  * Ce context ne fait que les exposer via le hook useServices()
  * - alert : pour afficher une alerte à l'utilisateur
  */
-import { GameStore, UserStore } from '@core'
+import { GameStore, UserStore } from '@stores'
 import { createContext, useRef } from 'react'
 
 export interface StoresProps {

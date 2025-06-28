@@ -1,7 +1,6 @@
+import { BuildBackpack, BuildScene } from '@actions'
 import {
   BookProps,
-  BuildBackpack,
-  BuildScene,
   CharacterRawProps,
   DEFAULT_GAME_PROPS,
   EmptyBook,
@@ -9,7 +8,7 @@ import {
   EmptyScene,
   GameProps,
   GameState,
-} from '@core'
+} from '@types'
 import { createStore } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
@@ -73,7 +72,16 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         }),
       hitOpponent: (hit: number = 2) =>
         set((state) => {
-          state.currentScene.opponent.abilities.endurance -= hit
+          if (state.currentScene.opponent) {
+            state.currentScene.opponent = {
+              ...state.currentScene.opponent,
+              abilities: {
+                ...state.currentScene.opponent.abilities,
+                endurance:
+                  state.currentScene.opponent.abilities.endurance - hit,
+              },
+            }
+          }
         }),
       decreaseChance: () =>
         set((state) => {

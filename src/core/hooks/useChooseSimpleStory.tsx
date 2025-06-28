@@ -1,5 +1,5 @@
-import { useGameStore } from '@core'
-import { TEST_BOOK } from '../../shared/helpers/TEST_BOOK'
+import { TEST_BOOK } from '@helpers'
+import { useGameStore } from './useGameStore'
 
 export const useChooseSimpleStory = () => {
   const setBook = useGameStore((state) => state.setBook)

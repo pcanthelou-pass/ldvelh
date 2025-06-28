@@ -1,4 +1,4 @@
-import { useGameStore } from '@core'
+import { useGameStore } from './useGameStore'
 
 /**
  *

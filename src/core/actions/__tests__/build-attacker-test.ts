@@ -40,4 +40,12 @@ describe('Given an Attacker', () => {
     attacker.attack()
     expect(attFn).toHaveBeenCalledTimes(1)
   })
+  it('Can make damages', () => {
+    const attacker = BuildAttacker({
+      name: 'NAME',
+      description: 'DESCRIPTION',
+      abilities: { agility: 1, endurance: 1, chance: 1 },
+    })
+    expect(attacker.hit()).toBe(2)
+  })
 })

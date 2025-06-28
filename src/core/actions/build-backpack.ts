@@ -1,5 +1,5 @@
-import { ItemBuilder } from '@core'
 import { BackpackItems, BackpackItemsStats } from '../types/backpack'
+import { ItemBuilder } from '../types/Item-factories'
 
 /**
  * Use this factory to build the items of the game

@@ -1,4 +1,4 @@
-import { DEFAULT_PROPS, UserProps, UserState } from '@core'
+import { DEFAULT_PROPS, UserProps, UserState } from '@types'
 import { createStore } from 'zustand'
 
 export type UserStore = ReturnType<typeof createUserStore>

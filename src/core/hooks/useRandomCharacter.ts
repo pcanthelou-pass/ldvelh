@@ -1,6 +1,8 @@
-import { AbilitiesProps, CharacterRawProps, D6, useGameStore } from '@core'
+import { D6 } from '@actions'
+import * as pregenerated from '@api/character.json'
+import { AbilitiesProps, CharacterRawProps } from '@types'
 import { useEffect } from 'react'
-import * as pregenerated from 'src/core/api/character.json'
+import { useGameStore } from './useGameStore'
 
 /**
  *

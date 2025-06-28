@@ -146,6 +146,33 @@ describe('Game (store)', () => {
     )
   })
 
+  it('Should be able to hit an opponent', () => {
+    const { result } = renderHook(() => useStore(store, (state) => state))
+    const { setCharacter, startBook, setBook, moveToScene, hitOpponent } =
+      result.current
+    act(() => {
+      setBook(TEST_BOOK)
+      setCharacter(TEST_HERO)
+      startBook()
+      moveToScene('1-3')
+      hitOpponent()
+    })
+    expect(store.getState().currentScene.opponent.abilities.endurance).toBe(6)
+  })
+
+  it('Should decrease hero chance by one when asked to', () => {
+    const { result } = renderHook(() => useStore(store, (state) => state))
+    const { setCharacter, decreaseChance, setBook } = result.current
+    act(() => {
+      setBook(TEST_BOOK)
+      setCharacter(TEST_HERO)
+      decreaseChance()
+    })
+    expect(store.getState().character.abilities.chance).toBe(
+      store.getState().characterNotModified.abilities.chance - 1,
+    )
+  })
+
   it('should be able to consume a potion', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { setCharacter, startBook, setBook, moveToScene, consumeItemByOne } =

@@ -1,6 +1,7 @@
-import { CharacterRawProps, useGameStore } from '@core'
+import * as pregenerated from '@api/character.json'
+import { CharacterRawProps } from '@types'
 import { useEffect } from 'react'
-import * as pregenerated from 'src/core/api/character.json'
+import { useGameStore } from './useGameStore'
 
 export const usePregeneratedCharacter = () => {
   const setCharacter = useGameStore((state) => state.setCharacter)
