@@ -1,4 +1,4 @@
-import { AbilityBox, AbilityBoxTitle, AbilityBoxValue } from '@ui'
+import { AbilityBox, AbilityBoxTitle, AbilityBoxValue } from './AbilityBox'
 
 export const Ability = ({ label, value }: { label: string; value: number }) => (
   <AbilityBox>

@@ -1,5 +1,6 @@
-import { Core, createGameStore, createUserStore } from '@core'
-import { IAlertService } from '@shared'
+import { Core } from '@components'
+import { IAlertService } from '@services'
+import { createGameStore, createUserStore } from '@stores'
 import { ReactNode } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 

@@ -1,4 +1,5 @@
-import { GameState, useGameStore } from '@core'
+import { useGameStore } from '@hooks'
+import { GameState } from '@types'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'
@@ -24,6 +25,7 @@ const WrapperTestPlusStore = ({
     if (runOnStart) {
       runOnStart(usegamestore)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setBook, setCharacter, runOnStart])
 
   return children

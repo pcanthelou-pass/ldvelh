@@ -1,5 +1,5 @@
-import { megaTitleSize, paragraphSize } from '@ui'
 import { Text, View } from 'react-native'
+import { megaTitleSize, paragraphSize } from './constant'
 
 export const AbilityBox = ({ children }: { children: React.ReactNode }) => (
   <View style={{ alignItems: 'center' }}>{children}</View>

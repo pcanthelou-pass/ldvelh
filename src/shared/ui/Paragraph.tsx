@@ -1,10 +1,13 @@
 import { Text, View } from 'react-native'
 import { paragraphSize, space } from './constant'
 
-const aligner = {
-  left: 'flex-start',
+const aligner: Record<
+  'left' | 'center' | 'right' | 'justify' | 'auto',
+  'left' | 'center' | 'right' | 'justify' | 'auto'
+> = {
+  left: 'left',
   center: 'center',
-  right: 'flex-end',
+  right: 'right',
   justify: 'justify',
   auto: 'auto',
 }

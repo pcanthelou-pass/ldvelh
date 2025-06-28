@@ -1,4 +1,6 @@
-export const TEST_HERO = {
+import { CharacterRawProps } from '@types'
+
+export const TEST_HERO: CharacterRawProps = {
   name: 'Héro',
   abilities: {
     agility: 8,
