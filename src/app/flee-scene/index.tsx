@@ -1,18 +1,3 @@
-import { useFleeScene } from '@core'
-import { useGoToAfterFlee } from '@navigation'
-import { FleeView } from './components/FleeView'
-
-const FleeScene = () => {
-  const { name, endurance } = useFleeScene()
-  const next = useGoToAfterFlee()
-
-  const onPressNext = () => {
-    next()
-  }
-
-  return (
-    <FleeView name={name} endurance={endurance} onPressNext={onPressNext} />
-  )
-}
+import FleeScene from '@features/flee-scene/flee-scene'
 
 export default FleeScene

@@ -1,5 +1,6 @@
-import { Core, createGameStore, createUserStore } from '@core'
-import { AlertService, Services } from '@shared'
+import { Core } from '@components'
+import { AlertService, Services } from '@services'
+import { createGameStore, createUserStore } from '@stores'
 import { Stack } from 'expo-router'
 import { enableMapSet } from 'immer'
 enableMapSet()

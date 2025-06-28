@@ -1,4 +1,3 @@
-import { ReadIntroduction } from './ReadIntroduction'
-export { ReadIntroductionView } from './components/ReadIntroductionView'
+import ReadIntroduction from '@features/read-introduction/ReadIntroduction'
 
 export default ReadIntroduction
