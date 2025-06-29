@@ -1,4 +1,4 @@
-import { BookProps } from '@core'
+import { BookProps } from '@types'
 
 export const TEST_BOOK: BookProps = {
   title:

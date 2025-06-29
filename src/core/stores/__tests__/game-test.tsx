@@ -1,6 +1,7 @@
-import { EmptyBook, EmptyCharacter, EmptyScene } from '@core'
-import { TEST_BOOK, TEST_HERO } from '@shared'
+import { TEST_BOOK } from '@helpers/TEST_BOOK'
+import { TEST_HERO } from '@helpers/TEST_HERO'
 import { act, renderHook } from '@testing-library/react-native'
+import { EmptyBook, EmptyCharacter, EmptyScene } from '@types'
 import { useStore } from 'zustand'
 import { createGameStore } from '../game'
 

@@ -1,4 +1,4 @@
-import { D6 } from '@core'
+import { D6 } from '@actions'
 
 describe('Given a D6', () => {
   it('When launched it has a result between 1 and 6', () => {

@@ -1,7 +1,7 @@
-import { useGameStore } from '@core'
-import { TEST_BOOK } from '@shared'
+import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { renderHook } from '@testing-library/react-native'
 import { act } from 'react'
+import { useGameStore } from '../useGameStore'
 
 describe('Store in Core', () => {
   it('should be able to use the store with a selector', async () => {

@@ -1,4 +1,4 @@
-import { useReadIntroduction } from '@core'
+import { useReadIntroduction } from '@hooks'
 import { useGoToFirstScene } from '../../navigation/useGoToFirstScene'
 import { ReadIntroductionView } from './components/ReadIntroductionView'
 

@@ -1,8 +1,8 @@
-import { Core } from '@core'
-import { IAlertService } from '@shared'
 import { useQuery } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react-native'
 import { ReactNode } from 'react'
+import { IAlertService } from 'src/shared/services/types'
+import { Core } from '../components/core'
 
 const RETURN_VALUE = 'Hello World'
 

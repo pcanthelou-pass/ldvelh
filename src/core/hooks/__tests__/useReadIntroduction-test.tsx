@@ -1,4 +1,4 @@
-import { WrapperTestExt } from '@shared'
+import { WrapperTestExt } from '@helpers/WrapperTestExt'
 import { renderHook } from '@testing-library/react-native'
 import { GAME_STORE } from '../useGameStore'
 import { useReadIntroduction } from '../useReadIntroduction'

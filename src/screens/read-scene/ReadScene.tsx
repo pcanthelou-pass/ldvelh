@@ -1,5 +1,6 @@
-import { ItemProps, useCharacterStats, useReadScene } from '@core'
+import { useCharacterStats, useReadScene } from '@hooks'
 import { useGoToChooseStory } from '@navigation'
+import { ItemProps } from '@types'
 import { View } from 'react-native'
 import { useBuildSceneByPredicate } from './BuildSceneByPredicate'
 import { CharacterView } from './components/CharacterView'

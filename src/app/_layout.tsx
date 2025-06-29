@@ -1,8 +1,10 @@
 import { Core } from '@components'
-import { AlertService, Services } from '@services'
 import { createGameStore, createUserStore } from '@stores'
 import { Stack } from 'expo-router'
 import { enableMapSet } from 'immer'
+import { AlertService } from 'src/shared/services/alert'
+import { Services } from 'src/shared/services/types'
+
 enableMapSet()
 
 const services: Services = {
@@ -23,7 +25,6 @@ export default function RootLayout() {
   return (
     <Core services={services} slices={slices}>
       <Stack>
-        <Stack.Screen name="/" options={{ title: 'Mon livre' }} />
         <Stack.Screen name="index" options={{ title: 'Mon livre' }} />
         <Stack.Screen
           name="choose-story/index"

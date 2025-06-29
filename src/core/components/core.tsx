@@ -1,7 +1,7 @@
 import { ServicesProvider, StoreProvider, StoresProps } from '@contexts'
-import { Services } from '@services'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
+import { Services } from 'src/shared/services'
 
 export const Core = ({
   children,

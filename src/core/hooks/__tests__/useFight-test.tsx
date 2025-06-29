@@ -7,6 +7,11 @@ const mockCharacter = { abilities: { endurance: 20 }, attack: jest.fn() }
 const mockHitCharacter = jest.fn()
 const mockHitOpponent = jest.fn()
 
+const mockOnAfterContinue = jest.fn()
+const mockOnAfterDie = jest.fn()
+const mockOnAfterFlee = jest.fn()
+const mockOnAfterSurvive = jest.fn()
+
 const mockFightInstance = {
   opponentEndurance: 8,
   heroEndurance: 18,
@@ -25,9 +30,16 @@ const mockFightInstance = {
   opponentHasBeenTouched: false,
   opponentIsDead: false,
 }
+const mockOnSuccess = jest.fn()
+const mockOnFailure = jest.fn()
 
-jest.mock('@core', () => ({
+jest.mock('@actions', () => ({
+  ...jest.requireActual('@actions'),
   BuildAttacker: jest.fn((obj) => obj),
+}))
+
+jest.mock('@hooks', () => ({
+  ...jest.requireActual('@hooks'),
   useGameStore: jest.fn((selector) =>
     selector({
       currentScene: { opponent: mockOpponent },
@@ -36,11 +48,7 @@ jest.mock('@core', () => ({
       hitOpponent: mockHitOpponent,
     }),
   ),
-  useChance: () => ({
-    chance: 0,
-    tryChance: () => ({ onSuccess: jest.fn(), onFailure: jest.fn() }),
-  }),
-  Fight: function () {
+  Fight() {
     return mockFightInstance
   },
 }))
@@ -60,7 +68,14 @@ describe('useFight', () => {
   })
 
   it('should update endurances after a round (continue)', () => {
-    const { result } = renderHook(() => useFight())
+    const { result } = renderHook(() =>
+      useFight(
+        mockOnAfterContinue,
+        mockOnAfterDie,
+        mockOnAfterFlee,
+        mockOnAfterSurvive,
+      ),
+    )
     act(() => {
       result.current.onNewRound()
     })
@@ -68,38 +83,102 @@ describe('useFight', () => {
     expect(result.current.heroEndurance).toBe(18)
     expect(mockHitCharacter).not.toHaveBeenCalled()
     expect(mockHitOpponent).not.toHaveBeenCalled()
+    expect(mockOnAfterContinue).toHaveBeenCalledTimes(1)
   })
 
   it('should call surviveFight if cannot continue', () => {
     mockFightInstance.canContinue = false
     mockFightInstance.heroIsDead = false
-    const { result } = renderHook(() => useFight())
+    const { result } = renderHook(() =>
+      useFight(
+        mockOnAfterContinue,
+        mockOnAfterDie,
+        mockOnAfterFlee,
+        mockOnAfterSurvive,
+      ),
+    )
     act(() => {
       result.current.onNewRound()
     })
     expect(mockHitCharacter).toHaveBeenCalledWith(2)
     expect(mockHitOpponent).toHaveBeenCalledWith(2)
+    expect(mockOnAfterSurvive).toHaveBeenCalledTimes(1)
   })
 
   it('should call dieFight if hero is dead', () => {
     mockFightInstance.canContinue = false
     mockFightInstance.heroIsDead = true
-    const { result } = renderHook(() => useFight())
+    const { result } = renderHook(() =>
+      useFight(
+        mockOnAfterContinue,
+        mockOnAfterDie,
+        mockOnAfterFlee,
+        mockOnAfterSurvive,
+      ),
+    )
     act(() => {
       result.current.onNewRound()
     })
     expect(mockHitCharacter).toHaveBeenCalledWith(2)
     expect(mockHitOpponent).toHaveBeenCalledWith(2)
+    expect(mockOnAfterDie).toHaveBeenCalledTimes(1)
   })
 
   it('should call fleeFight correctly', () => {
     mockFightInstance.canContinue = true
     mockFightInstance.heroIsDead = false
-    const { result } = renderHook(() => useFight())
+    const { result } = renderHook(() =>
+      useFight(
+        mockOnAfterContinue,
+        mockOnAfterDie,
+        mockOnAfterFlee,
+        mockOnAfterSurvive,
+      ),
+    )
     act(() => {
       result.current.fleeFight()
     })
     expect(mockHitCharacter).toHaveBeenCalledWith(2) // heroWound + 2
     expect(mockHitOpponent).toHaveBeenCalledWith(99)
+    expect(mockOnAfterFlee).toHaveBeenCalledTimes(1)
+  })
+
+  it('should call dieFight if flee with less than 2 hp', () => {
+    mockFightInstance.canContinue = true
+    mockFightInstance.heroIsDead = false
+    const { result } = renderHook(() =>
+      useFight(
+        mockOnAfterContinue,
+        mockOnAfterDie,
+        mockOnAfterFlee,
+        mockOnAfterSurvive,
+      ),
+    )
+    mockFightInstance.heroIsDead = true
+    act(() => {
+      result.current.fleeFight()
+    })
+    expect(mockHitCharacter).toHaveBeenCalledWith(2) // heroWound + 2
+    expect(mockHitOpponent).toHaveBeenCalledWith(2)
+    expect(mockOnAfterFlee).toHaveBeenCalledTimes(0)
+    expect(mockOnAfterDie).toHaveBeenCalledTimes(1)
+  })
+
+  it('should handle chance failure', () => {
+    const { result } = renderHook(() => useFight())
+    act(() => {
+      result.current.onChanceFailure()
+    })
+    expect(mockFightInstance.doFailChance).toHaveBeenCalledTimes(1)
+    expect(mockFightInstance.doSuccessChance).toHaveBeenCalledTimes(0)
+  })
+
+  it('should handle chance success', () => {
+    const { result } = renderHook(() => useFight())
+    act(() => {
+      result.current.onChanceSuccess()
+    })
+    expect(mockFightInstance.doFailChance).toHaveBeenCalledTimes(0)
+    expect(mockFightInstance.doSuccessChance).toHaveBeenCalledTimes(1)
   })
 })

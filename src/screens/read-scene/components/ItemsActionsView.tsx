@@ -1,4 +1,4 @@
-import { BackpackItems, ItemProps } from '@core'
+import { BackpackItems, ItemProps } from '@types'
 import { Button, View } from 'react-native'
 
 export const ItemsActionsView = ({

@@ -1,5 +1,6 @@
-import { ItemProps, useReadScene } from '@core'
+import { useReadScene } from '@hooks'
 import { useGoToFightScene } from '@navigation'
+import { ItemProps } from '@types'
 import { ReadSceneEmptyView } from './components/ReadSceneEmptyView'
 import { ReadSceneFailureView } from './components/ReadSceneFailureView'
 import { ReadSceneFightView } from './components/ReadSceneFightView'

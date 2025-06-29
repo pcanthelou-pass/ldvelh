@@ -1,7 +1,7 @@
-import { useChooseSimpleStory } from '@core'
-import { TEST_BOOK } from '@shared'
+import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { renderHook } from '@testing-library/react-native'
 import { act } from 'react'
+import { useChooseSimpleStory } from '../useChooseSimpleStory'
 import { GAME_STORE } from '../useGameStore'
 
 describe('useChooseSimpleStory', () => {

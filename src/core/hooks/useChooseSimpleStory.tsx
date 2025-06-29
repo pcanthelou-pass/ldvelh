@@ -1,4 +1,4 @@
-import { TEST_BOOK } from '@helpers'
+import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { useGameStore } from './useGameStore'
 
 export const useChooseSimpleStory = () => {

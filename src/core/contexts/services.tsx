@@ -3,8 +3,8 @@
  * Ce context ne fait que les exposer via le hook useServices()
  * - alert : pour afficher une alerte à l'utilisateur
  */
-import { Services } from '@shared'
 import { createContext, useContext, useMemo } from 'react'
+import { Services } from 'src/shared/services/types'
 
 export const ServicesContext = createContext<Services | null>(null)
 

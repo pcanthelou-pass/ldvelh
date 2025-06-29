@@ -1,6 +1,6 @@
-import { WrapperTestExt } from '@shared'
+import { WrapperTestExt } from '@helpers/WrapperTestExt'
 import { render, screen, userEvent } from '@testing-library/react-native'
-import { mockReplace } from 'src/shared/helpers/mocks/mockReplace'
+import { mockReplace } from 'src/shared/helpers/__mocks__/mockReplace'
 import FleeScene from '../flee-scene'
 
 describe('FleeScene', () => {

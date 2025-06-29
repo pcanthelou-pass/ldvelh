@@ -1,5 +1,5 @@
-import { EmptyScenes } from '@core'
-import { TEST_BOOK } from '@shared'
+import { TEST_BOOK } from '@helpers/TEST_BOOK'
+import { EmptyScenes } from '@types'
 import { BuildScene } from '../build-scene'
 
 describe('BuildScene', () => {

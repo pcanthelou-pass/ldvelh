@@ -1,6 +1,6 @@
-import { WrapperTestExt } from '@shared'
+import { WrapperTestExt } from '@helpers/WrapperTestExt'
 import { renderHook } from '@testing-library/react-native'
-import { mockPush } from 'src/shared/helpers/mocks/mockReplace'
+import { mockPush } from 'src/shared/helpers/__mocks__/mockReplace'
 import { useGoToFightScene } from '../useGoToFightScene'
 
 describe('useGoToFightScene', () => {

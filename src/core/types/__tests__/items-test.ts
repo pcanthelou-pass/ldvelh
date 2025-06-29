@@ -1,4 +1,4 @@
-import { BuildBackpack } from '@core'
+import { BuildBackpack } from '@actions'
 import { GameState } from '../game'
 
 describe('Backpack', () => {

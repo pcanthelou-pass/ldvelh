@@ -1,8 +1,9 @@
-import { Core, useServices } from '@core'
-import { IAlertService } from '@shared'
+import { Core } from '@components'
+import { useServices } from '@contexts'
 import { render, screen } from '@testing-library/react-native'
 import { ReactNode } from 'react'
 import { Text, View } from 'react-native'
+import { IAlertService } from 'src/shared/services/types'
 
 const MyComponent = () => {
   const { alert } = useServices()

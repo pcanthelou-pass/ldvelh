@@ -1,4 +1,4 @@
-import { ShortListOfStories, ShortStory } from '@core'
+import { ShortListOfStories, ShortStory } from '@types'
 import { AboveNavWrapper, Paragraph, ScreenWithNav, Title } from '@ui'
 import { FlatList, TouchableHighlight, View } from 'react-native'
 

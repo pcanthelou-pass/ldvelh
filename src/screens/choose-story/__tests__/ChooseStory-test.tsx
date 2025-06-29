@@ -1,4 +1,4 @@
-import { WrapperTest } from '@shared'
+import { WrapperTest } from '@helpers/WrapperTest'
 import { render, screen, waitFor } from '@testing-library/react-native'
 import ChooseStory from '../choose-story'
 

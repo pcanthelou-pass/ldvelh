@@ -1,4 +1,4 @@
-import { BackpackItems, ItemProps, SceneAction } from '@core'
+import { BackpackItems, ItemProps, SceneAction } from '@types'
 import { AboveNavWrapper, NavWrapper, ScreenWithNav } from '@ui'
 import { ItemsActionsView } from './ItemsActionsView'
 import { ReadSceneActions } from './ReadSceneActions'

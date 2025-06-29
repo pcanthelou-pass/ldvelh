@@ -1,5 +1,5 @@
-import { ShortListOfStories } from '@core'
 import { render, screen, userEvent } from '@testing-library/react-native'
+import { ShortListOfStories } from '@types'
 import { StoriesToChooseView } from '../components/StoriesToChooseView'
 
 describe('<StoriesToChooseView>', () => {

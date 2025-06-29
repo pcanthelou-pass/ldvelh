@@ -1,11 +1,7 @@
-import {
-  AttackerProps,
-  BuildAttacker,
-  Fight,
-  useChance,
-  useGameStore,
-} from '@core'
+import { BuildAttacker } from '@actions'
+import { AttackerProps, Fight } from '@types'
 import { useEffect, useRef, useState } from 'react'
+import { useGameStore } from './useGameStore'
 
 /**
  * Custom hook to manage the fight logic in the game.
@@ -22,8 +18,6 @@ export const useFight = (
 ) => {
   const [heroHasBeenTouched, setHeroHasBeenTouched] = useState(false)
   const [opponentHasBeenTouched, setOpponentHasBeenTouched] = useState(false)
-
-  const { tryChance, chance } = useChance()
 
   const opponent = BuildAttacker(
     useGameStore(
@@ -44,21 +38,18 @@ export const useFight = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const tryChanceFight = () => {
-    tryChance({
-      onSuccess: () => {
-        fight.current.doSuccessChance()
-        setOpponentEndurance(fight.current.opponentEndurance)
-        setHeroEndurance(fight.current.heroEndurance)
-        _round()
-      },
-      onFailure: () => {
-        fight.current.doFailChance()
-        setOpponentEndurance(fight.current.opponentEndurance)
-        setHeroEndurance(fight.current.heroEndurance)
-        _round()
-      },
-    })
+  const onChanceSuccess = () => {
+    fight.current.doSuccessChance()
+    setOpponentEndurance(fight.current.opponentEndurance)
+    setHeroEndurance(fight.current.heroEndurance)
+    _round()
+  }
+
+  const onChanceFailure = () => {
+    fight.current.doFailChance()
+    setOpponentEndurance(fight.current.opponentEndurance)
+    setHeroEndurance(fight.current.heroEndurance)
+    _round()
   }
 
   const fleeFight = () => {
@@ -121,10 +112,10 @@ export const useFight = (
     fleeFight,
     opponentEndurance,
     heroEndurance,
-    chance,
     onNewRound,
     round,
-    tryChanceFight,
+    onChanceFailure,
+    onChanceSuccess,
     heroHasBeenTouched,
     opponentHasBeenTouched,
   }

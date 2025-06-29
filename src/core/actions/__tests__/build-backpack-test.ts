@@ -1,4 +1,4 @@
-import { TEST_HERO } from '@shared'
+import { TEST_HERO } from '@helpers/TEST_HERO'
 import { BuildBackpack, EmptyBackpackItems } from '../build-backpack'
 
 describe('BuildBackpack', () => {
