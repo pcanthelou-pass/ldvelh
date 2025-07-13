@@ -35,8 +35,7 @@ export const useFight = (
     fight.current = new Fight(opponent, character)
     setOpponentEndurance(opponent?.abilities?.endurance ?? 0)
     setHeroEndurance(character?.abilities?.endurance ?? 0)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [character, opponent])
 
   const onChanceSuccess = () => {
     fight.current.doSuccessChance()
