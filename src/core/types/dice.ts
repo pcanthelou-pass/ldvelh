@@ -8,7 +8,7 @@ export class Dice {
 
   roll(rolls: number = 1) {
     return Array<number>(rolls)
-      .fill(1 + Math.floor(this.randomizer() * (this.side - 1)))
+      .fill(1 + Math.floor(this.randomizer() * this.side))
       .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
   }
 }
