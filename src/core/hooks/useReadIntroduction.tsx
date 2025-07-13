@@ -8,16 +8,12 @@ import { useGameStore } from './useGameStore'
  * It also provides a function to start the book.
  */
 export const useReadIntroduction = () => {
-  const bookIntro = useGameStore((state) => state.gameBook.introduction)
-  const startBookFromStore = useGameStore((state) => state.startBook)
-
-  const startBook = () => {
-    startBookFromStore()
-  }
+  const introduction = useGameStore((state) => state.introduction)
+  const startBook = useGameStore((state) => state.startBook)
 
   return {
-    title: bookIntro?.title ?? 'Error',
-    introduction: bookIntro?.text ?? 'Error',
+    title: introduction?.title ?? 'Error',
+    introduction: introduction?.text ?? 'Error',
     startBook,
   }
 }

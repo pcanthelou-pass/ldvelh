@@ -19,7 +19,7 @@ const WrapperTestPlusStore = ({
   const setCharacter = useGameStore((state) => state.setCharacter)
 
   useEffect(() => {
-    setBook(TEST_BOOK)
+    setBook(TEST_BOOK, 'book1')
     setCharacter(TEST_HERO)
 
     if (runOnStart) {

@@ -1,13 +1,19 @@
-import { getBooks } from '@api'
-import { ShortStory } from '@types'
+import laGrotte from '../../assets/books/la-grotte.json'
+import testBook from '../../assets/books/TEST_BOOK.json'
+import { BookProps, ScenesProps, BookIntroductionProps } from '../core/types'
 
-export const bookService = {
-  async getBookMetaList(): Promise<ShortStory[]> {
-    const books = await getBooks()
-    return books.map((b, index) => ({
-      name: b.title,
-      text: b.description,
-      reference: index,
-    }))
-  },
+const BOOKS: Record<string, BookProps> = {
+  'la-grotte': laGrotte as BookProps,
+  'test-book': testBook as BookProps,
 }
+
+export const listBooks = async () =>
+  Object.entries(BOOKS).map(([id, book]) => ({
+    id,
+    title: book.title,
+    description: book.description,
+  }))
+
+export const getBook = async (id: string): Promise<BookProps> => BOOKS[id]
+export const getScenes = async (id: string): Promise<ScenesProps> => BOOKS[id].scenes
+export const getIntroduction = async (id: string): Promise<BookIntroductionProps> => BOOKS[id].introduction

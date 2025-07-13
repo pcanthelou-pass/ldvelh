@@ -1,3 +1,6 @@
+import { listBooks } from '@services/bookService'
+
+jest.mock('@services/bookService')
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { WrapperTest } from '@helpers/WrapperTest'
 import { act, renderHook, waitFor } from '@testing-library/react-native'
@@ -21,7 +24,7 @@ const getShortBooks = async () => shortList
 
 describe('useGetStoriesToChoose', () => {
   it('should start with loading state', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {
       wrapper: WrapperTest,
     })
 
@@ -35,7 +38,7 @@ describe('useGetStoriesToChoose', () => {
   })
 
   it('should handle loading state correctly', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
@@ -46,7 +49,7 @@ describe('useGetStoriesToChoose', () => {
     })
   })
   it('should format books data correctly', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
@@ -57,7 +60,7 @@ describe('useGetStoriesToChoose', () => {
     })
   })
   it('should handle empty books array', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {
       wrapper: WrapperTest,
     })
     await waitFor(() => {
@@ -66,7 +69,7 @@ describe('useGetStoriesToChoose', () => {
     })
   })
   it('Should set the book selected by a key', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
