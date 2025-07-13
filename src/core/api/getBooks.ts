@@ -1,6 +1,6 @@
-import rawBook1 from '../../../assets/books/la-grotte.json'
-import rawBook2 from '../../../assets/books/TEST_BOOK.json'
+import { ApiService } from '@services'
 import { BookProps } from '../types/book'
 
-export const getBooks = async (): Promise<BookProps[]> =>
-  Promise.resolve([rawBook1, rawBook2])
+const api = new ApiService()
+
+export const getBooks = async (): Promise<BookProps[]> => api.getBooks()

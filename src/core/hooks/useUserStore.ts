@@ -1,13 +1,13 @@
-import { UserStore, createUserStore } from '@stores'
+import { useStores } from '@contexts'
 import { UserState } from '@types'
 import { useStore } from 'zustand'
 
-let USER_STORE: UserStore
-
 export function useUserStore<U>(selector: (state: UserState) => U) {
-  if (!USER_STORE) {
-    USER_STORE = createUserStore()
-  }
+  const { user } = useStores()
+  return useStore(user, selector)
+}
 
-  return useStore(USER_STORE, selector)
+export const useUserStoreApi = () => {
+  const { user } = useStores()
+  return user
 }

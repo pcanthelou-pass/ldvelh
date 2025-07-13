@@ -7,6 +7,7 @@ export {
 export {
   StoreContext,
   StoreProvider,
+  useStores,
   type StoreProviderProps,
   type StoresProps,
 } from './store'

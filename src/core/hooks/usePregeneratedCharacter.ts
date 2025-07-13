@@ -1,4 +1,4 @@
-import * as pregenerated from '@api/character.json'
+import { useServices } from '@contexts'
 import { CharacterRawProps } from '@types'
 import { useEffect } from 'react'
 import { useGameStore } from './useGameStore'
@@ -6,10 +6,13 @@ import { useGameStore } from './useGameStore'
 export const usePregeneratedCharacter = () => {
   const setCharacter = useGameStore((state) => state.setCharacter)
   const character = useGameStore((state) => state.character)
+  const { api } = useServices()
 
   useEffect(() => {
-    setCharacter(pregenerated.character as unknown as CharacterRawProps)
-  }, [setCharacter])
+    api
+      .getPregeneratedCharacter()
+      .then((c) => setCharacter(c as CharacterRawProps))
+  }, [api, setCharacter])
 
   return {
     ...character.abilities,
