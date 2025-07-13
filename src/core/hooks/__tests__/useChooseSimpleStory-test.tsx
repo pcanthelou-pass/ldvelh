@@ -15,7 +15,8 @@ describe('useChooseSimpleStory', () => {
   it('calls setBook with the correct book', () => {
     const { result } = renderHook(() => useChooseSimpleStory())
     const { setBook } = result.current
-    act(() => setBook(TEST_BOOK))
-    expect(GAME_STORE.getState().gameBook).toEqual(TEST_BOOK)
+    act(() => setBook(TEST_BOOK, 'book1'))
+    expect(GAME_STORE.getState().bookId).toBe('book1')
+    expect(GAME_STORE.getState().scenes).toEqual(TEST_BOOK.scenes)
   })
 })

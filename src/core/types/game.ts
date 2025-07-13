@@ -1,6 +1,11 @@
-import { BookProps, EmptyBook } from './book'
+import { BookProps } from './book'
+import {
+  BookIntroductionProps,
+  EmptyBookIntroduction,
+} from './introduction'
 import { CharacterProps, CharacterRawProps, EmptyCharacter } from './character'
 import { EmptyScene, Scene } from './scene'
+import { EmptyScenes, ScenesProps } from './scenes'
 
 export interface GameProps {
   /**
@@ -16,10 +21,17 @@ export interface GameProps {
    */
   currentScene: Scene
   /**
-   * the whole book
-   * // TODO: should be jus a function to access a book and not keep it in memory
+   * identifier of the current book
    */
-  gameBook: BookProps
+  bookId: string
+  /**
+   * introduction of the current book
+   */
+  introduction: BookIntroductionProps
+  /**
+   * fetched scenes of the current book
+   */
+  scenes: ScenesProps
   /**
    * the character stats and items, the one in play
    */
@@ -83,7 +95,9 @@ export interface GameActions {
 export type GameState = GameProps & GameActions
 
 export const DEFAULT_GAME_PROPS: GameProps = {
-  gameBook: EmptyBook,
+  bookId: '',
+  introduction: EmptyBookIntroduction,
+  scenes: EmptyScenes,
   history: [],
   currentScene: { ...EmptyScene, actions: [] },
   date: '',
