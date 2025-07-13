@@ -9,7 +9,6 @@ const mockRoute = jest.fn()
 // jest.mock('@core', () => ({
 //   ...jest.requireActual('@core'),
 //   getStory: jest.fn(),
-//   useGameStore: (selector: any) => selector({ setBook: mockSetBook }),
 //   useGetStoriesToChoose: () => ({
 //     loading: false,
 //     books: [{ name: 'Livre 1', text: 'Desc', reference: 0 }],
