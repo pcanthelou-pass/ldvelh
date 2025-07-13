@@ -17,7 +17,7 @@ export default function Index() {
         <WelcomeText>
           Vous entrez dans une aventure unique et ferez progresser votre héro au
           fil des écrans de cette histoire. Attention aux adversaires et autres
-          montres que vous rencontrerez !
+          monstres que vous rencontrerez !
         </WelcomeText>
       </AboveNavWrapper>
       <NavWrapper>
