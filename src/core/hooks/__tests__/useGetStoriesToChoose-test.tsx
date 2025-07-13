@@ -1,12 +1,27 @@
-import { getBooks } from '@api'
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { WrapperTest } from '@helpers/WrapperTest'
 import { act, renderHook, waitFor } from '@testing-library/react-native'
 import { useGetStoriesToChoose } from '../useGetStoriesToChoose'
+import { ShortStory } from '@types'
+
+const shortList: ShortStory[] = [
+  {
+    name: 'Les mésaventures de Grok, gobelin maladroit',
+    text: 'Un jeune gobelin voleur tente désespérément de rejoindre son père perdu dans la forêt sauvage.',
+    reference: 0,
+  },
+  {
+    name: TEST_BOOK.title,
+    text: TEST_BOOK.description,
+    reference: 1,
+  },
+]
+
+const getShortBooks = async () => shortList
 
 describe('useGetStoriesToChoose', () => {
   it('should start with loading state', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
       wrapper: WrapperTest,
     })
 
@@ -20,7 +35,7 @@ describe('useGetStoriesToChoose', () => {
   })
 
   it('should handle loading state correctly', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
@@ -31,29 +46,18 @@ describe('useGetStoriesToChoose', () => {
     })
   })
   it('should format books data correctly', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
       result.current.load()
     })
     await waitFor(() => {
-      expect(result.current.books).toEqual([
-        {
-          name: 'Les mésaventures de Grok, gobelin maladroit',
-          text: 'Un jeune gobelin voleur tente désespérément de rejoindre son père perdu dans la forêt sauvage.',
-          reference: 0,
-        },
-        {
-          name: 'Fugiat ipsum sunt cupidatat cillum duis eiusmod adipisicing excepteur quis',
-          text: 'Fugiat ipsum sunt cupidatat cillum duis eiusmod adipisicing excepteur quis Lorem proident ut eu labore.',
-          reference: 1,
-        },
-      ])
+      expect(result.current.books).toEqual(shortList)
     })
   })
   it('should handle empty books array', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
       wrapper: WrapperTest,
     })
     await waitFor(() => {
@@ -62,7 +66,7 @@ describe('useGetStoriesToChoose', () => {
     })
   })
   it('Should set the book selected by a key', async () => {
-    const { result } = renderHook(() => useGetStoriesToChoose(getBooks), {
+    const { result } = renderHook(() => useGetStoriesToChoose(getShortBooks), {
       wrapper: WrapperTest,
     })
     await act(async () => {
@@ -72,7 +76,7 @@ describe('useGetStoriesToChoose', () => {
       expect(result.current.loading).toBe(false)
     })
     const b = await result.current.selectBook(1)
-    expect(b).toStrictEqual(TEST_BOOK)
+    expect(b).toStrictEqual(shortList[1])
   })
   it('Should raise an error if book getter is wrong', async () => {
     const { result } = renderHook(
