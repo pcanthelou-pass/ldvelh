@@ -13,7 +13,34 @@ Voir la doc :
 - [L'environnement de React Native](docs/react-native-env.md)
 - [L'architecture](docs/architecture.md)
 
+
 ![Journey](./docs/journey.png)
+
+## Structure générale du projet
+
+La base de code est une application **React Native** construite avec Expo. Elle
+a pour objectif de créer des "livres dont vous êtes le héros" et fournit déjà
+un exemple complet d'aventure. Voici les principaux répertoires :
+
+```
+assets/        → ressources (images, livres JSON…)
+src/
+  app/         → pages gérées par expo-router
+  core/        → cœur applicatif (stores Zustand, hooks, API…)
+  navigation/  → hooks de navigation
+  screens/     → composants d'écran (feature-sliced)
+  shared/      → UI réutilisables, helpers, services
+docs/          → documentation générale
+```
+
+Les actions de jeu sont encapsulées dans des hooks (par exemple `useFight` pour
+les combats) et l'état est géré par des stores Zustand accessibles via des
+hooks (`useGameStore`, `useUserStore`). Les services comme `AlertService` sont
+fournis via le `ServicesProvider`.
+
+Les pages d'Expo Router dans `src/app` importent les écrans de `src/screens`.
+Pour apprendre, explorez également le livre de test `TEST_BOOK.tsx` et le héros
+prégénéré `TEST_HERO.tsx` dans `src/shared/helpers`.
 
 ## Version #1
 
