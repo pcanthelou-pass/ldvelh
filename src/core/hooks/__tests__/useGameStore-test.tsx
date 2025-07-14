@@ -22,6 +22,6 @@ describe('Store in Core', () => {
       setbook.current({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
     })
 
-    expect(book.current).toHaveProperty('title')
+    expect(intro.current).toHaveProperty('title')
   })
 })

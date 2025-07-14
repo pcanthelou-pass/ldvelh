@@ -30,3 +30,12 @@ Réinitialiser le mot de passe
 ```
 
 Commencez par créer un **user journey** pour identifier les étapes clés et les points de contact utilisateur, ce qui définira les versions du produit. Découpez chaque version en **epics** représentant des objectifs stratégiques. Chaque epic est ensuite décomposée en **user stories** qui capturent les besoins spécifiques des utilisateurs. Ces user stories sont enfin divisées en **tâches techniques détaillées**.
+
+## API et forme de l'état
+
+L'API exposée dans `src/core/api` fournit les méthodes pour charger les livres
+(`getBooks`) ainsi que les scènes (`getStory`). Elle est conçue pour ne charger
+qu'une scène à la fois. Le store du jeu conserve uniquement l'identifiant du
+livre en cours et la scène courante. Les autres scènes sont récupérées
+dynamiquement au moment où l'utilisateur navigue, ce qui réduit la quantité de
+données gardées en mémoire.

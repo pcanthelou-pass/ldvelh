@@ -3,7 +3,12 @@
  * Ce context ne fait que les exposer via le hook useServices()
  * - alert : pour afficher une alerte à l'utilisateur
  */
-import { GameStore, UserStore } from '@stores'
+import {
+  createGameStore,
+  createUserStore,
+  type GameStore,
+  type UserStore,
+} from '@stores'
 import { createContext, useRef } from 'react'
 
 export interface StoresProps {
@@ -11,10 +16,7 @@ export interface StoresProps {
   user: UserStore
 }
 
-export const StoreContext = createContext<StoresProps>({
-  game: null as any,
-  user: null as any,
-})
+export const StoreContext = createContext<StoresProps | null>(null)
 
 export interface StoreProviderProps {
   children: React.ReactNode
@@ -24,10 +26,7 @@ export interface StoreProviderProps {
 // cf. Core
 export const StoreProvider = ({ children, slices }: StoreProviderProps) => {
   const store = useRef<StoresProps>(
-    slices ?? {
-      game: null as any,
-      user: null as any,
-    },
+    slices ?? { game: createGameStore(), user: createUserStore() },
   )
 
   return (

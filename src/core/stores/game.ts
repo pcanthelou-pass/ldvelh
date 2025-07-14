@@ -7,6 +7,8 @@ import {
   EmptyBookIntroduction,
   EmptyCharacter,
   EmptyScene,
+  EmptyBookIntroduction,
+  EmptyScenes,
   GameProps,
   GameState,
 } from '@types'

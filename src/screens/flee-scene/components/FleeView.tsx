@@ -8,15 +8,17 @@ import {
   Title,
 } from '@ui'
 
+interface FleeViewProps {
+  name: string
+  endurance: number
+  onPressNext: () => void
+}
+
 export const FleeView = ({
   name,
   endurance,
   onPressNext,
-}: {
-  name: any
-  endurance: any
-  onPressNext: () => void
-}) => (
+}: FleeViewProps) => (
   <ScreenWithNav>
     <AboveNavWrapper centered>
       <Title>{name} a réussi à fuir !</Title>
