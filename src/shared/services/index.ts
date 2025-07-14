@@ -1,3 +1,3 @@
-export * from './bookService'
-export * from './alert'
-export * from './types'
+export { AlertService } from './alert'
+export { bookService } from './book'
+export type { IAlertService, Services } from './types'

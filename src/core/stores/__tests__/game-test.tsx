@@ -1,12 +1,7 @@
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { TEST_HERO } from '@helpers/TEST_HERO'
 import { act, renderHook } from '@testing-library/react-native'
-import {
-  EmptyBookIntroduction,
-  EmptyCharacter,
-  EmptyScene,
-  EmptyScenes,
-} from '@types'
+import { EmptyBookIntroduction, EmptyCharacter, EmptyScene } from '@types'
 import { useStore } from 'zustand'
 import { createGameStore } from '../game'
 
@@ -16,8 +11,7 @@ describe('Game (store)', () => {
   it('should be the default game', () => {
     const state = store.getState()
     expect(state).toHaveProperty('bookId', '')
-    expect(state).toHaveProperty('introduction', EmptyBookIntroduction)
-    expect(state).toHaveProperty('scenes', EmptyScenes)
+    expect(state).toHaveProperty('bookIntro', EmptyBookIntroduction)
     expect(state).toHaveProperty('history', [])
     expect(state).toHaveProperty('currentScene', { ...EmptyScene, actions: [] })
     expect(state).toHaveProperty('date', '')
@@ -38,11 +32,10 @@ describe('Game (store)', () => {
     const { result } = renderHook(() =>
       useStore(store, (state) => state.setBook),
     )
-    act(() => result.current(TEST_BOOK, 'book1'))
+    act(() => result.current({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction }))
 
-    expect(store.getState()).toHaveProperty('bookId', 'book1')
-    expect(store.getState().scenes).toStrictEqual(TEST_BOOK.scenes)
-    expect(store.getState().introduction).toStrictEqual(TEST_BOOK.introduction)
+    expect(store.getState()).toHaveProperty('bookId', 'TEST_BOOK')
+    expect(store.getState().bookIntro).not.toBe(EmptyBookIntroduction)
   })
 
   it('should change the character', () => {
@@ -62,7 +55,7 @@ describe('Game (store)', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { startBook, setBook } = result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       startBook()
     })
 
@@ -79,7 +72,7 @@ describe('Game (store)', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { startBook, setBook, moveToScene } = result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       startBook()
       moveToScene('1-1')
     })
@@ -96,7 +89,7 @@ describe('Game (store)', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { startBook, setBook, moveToScene, quitGame } = result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       startBook()
       moveToScene('1-1')
       moveToScene('2-2')
@@ -117,8 +110,7 @@ describe('Game (store)', () => {
 
     const state = store.getState()
     expect(state).toHaveProperty('bookId', '')
-    expect(state).toHaveProperty('introduction', EmptyBookIntroduction)
-    expect(state).toHaveProperty('scenes', EmptyScenes)
+    expect(state).toHaveProperty('bookIntro', EmptyBookIntroduction)
     expect(state).toHaveProperty('history', [])
     expect(state).toHaveProperty('currentScene', { ...EmptyScene, actions: [] })
     expect(state).toHaveProperty('date', '')
@@ -137,7 +129,7 @@ describe('Game (store)', () => {
       resetEndurance,
     } = result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       setCharacter(TEST_HERO)
       startBook()
       moveToScene('1-3')
@@ -162,7 +154,7 @@ describe('Game (store)', () => {
     const { setCharacter, startBook, setBook, moveToScene, hitOpponent } =
       result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       setCharacter(TEST_HERO)
       startBook()
       moveToScene('1-3')
@@ -175,7 +167,7 @@ describe('Game (store)', () => {
     const { result } = renderHook(() => useStore(store, (state) => state))
     const { setCharacter, decreaseChance, setBook } = result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       setCharacter(TEST_HERO)
       decreaseChance()
     })
@@ -189,7 +181,7 @@ describe('Game (store)', () => {
     const { setCharacter, startBook, setBook, moveToScene, consumeItemByOne } =
       result.current
     act(() => {
-      setBook(TEST_BOOK, 'book1')
+      setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
       setCharacter(TEST_HERO)
       startBook()
       moveToScene('1-3')

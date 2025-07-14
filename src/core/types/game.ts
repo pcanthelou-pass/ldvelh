@@ -1,8 +1,4 @@
-import { BookProps } from './book'
-import {
-  BookIntroductionProps,
-  EmptyBookIntroduction,
-} from './introduction'
+import { BookIntroductionProps, EmptyBookIntroduction } from './introduction'
 import { CharacterProps, CharacterRawProps, EmptyCharacter } from './character'
 import { EmptyScene, Scene } from './scene'
 import { EmptyScenes, ScenesProps } from './scenes'
@@ -21,17 +17,13 @@ export interface GameProps {
    */
   currentScene: Scene
   /**
-   * identifier of the current book
+   * identifier of the book currently played
    */
   bookId: string
   /**
-   * introduction of the current book
+   * introduction text of the book
    */
-  introduction: BookIntroductionProps
-  /**
-   * fetched scenes of the current book
-   */
-  scenes: ScenesProps
+  bookIntro: BookIntroductionProps
   /**
    * the character stats and items, the one in play
    */
@@ -43,7 +35,7 @@ export interface GameProps {
 }
 export interface GameActions {
   setDate: (date: string) => void
-  setBook: (book: BookProps) => void
+  setBook: (book: { id: string; intro: BookIntroductionProps }) => void
   setCharacter: (character: CharacterRawProps) => CharacterProps
   /**
    * set the current scene to '1'
@@ -96,8 +88,7 @@ export type GameState = GameProps & GameActions
 
 export const DEFAULT_GAME_PROPS: GameProps = {
   bookId: '',
-  introduction: EmptyBookIntroduction,
-  scenes: EmptyScenes,
+  bookIntro: EmptyBookIntroduction,
   history: [],
   currentScene: { ...EmptyScene, actions: [] },
   date: '',
