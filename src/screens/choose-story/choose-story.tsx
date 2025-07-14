@@ -1,10 +1,10 @@
-import { listBooks, getIntroduction } from '@services/bookService'
 import StoriesToChooseEmptyView from '@features/choose-story/components/StoriesToChooseEmptyView'
 import { StoriesToChooseLoadingView } from '@features/choose-story/components/StoriesToChooseLoadingView'
 import { StoriesToChooseView } from '@features/choose-story/components/StoriesToChooseView'
 import { useGameStore, useGetStoriesToChoose } from '@hooks'
 import { useGoToCreateUser } from '@navigation'
 import { useEffect } from 'react'
+import { getIntroduction, listBooks } from 'src/shared/services/bookService'
 
 const ChooseStory = () => {
   const setBook = useGameStore((state) => state.setBook)
