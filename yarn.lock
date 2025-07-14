@@ -5482,9 +5482,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-image@npm:~2.3.0":
-  version: 2.3.0
-  resolution: "expo-image@npm:2.3.0"
+"expo-image@npm:~2.3.2":
+  version: 2.3.2
+  resolution: "expo-image@npm:2.3.2"
   peerDependencies:
     expo: "*"
     react: "*"
@@ -5493,7 +5493,7 @@ __metadata:
   peerDependenciesMeta:
     react-native-web:
       optional: true
-  checksum: 14d6585175b56bb0536c7023addc57c69cde0b8446a0a9568ce02c132ccc21f78ab9f075aa36de569af1d486c984df25a3f44d0379b9a05ebd2231cdcfd856f6
+  checksum: 0830764df3ef5dcdb05442baf6c5d9bdba159f3dd6edf61935d697a7e9aaff76f602a1f3449e667e7ad67de4a9d6a08cd7c0149ab9981c29f50cfc2ad84a9123
   languageName: node
   linkType: hard
 
@@ -8608,7 +8608,7 @@ __metadata:
     expo-file-system: ~18.1.10
     expo-font: ~13.3.1
     expo-haptics: ~14.1.4
-    expo-image: ~2.3.0
+    expo-image: ~2.3.2
     expo-linking: ~7.1.5
     expo-router: ~5.1.1
     expo-splash-screen: ~0.30.9
@@ -11286,11 +11286,11 @@ __metadata:
 
 "typescript@patch:typescript@~5.8.3#~builtin<compat/typescript>":
   version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#~builtin<compat/typescript>::version=5.8.3&hash=29ae49"
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#~builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1b503525a88ff0ff5952e95870971c4fb2118c17364d60302c21935dedcd6c37e6a0a692f350892bafcef6f4a16d09073fe461158547978d2f16fbe4cb18581c
+  checksum: f1743b6850976b3debf7cbd53d2bc0b67e75d47eb6410db564c8bb475e92a8a48f8a3fcd14d89cf93426835281c31a8f8a94dad90be4dc899279a898532ba97f
   languageName: node
   linkType: hard
 
