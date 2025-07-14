@@ -1,11 +1,12 @@
 import { useGameStore, useGameStoreApi } from '@hooks'
 import { GameState } from '@types'
 import { useEffect } from 'react'
+import { StoreApi } from 'zustand'
 import { TEST_BOOK } from './TEST_BOOK'
 import { TEST_HERO } from './TEST_HERO'
 import { WrapperTest } from './WrapperTest'
 
-export type RunOnStartType = (store: GameState) => void
+export type RunOnStartType = (store: StoreApi<GameState>) => void
 
 const WrapperTestPlusStore = ({
   runOnStart,
@@ -23,7 +24,7 @@ const WrapperTestPlusStore = ({
     setCharacter(TEST_HERO)
 
     if (runOnStart) {
-      runOnStart(gameStore.getState())
+      runOnStart(gameStore)
     }
   }, [setBook, setCharacter, runOnStart, gameStore])
 

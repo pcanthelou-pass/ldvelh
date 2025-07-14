@@ -33,12 +33,12 @@ describe('useReadIntroduction', () => {
     const { result: api } = renderHook(() => useGameStoreApi(), {
       wrapper: WrapperTestExt,
     })
-    api.current.startBook = jest.fn()
+    api.current.getState().startBook = jest.fn()
     const { result } = renderHook(() => useReadIntroduction(), {
       wrapper: WrapperTestExt,
     })
     expect(result.current.startBook).toBeDefined()
     result.current.startBook()
-    expect(api.current.startBook).toHaveBeenCalledTimes(1)
+    expect(api.current.getState().startBook).toHaveBeenCalledTimes(1)
   })
 })

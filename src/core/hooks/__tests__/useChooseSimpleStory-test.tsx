@@ -1,6 +1,6 @@
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
-import { renderHook } from '@testing-library/react-native'
 import { WrapperTest } from '@helpers/WrapperTest'
+import { renderHook } from '@testing-library/react-native'
 import { act } from 'react'
 import { useChooseSimpleStory } from '../useChooseSimpleStory'
 import { useGameStoreApi } from '../useGameStore'
@@ -24,6 +24,6 @@ describe('useChooseSimpleStory', () => {
     })
     const { setBook } = result.current
     act(() => setBook(TEST_BOOK))
-    expect(api.current.gameBook).toEqual(TEST_BOOK)
+    expect(api.current.getState().gameBook).toEqual(TEST_BOOK)
   })
 })

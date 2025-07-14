@@ -3,8 +3,6 @@ import { render, screen, waitFor } from '@testing-library/react-native'
 import ChooseStory from '../choose-story'
 
 // Mocks
-const mockSetBook = jest.fn()
-const mockSelectBook = jest.fn()
 const mockRoute = jest.fn()
 // jest.mock('@core', () => ({
 //   ...jest.requireActual('@core'),

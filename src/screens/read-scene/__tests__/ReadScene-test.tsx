@@ -1,8 +1,8 @@
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { WrapperTestExt } from '@helpers/WrapperTestExt'
-import { useGameStoreApi } from '@hooks'
 import { act, render, screen, userEvent } from '@testing-library/react-native'
 import { GameState } from '@types'
+import { StoreApi } from 'zustand'
 import ReadScene from '../ReadScene'
 
 describe('Given the user has selected a book and has a character', () => {
@@ -10,17 +10,17 @@ describe('Given the user has selected a book and has a character', () => {
   let onPressActionExtFn = jest.fn()
   let onPressItemExtFn = jest.fn()
   let onPressQuitExtFn = jest.fn()
-  let storeApi: GameState | undefined
+  let storeApi: StoreApi<GameState> | undefined
 
   beforeEach(() => {
     onPressActionExtFn = jest.fn()
     onPressItemExtFn = jest.fn()
     onPressQuitExtFn = jest.fn()
 
-    const runOnStart = (store: GameState) => {
+    const runOnStart = (store: StoreApi<GameState>) => {
       storeApi = store
-      store.startBook()
-      store.hitCharacter(4)
+      store.getState().startBook()
+      store.getState().hitCharacter(4)
     }
 
     render(
@@ -64,8 +64,8 @@ describe('Given the user has selected a book and has a character', () => {
       ).toBeVisible()
     })
     it('Allows to push button to use an item and this item apply effects', async () => {
-      expect(storeApi?.character.abilities.endurance).toBe(
-        storeApi?.characterNotModified.abilities.endurance - 4,
+      expect(storeApi?.getState().character.abilities.endurance).toBe(
+        storeApi?.getState().characterNotModified.abilities.endurance - 4,
       )
 
       const button = screen.getByText(/boire la potion d'endurance/i)
@@ -75,8 +75,8 @@ describe('Given the user has selected a book and has a character', () => {
 
       expect(onPressItemExtFn).toHaveBeenCalledTimes(1)
 
-      expect(storeApi?.character.abilities.endurance).toBe(
-        storeApi?.characterNotModified.abilities.endurance,
+      expect(storeApi?.getState().character.abilities.endurance).toBe(
+        storeApi?.getState().characterNotModified.abilities.endurance,
       )
     })
     it('A used item without quantity is not usable again and disappear', async () => {
