@@ -6,6 +6,7 @@ const mockSetBook = jest.fn()
 const mockGetSelectedBook = jest.fn(() => ({
   title: 'Livre Test',
   description: 'Une aventure incroyable',
+  introduction: { title: 'i', text: 't' },
 }))
 jest.mock('@hooks', () => ({
   useChooseSimpleStory: () => ({
@@ -39,8 +40,8 @@ describe('ChooseSimpleStory', () => {
     await user.press(screen.getByRole('button'))
     expect(mockGetSelectedBook).toHaveBeenCalled()
     expect(mockSetBook).toHaveBeenCalledWith({
-      title: 'Livre Test',
-      description: 'Une aventure incroyable',
+      id: 'TEST_BOOK',
+      intro: { title: 'i', text: 't' },
     })
     expect(mockRoute).toHaveBeenCalled()
   })

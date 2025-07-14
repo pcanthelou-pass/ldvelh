@@ -1,11 +1,14 @@
-import { BuildBackpack, BuildScene } from '@actions'
+import { BuildBackpack } from '@actions'
+import { bookService } from '@services/book'
 import {
-  BookProps,
+  BookIntroductionProps,
   CharacterRawProps,
   DEFAULT_GAME_PROPS,
-  EmptyBook,
+  EmptyBookIntroduction,
   EmptyCharacter,
   EmptyScene,
+  EmptyBookIntroduction,
+  EmptyScenes,
   GameProps,
   GameState,
 } from '@types'
@@ -23,9 +26,10 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
         set((state) => {
           state.date = date
         }),
-      setBook: (rawBook: BookProps) =>
+      setBook: (book: { id: string; intro: BookIntroductionProps }) =>
         set((state) => {
-          state.gameBook = rawBook
+          state.bookId = book.id
+          state.bookIntro = book.intro
           state.currentScene = { ...EmptyScene, actions: [] }
           state.history = []
           state.character = EmptyCharacter
@@ -51,11 +55,12 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
       startBook: () =>
         set((state) => {
           state.history = []
-          state.currentScene = BuildScene('1', state.gameBook.scenes)
+          state.currentScene = bookService.getScene(state.bookId, '1')
         }),
       quitGame: () =>
         set((state) => {
-          state.gameBook = EmptyBook
+          state.bookId = ''
+          state.bookIntro = EmptyBookIntroduction
           state.history = []
           state.currentScene = { ...EmptyScene, actions: [] }
           state.character = EmptyCharacter
@@ -64,7 +69,7 @@ export const createGameStore = (initProps?: Partial<GameProps>) => {
       moveToScene: (scene: string) =>
         set((state) => {
           state.history.push(state.currentScene.id)
-          state.currentScene = BuildScene(scene, state.gameBook.scenes)
+          state.currentScene = bookService.getScene(state.bookId, scene)
         }),
       hitCharacter: (hit: number = 2) =>
         set((state) => {

@@ -97,4 +97,24 @@ describe('useFight', () => {
     expect(mockHitCharacter).toHaveBeenCalledWith(4) // heroWound + 2
     expect(mockHitOpponent).toHaveBeenCalledWith(99)
   })
+
+  it('should handle chance success', () => {
+    const { result } = renderHook(() => useFight())
+    act(() => {
+      result.current.onChanceSuccess()
+    })
+    expect(mockFightInstance.doSuccessChance).toHaveBeenCalled()
+    expect(result.current.opponentEndurance).toBe(8)
+    expect(result.current.heroEndurance).toBe(18)
+  })
+
+  it('should handle chance failure', () => {
+    const { result } = renderHook(() => useFight())
+    act(() => {
+      result.current.onChanceFailure()
+    })
+    expect(mockFightInstance.doFailChance).toHaveBeenCalled()
+    expect(result.current.opponentEndurance).toBe(8)
+    expect(result.current.heroEndurance).toBe(18)
+  })
 })
