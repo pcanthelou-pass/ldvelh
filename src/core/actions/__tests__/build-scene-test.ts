@@ -5,7 +5,7 @@ import { BuildScene } from '../build-scene'
 describe('BuildScene', () => {
   it('Build empty scenes', () => {
     try {
-      const scenes = BuildScene('0', EmptyScenes)
+      BuildScene('0', EmptyScenes)
     } catch (e) {
       expect(e).toBeDefined()
     }

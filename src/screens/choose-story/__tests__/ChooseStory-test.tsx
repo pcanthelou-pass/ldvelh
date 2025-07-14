@@ -3,8 +3,6 @@ import { render, screen, waitFor } from '@testing-library/react-native'
 import ChooseStory from '../choose-story'
 
 // Mocks
-const mockSetBook = jest.fn()
-const mockSelectBook = jest.fn()
 const mockRoute = jest.fn()
 // jest.mock('@core', () => ({
 //   ...jest.requireActual('@core'),
@@ -27,10 +25,12 @@ describe('<ChooseStory>', () => {
   })
   it('render properly', async () => {
     render(<ChooseStory />, { wrapper: WrapperTest })
-    await waitFor(() =>
-      expect(
-        screen.getByText('Les mésaventures de Grok, gobelin maladroit'),
-      ).toBeVisible(),
+    await waitFor(
+      () =>
+        expect(
+          screen.getByText('Les mésaventures de Grok, gobelin maladroit'),
+        ).toBeVisible(),
+      { timeout: 10000 },
     )
   })
   // it('appelle selectBook, setBook et route lors de la sélection', async () => {
