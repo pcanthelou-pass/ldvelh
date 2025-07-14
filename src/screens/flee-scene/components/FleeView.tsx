@@ -14,7 +14,11 @@ export interface FleeViewProps {
   onPressNext: () => void
 }
 
-export const FleeView = ({ name, endurance, onPressNext }: FleeViewProps) => (
+export const FleeView = ({
+  name,
+  endurance,
+  onPressNext,
+}: FleeViewProps) => (
   <ScreenWithNav>
     <AboveNavWrapper centered>
       <Title>{name} a réussi à fuir !</Title>

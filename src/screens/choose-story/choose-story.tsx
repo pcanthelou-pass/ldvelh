@@ -19,7 +19,7 @@ const ChooseStory = () => {
   const onPress = async (key: string | number) => {
     const selectedBook = await selectBook(key)
     if (selectedBook) {
-      setBook(selectedBook)
+      setBook({ id: String(key), intro: selectedBook.introduction })
     }
     route()
   }

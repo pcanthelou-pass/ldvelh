@@ -1,3 +1,3 @@
 export { AlertService } from './alert'
-export { ApiService } from './api'
-export * from './types'
+export { bookService } from './book'
+export type { IAlertService, Services } from './types'
