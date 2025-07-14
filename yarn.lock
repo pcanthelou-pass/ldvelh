@@ -5473,6 +5473,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-font@npm:~13.3.2":
+  version: 13.3.2
+  resolution: "expo-font@npm:13.3.2"
+  dependencies:
+    fontfaceobserver: ^2.1.0
+  peerDependencies:
+    expo: "*"
+    react: "*"
+  checksum: ea257395f2267c6d5c491561a415a57e3a55473428da1c7c7b1639cc386525fca8b56793d40f079e21ad1ccbb56e3180ecd943dbecc8c5543146e8760f930376
+  languageName: node
+  linkType: hard
+
 "expo-haptics@npm:~14.1.4":
   version: 14.1.4
   resolution: "expo-haptics@npm:14.1.4"
@@ -8606,7 +8618,7 @@ __metadata:
     expo-blur: ~14.1.5
     expo-constants: ~17.1.6
     expo-file-system: ~18.1.10
-    expo-font: ~13.3.1
+    expo-font: ~13.3.2
     expo-haptics: ~14.1.4
     expo-image: ~2.3.0
     expo-linking: ~7.1.5
@@ -11286,11 +11298,11 @@ __metadata:
 
 "typescript@patch:typescript@~5.8.3#~builtin<compat/typescript>":
   version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#~builtin<compat/typescript>::version=5.8.3&hash=29ae49"
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#~builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1b503525a88ff0ff5952e95870971c4fb2118c17364d60302c21935dedcd6c37e6a0a692f350892bafcef6f4a16d09073fe461158547978d2f16fbe4cb18581c
+  checksum: f1743b6850976b3debf7cbd53d2bc0b67e75d47eb6410db564c8bb475e92a8a48f8a3fcd14d89cf93426835281c31a8f8a94dad90be4dc899279a898532ba97f
   languageName: node
   linkType: hard
 
