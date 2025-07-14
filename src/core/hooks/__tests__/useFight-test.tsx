@@ -7,7 +7,7 @@ const mockCharacter = { abilities: { endurance: 20 }, attack: jest.fn() }
 const mockHitCharacter = jest.fn()
 const mockHitOpponent = jest.fn()
 
-const mockFightInstance = {
+const mockServiceInstance = {
   opponentEndurance: 8,
   heroEndurance: 18,
   heroWound: 2,
@@ -16,18 +16,18 @@ const mockFightInstance = {
   heroIsDead: false,
   heroHasBeenTouched: false,
   opponentHasBeenTouched: false,
-  doResolveRound: jest.fn(),
-  doSuccessChance: jest.fn(),
-  doFailChance: jest.fn(),
-  doWoundHero: function (n) {
-    this.heroWound += n
+  resolveRound: jest.fn(),
+  applyChanceSuccess: jest.fn(),
+  applyChanceFailure: jest.fn(),
+  flee: function () {
+    this.heroWound += 2
   },
 }
 
 jest.mock('@actions', () => ({ BuildAttacker: jest.fn((obj) => obj) }))
-jest.mock('@types', () => ({
-  Fight: function () {
-    return mockFightInstance
+jest.mock('../../services/FightService', () => ({
+  FightService: function () {
+    return mockServiceInstance
   },
 }))
 
@@ -46,8 +46,8 @@ describe('useFight', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     // Reset fight instance state if needed
-    mockFightInstance.canContinue = true
-    mockFightInstance.heroIsDead = false
+    mockServiceInstance.canContinue = true
+    mockServiceInstance.heroIsDead = false
   })
 
   it('should initialize with correct endurances', () => {
@@ -68,8 +68,8 @@ describe('useFight', () => {
   })
 
   it('should call surviveFight if cannot continue', () => {
-    mockFightInstance.canContinue = false
-    mockFightInstance.heroIsDead = false
+    mockServiceInstance.canContinue = false
+    mockServiceInstance.heroIsDead = false
     const { result } = renderHook(() => useFight())
     act(() => {
       result.current.onNewRound()
@@ -79,8 +79,8 @@ describe('useFight', () => {
   })
 
   it('should call dieFight if hero is dead', () => {
-    mockFightInstance.canContinue = false
-    mockFightInstance.heroIsDead = true
+    mockServiceInstance.canContinue = false
+    mockServiceInstance.heroIsDead = true
     const { result } = renderHook(() => useFight())
     act(() => {
       result.current.onNewRound()
