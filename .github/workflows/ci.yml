@@ -14,5 +14,5 @@ jobs:
           node-version: 20
           cache: 'yarn'
       - run: yarn install
-      - run: yarn lint
+      - run: yarn lint --fix
       - run: yarn test:final
