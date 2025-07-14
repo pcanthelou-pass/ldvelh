@@ -103,7 +103,7 @@ describe('useFight', () => {
     act(() => {
       result.current.onChanceSuccess()
     })
-    expect(mockFightInstance.doSuccessChance).toHaveBeenCalled()
+    expect(mockServiceInstance.applyChanceSuccess).toHaveBeenCalled()
     expect(result.current.opponentEndurance).toBe(8)
     expect(result.current.heroEndurance).toBe(18)
   })
@@ -113,7 +113,7 @@ describe('useFight', () => {
     act(() => {
       result.current.onChanceFailure()
     })
-    expect(mockFightInstance.doFailChance).toHaveBeenCalled()
+    expect(mockServiceInstance.applyChanceFailure).toHaveBeenCalled()
     expect(result.current.opponentEndurance).toBe(8)
     expect(result.current.heroEndurance).toBe(18)
   })

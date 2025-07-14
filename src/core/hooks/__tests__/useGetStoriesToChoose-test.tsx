@@ -19,9 +19,6 @@ const shortList: ShortStory[] = [
     reference: 1,
   },
 ]
-
-const getShortBooks = async () => shortList
-
 describe('useGetStoriesToChoose', () => {
   it('should start with loading state', async () => {
     const { result } = renderHook(() => useGetStoriesToChoose(listBooks), {

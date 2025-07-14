@@ -1,7 +1,6 @@
 import { BookIntroductionProps, EmptyBookIntroduction } from './introduction'
 import { CharacterProps, CharacterRawProps, EmptyCharacter } from './character'
 import { EmptyScene, Scene } from './scene'
-import { EmptyScenes, ScenesProps } from './scenes'
 
 export interface GameProps {
   /**
