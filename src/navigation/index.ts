@@ -1,7 +1,7 @@
 export { useGoBack } from './useGoBack'
 export { useGoToAfterFlee } from './useGoToAfterFlee'
 export { useGoToChooseStory } from './useGoToChooseStory'
-export { useGoToCreateUser } from './useGoToCreateUser'
+export { useGoToCreateUser } from './useGoToCreateUser.tsx'
 export { useGoToDieScene } from './useGoToDieScene'
 export { useGoToFightScene } from './useGoToFightScene'
 export { useGoToFirstScene } from './useGoToFirstScene'

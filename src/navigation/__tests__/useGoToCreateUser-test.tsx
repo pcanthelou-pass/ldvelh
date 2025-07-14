@@ -1,7 +1,7 @@
 import { WrapperTestExt } from '@helpers/WrapperTestExt'
 import { renderHook } from '@testing-library/react-native'
 import { mockPush } from 'src/shared/helpers/__mocks__/mockReplace'
-import { useGoToCreateUser } from '../useGoToCreateUser'
+import { useGoToCreateUser } from '../useGoToCreateUser.tsx'
 
 describe('useGoToCreateUSer', () => {
   beforeEach(() => {

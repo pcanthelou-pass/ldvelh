@@ -1,13 +1,13 @@
-import { createGameStore, GameStore } from '@stores'
+import { useStores } from '@contexts'
 import { GameState } from '@types'
 import { useStore } from 'zustand'
 
-export let GAME_STORE: GameStore
-
 export function useGameStore<U>(selector: (state: GameState) => U) {
-  if (!GAME_STORE) {
-    GAME_STORE = createGameStore()
-  }
+  const { game } = useStores()
+  return useStore(game, selector)
+}
 
-  return useStore(GAME_STORE, selector)
+export const useGameStoreApi = () => {
+  const { game } = useStores()
+  return game
 }

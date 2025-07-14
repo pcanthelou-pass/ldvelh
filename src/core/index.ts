@@ -1,7 +1,19 @@
-export * from './actions/index'
-export * from './api/index'
-export * from './components/index'
-export * from './contexts/index'
-export * from './hooks/index'
-export * from './stores/index'
-export * from './types/index'
+export * from './actions'
+export * from './api'
+export * from './components'
+export {
+  StoreContext,
+  StoreProvider,
+  useStores,
+  type StoreProviderProps,
+} from './contexts'
+export * from './hooks'
+export {
+  createGameStore,
+  createUserStore,
+  createStores,
+  type GameStore,
+  type UserStore,
+  type StoresProps,
+} from './stores'
+export * from './types'
