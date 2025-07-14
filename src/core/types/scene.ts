@@ -13,12 +13,12 @@ export type SceneProps = {
 }
 
 export const EmptyScene: SceneProps = {
-  id: '0',
+  id: '',
   question: '',
   text: '',
   nextIds: [],
-  isEnding: true,
-  endingType: 'success',
+  isEnding: false,
+  endingType: undefined,
 }
 
 export interface SceneAction {

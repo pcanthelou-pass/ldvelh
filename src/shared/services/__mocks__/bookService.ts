@@ -1,5 +1,9 @@
 export const listBooks = jest.fn(async () => [
-  { id: 'test-book', title: 'Test Book', description: 'desc' },
+  {
+    name: 'Test Book',
+    text: 'desc',
+    reference: 'test-book',
+  },
 ])
 export const getBook = jest.fn(async (id: string) => ({
   title: 'Test Book',
@@ -8,4 +12,7 @@ export const getBook = jest.fn(async (id: string) => ({
   scenes: {},
 }))
 export const getScenes = jest.fn(async (id: string) => ({}))
-export const getIntroduction = jest.fn(async (id: string) => ({ title: 'intro', text: 'text' }))
+export const getIntroduction = jest.fn(async (id: string) => ({
+  title: 'intro',
+  text: 'text',
+}))

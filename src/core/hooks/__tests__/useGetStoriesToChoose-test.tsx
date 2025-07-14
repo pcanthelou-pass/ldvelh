@@ -1,11 +1,11 @@
-import { listBooks } from '@services/bookService'
-
-jest.mock('@services/bookService')
+import { listBooks } from '../../../shared/services/bookService'
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { WrapperTest } from '@helpers/WrapperTest'
 import { act, renderHook, waitFor } from '@testing-library/react-native'
 import { useGetStoriesToChoose } from '../useGetStoriesToChoose'
 import { ShortStory } from '@types'
+
+jest.mock('../../../shared/services/bookService')
 
 const shortList: ShortStory[] = [
   {

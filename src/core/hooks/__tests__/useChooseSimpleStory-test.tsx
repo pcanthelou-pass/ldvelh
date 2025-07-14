@@ -3,15 +3,20 @@ import { renderHook, waitFor } from '@testing-library/react-native'
 import { act } from 'react'
 import { useChooseSimpleStory } from '../useChooseSimpleStory'
 import { GAME_STORE } from '../useGameStore'
-import { bookService } from '@services/bookService'
+import { bookService } from '../../../shared/services/bookService'
 
-jest.mock('@services/bookService', () => ({
-  bookService: {
-    getBookMetaList: jest.fn().mockResolvedValue([
-      { name: TEST_BOOK.title, text: TEST_BOOK.description, reference: 0 },
-    ]),
-  },
-}))
+jest.mock('../../../shared/services/bookService', () => {
+  const { TEST_BOOK } = require('@helpers/TEST_BOOK')
+  return {
+    bookService: {
+      getBookMetaList: jest
+        .fn()
+        .mockResolvedValue([
+          { name: TEST_BOOK.title, text: TEST_BOOK.description, reference: 0 },
+        ]),
+    },
+  }
+})
 
 describe('useChooseSimpleStory', () => {
   it('returns the correct title and description', async () => {

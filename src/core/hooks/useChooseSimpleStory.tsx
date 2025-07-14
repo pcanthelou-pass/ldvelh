@@ -1,6 +1,6 @@
 import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { ShortStory } from '@types'
-import { bookService } from '@services/bookService'
+import { bookService } from '../../shared/services/bookService'
 import { useGameStore } from './useGameStore'
 import { useEffect, useState } from 'react'
 
