@@ -19,7 +19,6 @@ export const useFight = (
   onAfterFlee?: (() => void) | undefined,
   onAfterSurvive?: (() => void) | undefined,
 ) => {
-
   const opponent = BuildAttacker(
     useGameStore(
       (state) => state.currentScene.opponent as unknown as AttackerProps,
@@ -32,8 +31,11 @@ export const useFight = (
   const [round, setRound] = useState<number>(0)
   const service = useRef<FightService>(new FightService(opponent, character))
 
+  const [heroHasBeenTouched, setHeroHasBeenTouched] = useState(false)
+  const [opponentHasBeenTouched, setOpponentHasBeenTouched] = useState(false)
+
   useEffect(() => {
-    service.current.reset(opponent, character)
+    service.current = new FightService(opponent, character)
     setOpponentEndurance(service.current.opponentEndurance)
     setHeroEndurance(service.current.heroEndurance)
   }, [character, opponent])
