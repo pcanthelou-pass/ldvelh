@@ -1,4 +1,4 @@
-import { useGameStore } from '@hooks'
+import { useGameStore, GAME_STORE } from '@hooks'
 import { GameState } from '@types'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
@@ -14,7 +14,6 @@ const WrapperTestPlusStore = ({
   runOnStart?: RunOnStartType
   children: React.ReactNode
 }) => {
-  const usegamestore = useGameStore((state) => state)
   const setBook = useGameStore((state) => state.setBook)
   const setCharacter = useGameStore((state) => state.setCharacter)
 
@@ -23,7 +22,18 @@ const WrapperTestPlusStore = ({
     setCharacter(TEST_HERO)
 
     if (runOnStart) {
-      runOnStart(usegamestore)
+      // Provide a proxy around the store state so callbacks can both
+      // read and mutate the latest store values even after updates.
+      const proxy = new Proxy({} as GameState, {
+        get: (_t, prop) => (GAME_STORE.getState() as any)[prop as keyof GameState],
+        set: (_t, prop, value) => {
+          GAME_STORE.setState((s) => {
+            ;(s as any)[prop as keyof GameState] = value
+          })
+          return true
+        },
+      })
+      runOnStart(proxy)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setBook, setCharacter, runOnStart])

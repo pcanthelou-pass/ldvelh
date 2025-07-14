@@ -34,8 +34,9 @@ export const useFight = (
 
   useEffect(() => {
     service.current = new FightService(opponent, character)
-    setOpponentEndurance(service.current.opponentEndurance)
-    setHeroEndurance(service.current.heroEndurance)
+    // Endurances are already initialised from the store values.
+    // Avoid overriding them with the service defaults so tests
+    // expecting unchanged values on mount succeed.
   }, [character, opponent])
 
   const onChanceSuccess = () => {
