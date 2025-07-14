@@ -12,6 +12,7 @@ Voir la doc :
 - [Utilisation de github](docs/github.md)
 - [L'environnement de React Native](docs/react-native-env.md)
 - [L'architecture](docs/architecture.md)
+- [Historique des versions](CHANGELOG.md)
 
 
 ![Journey](./docs/journey.png)

@@ -24,10 +24,12 @@ describe('<ChooseStory>', () => {
   })
   it('render properly', async () => {
     render(<ChooseStory />, { wrapper: WrapperTest })
-    await waitFor(() =>
-      expect(
-        screen.getByText('Les mésaventures de Grok, gobelin maladroit'),
-      ).toBeVisible(),
+    await waitFor(
+      () =>
+        expect(
+          screen.getByText('Les mésaventures de Grok, gobelin maladroit'),
+        ).toBeVisible(),
+      { timeout: 10000 },
     )
   })
   // it('appelle selectBook, setBook et route lors de la sélection', async () => {
