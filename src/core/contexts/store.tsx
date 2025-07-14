@@ -11,10 +11,7 @@ import {
 } from '@stores'
 import { createContext, useRef } from 'react'
 
-export interface StoresProps {
-  game: GameStore
-  user: UserStore
-}
+export const StoreContext = createContext<StoresProps | undefined>(undefined)
 
 export const StoreContext = createContext<StoresProps | null>(null)
 

@@ -1,25 +1,23 @@
 import { Core } from '@components'
-import { createGameStore, createUserStore } from '@stores'
+import { createStores } from '@stores'
 import { Stack } from 'expo-router'
 import { enableMapSet } from 'immer'
 import { AlertService } from 'src/shared/services/alert'
+import { ApiService } from '@services'
 import { Services } from 'src/shared/services/types'
 
 enableMapSet()
 
 const services: Services = {
   alert: new AlertService(),
+  api: new ApiService(),
 }
 // ce serait mieux de pouvoir faire
 // const services = new Services() ou on a un tableau ou autre de {[key: string] : Service}
 // services.register('alert', new AlertService())
 // services.unregister('alert', new AlertService())
 // Comme ça on pourrait les ajouter dynamiquement
-const slices = {
-  // On peut ajouter des slices ici si besoin, par exemple :
-  game: createGameStore(),
-  user: createUserStore(),
-}
+const slices = createStores()
 
 export default function RootLayout() {
   return (

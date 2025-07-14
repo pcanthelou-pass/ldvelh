@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1751096781502" clover="3.2.0">
-  <project timestamp="1751096781502" name="All files">
-    <metrics statements="578" coveredstatements="454" conditionals="126" coveredconditionals="84" methods="254" coveredmethods="200" elements="958" coveredelements="738" complexity="0" loc="578" ncloc="578" packages="29" files="119" classes="119"/>
+<coverage generated="1752513532132" clover="3.2.0">
+  <project timestamp="1752513532132" name="All files">
+    <metrics statements="590" coveredstatements="514" conditionals="126" coveredconditionals="92" methods="259" coveredmethods="219" elements="975" coveredelements="825" complexity="0" loc="590" ncloc="590" packages="35" files="131" classes="131"/>
     <package name="app">
       <metrics statements="13" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="1"/>
       <file name="_layout.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/_layout.tsx">
         <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
@@ -25,335 +25,45 @@
       </file>
     </package>
     <package name="app.choose-story">
-      <metrics statements="23" coveredstatements="19" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="5"/>
-      <file name="choose-simple-story.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/choose-simple-story.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-      </file>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/index.tsx">
-        <metrics statements="14" coveredstatements="10" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="3"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="9" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="app.choose-story.components">
-      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
-      <file name="ChooseSimpleStoryLoadingView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/components/ChooseSimpleStoryLoadingView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-      </file>
-      <file name="ChooseSimpleStoryView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/components/ChooseSimpleStoryView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-      </file>
-      <file name="StoriesToChooseEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/components/StoriesToChooseEmptyView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-      </file>
-      <file name="StoriesToChooseLoadingView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/components/StoriesToChooseLoadingView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-      </file>
-      <file name="StoriesToChooseView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/choose-story/components/StoriesToChooseView.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="app.create-user">
-      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
-      <file name="Backpack.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/Backpack.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="18" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="5" type="stmt"/>
-      </file>
-      <file name="CreatePregeneratedCharacter.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/CreatePregeneratedCharacter.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-      </file>
-      <file name="CreateRandomCharacter.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/CreateRandomCharacter.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-      </file>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/index.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
-    <package name="app.create-user.components">
-      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
-      <file name="BackpackEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/BackpackEmptyView.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="4" type="stmt"/>
-      </file>
-      <file name="BackpackFilledView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/BackpackFilledView.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="14" count="12" type="stmt"/>
-      </file>
-      <file name="BackpackHeader.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/BackpackHeader.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="9" count="9" type="stmt"/>
-      </file>
-      <file name="FullCharacterView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/FullCharacterView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-      </file>
-      <file name="HeroName.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/HeroName.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="5" type="stmt"/>
-      </file>
-      <file name="HeroWrapper.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/create-user/components/HeroWrapper.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-      </file>
-    </package>
     <package name="app.die-scene">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/die-scene/index.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="app.die-scene.components">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="DieSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/die-scene/components/DieSceneView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="app.fight-scene">
-      <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-      <file name="FightScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/fight-scene/FightScene.tsx">
-        <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-      </file>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/fight-scene/index.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
-    <package name="app.fight-scene.components">
-      <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="AttackerRow.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/fight-scene/components/AttackerRow.tsx">
-        <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-      </file>
-      <file name="AttackersView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/fight-scene/components/AttackersView.tsx">
-        <metrics statements="2" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-      </file>
-      <file name="FightSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/fight-scene/components/FightSceneView.tsx">
-        <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="app.flee-scene">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/flee-scene/index.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-      </file>
-    </package>
-    <package name="app.flee-scene.components">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="FleeView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/flee-scene/components/FleeView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="app.read-introduction">
-      <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="ReadIntroduction.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-introduction/ReadIntroduction.tsx">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-      </file>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-introduction/index.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
-    <package name="app.read-introduction.components">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="ReadIntroductionView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-introduction/components/ReadIntroductionView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-      </file>
-    </package>
     <package name="app.read-scene">
-      <metrics statements="33" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="14"/>
-      <file name="BuildSceneByPredicate.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/BuildSceneByPredicate.tsx">
-        <metrics statements="17" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="11"/>
-        <line num="24" count="22" type="stmt"/>
-        <line num="26" count="22" type="stmt"/>
-        <line num="28" count="22" type="stmt"/>
-        <line num="30" count="22" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="34" count="22" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="22" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="46" count="21" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
-        <line num="52" count="18" type="stmt"/>
-        <line num="54" count="18" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="71" count="22" type="stmt"/>
-        <line num="73" count="105" type="stmt"/>
-        <line num="75" count="22" type="stmt"/>
-      </file>
-      <file name="ReadScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/ReadScene.tsx">
-        <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="16" count="22" type="stmt"/>
-        <line num="17" count="22" type="stmt"/>
-        <line num="18" count="22" type="stmt"/>
-        <line num="20" count="22" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="25" count="22" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="30" count="22" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="22" type="stmt"/>
-        <line num="42" count="22" type="stmt"/>
-      </file>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/index.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
-    </package>
-    <package name="app.read-scene.components">
-      <metrics statements="22" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="11"/>
-      <file name="CharacterView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/CharacterView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="16" count="22" type="stmt"/>
-      </file>
-      <file name="ItemsActionsView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ItemsActionsView.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="11" count="18" type="stmt"/>
-        <line num="12" count="34" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-      </file>
-      <file name="ReadSceneActions.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneActions.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="11" count="18" type="stmt"/>
-        <line num="12" count="52" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-      </file>
-      <file name="ReadSceneEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneEmptyView.tsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-      </file>
-      <file name="ReadSceneFailureView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneFailureView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-      </file>
-      <file name="ReadSceneFightView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneFightView.tsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-      </file>
-      <file name="ReadSceneNormalView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneNormalView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="20" count="18" type="stmt"/>
-      </file>
-      <file name="ReadSceneSuccessView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneSuccessView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-      </file>
-      <file name="ReadSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/app/read-scene/components/ReadSceneView.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="22" type="stmt"/>
       </file>
     </package>
     <package name="core">
@@ -366,18 +76,18 @@
       <metrics statements="32" coveredstatements="32" conditionals="17" coveredconditionals="16" methods="14" coveredmethods="14"/>
       <file name="D6.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/actions/D6.ts">
         <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="3" count="29" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="15" type="stmt"/>
-        <line num="5" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="15" type="stmt"/>
-        <line num="9" count="29" type="stmt"/>
+        <line num="3" count="28" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="17" type="stmt"/>
+        <line num="5" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="9" count="28" type="stmt"/>
       </file>
       <file name="build-attacker.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/actions/build-attacker.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
-        <line num="9" count="29" type="stmt"/>
+        <line num="9" count="28" type="stmt"/>
         <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="13" count="29" type="stmt"/>
-        <line num="20" count="29" type="stmt"/>
+        <line num="13" count="28" type="stmt"/>
+        <line num="20" count="28" type="stmt"/>
         <line num="21" count="8" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
@@ -385,28 +95,31 @@
       <file name="build-backpack.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/actions/build-backpack.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="8" count="29" type="stmt"/>
-        <line num="9" count="82" type="stmt"/>
-        <line num="10" count="82" type="stmt"/>
-        <line num="11" count="121" type="stmt"/>
-        <line num="13" count="121" type="stmt"/>
-        <line num="16" count="82" type="stmt"/>
+        <line num="9" count="85" type="stmt"/>
+        <line num="10" count="85" type="stmt"/>
+        <line num="11" count="127" type="stmt"/>
+        <line num="13" count="127" type="stmt"/>
+        <line num="16" count="85" type="stmt"/>
         <line num="19" count="29" type="stmt"/>
       </file>
       <file name="build-scene.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/actions/build-scene.ts">
         <metrics statements="13" coveredstatements="13" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
-        <line num="3" count="29" type="stmt"/>
-        <line num="4" count="23" type="stmt"/>
-        <line num="5" count="58" type="stmt"/>
+        <line num="4" count="27" type="stmt"/>
+        <line num="5" count="23" type="stmt"/>
         <line num="6" count="58" type="stmt"/>
-        <line num="11" count="29" type="stmt"/>
-        <line num="12" count="29" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="28" type="cond" truecount="4" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="20" count="27" type="cond" truecount="4" falsecount="0"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="26" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="33" count="19" type="stmt"/>
+        <line num="7" count="58" type="stmt"/>
+        <line num="12" count="27" type="stmt"/>
+        <line num="13" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="28" type="cond" truecount="4" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="27" type="cond" truecount="4" falsecount="0"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="27" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="34" count="19" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/actions/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="core.api">
@@ -426,49 +139,65 @@
       </file>
       <file name="getBooks.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/api/getBooks.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="29" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
       </file>
       <file name="getStory.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/api/getStory.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="3" count="29" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/api/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="core.components">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="core.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/components/core.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="29" type="stmt"/>
-        <line num="15" count="43" type="stmt"/>
-        <line num="17" count="43" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="16" count="53" type="stmt"/>
+        <line num="18" count="53" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/components/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="core.contexts">
-      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/contexts/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
       <file name="services.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/contexts/services.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="9" count="29" type="stmt"/>
-        <line num="17" count="29" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="24" count="29" type="stmt"/>
-        <line num="28" count="43" type="stmt"/>
-        <line num="30" count="43" type="stmt"/>
+        <line num="9" count="23" type="stmt"/>
+        <line num="17" count="23" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="22" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="24" count="23" type="stmt"/>
+        <line num="28" count="53" type="stmt"/>
+        <line num="30" count="53" type="stmt"/>
       </file>
       <file name="store.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/contexts/store.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="14" count="29" type="stmt"/>
-        <line num="25" count="29" type="stmt"/>
-        <line num="26" count="43" type="stmt"/>
-        <line num="33" count="43" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="9" count="23" type="stmt"/>
+        <line num="11" count="23" type="stmt"/>
+        <line num="12" count="277" type="stmt"/>
+        <line num="13" count="277" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="277" type="stmt"/>
+        <line num="23" count="23" type="stmt"/>
+        <line num="24" count="53" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="53" type="stmt"/>
       </file>
     </package>
     <package name="core.hooks">
-      <metrics statements="133" coveredstatements="73" conditionals="42" coveredconditionals="20" methods="50" coveredmethods="32"/>
+      <metrics statements="141" coveredstatements="129" conditionals="38" coveredconditionals="26" methods="54" coveredmethods="50"/>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
       <file name="useChance.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useChance.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="5"/>
-        <line num="6" count="29" type="stmt"/>
+        <line num="6" count="17" type="stmt"/>
         <line num="7" count="55" type="stmt"/>
         <line num="8" count="55" type="stmt"/>
         <line num="10" count="13" type="stmt"/>
@@ -482,13 +211,13 @@
       </file>
       <file name="useCharacterStats.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useCharacterStats.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="8" count="29" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
         <line num="9" count="114" type="stmt"/>
         <line num="10" count="24" type="stmt"/>
       </file>
       <file name="useChooseSimpleStory.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useChooseSimpleStory.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="4" count="29" type="stmt"/>
+        <line num="4" count="18" type="stmt"/>
         <line num="5" count="7" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="5" type="stmt"/>
@@ -498,203 +227,219 @@
       </file>
       <file name="useDieScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useDieScene.tsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="29" type="stmt"/>
+        <line num="1" count="16" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
       </file>
       <file name="useFight.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useFight.tsx">
-        <metrics statements="60" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="17" coveredmethods="0"/>
-        <line num="11" count="29" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+        <metrics statements="60" coveredstatements="51" conditionals="14" coveredconditionals="9" methods="17" coveredmethods="15"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="32" count="8" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="8" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="8" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="86" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="8" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="65" count="8" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="8" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="8" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="83" count="8" type="stmt"/>
+        <line num="84" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="8" type="stmt"/>
+        <line num="87" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="90" count="8" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
+        <line num="92" count="3" type="stmt"/>
+        <line num="93" count="3" type="stmt"/>
+        <line num="94" count="3" type="stmt"/>
+        <line num="95" count="3" type="stmt"/>
+        <line num="98" count="8" type="stmt"/>
+        <line num="99" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="108" count="8" type="stmt"/>
       </file>
       <file name="useFleeScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useFleeScene.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="29" type="stmt"/>
+        <line num="3" count="17" type="stmt"/>
         <line num="4" count="24" type="stmt"/>
         <line num="5" count="6" type="stmt"/>
       </file>
       <file name="useGameStore.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useGameStore.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="7" count="382" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="18" type="stmt"/>
-        <line num="11" count="382" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="237" type="stmt"/>
+        <line num="7" count="237" type="stmt"/>
+        <line num="10" count="19" type="stmt"/>
+        <line num="11" count="39" type="stmt"/>
+        <line num="12" count="39" type="stmt"/>
       </file>
       <file name="useGetStoriesToChoose.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useGetStoriesToChoose.tsx">
         <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="7" count="29" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
         <line num="10" count="18" type="stmt"/>
         <line num="11" count="18" type="stmt"/>
         <line num="12" count="18" type="stmt"/>
         <line num="14" count="18" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="21" count="18" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
         <line num="23" count="6" type="stmt"/>
         <line num="24" count="6" type="stmt"/>
-        <line num="25" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="27" count="10" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="5" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="41" count="18" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="42" count="18" type="stmt"/>
       </file>
       <file name="usePregeneratedCharacter.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/usePregeneratedCharacter.ts">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="5" count="29" type="stmt"/>
-        <line num="6" count="27" type="stmt"/>
-        <line num="7" count="27" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="13" count="6" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="7" count="36" type="stmt"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
       </file>
       <file name="useRandomCharacter.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useRandomCharacter.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="12" count="29" type="stmt"/>
-        <line num="13" count="27" type="stmt"/>
-        <line num="14" count="27" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
+        <line num="14" count="17" type="stmt"/>
+        <line num="15" count="36" type="stmt"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="19" count="9" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
         <line num="26" count="3" type="stmt"/>
-        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
       </file>
       <file name="useReadIntroduction.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useReadIntroduction.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="10" count="29" type="stmt"/>
-        <line num="11" count="37" type="stmt"/>
-        <line num="12" count="37" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="11" count="41" type="stmt"/>
+        <line num="12" count="41" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
       </file>
       <file name="useReadScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useReadScene.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="9" coveredconditionals="7" methods="3" coveredmethods="3"/>
-        <line num="3" count="29" type="stmt"/>
-        <line num="4" count="212" type="stmt"/>
-        <line num="5" count="44" type="stmt"/>
-        <line num="7" count="44" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
+        <line num="4" count="17" type="stmt"/>
+        <line num="5" count="212" type="stmt"/>
+        <line num="6" count="44" type="stmt"/>
+        <line num="8" count="44" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
       </file>
       <file name="useUserStore.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/hooks/useUserStore.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="18" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="core.stores">
-      <metrics statements="50" coveredstatements="50" conditionals="6" coveredconditionals="5" methods="29" coveredmethods="29"/>
+      <metrics statements="52" coveredstatements="52" conditionals="8" coveredconditionals="6" methods="30" coveredmethods="30"/>
+      <file name="createStores.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/stores/createStores.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="23" type="stmt"/>
+      </file>
       <file name="game.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/stores/game.ts">
-        <metrics statements="47" coveredstatements="47" conditionals="6" coveredconditionals="5" methods="25" coveredmethods="25"/>
-        <line num="18" count="29" type="stmt"/>
-        <line num="19" count="41" type="stmt"/>
-        <line num="20" count="41" type="stmt"/>
+        <metrics statements="48" coveredstatements="48" conditionals="8" coveredconditionals="6" methods="25" coveredmethods="25"/>
+        <line num="17" count="24" type="stmt"/>
+        <line num="18" count="23" type="stmt"/>
+        <line num="19" count="23" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="28" count="44" type="stmt"/>
-        <line num="29" count="44" type="stmt"/>
-        <line num="30" count="44" type="stmt"/>
-        <line num="31" count="44" type="stmt"/>
-        <line num="32" count="44" type="stmt"/>
-        <line num="33" count="44" type="stmt"/>
-        <line num="34" count="44" type="stmt"/>
-        <line num="37" count="50" type="stmt"/>
-        <line num="38" count="50" type="stmt"/>
-        <line num="39" count="50" type="stmt"/>
-        <line num="40" count="50" type="stmt"/>
-        <line num="41" count="50" type="stmt"/>
-        <line num="45" count="50" type="stmt"/>
-        <line num="50" count="50" type="stmt"/>
+        <line num="27" count="47" type="stmt"/>
+        <line num="28" count="47" type="stmt"/>
+        <line num="29" count="47" type="stmt"/>
+        <line num="30" count="47" type="stmt"/>
+        <line num="31" count="47" type="stmt"/>
+        <line num="32" count="47" type="stmt"/>
+        <line num="33" count="47" type="stmt"/>
+        <line num="36" count="53" type="stmt"/>
+        <line num="37" count="53" type="stmt"/>
+        <line num="38" count="53" type="stmt"/>
+        <line num="39" count="53" type="stmt"/>
+        <line num="40" count="53" type="stmt"/>
+        <line num="44" count="53" type="stmt"/>
+        <line num="49" count="53" type="stmt"/>
+        <line num="52" count="14" type="stmt"/>
         <line num="53" count="14" type="stmt"/>
         <line num="54" count="14" type="stmt"/>
-        <line num="55" count="14" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
+        <line num="65" count="9" type="stmt"/>
         <line num="66" count="9" type="stmt"/>
         <line num="67" count="9" type="stmt"/>
-        <line num="68" count="9" type="stmt"/>
+        <line num="70" count="9" type="stmt"/>
         <line num="71" count="9" type="stmt"/>
-        <line num="72" count="9" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="76" count="1" type="stmt"/>
-        <line num="79" count="4" type="stmt"/>
-        <line num="80" count="4" type="stmt"/>
-        <line num="83" count="4" type="stmt"/>
-        <line num="84" count="4" type="stmt"/>
+        <line num="87" count="4" type="stmt"/>
         <line num="88" count="4" type="stmt"/>
-        <line num="89" count="4" type="stmt"/>
-        <line num="90" count="8" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
         <line num="92" count="4" type="stmt"/>
-        <line num="93" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="94" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="95" count="3" type="stmt"/>
-        <line num="100" count="1" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
+        <line num="97" count="4" type="stmt"/>
+        <line num="98" count="8" type="stmt"/>
+        <line num="100" count="4" type="stmt"/>
+        <line num="101" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="102" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="3" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/stores/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="user.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/stores/user.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="6" count="29" type="stmt"/>
-        <line num="7" count="24" type="stmt"/>
+        <line num="6" count="24" type="stmt"/>
+        <line num="7" count="23" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
       </file>
     </package>
@@ -709,20 +454,20 @@
         <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="24" count="1" type="stmt"/>
         <line num="29" count="30" type="stmt"/>
-        <line num="32" count="104" type="stmt"/>
+        <line num="32" count="110" type="stmt"/>
         <line num="37" count="5" type="stmt"/>
         <line num="38" count="5" type="stmt"/>
         <line num="44" count="30" type="stmt"/>
         <line num="56" count="30" type="stmt"/>
-        <line num="57" count="124" type="cond" truecount="2" falsecount="0"/>
-        <line num="60" count="124" type="stmt"/>
+        <line num="57" count="130" type="cond" truecount="2" falsecount="0"/>
+        <line num="60" count="130" type="stmt"/>
       </file>
       <file name="Item-power.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/Item-power.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="abilities.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/abilities.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="30" type="stmt"/>
+        <line num="7" count="27" type="stmt"/>
       </file>
       <file name="attacker.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/attacker.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -732,18 +477,18 @@
       </file>
       <file name="book.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/book.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="11" count="29" type="stmt"/>
+        <line num="11" count="26" type="stmt"/>
       </file>
       <file name="character.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/character.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="16" count="29" type="stmt"/>
+        <line num="16" count="26" type="stmt"/>
       </file>
       <file name="dice.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/dice.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="3" count="18" type="stmt"/>
-        <line num="6" count="18" type="stmt"/>
-        <line num="10" count="18" type="stmt"/>
-        <line num="12" count="28" type="stmt"/>
+        <line num="3" count="20" type="stmt"/>
+        <line num="6" count="20" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="12" count="31" type="stmt"/>
       </file>
       <file name="fight.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/fight.ts">
         <metrics statements="34" coveredstatements="34" conditionals="15" coveredconditionals="15" methods="10" coveredmethods="10"/>
@@ -784,29 +529,32 @@
       </file>
       <file name="game.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/game.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="85" count="29" type="stmt"/>
+        <line num="85" count="26" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="introduction.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/introduction.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="29" type="stmt"/>
+        <line num="6" count="26" type="stmt"/>
       </file>
       <file name="items.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/items.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="scene.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/scene.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="15" count="29" type="stmt"/>
+        <line num="15" count="26" type="stmt"/>
       </file>
       <file name="scenes.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/scenes.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="5" count="29" type="stmt"/>
+        <line num="5" count="26" type="stmt"/>
       </file>
       <file name="shortlistofstories.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/shortlistofstories.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="user.ts" path="/Users/pierre/Projects/games/ldvelh/src/core/types/user.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="29" type="stmt"/>
+        <line num="4" count="26" type="stmt"/>
       </file>
     </package>
     <package name="navigation">
@@ -876,62 +624,380 @@
         <line num="7" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="shared">
+    <package name="screens">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/shared/index.ts">
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/screens/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="screens.choose-story">
+      <metrics statements="24" coveredstatements="20" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="5"/>
+      <file name="choose-simple-story.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/choose-simple-story.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+      <file name="choose-story.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/choose-story.tsx">
+        <metrics statements="15" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="3"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.choose-story.components">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+      <file name="ChooseSimpleStoryLoadingView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/components/ChooseSimpleStoryLoadingView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="ChooseSimpleStoryView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/components/ChooseSimpleStoryView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+      </file>
+      <file name="StoriesToChooseEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/components/StoriesToChooseEmptyView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="StoriesToChooseLoadingView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/components/StoriesToChooseLoadingView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="StoriesToChooseView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/choose-story/components/StoriesToChooseView.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.create-user">
+      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <file name="Backpack.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/Backpack.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="5" type="stmt"/>
+      </file>
+      <file name="CreatePregeneratedCharacter.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/CreatePregeneratedCharacter.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+      </file>
+      <file name="CreateRandomCharacter.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/CreateRandomCharacter.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.create-user.components">
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <file name="BackpackEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/BackpackEmptyView.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="4" type="stmt"/>
+      </file>
+      <file name="BackpackFilledView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/BackpackFilledView.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+      </file>
+      <file name="BackpackHeader.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/BackpackHeader.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+      </file>
+      <file name="FullCharacterView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/FullCharacterView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+      </file>
+      <file name="HeroName.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/HeroName.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+      </file>
+      <file name="HeroWrapper.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/create-user/components/HeroWrapper.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.die-scene">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="die-scene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/die-scene/die-scene.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.die-scene.components">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="DieSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/die-scene/components/DieSceneView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.fight-scene">
+      <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="FightScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/fight-scene/FightScene.tsx">
+        <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.fight-scene.components">
+      <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="AttackerRow.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/fight-scene/components/AttackerRow.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="AttackersView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/fight-scene/components/AttackersView.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+      <file name="FightSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/fight-scene/components/FightSceneView.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.flee-scene">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="flee-scene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/flee-scene/flee-scene.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.flee-scene.components">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="FleeView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/flee-scene/components/FleeView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.read-introduction">
+      <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="ReadIntroduction.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-introduction/ReadIntroduction.tsx">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.read-introduction.components">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="ReadIntroductionView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-introduction/components/ReadIntroductionView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.read-scene">
+      <metrics statements="33" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="14"/>
+      <file name="BuildSceneByPredicate.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/BuildSceneByPredicate.tsx">
+        <metrics statements="17" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="11"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="29" count="22" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="22" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="22" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="47" count="21" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="53" count="18" type="stmt"/>
+        <line num="55" count="18" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="72" count="22" type="stmt"/>
+        <line num="74" count="105" type="stmt"/>
+        <line num="76" count="22" type="stmt"/>
+      </file>
+      <file name="ReadScene.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/ReadScene.tsx">
+        <metrics statements="16" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="22" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="22" type="stmt"/>
+        <line num="43" count="22" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens.read-scene.components">
+      <metrics statements="22" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="11"/>
+      <file name="CharacterView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/CharacterView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="ItemsActionsView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ItemsActionsView.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="18" type="stmt"/>
+        <line num="12" count="34" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+      <file name="ReadSceneActions.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneActions.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="18" type="stmt"/>
+        <line num="12" count="52" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+      <file name="ReadSceneEmptyView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneEmptyView.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="ReadSceneFailureView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneFailureView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+      <file name="ReadSceneFightView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneFightView.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+      <file name="ReadSceneNormalView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneNormalView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
+      </file>
+      <file name="ReadSceneSuccessView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneSuccessView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="ReadSceneView.tsx" path="/Users/pierre/Projects/games/ldvelh/src/screens/read-scene/components/ReadSceneView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+      </file>
+    </package>
     <package name="shared.helpers">
-      <metrics statements="19" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="7"/>
+      <metrics statements="19" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="6"/>
       <file name="TEST_BOOK.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/helpers/TEST_BOOK.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="29" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
       </file>
       <file name="TEST_HERO.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/helpers/TEST_HERO.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="17" type="stmt"/>
       </file>
       <file name="WrapperTest.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/helpers/WrapperTest.tsx">
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="16" count="22" type="stmt"/>
-        <line num="19" count="22" type="stmt"/>
-        <line num="24" count="22" type="stmt"/>
-        <line num="25" count="41" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="22" count="20" type="stmt"/>
+        <line num="24" count="20" type="stmt"/>
+        <line num="25" count="51" type="stmt"/>
       </file>
       <file name="WrapperTestExt.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/helpers/WrapperTestExt.tsx">
-        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
-        <line num="9" count="22" type="stmt"/>
-        <line num="16" count="331" type="stmt"/>
-        <line num="17" count="331" type="stmt"/>
-        <line num="18" count="331" type="stmt"/>
-        <line num="20" count="77" type="stmt"/>
-        <line num="21" count="34" type="stmt"/>
-        <line num="22" count="34" type="stmt"/>
-        <line num="24" count="34" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="13" type="stmt"/>
-        <line num="29" count="77" type="stmt"/>
-        <line num="32" count="22" type="stmt"/>
-        <line num="39" count="34" type="stmt"/>
-      </file>
-    </package>
-    <package name="shared.helpers.mocks">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="mockReplace.ts" path="/Users/pierre/Projects/games/ldvelh/src/shared/helpers/mocks/mockReplace.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="7" count="7" type="stmt"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="18" count="37" type="stmt"/>
+        <line num="19" count="225" type="stmt"/>
+        <line num="20" count="225" type="stmt"/>
+        <line num="22" count="37" type="stmt"/>
+        <line num="23" count="37" type="stmt"/>
+        <line num="24" count="37" type="stmt"/>
+        <line num="26" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="13" type="stmt"/>
+        <line num="31" count="37" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="41" count="37" type="stmt"/>
       </file>
     </package>
     <package name="shared.services">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
       <file name="alert.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/services/alert.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="api.ts" path="/Users/pierre/Projects/games/ldvelh/src/shared/services/api.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/pierre/Projects/games/ldvelh/src/shared/services/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="types.ts" path="/Users/pierre/Projects/games/ldvelh/src/shared/services/types.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -973,9 +1039,9 @@
       </file>
       <file name="Paragraph.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/ui/Paragraph.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="4" count="22" type="stmt"/>
-        <line num="12" count="22" type="stmt"/>
-        <line num="19" count="74" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="22" count="74" type="stmt"/>
       </file>
       <file name="ScreenWithNav.tsx" path="/Users/pierre/Projects/games/ldvelh/src/shared/ui/ScreenWithNav.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

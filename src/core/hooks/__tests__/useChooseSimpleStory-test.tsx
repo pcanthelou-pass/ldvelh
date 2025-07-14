@@ -2,7 +2,7 @@ import { TEST_BOOK } from '@helpers/TEST_BOOK'
 import { renderHook, waitFor } from '@testing-library/react-native'
 import { act } from 'react'
 import { useChooseSimpleStory } from '../useChooseSimpleStory'
-import { GAME_STORE } from '../useGameStore'
+import { useGameStoreApi } from '../useGameStore'
 
 jest.mock('../../../shared/services/bookService', () => {
   const { TEST_BOOK } = jest.requireActual('@helpers/TEST_BOOK')
@@ -29,7 +29,12 @@ describe('useChooseSimpleStory', () => {
   })
 
   it('calls setBook with the correct book', () => {
-    const { result } = renderHook(() => useChooseSimpleStory())
+    const { result } = renderHook(() => useChooseSimpleStory(), {
+      wrapper: WrapperTest,
+    })
+    const { result: api } = renderHook(() => useGameStoreApi(), {
+      wrapper: WrapperTest,
+    })
     const { setBook } = result.current
     act(() => setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction }))
     expect(GAME_STORE.getState().bookIntro).toEqual(TEST_BOOK.introduction)

@@ -13,8 +13,7 @@ const ChooseStory = () => {
 
   useEffect(() => {
     load()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [load])
 
   const onPress = async (key: string | number) => {
     const selectedBook = await selectBook(key)

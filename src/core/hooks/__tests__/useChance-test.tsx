@@ -2,14 +2,15 @@ import { TEST_HERO } from '@helpers/TEST_HERO'
 import { WrapperTestExt } from '@helpers/WrapperTestExt'
 import { act, renderHook } from '@testing-library/react-native'
 import { CharacterRawProps, GameState } from '@types'
+import { StoreApi } from 'zustand'
 import { useChance } from '../useChance'
 
 const WrapperTestExtHeroChance =
   (chance: number) =>
   // eslint-disable-next-line react/display-name
   ({ children }: { children: React.ReactNode }) => {
-    const runOnStart = (store: GameState) => {
-      store.setCharacter({
+    const runOnStart = (store: StoreApi<GameState>) => {
+      store.getState().setCharacter({
         ...TEST_HERO,
         abilities: { agility: 0, endurance: 0, chance: chance },
       } as CharacterRawProps)

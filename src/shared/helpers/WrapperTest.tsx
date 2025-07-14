@@ -1,8 +1,9 @@
 import { Core } from '@components'
-import { createGameStore, createUserStore } from '@stores'
+import { createStores } from '@stores'
 import { ReactNode } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { IAlertService } from '../services/types'
+import { ApiService } from '../services/api'
 
 class MockAlertService implements IAlertService {
   show(message: string): void | string | ReactNode {
@@ -15,12 +16,10 @@ class MockAlertService implements IAlertService {
 // }
 
 const mockedServices = {
-  alert: new MockAlertService() /*, api: new MockApiService*/,
+  alert: new MockAlertService(),
+  api: new ApiService(),
 }
-const mockedSlices = {
-  game: createGameStore(),
-  user: createUserStore(),
-}
+const mockedSlices = createStores()
 
 export const WrapperTest = ({ children }: { children: ReactNode }) => (
   <SafeAreaProvider>

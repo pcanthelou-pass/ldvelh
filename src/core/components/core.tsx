@@ -1,4 +1,5 @@
-import { ServicesProvider, StoreProvider, StoresProps } from '@contexts'
+import { ServicesProvider, StoreProvider } from '@contexts'
+import { type StoresProps } from '@stores'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
 import { Services } from 'src/shared/services'
