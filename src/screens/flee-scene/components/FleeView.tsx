@@ -8,7 +8,7 @@ import {
   Title,
 } from '@ui'
 
-interface FleeViewProps {
+export interface FleeViewProps {
   name: string
   endurance: number
   onPressNext: () => void

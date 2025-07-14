@@ -18,7 +18,7 @@ export const useGetStoriesToChoose = (
     return booksRead?.at(Number(key))
   }
 
-  const load = async () => {
+  const load = useCallback(async () => {
     try {
       setLoading(true)
       const booksRead = await bookGetter()
@@ -30,7 +30,7 @@ export const useGetStoriesToChoose = (
       setError(e as Error)
       setLoading(false)
     }
-  }
+  }, [bookGetter])
 
   return { books, error, loading, load, selectBook }
 }

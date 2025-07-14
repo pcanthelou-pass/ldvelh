@@ -102,3 +102,7 @@ prégénéré `TEST_HERO.tsx` dans `src/shared/helpers`.
 
 - Retourner à l'accueil X
   - Arrivée directe à l'accueil X
+
+## Tests et intégration continue
+
+Exécutez `yarn lint` pour vérifier le style du code et `yarn test:final` pour lancer l'ensemble de la suite de tests. La configuration `.github/workflows/ci.yml` exécute automatiquement ces commandes à chaque push.

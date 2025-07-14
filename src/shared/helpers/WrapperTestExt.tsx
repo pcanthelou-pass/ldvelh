@@ -1,4 +1,4 @@
-import { useGameStore } from '@hooks'
+import { useGameStore, useGameStoreApi } from '@hooks'
 import { GameState } from '@types'
 import { useEffect } from 'react'
 import { TEST_BOOK } from './TEST_BOOK'
@@ -14,7 +14,7 @@ const WrapperTestPlusStore = ({
   runOnStart?: RunOnStartType
   children: React.ReactNode
 }) => {
-  const usegamestore = useGameStore((state) => state)
+  const gameStore = useGameStoreApi()
   const setBook = useGameStore((state) => state.setBook)
   const setCharacter = useGameStore((state) => state.setCharacter)
 
@@ -23,10 +23,9 @@ const WrapperTestPlusStore = ({
     setCharacter(TEST_HERO)
 
     if (runOnStart) {
-      runOnStart(usegamestore)
+      runOnStart(gameStore.getState())
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setBook, setCharacter, runOnStart])
+  }, [setBook, setCharacter, runOnStart, gameStore])
 
   return children
 }
