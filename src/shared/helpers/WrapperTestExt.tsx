@@ -1,4 +1,4 @@
-import { useGameStore, useGameStoreApi } from '@hooks'
+import { GAME_STORE, useGameStore } from '@hooks'
 import { GameState } from '@types'
 import { useEffect } from 'react'
 import { StoreApi } from 'zustand'
@@ -15,18 +15,29 @@ const WrapperTestPlusStore = ({
   runOnStart?: RunOnStartType
   children: React.ReactNode
 }) => {
-  const gameStore = useGameStoreApi()
   const setBook = useGameStore((state) => state.setBook)
   const setCharacter = useGameStore((state) => state.setCharacter)
 
   useEffect(() => {
-    setBook(TEST_BOOK)
+    setBook({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
     setCharacter(TEST_HERO)
 
     if (runOnStart) {
-      runOnStart(gameStore)
+      // Provide a proxy around the store state so callbacks can both
+      // read and mutate the latest store values even after updates.
+      const proxy = new Proxy({} as GameState, {
+        get: (_t, prop) =>
+          (GAME_STORE.getState() as any)[prop as keyof GameState],
+        set: (_t, prop, value) => {
+          GAME_STORE.setState((s) => {
+            ;(s as any)[prop as keyof GameState] = value
+          })
+          return true
+        },
+      })
+      runOnStart(proxy)
     }
-  }, [setBook, setCharacter, runOnStart, gameStore])
+  }, [setBook, setCharacter, runOnStart])
 
   return children
 }

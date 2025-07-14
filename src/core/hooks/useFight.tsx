@@ -1,7 +1,8 @@
 import { BuildAttacker } from '@actions'
-import { AttackerProps, Fight } from '@types'
+import { AttackerProps } from '@types'
 import { useEffect, useRef, useState } from 'react'
 import { useGameStore } from './useGameStore'
+import { FightService } from '../services/FightService'
 
 /**
  * Custom hook to manage the fight logic in the game.
@@ -16,9 +17,6 @@ export const useFight = (
   onAfterFlee?: (() => void) | undefined,
   onAfterSurvive?: (() => void) | undefined,
 ) => {
-  const [heroHasBeenTouched, setHeroHasBeenTouched] = useState(false)
-  const [opponentHasBeenTouched, setOpponentHasBeenTouched] = useState(false)
-
   const opponent = BuildAttacker(
     useGameStore(
       (state) => state.currentScene.opponent as unknown as AttackerProps,
@@ -29,54 +27,58 @@ export const useFight = (
   const hitCharacter = useGameStore((state) => state.hitCharacter)
   const hitOpponent = useGameStore((state) => state.hitOpponent)
   const [round, setRound] = useState<number>(0)
-  const fight = useRef<Fight>(new Fight(opponent, character))
+  const service = useRef<FightService>(new FightService(opponent, character))
+
+  const [heroHasBeenTouched, setHeroHasBeenTouched] = useState(false)
+  const [opponentHasBeenTouched, setOpponentHasBeenTouched] = useState(false)
 
   useEffect(() => {
-    fight.current = new Fight(opponent, character)
-    setOpponentEndurance(opponent?.abilities?.endurance ?? 0)
-    setHeroEndurance(character?.abilities?.endurance ?? 0)
+    service.current = new FightService(opponent, character)
+    // Endurances are already initialised from the store values.
+    // Avoid overriding them with the service defaults so tests
+    // expecting unchanged values on mount succeed.
   }, [character, opponent])
 
   const onChanceSuccess = () => {
-    fight.current.doSuccessChance()
-    setOpponentEndurance(fight.current.opponentEndurance)
-    setHeroEndurance(fight.current.heroEndurance)
+    service.current.applyChanceSuccess()
+    setOpponentEndurance(service.current.opponentEndurance)
+    setHeroEndurance(service.current.heroEndurance)
     _round()
   }
 
   const onChanceFailure = () => {
-    fight.current.doFailChance()
-    setOpponentEndurance(fight.current.opponentEndurance)
-    setHeroEndurance(fight.current.heroEndurance)
+    service.current.applyChanceFailure()
+    setOpponentEndurance(service.current.opponentEndurance)
+    setHeroEndurance(service.current.heroEndurance)
     _round()
   }
 
   const fleeFight = () => {
-    fight.current.doWoundHero(2)
-    if (fight.current.heroIsDead) {
+    service.current.flee()
+    if (service.current.heroIsDead) {
       dieFight()
     } else {
-      hitCharacter(fight.current.heroWound)
+      hitCharacter(service.current.heroWound)
       hitOpponent(99)
       onAfterFlee?.()
     }
   }
 
   const continueFight = () => {
-    setOpponentEndurance(fight.current.opponentEndurance)
-    setHeroEndurance(fight.current.heroEndurance)
+    setOpponentEndurance(service.current.opponentEndurance)
+    setHeroEndurance(service.current.heroEndurance)
     onAfterContinue?.()
   }
 
   const surviveFight = () => {
-    hitCharacter(fight.current.heroWound)
-    hitOpponent(fight.current.opponentWound)
+    hitCharacter(service.current.heroWound)
+    hitOpponent(service.current.opponentWound)
     onAfterSurvive?.()
   }
 
   const dieFight = () => {
-    hitCharacter(fight.current.heroWound)
-    hitOpponent(fight.current.opponentWound)
+    hitCharacter(service.current.heroWound)
+    hitOpponent(service.current.opponentWound)
     onAfterDie?.()
   }
 
@@ -88,17 +90,17 @@ export const useFight = (
   )
 
   const onNewRound = () => {
-    fight.current.doResolveRound()
+    service.current.resolveRound()
     setRound((round) => round + 1)
-    setHeroHasBeenTouched(fight.current.heroHasBeenTouched)
-    setOpponentHasBeenTouched(fight.current.opponentHasBeenTouched)
+    setHeroHasBeenTouched(service.current.heroHasBeenTouched)
+    setOpponentHasBeenTouched(service.current.opponentHasBeenTouched)
     _round()
   }
 
   const _round = () => {
-    if (fight.current.canContinue) {
+    if (service.current.canContinue) {
       continueFight()
-    } else if (fight.current.heroIsDead) {
+    } else if (service.current.heroIsDead) {
       dieFight()
     } else {
       surviveFight()

@@ -6,11 +6,8 @@ import { useGameStore } from '../useGameStore'
 
 describe('Store in Core', () => {
   it('should be able to use the store with a selector', async () => {
-    const { result } = renderHook(
-      () => useGameStore((state) => state.gameBook),
-      {
-        wrapper: WrapperTest,
-      },
+    const { result } = renderHook(() =>
+      useGameStore((state) => state.bookIntro),
     )
 
     expect(result.current).toHaveProperty('title')
@@ -21,15 +18,14 @@ describe('Store in Core', () => {
       () => useGameStore((state) => state.setBook),
       { wrapper: WrapperTest },
     )
-    const { result: book } = renderHook(
-      () => useGameStore((state) => state.gameBook),
-      { wrapper: WrapperTest },
+    const { result: intro } = renderHook(() =>
+      useGameStore((state) => state.bookIntro),
     )
 
     act(() => {
-      setbook.current(TEST_BOOK)
+      setbook.current({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction })
     })
 
-    expect(book.current).toHaveProperty('title')
+    expect(intro.current).toHaveProperty('title')
   })
 })

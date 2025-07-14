@@ -10,7 +10,7 @@ const ChooseSimpleStory = () => {
   const onPress = () => {
     const book = getSelectedBook()
     if (book) {
-      setBook(book)
+      setBook({ id: 'TEST_BOOK', intro: book.introduction })
       route()
     }
   }

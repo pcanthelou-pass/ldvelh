@@ -1,16 +1,30 @@
-# Contributing
+# Contribuer au projet
 
-Thank you for considering contributing to this project!
+Ce dépôt utilise Node.js et Expo. Veillez à avoir **Node.js v20** et **Expo SDK 53** installés.
 
-## Setup
+## Mise en place du projet
 
-1. Install dependencies with `yarn install`.
-2. Run the tests with `yarn test:final`.
-3. Check the code style with `yarn lint`.
+```bash
+yarn install
+yarn start
+```
 
-## Pull Requests
+## Lancer les tests et le lint
 
-- Create small, focused branches.
-- Ensure `yarn lint` and `yarn test:final` pass before submitting.
-- Provide a clear description of the change.
+```bash
+yarn test
+yarn lint
+```
 
+## Nommage des branches
+
+Utilisez un préfixe indiquant le type de travail :
+
+- `feature/<description>` pour une nouvelle fonctionnalité.
+- `fix/<description>` pour une correction de bug.
+
+## Processus de pull request
+
+Créez d'abord une issue à partir des modèles disponibles dans `.github/ISSUE_TEMPLATE`. Ouvrez ensuite une pull request en utilisant le modèle de PR fourni.
+
+Pour plus de détails sur la gestion du dépôt et des contributions, consultez [docs/github.md](docs/github.md).

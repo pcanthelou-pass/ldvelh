@@ -29,16 +29,11 @@ describe('useReadIntroduction', () => {
     expect(result.current).toHaveProperty('startBook')
     expect(typeof result.current.startBook).toBe('function')
   })
-  it('should call startBook function', () => {
-    const { result: api } = renderHook(() => useGameStoreApi(), {
-      wrapper: WrapperTestExt,
-    })
-    api.current.getState().startBook = jest.fn()
+  it('should start the book and load first scene', () => {
     const { result } = renderHook(() => useReadIntroduction(), {
       wrapper: WrapperTestExt,
     })
-    expect(result.current.startBook).toBeDefined()
     result.current.startBook()
-    expect(api.current.getState().startBook).toHaveBeenCalledTimes(1)
+    expect(GAME_STORE.getState().currentScene.id).toBe('1')
   })
 })
