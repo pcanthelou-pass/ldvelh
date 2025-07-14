@@ -1,4 +1,4 @@
-import { getBooks } from '@api'
+import { listBooks, getIntroduction } from '@services/bookService'
 import StoriesToChooseEmptyView from '@features/choose-story/components/StoriesToChooseEmptyView'
 import { StoriesToChooseLoadingView } from '@features/choose-story/components/StoriesToChooseLoadingView'
 import { StoriesToChooseView } from '@features/choose-story/components/StoriesToChooseView'
@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 const ChooseStory = () => {
   const setBook = useGameStore((state) => state.setBook)
-  const { loading, books, load, selectBook } = useGetStoriesToChoose(getBooks)
+  const { loading, books, load, selectBook } = useGetStoriesToChoose(listBooks)
   const route = useGoToCreateUser()
 
   useEffect(() => {
@@ -19,7 +19,8 @@ const ChooseStory = () => {
   const onPress = async (key: string | number) => {
     const selectedBook = await selectBook(key)
     if (selectedBook) {
-      setBook({ id: String(key), intro: selectedBook.introduction })
+      const intro = await getIntroduction(String(key))
+      setBook({ id: String(key), intro })
     }
     route()
   }
