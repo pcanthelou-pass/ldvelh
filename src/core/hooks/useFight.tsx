@@ -1,8 +1,6 @@
 import { BuildAttacker } from '@actions'
 import { AttackerProps } from '@types'
 import { useEffect, useRef, useState } from 'react'
-import { useFightChance } from './useFightChance'
-import { useFightRound } from './useFightRound'
 import { useGameStore } from './useGameStore'
 import { FightService } from '../services/FightService'
 

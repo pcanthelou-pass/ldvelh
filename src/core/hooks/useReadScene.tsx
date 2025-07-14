@@ -12,7 +12,7 @@ export const useReadScene = () => {
   const sceneNeedFight = useMemo(
     () =>
       !!currentScene.opponent && currentScene.opponent.abilities.endurance > 0,
-    [currentScene.opponent?.abilities.endurance],
+    [currentScene.opponent],
   )
   const sceneIsSuccess = useMemo(
     () => currentScene.isEnding && currentScene.endingType === 'success',

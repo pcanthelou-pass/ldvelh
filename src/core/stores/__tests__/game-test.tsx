@@ -32,7 +32,9 @@ describe('Game (store)', () => {
     const { result } = renderHook(() =>
       useStore(store, (state) => state.setBook),
     )
-    act(() => result.current({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction }))
+    act(() =>
+      result.current({ id: 'TEST_BOOK', intro: TEST_BOOK.introduction }),
+    )
 
     expect(store.getState()).toHaveProperty('bookId', 'TEST_BOOK')
     expect(store.getState().bookIntro).not.toBe(EmptyBookIntroduction)

@@ -3,10 +3,9 @@ import { renderHook, waitFor } from '@testing-library/react-native'
 import { act } from 'react'
 import { useChooseSimpleStory } from '../useChooseSimpleStory'
 import { GAME_STORE } from '../useGameStore'
-import { bookService } from '../../../shared/services/bookService'
 
 jest.mock('../../../shared/services/bookService', () => {
-  const { TEST_BOOK } = require('@helpers/TEST_BOOK')
+  const { TEST_BOOK } = jest.requireActual('@helpers/TEST_BOOK')
   return {
     bookService: {
       getBookMetaList: jest

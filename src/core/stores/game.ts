@@ -1,5 +1,5 @@
 import { BuildBackpack } from '@actions'
-import { bookService } from '@services/book'
+import { bookService } from '../../shared/services/book'
 import {
   BookIntroductionProps,
   CharacterRawProps,
@@ -7,8 +7,6 @@ import {
   EmptyBookIntroduction,
   EmptyCharacter,
   EmptyScene,
-  EmptyBookIntroduction,
-  EmptyScenes,
   GameProps,
   GameState,
 } from '@types'

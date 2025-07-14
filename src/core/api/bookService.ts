@@ -1,6 +1,11 @@
 import path from 'path'
 import { promises as fs } from 'fs'
-import type { ShortStory, BookIntroductionProps, SceneProps, BookProps } from '.../types'
+import type {
+  ShortStory,
+  BookIntroductionProps,
+  SceneProps,
+  BookProps,
+} from '../types'
 
 const BOOKS_DIR = path.join(__dirname, '../../../assets/books')
 
